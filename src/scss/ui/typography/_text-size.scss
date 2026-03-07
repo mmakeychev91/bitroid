@@ -1,0 +1,25 @@
+@use '../../config/mixins' as *;
+
+.text-xs {
+  font-size: 12px;
+}
+
+.text-s {
+  font-size: 14px;
+}
+
+.text-m {
+  font-size: 16px;
+
+  @include tablet {
+    font-size: 14px;
+  }
+}
+
+.text-l {
+  font-size: 18px;
+}
+
+.text-xl {
+  font-size: 20px;
+}

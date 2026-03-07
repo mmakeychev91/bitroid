@@ -1,0 +1,28 @@
+@use '../config/mixins' as *;
+
+.desktop {
+  @include tablet {
+    display: none;
+  }
+}
+
+.only-tablet {
+  @include tablet-plus {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
+}
+
+.tablet {
+  @include tablet-plus {
+    display: none;
+  }
+}
+
+.mobile {
+  @include mobile-plus {
+    display: none;
+  }
+}

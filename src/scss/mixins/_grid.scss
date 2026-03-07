@@ -1,0 +1,14 @@
+@mixin grid-one {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@mixin grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@mixin grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

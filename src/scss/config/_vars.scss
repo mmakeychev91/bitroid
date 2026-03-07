@@ -1,0 +1,34 @@
+:root {
+  // Globals
+  --base-font: 'Roboto', sans-serif;
+  --font-size: 16px;
+  --line-height: 1.4;
+  --border-radius: 4px;
+  --box-shadow: 0 10px 20px rgb(0 0 0 / 15%);
+  --transition: 0.3s ease-in-out;
+
+  // Colors
+  --primary: #409eff;
+  --primary-dark: #337ecc;
+  --success: #67c23a;
+  --success-light: #f0f9eb;
+  --warning: #e6a23c;
+  --warning-light: #fdf6ec;
+  --error: #f56c6c;
+  --error-light: #fef0f0;
+  --base-dark: #333;
+  --dark: #444;
+  --info: #666;
+  --default: #999;
+  --neutral: #ddd;
+  --line: #eee;
+  --bg: #f3f3f3;
+  --light: #f8f8f8;
+  --base-light: #fff;
+
+  // Z-index
+  --z-index-header: 100;
+  --z-index-menu: 200;
+  --z-index-overlay: 900;
+  --z-index-modal: 1000;
+}

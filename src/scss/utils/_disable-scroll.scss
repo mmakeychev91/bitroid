@@ -1,0 +1,11 @@
+@use '../config/mixins' as *;
+
+.disable-scroll {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+
+  @include tablet {
+    position: fixed;
+  }
+}

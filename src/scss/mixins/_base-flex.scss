@@ -1,0 +1,11 @@
+@mixin base-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@mixin start-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}

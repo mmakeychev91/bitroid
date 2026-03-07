@@ -1,0 +1,33 @@
+// AOS
+// @use "../../node_modules/aos/dist/aos";
+
+// Swiper
+// @use "../../node_modules/swiper/swiper-bundle.min";
+
+// Config
+@use 'config/global';
+@use 'config/fonts';
+@use 'config/vars';
+
+// UI
+@use 'ui/container';
+@use 'ui/offset';
+
+// Typography
+@use 'ui/typography/text-size';
+@use 'ui/typography/text-style';
+@use 'ui/typography/title';
+
+// Components
+@use 'components/header';
+@use 'components/footer';
+
+// Modals
+@use 'components/modals/modal-default';
+
+// Tabs
+// @use 'components/tabs/tabs-default';
+
+// Utils
+// Важно подключать в самом конце
+@use 'utils/utils-main';

@@ -1,0 +1,7 @@
+@mixin clamp($lines, $font-size: 16px, $line-height: 1.2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  max-height: calc($font-size * $line-height) * $lines;
+}
