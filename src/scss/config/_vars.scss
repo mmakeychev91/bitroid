@@ -7,14 +7,38 @@
   --box-shadow: 0 10px 20px rgb(0 0 0 / 15%);
   --transition: 0.3s ease-in-out;
 
-  // Colors
+  // Colors (Figma ui-kit 1:1)
+  --color-deep-grey: #1e1e1e;
+  --color-white: #ffffff;
+  --color-light-grey: #f8f8f8;
+  --color-grey: #666666;
+  --color-green: #34ae6b;
+  --color-green-2: #298955;
+  --color-blue: #2587f9;
+  // Кнопка в шапке по Figma (меню_1920)
+  --color-header-btn: #2bac68;
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-ivory: #e0e0e0;
+  --color-error: #d8464d;
+  // Градиент: 108.835deg, #34ae6b 3.22%, #2587f9 86.86%
+  --gradient-accent: linear-gradient(108.835deg, var(--color-green, #34ae6b) 3.2197%, var(--color-blue, #2587f9) 86.856%);
+
+  // Компоненты (Figma get_design_context)
+  --input-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
+  --button-secondary-hover-shadow: 0 4px 25px 0 rgba(1, 8, 3, 0.08);
+  --dropdown-shadow: 0 4px 25px 0 rgba(1, 8, 3, 0.08);
+  --dropdown-panel-gradient: linear-gradient(147.794deg, rgba(43, 172, 104, 0.2) 8.0596%, rgba(37, 135, 249, 0.2) 92.867%);
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+
+  // Legacy / aliases
   --primary: #409eff;
   --primary-dark: #337ecc;
   --success: #67c23a;
   --success-light: #f0f9eb;
   --warning: #e6a23c;
   --warning-light: #fdf6ec;
-  --error: #f56c6c;
   --error-light: #fef0f0;
   --base-dark: #333;
   --dark: #444;

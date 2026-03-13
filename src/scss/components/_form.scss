@@ -1,0 +1,132 @@
+// Форма: input, checkbox, radio, сообщение об ошибке — по макету Figma (get_design_context)
+
+// Поле ввода: 320×50, padding 10px 16px, rounded 4px, shadow, Text_M 16/130% grey placeholder
+.input-text {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 320px;
+  height: 50px;
+  padding: 10px 16px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+  background: var(--color-white, #fff);
+  border: none;
+  border-radius: 4px;
+  box-shadow: var(--input-shadow);
+
+  &::placeholder {
+    color: var(--color-grey, #666);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Сообщение об ошибке: Links 12/130% error
+.form-error {
+  font-family: var(--base-font), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-error, #d8464d);
+  margin-top: 4px;
+}
+
+// Checkbox: 20×20, bg white, border green, rounded 4px; checked — bg green + галочка
+// Использование: <label class="checkbox-wrap"><input type="checkbox"><span class="checkbox"></span></label>
+.checkbox-wrap {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
+
+.checkbox-wrap input:checked + .checkbox {
+  background: var(--color-green, #34ae6b);
+  border-color: var(--color-green, #34ae6b);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M2 8l4 4 8-8'/%3E%3C/svg%3E") no-repeat center / contain;
+  }
+}
+
+.checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-green, #34ae6b);
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+// Radio: 20×20, круг; по Figma используется SVG, делаем CSS-вариант
+// Использование: <label class="radio-wrap"><input type="radio" name="..."><span class="radio"></span></label>
+.radio-wrap {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
+
+.radio-wrap input:checked + .radio {
+  border-color: var(--color-green, #34ae6b);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+    background: var(--color-green, #34ae6b);
+    border-radius: 50%;
+  }
+}
+
+.radio {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-grey, #666);
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.2s;
+}

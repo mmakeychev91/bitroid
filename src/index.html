@@ -1,11 +1,26 @@
 <!doctype html>
 <html lang="ru" class="page">
-  @include('partials/head.html')
-  <body class="page__body">
-    <div class="site-container">
-      @include('partials/header.html')
-      <main class="main"></main>
-      @include('partials/footer.html')
-    </div>
-  </body>
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+
+    @include('partials/header.html')
+    <main class="main">
+      <div class="container">
+        <div class="" style="padding-top: 2rem;">
+          <h1 class="h1">Страницы проекта</h1>
+          <ul style="list-style: none; padding: 0; margin: 1rem 0 0;">
+            <li style="margin-bottom: 0.5rem;"><a href="main.html">Главная</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+    @include('partials/footer.html')
+
+
+  </div>
+</body>
+
 </html>

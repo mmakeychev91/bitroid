@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="ru" class="page">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="format-detection" content="telephone=no" />
+  <title></title>
+  <link as="font" crossorigin href="fonts/Roboto-Bold.woff2" rel="preload" type="font/woff2" />
+  <link as="font" crossorigin href="fonts/Roboto-Regular.woff2" rel="preload" type="font/woff2" />
+  <link as="font" crossorigin href="fonts/Roboto-SemiBold.woff2" rel="preload" type="font/woff2" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script defer src="js/main.js"></script>
+</head>
+
+
+<body class="page__body">
+  <div class="site-container">
+
+    <header class="header">
+  <div class="container">
+    <div class="header__container">
+      <a href="/" class="header__logo">
+        <img src="img/logo.png" alt="Bitroid" width="198" height="64" class="header__logo-img" />
+      </a>
+      <nav class="header__nav" aria-label="Основное меню">
+        <ul class="header__nav-list">
+          <li class="header__nav-item header__nav-item--dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="header__nav-link js-dropdown-trigger" data-dropdown="services">Услуги<span
+                class="header__nav-caret" aria-hidden="true"></span></a>
+            <div class="header__dropdown js-dropdown" id="dropdown-services" role="menu" aria-hidden="true">
+              <div class="header__dropdown-panel">
+                <div class="header__dropdown-left">
+                  <ul class="header__dropdown-list">
+                    <li><a href="#" class="header__dropdown-link">Внедрение CRM</a></li>
+                    <li><a href="#" class="header__dropdown-link header__dropdown-link--active">Создание сайта</a></li>
+                    <li><a href="#" class="header__dropdown-link">Перенос сайта</a></li>
+                    <li><a href="#" class="header__dropdown-link header__dropdown-link--multiline">Решения для
+                        государственных организаций</a></li>
+                    <li><a href="#" class="header__dropdown-link">Поддержка сайтов</a></li>
+                    <li><a href="#" class="header__dropdown-link">Разработка и развитие сайтов</a></li>
+                    <li><a href="#" class="header__dropdown-link">Обучение</a></li>
+                    <li><a href="#" class="header__dropdown-link">Автоматизация</a></li>
+                    <li><a href="#" class="header__dropdown-link">Интеграция и настройка</a></li>
+                    <li><a href="#" class="header__dropdown-link header__dropdown-link--multiline">Техническое
+                        сопровождение бизнеса</a></li>
+                  </ul>
+                </div>
+                <div class="header__dropdown-right">
+                  <div class="header__dropdown-desc">
+                    <p>Создаём современные сайты, которые решают бизнес-задачи — от первого клика до заявки.</p>
+                  </div>
+                  <div class="header__dropdown-content">
+                    <p class="header__dropdown-heading"><a href="#">Сайт под ключ</a></p>
+                    <ul class="header__dropdown-sublist">
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Сайт+SEO</a></li>
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Сайт+Маркетплейс</a>
+                      </li>
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Сайт+CRM</a></li>
+                    </ul>
+                    <p class="header__dropdown-heading"><a href="#">Разработка на CMS</a></p>
+                    <ul class="header__dropdown-sublist">
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Разработка на
+                          WordPress</a></li>
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Разработка на 1С
+                          Битрикс</a></li>
+                    </ul>
+                    <p class="header__dropdown-heading"><a href="#">Сложные сайты</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Продукты<span class="header__nav-caret" aria-hidden="true"></span></a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Готовые решения<span class="header__nav-caret"
+                aria-hidden="true"></span></a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Кейсы и проекты<span class="header__nav-caret"
+                aria-hidden="true"></span></a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">О нас<span class="header__nav-caret" aria-hidden="true"></span></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__right">
+        <a href="tel:+74954142808" class="header__phone">+7 (495) 414 28 08</a>
+        <button type="button" class="header__search" aria-label="Поиск">
+          <svg class="header__search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button type="button" class="header__burger" aria-label="Открыть меню" aria-expanded="false">
+          <svg class="header__burger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <a href="#" class="header__btn btn btn--primary desktop">Обсудить проект</a>
+      </div>
+    </div>
+  </div>
+
+</header>
+    <main class="main">
+      <section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__image-wrap" aria-hidden="true">
+      <img src="img/hero-image.png" alt="" class="hero__image" width="672" height="555" />
+    </div>
+    <h1 class="hero__title">Комплексная автоматизация бизнеса на базе Битрикс24</h1>
+    <div class="hero__desc">
+      <p class="hero__subtitle">От типовых внедрений Битрикс24 до сложных, комплексных кастомных решений: глубоко
+        вникаем в ваш бизнес и отвечаем за результат</p>
+      <div class="hero__actions">
+        <a href="#" class="btn btn--secondary">Подобрать решение</a>
+        <a href="#" class="link-arrow">
+          Смотреть кейсы
+          <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <ul class="hero__products">
+      <li class="hero__product">
+        <span class="hero__product-icon" aria-hidden="true">
+          <img src="img/general/Group 70.png" alt="">
+        </span>
+        <span class="hero__product-title">Внедрение CRM</span>
+      </li>
+      <li class="hero__product">
+        <span class="hero__product-icon" aria-hidden="true">
+          <img src="img/general/Group 65.png" alt="">
+        </span>
+        <span class="hero__product-title">Сайт под ключ</span>
+      </li>
+      <li class="hero__product">
+        <span class="hero__product-icon" aria-hidden="true">
+          <img src="img/general/Group 67.png" alt="">
+        </span>
+        <span class="hero__product-title">Поддержка сайтов</span>
+      </li>
+      <li class="hero__product">
+        <span class="hero__product-icon" aria-hidden="true">
+          <img src="img/general/Group 77.png" alt="">
+        </span>
+        <span class="hero__product-title">Автоматизация</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+      <section class="advantages">
+  <div class="container">
+    <div class="advantages__banner">
+      <div class="advantages__banner-left">
+        <h2 class="advantages__banner-title">Битроид — надёжный бизнес-партнёр</h2>
+        <p class="advantages__banner-partner">Золотой партнер Битрикс24</p>
+        <p class="advantages__banner-text">Официальный интегратор CRM Битрикс: помогаем с внедрением и сопровождением,
+          гарантируем результат</p>
+        <p class="advantages__banner-stat">Входим в Топ-100 среди более 18 000 партнёров Битрикс24</p>
+      </div>
+      <div class="advantages__banner-right">
+        <p class="advantages__banner-accred">Компания аккредитована</p>
+        <div class="advantages__banner-logo" aria-hidden="true">
+          <img src="img/general/Group 1.png" alt="Минцифры России" class="advantages__banner-logo-img" />
+        </div>
+      </div>
+    </div>
+    <ul class="advantages__list">
+      <li class="advantages__item">
+        <span class="advantages__number">260+</span>
+        <div class="advantages__item-text">
+          <p class="advantages__item-title">Реализованных проектов</p>
+          <p class="advantages__item-desc">От небольших компаний до крупных холдингов по всей России</p>
+        </div>
+      </li>
+      <li class="advantages__item">
+        <span class="advantages__number">9+</span>
+        <div class="advantages__item-text">
+          <p class="advantages__item-title">Лет интегрируем Битрикс24</p>
+          <p class="advantages__item-desc">Среднее увеличение продаж +30% после внедрения CRM</p>
+        </div>
+      </li>
+      <li class="advantages__item">
+        <span class="advantages__number">87+</span>
+        <div class="advantages__item-text">
+          <p class="advantages__item-title">Компании обучили</p>
+          <p class="advantages__item-desc">Научим и расскажем, как использовать Битрикс24 на 100%</p>
+        </div>
+      </li>
+      <li class="advantages__item">
+        <span class="advantages__number">+53%</span>
+        <div class="advantages__item-text">
+          <p class="advantages__item-title">К эффективности сотрудников</p>
+          <p class="advantages__item-desc">Внедрение CRM наладит совместную работу и поможет справляться с задачами
+            эффективнее</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+      <section class="products-services">
+  <div class="container products-services__container">
+    <div class="products-services__head">
+      <div class="products-services__text">
+        <h2 class="products-services__title">Наши продукты и услуги</h2>
+        <p class="products-services__subtitle">Мы не просто интегратор CRM. Мы оказываем комплексные услуги: от
+          разработки и запуска проектов до всестороннего сопровождения.</p>
+      </div>
+      <a href="#" class="btn btn--primary products-services__btn desktop">Смотреть все услуги</a>
+    </div>
+    <ul class="products-services__grid">
+      <li class="products-services__card products-services__card--wide">
+        <div class="products-services__card-figure">
+          <img src="http://localhost:3845/assets/b85f0764ff7406f076785dc37916f8897b3ffbb2.png" alt="" loading="lazy"
+            class="products-services__card-figure-img" />
+        </div>
+        <h3 class="products-services__card-title">Тарифы и лицензии</h3>
+        <p class="products-services__card-desc">Предоставляем и продлеваем лицензии 1С-Битрикс и Битрикс24. Поможем
+          подобрать лучший вариант с учётом особенностей вашего бизнеса и выгодно продлить действующую лицензию.</p>
+        <a href="#" class="products-services__card-link">Подробнее</a>
+      </li>
+      <li class="products-services__card">
+        <h3 class="products-services__card-title">Создание сайта</h3>
+        <p class="products-services__card-desc">Поможем с разработкой сайта на Битрикс. Проведём аудит, учтём специфику
+          вашего бизнеса и сделаем эффективный инструмент продвижения, адаптированный под любые устройства.</p>
+        <a href="#" class="products-services__card-link">Подробнее</a>
+      </li>
+      <li class="products-services__card">
+        <h3 class="products-services__card-title">Интеграции</h3>
+        <p class="products-services__card-desc">Интегрируем ваш бизнес с 1C, Tilda, WordPress, телефонией, чат-ботами и
+          другими сервисами. Объединим каналы продаж, поможем настроить воронки.</p>
+        <a href="#" class="products-services__card-link">Подробнее</a>
+      </li>
+      <li class="products-services__card">
+        <h3 class="products-services__card-title">Поддержка сайтов</h3>
+        <p class="products-services__card-desc">Предоставим хостинг, поможем ускорить работу, защитим от вирусов и
+          предоставим инструменты для продвижения.</p>
+        <a href="#" class="products-services__card-link">Подробнее</a>
+      </li>
+      <li class="products-services__card">
+        <h3 class="products-services__card-title">Документооборот</h3>
+        <p class="products-services__card-desc">Ускорим HR-процессы, внедрим кадровый ЭДО, упростим подписание договоров
+          и других документов.</p>
+        <a href="#" class="products-services__card-link">Подробнее</a>
+      </li>
+    </ul>
+    <div class="products-services__btn-container only-tablet">
+      <a href="#" class="btn btn--primary products-services__btn">Смотреть все услуги</a>
+    </div>
+    <div class="products-services__btn-container mobile">
+      <a href="#" class="btn btn--primary products-services__btn">Смотреть все услуги</a>
+    </div>
+  </div>
+</section>
+      <section class="clients">
+  <div class="container">
+    <div class="clients__text">
+      <h2 class="clients__title">Нам доверяют <span class="clients__title-accent">500+</span> компаний</h2>
+      <p class="clients__subtitle">Среди наших клиентов — компании из разных сфер, от молодых стартапов до признанных лидеров
+        рынка.</p>
+    </div>
+    <ul class="clients__logos" aria-hidden="true">
+      <li class="clients__logo">
+        <img src="img/ content/clients/001.png" alt="">
+      </li>
+      <li class="clients__logo">
+        <img src="img/ content/clients/image 86.png" alt="">
+      </li>
+      <li class="clients__logo">
+        <img src="img/ content/clients/image 87.png" alt="">
+      </li>
+      <li class="clients__logo">
+        <img src="img/ content/clients/image 89.png" alt="">
+      </li>
+      <li class="clients__logo">
+        <img src="img/ content/clients/image 90.png" alt="">
+      </li>
+      <li class="clients__logo">
+        <img src="img/ content/clients/image 91.png" alt="">
+      </li>
+    </ul>
+  </div>
+</section>
+
+      <section class="cases">
+  <div class="container">
+    <div class="cases__head">
+      <div class="cases__head-text">
+        <h2 class="cases__title">Кейсы и проекты</h2>
+        <p class="cases__subtitle">Решаем любые задачи: от разработки и поддержки до полного спектра услуг на
+          платформе 1С-Битрикс для роста и развития вашего бизнеса</p>
+      </div>
+      <a href="#" class="btn btn--primary cases__head-btn desktop">Смотреть все кейсы</a>
+    </div>
+  </div>
+
+  <div class="cases__slider-outer">
+    <div class="container">
+      <div class="swiper cases-swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Кейс 1 — белая карточка -->
+          <div class="swiper-slide">
+            <article class="cases__card">
+              <div class="cases__card-figure" aria-hidden="true">
+                <img src="http://localhost:3845/assets/a5a15e00a3326050a43e0b16db9c336799ed53ff.png" alt=""
+                  class="cases__card-figure-img cases__card-figure-img--1" />
+              </div>
+              <div class="cases__card-body">
+                <span class="cases__card-badge">Корпоративные порталы</span>
+                <h3 class="cases__card-name">Точка Роста</h3>
+                <p class="cases__card-desc">Упростили ведение клиентской базы для тренингового центра и помогли улучшить
+                  воронки продаж.</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Кейс 2 — акцентная карточка (градиент) -->
+          <div class="swiper-slide">
+            <article class="cases__card cases__card--accent">
+              <div class="cases__card-body">
+                <span class="cases__card-badge">Корпоративные порталы</span>
+                <h3 class="cases__card-name">Стройхолдинг</h3>
+                <p class="cases__card-desc">Ускорили выполнение задач строительной компании на 20%.</p>
+                <a href="#" class="cases__card-link">
+                  Читать кейс
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Кейс 3 — белая карточка -->
+          <div class="swiper-slide">
+            <article class="cases__card">
+              <div class="cases__card-figure cases__card-figure--right" aria-hidden="true">
+                <img src="http://localhost:3845/assets/a5a15e00a3326050a43e0b16db9c336799ed53ff.png" alt=""
+                  class="cases__card-figure-img cases__card-figure-img--3" />
+              </div>
+              <div class="cases__card-body">
+                <span class="cases__card-badge">Сайты и интернет-магазины</span>
+                <h3 class="cases__card-name">Дилер Vaillant Group</h3>
+                <p class="cases__card-desc">Разработали сайт, с помощью которого дистрибьютор климатической техники
+                  смог увеличить количество заявок.</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Дополнительные слайды для демонстрации слайдера -->
+          <div class="swiper-slide">
+            <article class="cases__card cases__card--accent">
+              <div class="cases__card-body">
+                <span class="cases__card-badge">CRM и автоматизация</span>
+                <h3 class="cases__card-name">Логистика Плюс</h3>
+                <p class="cases__card-desc">Автоматизировали документооборот и сократили время обработки заявок на 40%.</p>
+                <a href="#" class="cases__card-link">
+                  Читать кейс
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cases__controls">
+        <button class="cases__nav-btn cases__nav-btn--prev swiper-button-prev-cases" type="button"
+          aria-label="Предыдущий кейс">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M12.5 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="swiper-pagination cases-pagination"></div>
+        <button class="cases__nav-btn cases__nav-btn--next swiper-button-next-cases" type="button"
+          aria-label="Следующий кейс">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M7.5 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <a href="#" class="btn btn--primary cases__head-btn tablet">Смотреть все кейсы</a>
+  </div>
+</section>
+
+      <section class="certificates">
+  <div class="container">
+    <div class="certificates__head">
+      <div class="certificates__head-text">
+        <h2 class="certificates__title">Экспертность, подтверждённая официально</h2>
+        <p class="certificates__subtitle">Наш опыт и компетенции подтверждают сертификаты от ведущих платформ</p>
+      </div>
+      <a href="#" class="btn btn--primary certificates__head-btn desktop">Посмотреть сертификаты</a>
+    </div>
+  </div>
+
+  <!-- Скроллящаяся строка с названиями партнёрств -->
+  <div class="certificates__ticker" aria-hidden="true">
+    <div class="certificates__ticker-track">
+      <span class="certificates__ticker-item">Золотой партнер Битрикс24</span>
+      <span class="certificates__ticker-item">Сертифицированный партнер INTEC</span>
+      <span class="certificates__ticker-item">Сертифицированный партнер 1С-Битрикс</span>
+      <span class="certificates__ticker-item">Официальный партнер SL Soft</span>
+      <span class="certificates__ticker-item" aria-hidden="true">Золотой партнер Битрикс24</span>
+      <span class="certificates__ticker-item" aria-hidden="true">Сертифицированный партнер INTEC</span>
+      <span class="certificates__ticker-item" aria-hidden="true">Сертифицированный партнер 1С-Битрикс</span>
+      <span class="certificates__ticker-item" aria-hidden="true">Официальный партнер SL Soft</span>
+    </div>
+  </div>
+
+  <!-- Логотипы сертификатов -->
+  <div class="container">
+    <ul class="certificates__logos" aria-label="Наши сертификаты">
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/b0de310aa029c90b2c3121b944bbdf8a27f64a84.png" alt="Сертификат 1"
+          width="200" height="57" />
+      </li>
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/16def3d6fe3c081a3de0e4bc06a2628b68eefd0a.png" alt="Сертификат 2"
+          width="138" height="56" />
+      </li>
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/63c0f70596069bdb3889bd855fbd7295cc6eb106.png" alt="Сертификат 3"
+          width="197" height="56" />
+      </li>
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/473f502e4908fc8e27d33605f6debb8118664915.png" alt="Сертификат 4"
+          width="196" height="56" />
+      </li>
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/2f4e3c10cffb639051d76a813235f0fccdc59884.png" alt="Сертификат 5"
+          width="195" height="56" />
+      </li>
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/8cda2b42d8d2e927179ba2c8719755f8d87d356f.png" alt="Сертификат 6"
+          width="200" height="56" />
+      </li>
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/510a9e5fe97f1ca910ef0123f5db23989e81e071.png" alt="Сертификат 7"
+          width="198" height="56" />
+      </li>
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/76ed4df6bcf701d56682b2f130a291b52ab40e98.png" alt="Сертификат 8"
+          width="195" height="56" />
+      </li>
+      <li class="certificates__logo">
+        <img src="http://localhost:3845/assets/274b732cc38412eb9ca3c085537ecb62b5548e44.png" alt="Сертификат 9"
+          width="198" height="56" />
+      </li>
+    </ul>
+    <a href="#" class="btn btn--primary certificates__head-btn tablet">Посмотреть сертификаты</a>
+  </div>
+</section>
+
+      <section class="reviews">
+  <div class="container">
+    <div class="reviews__head">
+      <div class="reviews__head-text">
+        <h2 class="reviews__title">Отзывы</h2>
+        <p class="reviews__subtitle">Результат нашей работы — сотни довольных клиентов.</p>
+      </div>
+      <a href="#" class="btn btn--primary reviews__head-btn desktop">Читать все отзывы</a>
+    </div>
+  </div>
+
+  <div class="reviews__slider-outer">
+    <div class="swiper reviews-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- Отзыв 1 — белая карточка -->
+        <div class="swiper-slide">
+          <article class="reviews__card">
+            <div class="reviews__card-logo" aria-hidden="true">
+              <img src="http://localhost:3845/assets/e41bcdc3d7c82ed49a9382133b5c5e6c23dad5ea.png" alt="Битроид"
+                width="139" height="38" />
+            </div>
+            <blockquote class="reviews__card-text">
+              Хотелось бы отметить профессионализм и ответственность, с которыми ваша команда подходит к исполнению
+              поставленных задач
+            </blockquote>
+            <footer class="reviews__card-footer">
+              <p class="reviews__card-author">П.В. Савцов</p>
+              <p class="reviews__card-position">Заместитель руководителя по контрактной работе ГБ МСЭ ФМБА России</p>
+            </footer>
+          </article>
+        </div>
+
+        <!-- Отзыв 2 — градиентная карточка -->
+        <div class="swiper-slide">
+          <article class="reviews__card reviews__card--gradient">
+            <div class="reviews__card-logo" aria-hidden="true">
+              <img src="http://localhost:3845/assets/e41bcdc3d7c82ed49a9382133b5c5e6c23dad5ea.png" alt="Битроид"
+                width="139" height="38" />
+            </div>
+            <blockquote class="reviews__card-text">
+              С момента нашего первого контакта и до завершения проекта команда проявила высочайший уровень
+              профессионализма, что заметно на каждом этапе работы
+            </blockquote>
+            <footer class="reviews__card-footer">
+              <p class="reviews__card-author">И.А. Ковешникова</p>
+              <p class="reviews__card-position">Директор МКУ «ЦОД»</p>
+            </footer>
+          </article>
+        </div>
+
+        <!-- Отзыв 3 — белая карточка -->
+        <div class="swiper-slide">
+          <article class="reviews__card">
+            <div class="reviews__card-logo" aria-hidden="true">
+              <img src="http://localhost:3845/assets/e41bcdc3d7c82ed49a9382133b5c5e6c23dad5ea.png" alt="Битроид"
+                width="139" height="38" />
+            </div>
+            <blockquote class="reviews__card-text">
+              Ваши знания и опыт стали залогом успешного завершения проекта. Мы уверены, что совместная работа принесла
+              нам должный результат
+            </blockquote>
+            <footer class="reviews__card-footer">
+              <p class="reviews__card-author">Е.В. Иванова</p>
+              <p class="reviews__card-position">Руководитель контрактной службы ФГБУ «НМИЦ онкологии им. Н.Н. Петрова»
+                Минздрава России</p>
+            </footer>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="reviews__controls">
+      <button class="reviews__nav-btn reviews__nav-btn--prev swiper-button-prev-reviews" type="button"
+        aria-label="Предыдущий отзыв">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M12.5 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div class="swiper-pagination reviews-pagination"></div>
+      <button class="reviews__nav-btn reviews__nav-btn--next swiper-button-next-reviews" type="button"
+        aria-label="Следующий отзыв">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M7.5 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <a href="#" class="btn btn--primary reviews__head-btn tablet">Читать все отзывы</a>
+  </div>
+</section>
+
+      <section class="team">
+  <div class="container team__inner">
+    <div class="team__content">
+      <h2 class="team__title">Инновации начинаются с людей</h2>
+      <p class="team__subtitle">Битроид — это сплочённая команда опытных экспертов. Мы даём каждому сотруднику
+        пространство для роста. И в этом — залог успеха нашей работы.</p>
+      <div class="team__actions">
+        <a href="#" class="btn btn--primary">Подробнее о нас</a>
+        <a href="#" class="link-arrow">
+          Вакансии
+          <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Коллаж фото команды (декстоп) -->
+    <div class="team__gallery desktop" aria-hidden="true">
+      <div class="team__gallery-card team__gallery-card--1">
+        <img src="http://localhost:3845/assets/d9c70efe5440ccffbf76e3d41c50b31a1d6a136b.png" alt=""
+          class="team__gallery-photo" />
+      </div>
+      <div class="team__gallery-card team__gallery-card--2">
+        <img src="http://localhost:3845/assets/3ca1869dc330da38b87fdf603dfa7e8c53ec4976.png" alt=""
+          class="team__gallery-photo team__gallery-photo--small" />
+      </div>
+      <div class="team__gallery-card team__gallery-card--3">
+        <img src="http://localhost:3845/assets/3ca1869dc330da38b87fdf603dfa7e8c53ec4976.png" alt=""
+          class="team__gallery-photo" />
+      </div>
+      <div class="team__gallery-card team__gallery-card--4">
+        <img src="http://localhost:3845/assets/d9c70efe5440ccffbf76e3d41c50b31a1d6a136b.png" alt=""
+          class="team__gallery-photo" />
+      </div>
+      <!-- Карточка сотрудника 1 -->
+      <div class="team__member team__member--1">
+        <div class="team__member-photo">
+          <img src="http://localhost:3845/assets/d9c70efe5440ccffbf76e3d41c50b31a1d6a136b.png" alt="Иванов Иван" />
+        </div>
+        <div class="team__member-info">
+          <p class="team__member-name">Иванов Иван</p>
+          <p class="team__member-role">SDET Senior</p>
+        </div>
+      </div>
+      <!-- Карточка сотрудника 2 -->
+      <div class="team__member team__member--2">
+        <div class="team__member-photo">
+          <img src="http://localhost:3845/assets/d9c70efe5440ccffbf76e3d41c50b31a1d6a136b.png" alt="Иванов Иван" />
+        </div>
+        <div class="team__member-info">
+          <p class="team__member-name">Иванов Иван</p>
+          <p class="team__member-role">SDET Senior</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="faq">
+  <div class="container faq__inner">
+    <div class="faq__content">
+      <div class="faq__head">
+        <div class="faq__head-text">
+          <h2 class="faq__title">Вопросы и ответы</h2>
+          <p class="faq__subtitle">Собрали ответы на самые частые вопросы наших клиентов.</p>
+        </div>
+        <a href="#" class="faq__all-link desktop">
+          Смотреть все ответы на вопросы
+          <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <ul class="faq__list">
+        <!-- Раскрытый вопрос -->
+        <li class="faq__item faq__item--open">
+          <div class="faq__item-header">
+            <p class="faq__question">Потеряю ли я позиции в SEO при миграции сайта?</p>
+            <button class="faq__toggle" type="button" aria-expanded="true" aria-label="Свернуть ответ">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq__answer">
+            <p>Кратковременные колебания позиций возможны. Но при грамотном переносе они будут незначительными, и
+              позиции быстро восстановятся. А впоследствии они могут даже улучшиться за счёт улучшения технических
+              характеристик сайта.</p>
+          </div>
+        </li>
+        <!-- Закрытые вопросы -->
+        <li class="faq__item">
+          <div class="faq__item-header">
+            <p class="faq__question">Возможна ли постоплата?</p>
+            <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq__answer" hidden>
+            <p>Да, постоплата возможна. Условия обсуждаются индивидуально в зависимости от объёма и сроков проекта.</p>
+          </div>
+        </li>
+        <li class="faq__item">
+          <div class="faq__item-header">
+            <p class="faq__question">Входит ли лицензия в стоимость внедрения или технического сопровождения?</p>
+            <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq__answer" hidden>
+            <p>Стоимость лицензии не включена в цену внедрения. Лицензию можно приобрести отдельно — мы поможем
+              подобрать оптимальный вариант.</p>
+          </div>
+        </li>
+        <li class="faq__item">
+          <div class="faq__item-header">
+            <p class="faq__question">Как быстро окупится внедрение?</p>
+            <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq__answer" hidden>
+            <p>По нашему опыту, при правильном внедрении окупаемость наступает в течение 3–12 месяцев в зависимости от
+              размера компании и процессов.</p>
+          </div>
+        </li>
+      </ul>
+
+      <a href="#" class="faq__all-link tablet">
+        Смотреть все ответы на вопросы
+        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Декоративное изображение (десктоп) -->
+    <div class="faq__decor desktop" aria-hidden="true">
+      <img src="img/Frame 164.png" alt="" class="faq__decor-img" width="489" height="488" />
+    </div>
+  </div>
+</section>
+
+      <section class="cta">
+  <div class="container">
+    <div class="cta__card">
+      <div class="cta__card-decor" aria-hidden="true">
+        <img src="http://localhost:3845/assets/c882d50b9cec8d7e5fc49a60a4c76fd91504c254.png" alt=""
+          class="cta__card-decor-img" width="487" height="488" />
+      </div>
+      <div class="cta__card-body">
+        <h2 class="cta__title">Начните с аудита</h2>
+        <p class="cta__subtitle">Получите технический анализ текущего сайта или КП на внедрение CRM</p>
+        <form class="cta__form" action="#" method="post" novalidate>
+          <div class="cta__form-row">
+            <div class="cta__form-field">
+              <input class="cta__input" type="text" name="name" placeholder="Ваше имя" autocomplete="name" />
+            </div>
+            <div class="cta__form-field">
+              <input class="cta__input" type="tel" name="phone" placeholder="+7 (999) 999-00-00"
+                autocomplete="tel" />
+            </div>
+          </div>
+          <div class="cta__form-field cta__form-field--full">
+            <input class="cta__input" type="url" name="site" placeholder="Ссылка на сайт" autocomplete="url" />
+          </div>
+          <button class="btn btn--primary cta__submit" type="submit">Отправить</button>
+          <div class="cta__consent">
+            <label class="cta__consent-label">
+              <input class="cta__consent-checkbox" type="checkbox" name="consent" required />
+              <span class="cta__consent-text">
+                Нажимая на кнопку «Отправить», вы соглашаетесь с
+                <a href="#" class="cta__consent-link">Правилами обработки персональных данных</a>
+                и
+                <a href="#" class="cta__consent-link">Политикой конфиденциальности</a>
+              </span>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="news">
+  <div class="container">
+    <div class="news__head">
+      <div class="news__head-left">
+        <h2 class="news__title">Мы пишем</h2>
+        <div class="news__tabs" role="tablist" aria-label="Категории публикаций">
+          <button class="news__tab" type="button" role="tab" aria-selected="false" data-tab="it">Новости IT</button>
+          <button class="news__tab news__tab--active" type="button" role="tab" aria-selected="true"
+            data-tab="articles">Статьи</button>
+          <a href="https://t.me/" class="news__tab news__tab--link" target="_blank"
+            rel="noopener noreferrer">Читать Telegram</a>
+        </div>
+      </div>
+      <div class="news__head-actions desktop">
+        <a href="#" class="btn btn--primary">Читать все новости</a>
+        <a href="#" class="link-arrow">
+          Читать статьи
+          <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="news__panels">
+      <!-- Панель: Статьи (активна по умолчанию) -->
+      <div class="news__panel news__panel--active" data-panel="articles" role="tabpanel">
+        <div class="news__grid">
+          <!-- Большая карточка (белая) -->
+          <article class="news__card news__card--large">
+            <div class="news__card-figure" aria-hidden="true">
+              <img src="http://localhost:3845/assets/a5a15e00a3326050a43e0b16db9c336799ed53ff.png" alt=""
+                class="news__card-figure-img" />
+            </div>
+            <div class="news__card-body">
+              <span class="news__card-badge">CRM и бизнес</span>
+              <h3 class="news__card-title">Что будет, если НЕ менять архивный тариф на новый в 1С-Битрикс24?</h3>
+              <p class="news__card-desc">Разбираемся, как быть, если ваш тариф вдруг превратился в архивный.</p>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Маленькая карточка 1 (градиент) -->
+          <article class="news__card news__card--accent">
+            <div class="news__card-body">
+              <span class="news__card-badge">CRM и бизнес</span>
+              <h3 class="news__card-title">Что выбрать — универсальную или отраслевую CRM Битрикс24?</h3>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Маленькая карточка 2 (градиент) -->
+          <article class="news__card news__card--accent">
+            <div class="news__card-body">
+              <span class="news__card-badge">Собственные разработки</span>
+              <h3 class="news__card-title">Активити. Обновление полей в любой сущности CRM</h3>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Панель: Новости IT -->
+      <div class="news__panel" data-panel="it" role="tabpanel" hidden>
+        <div class="news__grid">
+          <article class="news__card news__card--large">
+            <div class="news__card-body">
+              <span class="news__card-badge">Новости IT</span>
+              <h3 class="news__card-title">Битрикс24 обновился: что нового в последнем релизе?</h3>
+              <p class="news__card-desc">Обзор ключевых изменений и новых возможностей платформы.</p>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="news__card news__card--accent">
+            <div class="news__card-body">
+              <span class="news__card-badge">Новости IT</span>
+              <h3 class="news__card-title">ИИ-инструменты для бизнеса: тренды 2026</h3>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="news__card news__card--accent">
+            <div class="news__card-body">
+              <span class="news__card-badge">Новости IT</span>
+              <h3 class="news__card-title">Импортозамещение ПО: актуальные решения для компаний</h3>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="news__head-actions tablet">
+      <a href="#" class="btn btn--primary">Читать все новости</a>
+      <a href="#" class="link-arrow">
+        Читать статьи
+        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+    </main>
+    <footer class="footer">
+  <div class="container">
+    <div class="footer__promo">
+      <div class="footer__promo-text">
+        <h2 class="footer__promo-title">Единая платформа — максимум эффективности</h2>
+        <p class="footer__promo-subtitle">Забудьте о множестве разрозненных сервисов и приложений.</p>
+      </div>
+      <a href="#" class="btn btn--primary footer__promo-btn">Получить консультацию</a>
+    </div>
+
+    <div class="footer__divider"></div>
+
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="Битроид — на главную">
+          <img src="img/logo.png" alt="Битроид" class="footer__logo-img" width="40" height="40" />
+        </a>
+        <address class="footer__contacts">
+          <a href="tel:+74954142808" class="footer__contact">+7 (495) 414 28 08</a>
+          <a href="mailto:b24@bitroid.ru" class="footer__contact">b24@bitroid.ru</a>
+          <p class="footer__address">428038, Чувашская республика, г. Чебоксары, ул. Мате Залка, д 10, офис 1</p>
+        </address>
+        <div class="footer__socials" aria-label="Социальные сети">
+          <a href="#" class="footer__social" aria-label="ВКонтакте">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12.9 16.6c-4.8-.2-7.5-3.3-7.7-8.6h2.4c.1 3.9 1.8 5.5 3.1 5.9V8h2.3v3.4c1.3-.1 2.6-1.7 3-3.4h2.2c-.4 2.1-1.9 3.7-3 4.3 1.1.5 2.8 1.9 3.5 4.3h-2.4c-.6-1.8-1.9-3.2-3.4-3.4v3.4H12.9z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="Telegram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M20.665 3.717L2.93 10.463c-1.17.469-1.162 1.121-.215 1.412l4.52 1.41 10.478-6.604c.494-.298.944-.138.574.192l-8.492 7.663-.332 4.697c.487 0 .703-.222.975-.487l2.34-2.272 4.868 3.594c.897.495 1.543.24 1.768-.833l3.198-15.07c.327-1.308-.499-1.9-1.947-1.249z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="YouTube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M21.543 6.498C22 8.28 22 12 22 12s0 3.72-.457 5.502c-.254.985-.997 1.76-1.938 2.022C17.896 20 12 20 12 20s-5.893 0-7.605-.476c-.945-.266-1.687-1.04-1.938-2.022C2 15.72 2 12 2 12s0-3.72.457-5.502c.254-.985.997-1.76 1.938-2.022C6.107 4 12 4 12 4s5.896 0 7.605.476c.945.266 1.687 1.04 1.938 2.022zM10 15.5l6-3.5-6-3.5v7z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__nav" aria-label="Навигация по сайту">
+        <div class="footer__nav-col">
+          <ul class="footer__nav-list">
+            <li><a href="#" class="footer__nav-link">О компании</a></li>
+            <li><a href="#" class="footer__nav-link">Контакты</a></li>
+            <li><a href="#" class="footer__nav-link">Отзывы</a></li>
+            <li><a href="#" class="footer__nav-link">Новости</a></li>
+            <li><a href="#" class="footer__nav-link">Статьи</a></li>
+            <li><a href="#" class="footer__nav-link">Акции</a></li>
+            <li><a href="#" class="footer__nav-link">Вопрос-ответ</a></li>
+            <li><a href="#" class="footer__nav-link">Оплата</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <ul class="footer__nav-list">
+            <li><a href="#" class="footer__nav-link">Внедрение CRM</a></li>
+            <li><a href="#" class="footer__nav-link">Создание сайта</a></li>
+            <li><a href="#" class="footer__nav-link">Перенос сайта</a></li>
+            <li><a href="#" class="footer__nav-link">Поддержка сайтов</a></li>
+            <li><a href="#" class="footer__nav-link">Решения для государственных организаций</a></li>
+            <li><a href="#" class="footer__nav-link">Обучение</a></li>
+            <li><a href="#" class="footer__nav-link">Автоматизация</a></li>
+            <li><a href="#" class="footer__nav-link">Интеграция и настройка</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <ul class="footer__nav-list">
+            <li><a href="#" class="footer__nav-link">1С Битрикс лицензия</a></li>
+            <li><a href="#" class="footer__nav-link">Продление лицензий</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <ul class="footer__nav-list">
+            <li><a href="#" class="footer__nav-link">ОКВЭД</a></li>
+            <li><a href="#" class="footer__nav-link footer__nav-link--muted">дополнительная инфа как в реестре</a></li>
+          </ul>
+          <ul class="footer__nav-list footer__nav-list--spaced">
+            <li><a href="#" class="footer__nav-link footer__nav-link--bold">Для партнеров</a></li>
+            <li><a href="#" class="footer__nav-link footer__nav-link--bold">Вакансии</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer__divider"></div>
+
+    <div class="footer__bottom">
+      <div class="footer__copy">
+        <p class="footer__copy-text">2026©Bitroid</p>
+        <p class="footer__copy-text">Все права защищены</p>
+      </div>
+      <nav class="footer__legal" aria-label="Юридические документы">
+        <a href="#" class="footer__legal-link">Политика конфиденциальности</a>
+        <a href="#" class="footer__legal-link">Пользовательское соглашение</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<!-- Модальное окно -->
+<div class="modal js-modal">
+  <div class="modal__container fade" role="dialog" aria-modal="true" data-modal-target="modal">
+    <button class="modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
+    <div class="modal__content"></div>
+  </div>
+</div>
+
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+// Кнопка — по макету Figma (get_design_context 194:1173, 194:1172, 198:744, 888:4445, 888:4468)
+// 200×50, py 16px, rounded 60px, 16px Semibold 1.1
+
+.btn {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 200px;
+  padding: 16px 24px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+// Primary: bg green, white text; hover green-2; disabled ivory bg
+.btn--primary {
+  padding-left: 20px;
+  padding-right: 20px;
+  background: var(--color-green, #34ae6b);
+  color: var(--color-white, #fff);
+
+  &:hover:not(:disabled) {
+    background: var(--color-green-2, #298955);
+  }
+
+  &:disabled {
+    background: var(--color-ivory, #e0e0e0);
+  }
+}
+
+// Secondary: white bg, deep-grey text; hover shadow; disabled ivory text
+.btn--secondary {
+  background: var(--color-white, #fff);
+  color: var(--color-deep-grey, #1e1e1e);
+
+  &:hover:not(:disabled) {
+    box-shadow: var(--button-secondary-hover-shadow);
+  }
+
+  &:disabled {
+    color: var(--color-ivory, #e0e0e0);
+  }
+}

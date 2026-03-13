@@ -1,0 +1,148 @@
+<section class="news">
+  <div class="container">
+    <div class="news__head">
+      <div class="news__head-left">
+        <h2 class="news__title">Мы пишем</h2>
+        <div class="news__tabs" role="tablist" aria-label="Категории публикаций">
+          <button class="news__tab" type="button" role="tab" aria-selected="false" data-tab="it">Новости IT</button>
+          <button class="news__tab news__tab--active" type="button" role="tab" aria-selected="true"
+            data-tab="articles">Статьи</button>
+          <a href="https://t.me/" class="news__tab news__tab--link" target="_blank"
+            rel="noopener noreferrer">Читать Telegram</a>
+        </div>
+      </div>
+      <div class="news__head-actions desktop">
+        <a href="#" class="btn btn--primary">Читать все новости</a>
+        <a href="#" class="link-arrow">
+          Читать статьи
+          <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="news__panels">
+      <!-- Панель: Статьи (активна по умолчанию) -->
+      <div class="news__panel news__panel--active" data-panel="articles" role="tabpanel">
+        <div class="news__grid">
+          <!-- Большая карточка (белая) -->
+          <article class="news__card news__card--large">
+            <div class="news__card-figure" aria-hidden="true">
+              <img src="http://localhost:3845/assets/a5a15e00a3326050a43e0b16db9c336799ed53ff.png" alt=""
+                class="news__card-figure-img" />
+            </div>
+            <div class="news__card-body">
+              <span class="news__card-badge">CRM и бизнес</span>
+              <h3 class="news__card-title">Что будет, если НЕ менять архивный тариф на новый в 1С-Битрикс24?</h3>
+              <p class="news__card-desc">Разбираемся, как быть, если ваш тариф вдруг превратился в архивный.</p>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Маленькая карточка 1 (градиент) -->
+          <article class="news__card news__card--accent">
+            <div class="news__card-body">
+              <span class="news__card-badge">CRM и бизнес</span>
+              <h3 class="news__card-title">Что выбрать — универсальную или отраслевую CRM Битрикс24?</h3>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Маленькая карточка 2 (градиент) -->
+          <article class="news__card news__card--accent">
+            <div class="news__card-body">
+              <span class="news__card-badge">Собственные разработки</span>
+              <h3 class="news__card-title">Активити. Обновление полей в любой сущности CRM</h3>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Панель: Новости IT -->
+      <div class="news__panel" data-panel="it" role="tabpanel" hidden>
+        <div class="news__grid">
+          <article class="news__card news__card--large">
+            <div class="news__card-body">
+              <span class="news__card-badge">Новости IT</span>
+              <h3 class="news__card-title">Битрикс24 обновился: что нового в последнем релизе?</h3>
+              <p class="news__card-desc">Обзор ключевых изменений и новых возможностей платформы.</p>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="news__card news__card--accent">
+            <div class="news__card-body">
+              <span class="news__card-badge">Новости IT</span>
+              <h3 class="news__card-title">ИИ-инструменты для бизнеса: тренды 2026</h3>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="news__card news__card--accent">
+            <div class="news__card-body">
+              <span class="news__card-badge">Новости IT</span>
+              <h3 class="news__card-title">Импортозамещение ПО: актуальные решения для компаний</h3>
+              <a href="#" class="news__card-link">
+                Читать
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="news__head-actions tablet">
+      <a href="#" class="btn btn--primary">Читать все новости</a>
+      <a href="#" class="link-arrow">
+        Читать статьи
+        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -133,7 +133,8 @@ address {
   overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
   display: flex;
   flex-direction: column; // если используете на сайте position: sticky - уберите эту настройку
-  min-height: var(--vh);
+  min-height: 100vh;
+  min-height: var(--vh, 100vh);
 }
 
 .header {

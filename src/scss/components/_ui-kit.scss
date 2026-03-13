@@ -1,0 +1,289 @@
+// UI-kit — стили по макету Figma (get_design_context)
+// Цвета, отступы, шрифты 1:1 из гайда
+
+@use '../mixins/breakpoint' as *;
+
+.ui-kit {
+  background: var(--color-deep-grey, #1e1e1e);
+  color: var(--color-white, #fff);
+}
+
+.ui-kit__container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 100px 60px;
+
+  @include tablet {
+    padding: 60px 16px;
+  }
+}
+
+.ui-kit__section {
+  margin-bottom: 80px;
+}
+
+// Заголовок секции: 16px, 1.1, py 10px, border-bottom white (Frame 254)
+.ui-kit__section-title {
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-white, #fff);
+  margin: 0 0 24px;
+}
+
+// Подзаголовок подсекции: 18px (Базовые, Градиент и т.д.)
+.ui-kit__subsection-title {
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 16px;
+}
+
+// Сетка — текст гайда
+.ui-kit__grid-info {
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3;
+  max-width: 731px;
+}
+
+// Цветовые свитчи 88×88, gap 24 (по позициям из Figma)
+.ui-kit__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.ui-kit__colors--base {
+  margin-bottom: 48px;
+}
+
+.ui-kit__swatch {
+  width: 88px;
+  height: 88px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.ui-kit__swatch--wide {
+  width: 200px;
+}
+
+.ui-kit__colors-row {
+  display: flex;
+  gap: 133px;
+  margin-bottom: 48px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.ui-kit__colors--extra {
+  margin-bottom: 0;
+}
+
+// Блок шрифта: gap 142px, превью 53×55, rounded 10px, deep-grey
+.ui-kit__font-block {
+  display: flex;
+  align-items: center;
+  gap: 142px;
+  margin-bottom: 57px;
+
+  @include tablet {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+
+.ui-kit__font-preview {
+  width: 53px;
+  height: 55px;
+  border-radius: 10px;
+  background: var(--color-deep-grey, #1e1e1e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ui-kit__font-preview-letter {
+  font-family: var(--base-font), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--color-white, #fff);
+}
+
+.ui-kit__font-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.ui-kit__font-meta {
+  font-family: var(--base-font), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-light-grey, #f8f8f8);
+  margin: 0;
+}
+
+.ui-kit__font-name {
+  font-family: var(--base-font), sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-white, #fff);
+  margin: 0;
+}
+
+.ui-kit__font-desc {
+  font-family: var(--base-font), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-white, #fff);
+  margin: 0;
+  max-width: 696px;
+}
+
+// Заголовок колонки типографики (как секции)
+.ui-kit__column-title {
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.1;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-white, #fff);
+  margin: 0 0 24px;
+}
+
+// Сетка: подпись + пример
+.ui-kit__typo-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 118px;
+  row-gap: 24px;
+  align-items: baseline;
+}
+
+.ui-kit__typo-label {
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--color-white, #fff);
+}
+
+.ui-kit__typo-sample {
+  margin: 0;
+  color: var(--color-white, #fff);
+}
+
+// Декстоп: H1 64/130% Semibold
+.ui-kit__typo--h1 {
+  font-family: var(--base-font), sans-serif;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+// H2 40/130% Semibold
+.ui-kit__typo--h2 {
+  font-family: var(--base-font), sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+// H3 24/130% Semibold
+.ui-kit__typo--h3 {
+  font-family: var(--base-font), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+// Text_L 18/130% Regular
+.ui-kit__typo--text-l {
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+// Text_L/2 18/130% Semibold
+.ui-kit__typo--text-l2 {
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+// Text_M 16/130% Regular
+.ui-kit__typo--text-m {
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+// Text_Button 16/110% Semibold
+.ui-kit__typo--text-button {
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+// Text_S 14/130% Regular
+.ui-kit__typo--text-s {
+  font-family: var(--base-font), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+// Links 12/130% Regular
+.ui-kit__typo--links {
+  font-family: var(--base-font), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+// Секция компонентов — светлый фон для отображения как в Figma
+.ui-kit__components {
+  background: var(--color-light-grey, #f8f8f8);
+  color: var(--color-deep-grey, #1e1e1e);
+  padding: 24px;
+  border-radius: 4px;
+}
+
+.ui-kit__components-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-bottom: 24px;
+}
+
+.ui-kit__components-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: center;
+}

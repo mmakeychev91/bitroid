@@ -1,3 +1,91 @@
 <header class="header">
-  <div class="container"></div>
+  <div class="container">
+    <div class="header__container">
+      <a href="/" class="header__logo">
+        <img src="img/logo.png" alt="Bitroid" width="198" height="64" class="header__logo-img" />
+      </a>
+      <nav class="header__nav" aria-label="Основное меню">
+        <ul class="header__nav-list">
+          <li class="header__nav-item header__nav-item--dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="header__nav-link js-dropdown-trigger" data-dropdown="services">Услуги<span
+                class="header__nav-caret" aria-hidden="true"></span></a>
+            <div class="header__dropdown js-dropdown" id="dropdown-services" role="menu" aria-hidden="true">
+              <div class="header__dropdown-panel">
+                <div class="header__dropdown-left">
+                  <ul class="header__dropdown-list">
+                    <li><a href="#" class="header__dropdown-link">Внедрение CRM</a></li>
+                    <li><a href="#" class="header__dropdown-link header__dropdown-link--active">Создание сайта</a></li>
+                    <li><a href="#" class="header__dropdown-link">Перенос сайта</a></li>
+                    <li><a href="#" class="header__dropdown-link header__dropdown-link--multiline">Решения для
+                        государственных организаций</a></li>
+                    <li><a href="#" class="header__dropdown-link">Поддержка сайтов</a></li>
+                    <li><a href="#" class="header__dropdown-link">Разработка и развитие сайтов</a></li>
+                    <li><a href="#" class="header__dropdown-link">Обучение</a></li>
+                    <li><a href="#" class="header__dropdown-link">Автоматизация</a></li>
+                    <li><a href="#" class="header__dropdown-link">Интеграция и настройка</a></li>
+                    <li><a href="#" class="header__dropdown-link header__dropdown-link--multiline">Техническое
+                        сопровождение бизнеса</a></li>
+                  </ul>
+                </div>
+                <div class="header__dropdown-right">
+                  <div class="header__dropdown-desc">
+                    <p>Создаём современные сайты, которые решают бизнес-задачи — от первого клика до заявки.</p>
+                  </div>
+                  <div class="header__dropdown-content">
+                    <p class="header__dropdown-heading"><a href="#">Сайт под ключ</a></p>
+                    <ul class="header__dropdown-sublist">
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Сайт+SEO</a></li>
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Сайт+Маркетплейс</a>
+                      </li>
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Сайт+CRM</a></li>
+                    </ul>
+                    <p class="header__dropdown-heading"><a href="#">Разработка на CMS</a></p>
+                    <ul class="header__dropdown-sublist">
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Разработка на
+                          WordPress</a></li>
+                      <li><a href="#"><span class="header__dropdown-dot" aria-hidden="true"></span>Разработка на 1С
+                          Битрикс</a></li>
+                    </ul>
+                    <p class="header__dropdown-heading"><a href="#">Сложные сайты</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Продукты<span class="header__nav-caret" aria-hidden="true"></span></a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Готовые решения<span class="header__nav-caret"
+                aria-hidden="true"></span></a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Кейсы и проекты<span class="header__nav-caret"
+                aria-hidden="true"></span></a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">О нас<span class="header__nav-caret" aria-hidden="true"></span></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__right">
+        <a href="tel:+74954142808" class="header__phone">+7 (495) 414 28 08</a>
+        <button type="button" class="header__search" aria-label="Поиск">
+          <svg class="header__search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button type="button" class="header__burger" aria-label="Открыть меню" aria-expanded="false">
+          <svg class="header__burger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <a href="#" class="header__btn btn btn--primary desktop">Обсудить проект</a>
+      </div>
+    </div>
+  </div>
+
 </header>

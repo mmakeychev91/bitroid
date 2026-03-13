@@ -2,7 +2,7 @@
 // @use "../../node_modules/aos/dist/aos";
 
 // Swiper
-// @use "../../node_modules/swiper/swiper-bundle.min";
+@use "../../node_modules/swiper/swiper-bundle";
 
 // Config
 @use 'config/global';
@@ -21,6 +21,11 @@
 // Components
 @use 'components/header';
 @use 'components/footer';
+@use 'components/ui-kit';
+@use 'components/home';
+@use 'components/button';
+@use 'components/form';
+@use 'components/breadcrumbs-pagination';
 
 // Modals
 @use 'components/modals/modal-default';

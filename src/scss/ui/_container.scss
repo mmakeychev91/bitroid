@@ -1,6 +1,16 @@
+@use './../mixins/breakpoint' as *;
+
 .container {
-  // padding: 0 80px;
-  // max-width: 1440px;
+  padding: 0 60px;
+  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
+
+  @include tablet {
+    padding: 0 16px;
+  }
+
+  @include only-tablet {
+    padding: 0 45px;
+  }
 }
