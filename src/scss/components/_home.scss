@@ -31,17 +31,57 @@
 
 // ─── Герой ─────────────────────────────────────────────────────────────────
 
+.hero__bg-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    top: -200px;
+    left: -200px;
+
+    @include mobile {
+      top: -50px;
+      left: -200px;
+    }
+  }
+
+  &--blue {
+    top: -50px;
+    left: 200px;
+
+    @include mobile {
+      top: 300px;
+      left: -200px;
+    }
+
+  }
+
+
+}
+
 .hero {
   position: relative;
-  overflow: hidden;
   background: var(--color-white, #fff);
-
-  @include tablet-plus {
-    height: 800px;
-  }
 }
 
 .hero__inner {
+  padding-top: 200px;
+
+  @include tablet {
+    padding-top: 105px;
+  }
+
+  @include mobile {
+    padding-top: 80px;
+  }
+
   @include tablet-plus {
     position: relative;
     height: 100%;
@@ -58,9 +98,6 @@
   margin: 0;
 
   @include tablet-plus {
-    position: absolute;
-    top: 200px;
-    left: 60px;
     width: 740px;
   }
 
@@ -82,7 +119,7 @@
   @include tablet-plus {
     position: absolute;
     top: 146px;
-    left: 648px;
+    right: 0;
     width: 672px;
     height: 555px;
   }
@@ -91,6 +128,7 @@
     position: absolute;
     top: 60px;
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
     right: auto;
     width: 420px;
@@ -108,22 +146,16 @@
 
 .hero__desc {
   z-index: 9;
+
   @include tablet-plus {
-    position: absolute;
-    top: 224px;
-    right: 60px;
     width: 413px;
-    
+
   }
 
   @include only-tablet {
     position: relative;
-    margin-bottom: 40px;
   }
 
-  @include mobile {
-    margin-bottom: 32px;
-  }
 }
 
 .hero__subtitle {
@@ -134,8 +166,12 @@
   color: var(--color-deep-grey, #1e1e1e);
   margin: 0;
 
+  @include tablet {
+    margin-top: 0;
+  }
+
   @include tablet-plus {
-    margin-bottom: 151px;
+    margin-bottom: 82px;
   }
 
   @include tablet {
@@ -157,16 +193,13 @@
 
 .hero__products {
   display: flex;
+  flex-wrap: wrap;
+
   gap: 24px;
   list-style: none;
   padding: 0;
   margin: 0;
 
-  @include tablet-plus {
-    position: absolute;
-    left: 60px;
-    top: 649px;
-  }
 
   @include only-tablet {
     margin-top: 48px;
@@ -174,35 +207,38 @@
     gap: 16px;
   }
 
+  @include tablet {
+    justify-content: space-between;
+  }
+
   @include mobile {
     margin-top: 32px;
     flex-wrap: wrap;
     gap: 12px;
-    padding-bottom: 40px;
   }
 }
 
 .hero__product {
   position: relative;
   flex-shrink: 0;
-  width: 200px;
-  height: 138px;
   background: var(--color-white, #fff);
   border-radius: 16px;
   box-shadow: var(--input-shadow);
   overflow: hidden;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 200px;
 
   @include mobile {
-    width: calc(50% - 6px);
-    height: 100px;
+    width: calc(50% - 8px);
   }
 }
 
 .hero__product-icon {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+
   display: block;
   width: 64px;
   height: 64px;
@@ -223,21 +259,29 @@
 }
 
 .hero__product-title {
-  position: absolute;
-  top: 92px;
-  left: 0;
-  right: 0;
   font-family: var(--base-font), sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
   text-align: center;
-  padding: 0 8px;
 
   @include mobile {
     font-size: 13px;
     top: 62px;
+  }
+}
+
+.hero__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 200px;
+
+  @include tablet {
+    flex-direction: column;
+    margin-bottom: 40px;
   }
 }
 
@@ -259,37 +303,42 @@
   }
 }
 
+// Баннер преимуществ — по Figma (размеры, тень, типографика), без absolute — контент может расти
 .advantages__banner {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: space-between;
+  align-items: center;
+  gap: 40px;
   background: var(--color-white, #fff);
   border-radius: 30px;
-  box-shadow: var(--input-shadow);
+  box-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
   padding: 40px;
-  min-height: 400px;
   position: relative;
   overflow: hidden;
 
   @include only-tablet {
     flex-direction: column;
-    min-height: auto;
     padding: 32px;
     border-radius: 20px;
+    gap: 24px;
   }
 
   @include mobile {
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 12px;
     border-radius: 16px;
-    min-height: auto;
+    gap: 16px;
   }
 }
 
 .advantages__banner-left {
+  flex: 1;
+  min-width: 0;
   max-width: 440px;
   display: flex;
   flex-direction: column;
+  gap: 0;
 
   @include tablet {
     max-width: 100%;
@@ -302,12 +351,12 @@
   font-weight: 600;
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
-  margin: 0 0 auto;
+  margin: 0 0 24px;
   max-width: 440px;
 
-  @include only-tablet {
+  @include tablet {
     font-size: 26px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   @include mobile {
@@ -335,7 +384,7 @@
   font-weight: 400;
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
-  margin: 0 0 32px;
+  margin: 0 0 24px;
   max-width: 405px;
 
   @include mobile {
@@ -360,20 +409,24 @@
 }
 
 .advantages__banner-right {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding-top: 75px;
-  min-width: 380px;
+  align-items: flex-end;
+  gap: 16px;
+
+  @include tablet-plus {
+    padding-top: 0;
+  }
 
   @include only-tablet {
-    padding-top: 24px;
-    min-width: auto;
+    align-items: flex-start;
+    padding-top: 0;
   }
 
   @include mobile {
-    padding-top: 16px;
-    min-width: auto;
+    align-items: center;
+    padding-top: 0;
   }
 }
 
@@ -383,10 +436,11 @@
   font-weight: 600;
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
-  margin: 0 0 16px;
+  margin: 0;
 
   @include mobile {
     font-size: 16px;
+    text-align: center;
   }
 }
 
@@ -397,9 +451,16 @@
 
 .advantages__banner-logo-img {
   display: block;
-  max-width: 400px;
+  max-width: 100%;
+  width: 539px;
   height: auto;
+  max-height: 118px;
   object-fit: contain;
+  object-position: left center;
+
+  @include tablet {
+    max-width: 400px;
+  }
 
   @include mobile {
     max-width: 240px;
@@ -2834,7 +2895,7 @@ a.news__tab--link {
   }
 }
 
-  .cta {
+.cta {
   position: relative;
 
   &::before {
@@ -2867,15 +2928,9 @@ a.news__tab--link {
   // ─── Герой ───────────────────────────────────────────────────────────────
   // Figma: h-[583px], title 42px centered, img left-[52px] top-[35px] 663×548px
 
-  .hero {
-    height: 583px;
-    overflow: hidden;
-  }
-
   .hero__inner {
     position: relative;
     height: 100%;
-    overflow: hidden;
   }
 
   .hero__image-wrap {
@@ -2888,24 +2943,15 @@ a.news__tab--link {
   }
 
   .hero__title {
-    position: absolute;
-    top: 105px;
-    left: 50%;
     max-width: calc(100% - 90px);
-    right: auto;
-    transform: translateX(-50%);
     text-align: center;
     font-size: 42px;
     width: 100%;
-    margin: 0;
+    margin: 0 0 16px 0;
   }
 
   .hero__desc {
     width: calc(100% - 90px);
-    position: absolute;
-    top: 280px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2916,7 +2962,7 @@ a.news__tab--link {
     font-size: 16px;
     //max-width: 564px;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 90px;
   }
 
   .hero__actions {
@@ -2928,31 +2974,23 @@ a.news__tab--link {
   }
 
   .hero__products {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 453px;
-    flex-wrap: nowrap;
     gap: 16px;
     margin: 0;
-    width: max-content;
   }
 
   .hero__product {
     width: 157px;
-    height: 130px;
     border-radius: 12px;
+    padding: 20px 0;
   }
 
   .hero__product-title {
-    top: 92px;
     font-size: 16px;
   }
 
   .hero__product-icon {
     width: 64px;
     height: 64px;
-    top: 20px;
   }
 
   // ─── Преимущества ──────────────────────────────────────────────────────
@@ -2965,8 +3003,6 @@ a.news__tab--link {
   .advantages__banner {
     border-radius: 20px;
     padding: 30px;
-    height: 280px;
-    min-height: 280px;
     flex-direction: row;
     align-items: stretch;
     overflow: hidden;
@@ -2981,7 +3017,7 @@ a.news__tab--link {
   .advantages__banner-title {
     font-size: 26px;
     max-width: 281px;
-    margin: 0 0 auto;
+    margin: 0 0 20px;
   }
 
   .advantages__banner-partner {
@@ -2992,7 +3028,7 @@ a.news__tab--link {
   .advantages__banner-text {
     font-size: 14px;
     max-width: 311px;
-    margin-bottom: 0;
+    margin-bottom: 25px;
   }
 
   .advantages__banner-stat {
@@ -3007,12 +3043,13 @@ a.news__tab--link {
     top: 84px;
     padding-top: 0;
     min-width: auto;
-    align-items: flex-start;
+    align-items: end;
+    gap: 10px;
   }
 
   .advantages__banner-accred {
     font-size: 14px;
-    margin-bottom: 8px;
+
   }
 
   .advantages__banner-logo-img {
@@ -3625,15 +3662,9 @@ a.news__tab--link {
   // Figma: h-[717px], title 24px centered, img left-[-106px] top-[44px] 617×510px
   // кнопки: flex-col items-center top-[317px], продукты: 2×2 top-[441px]
 
-  .hero {
-    height: 717px;
-    overflow: hidden;
-  }
-
   .hero__inner {
     position: relative;
     height: 100%;
-    overflow: hidden;
   }
 
   .hero__image-wrap {
@@ -3642,28 +3673,24 @@ a.news__tab--link {
     width: 617px;
     height: 510px;
     opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .hero__title {
-    position: absolute;
-    top: 80px;
     max-width: calc(100% - 32px);
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
     text-align: center;
     font-size: 24px;
     width: 100%;
     max-width: none;
-    margin: 0;
+    margin: 0 0 12px 0;
   }
 
   .hero__desc {
-    position: absolute;
-    top: 230px;
+
     width: calc(100% - 32px);
-    left: 50%;
-    right: auto;
+
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3674,7 +3701,7 @@ a.news__tab--link {
     font-size: 14px;
     text-align: center;
     max-width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 78px;
   }
 
   .hero__actions {
@@ -3686,34 +3713,27 @@ a.news__tab--link {
   }
 
   .hero__products {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 441px;
-    flex-wrap: wrap;
     gap: 16px;
     margin: 0;
-    width: 330px;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .hero__product {
-    width: 157px;
-    height: 130px;
     border-radius: 12px;
-    flex: 0 0 157px;
   }
 
   .hero__product-title {
-    top: 92px;
     font-size: 16px;
   }
 
   .hero__product-icon {
     width: 64px;
     height: 64px;
-    top: 20px;
   }
+
+
+
+
 
   // ─── Преимущества ──────────────────────────────────────────────────────
   // Figma: h-[1018px], banner 328×382px rounded-[10px], stats vertical column
@@ -3725,63 +3745,65 @@ a.news__tab--link {
   .advantages__banner {
     border-radius: 10px;
     padding: 20px 12px;
-    height: 382px;
-    min-height: 382px;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    gap: 38px;
   }
 
   .advantages__banner-left {
-    max-width: 293px;
+    max-width: none;
     width: 100%;
     align-items: flex-start;
-    gap: 24px;
+    gap: 0;
   }
 
   .advantages__banner-title {
     font-size: 20px;
     max-width: 100%;
-    text-align: left;
-    margin: 0;
+    text-align: center;
+    margin: 0 0 24px 0;
   }
 
   .advantages__banner-partner {
     font-size: 16px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
   }
 
   .advantages__banner-text {
     font-size: 14px;
     max-width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 16px;
+    text-align: center;
   }
 
   .advantages__banner-stat {
     font-size: 16px;
-    text-align: center;
-    max-width: 246px;
-    position: absolute;
+    position: static;
     bottom: auto;
-    top: 196px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: auto;
+    left: auto;
     white-space: normal;
+    width: 100%;
+    text-align: center;
   }
 
   .advantages__banner-right {
-    position: absolute;
+    position: static;
     right: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    left: auto;
     top: auto;
     padding-top: 0;
-    bottom: 20px;
+    bottom: auto;
     align-items: center;
+    gap: 10px;
   }
 
   .advantages__banner-accred {
     font-size: 14px;
-    margin-bottom: 8px;
+
     text-align: center;
   }
 

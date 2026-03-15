@@ -17,6 +17,20 @@
   @include mobile {
     min-height: 48px;
   }
+
+  @include desktop-narrow {
+    gap: 8px;
+  }
+  .header__nav-list {
+    @include desktop-narrow {
+      gap: 8px;
+    }
+  }
+  .header__right {
+    @include desktop-narrow {
+      gap: 8px;
+    }
+  }
 }
 
 .header__logo {
