@@ -444,14 +444,62 @@
 
   <div class="cases__slider-outer">
     <div class="container">
-      <div class="swiper cases-swiper">
-        <div class="swiper-wrapper">
+      <span class="cases-gradient cases-gradient--green">
+        <svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_205_1456)">
+<circle cx="450" cy="450" r="150" fill="#34AE6B"/>
+</g>
+<defs>
+<filter id="filter0_f_205_1456" x="0" y="0" width="900" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_205_1456"/>
+</filter>
+</defs>
+</svg>
+
+      </span>
+      <span class="cases-gradient cases-gradient--blue">
+        <svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_205_1455)">
+<circle cx="450" cy="450" r="150" fill="#2587F9"/>
+</g>
+<defs>
+<filter id="filter0_f_205_1455" x="0" y="0" width="900" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_205_1455"/>
+</filter>
+</defs>
+</svg>
+
+      </span>
+      <button class="cases__nav-btn cases__nav-btn--prev swiper-button-prev-cases" type="button"
+        aria-label="Предыдущий кейс">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M12.5 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button class="cases__nav-btn cases__nav-btn--next swiper-button-next-cases" type="button"
+        aria-label="Следующий кейс">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M7.5 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+
+      <div class="cases__viewport">
+        <div class="swiper cases-swiper">
+          <div class="swiper-wrapper">
 
           <!-- Кейс 1 — белая карточка -->
           <div class="swiper-slide">
             <article class="cases__card">
               <div class="cases__card-figure" aria-hidden="true">
-                <img src="http://localhost:3845/assets/a5a15e00a3326050a43e0b16db9c336799ed53ff.png" alt=""
+                <img src="img/general/cases/Group 63.png" alt=""
                   class="cases__card-figure-img cases__card-figure-img--1" />
               </div>
               <div class="cases__card-body">
@@ -459,6 +507,14 @@
                 <h3 class="cases__card-name">Точка Роста</h3>
                 <p class="cases__card-desc">Упростили ведение клиентской базы для тренингового центра и помогли улучшить
                   воронки продаж.</p>
+                <a href="#" class="cases__card-link">
+                  Читать кейс
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
               </div>
             </article>
           </div>
@@ -466,6 +522,9 @@
           <!-- Кейс 2 — акцентная карточка (градиент) -->
           <div class="swiper-slide">
             <article class="cases__card cases__card--accent">
+              <div class="cases__card-union" aria-hidden="true">
+                <img src="img/general/cases/Union.png" alt="" class="cases__card-union-img">
+              </div>
               <div class="cases__card-body">
                 <span class="cases__card-badge">Корпоративные порталы</span>
                 <h3 class="cases__card-name">Стройхолдинг</h3>
@@ -486,7 +545,7 @@
           <div class="swiper-slide">
             <article class="cases__card">
               <div class="cases__card-figure cases__card-figure--right" aria-hidden="true">
-                <img src="http://localhost:3845/assets/a5a15e00a3326050a43e0b16db9c336799ed53ff.png" alt=""
+                <img src="img/general/cases/Group 63.png" alt=""
                   class="cases__card-figure-img cases__card-figure-img--3" />
               </div>
               <div class="cases__card-body">
@@ -494,17 +553,6 @@
                 <h3 class="cases__card-name">Дилер Vaillant Group</h3>
                 <p class="cases__card-desc">Разработали сайт, с помощью которого дистрибьютор климатической техники
                   смог увеличить количество заявок.</p>
-              </div>
-            </article>
-          </div>
-
-          <!-- Дополнительные слайды для демонстрации слайдера -->
-          <div class="swiper-slide">
-            <article class="cases__card cases__card--accent">
-              <div class="cases__card-body">
-                <span class="cases__card-badge">CRM и автоматизация</span>
-                <h3 class="cases__card-name">Логистика Плюс</h3>
-                <p class="cases__card-desc">Автоматизировали документооборот и сократили время обработки заявок на 40%.</p>
                 <a href="#" class="cases__card-link">
                   Читать кейс
                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -517,36 +565,45 @@
             </article>
           </div>
 
+          <!-- Дополнительные слайды для демонстрации слайдера -->
+          <div class="swiper-slide">
+            <article class="cases__card cases__card--accent">
+              <div class="cases__card-union" aria-hidden="true">
+                <img src="img/general/cases/Union.png" alt="" class="cases__card-union-img">
+              </div>
+              <div class="cases__card-body">
+                <span class="cases__card-badge">CRM и автоматизация</span>
+                <h3 class="cases__card-name">Логистика Плюс</h3>
+                <p class="cases__card-desc">Автоматизировали документооборот и сократили время обработки заявок на 40%.
+                </p>
+                <a href="#" class="cases__card-link">
+                  Читать кейс
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          </div>
         </div>
       </div>
 
       <div class="cases__controls">
-        <button class="cases__nav-btn cases__nav-btn--prev swiper-button-prev-cases" type="button"
-          aria-label="Предыдущий кейс">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <path d="M12.5 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </button>
+
         <div class="swiper-pagination cases-pagination"></div>
-        <button class="cases__nav-btn cases__nav-btn--next swiper-button-next-cases" type="button"
-          aria-label="Следующий кейс">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <path d="M7.5 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </button>
+
       </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container cases__head-btn-container">
     <a href="#" class="btn btn--primary cases__head-btn tablet">Смотреть все кейсы</a>
   </div>
 </section>
-
       <section class="certificates">
   <div class="container">
     <div class="certificates__head">

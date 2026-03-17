@@ -4,23 +4,16 @@ export default function initSliders() {
   // ─── Слайдер кейсов ────────────────────────────────────────────────────
   const casesEl = document.querySelector('.cases-swiper');
   if (casesEl) {
-    new Swiper(casesEl, {
-      slidesPerView: 'auto',
-      spaceBetween: 18,
-      loop: true,
+    const casesSwiper = new Swiper(casesEl, {
+      slidesPerView: 1,
+      spaceBetween: 12,
+      loop: false,
+      watchOverflow: true,
       navigation: {
         prevEl: '.swiper-button-prev-cases',
         nextEl: '.swiper-button-next-cases',
       },
-      pagination: {
-        el: '.cases-pagination',
-        clickable: true,
-        bulletClass: 'cases__dot',
-        bulletActiveClass: 'cases__dot--active',
-        renderBullet(index, className) {
-          return `<span class="${className}"></span>`;
-        },
-      },
+      pagination: false,
       breakpoints: {
         1280: {
           slidesPerView: 3,
@@ -36,6 +29,39 @@ export default function initSliders() {
         },
       },
     });
+
+    // Кастомная пагинация: буллет = каждый слайд (как в макете), а не snapGrid
+    const paginationEl = document.querySelector('.cases-pagination');
+    if (paginationEl) {
+      const render = () => {
+        const slidesCount = casesSwiper.slides.length;
+        paginationEl.innerHTML = Array.from({ length: slidesCount })
+          .map((_, i) => `<span class="cases__dot${i === casesSwiper.realIndex ? ' cases__dot--active' : ''}" data-index="${i}"></span>`)
+          .join('');
+      };
+
+      const setActive = () => {
+        const bullets = paginationEl.querySelectorAll('.cases__dot');
+        bullets.forEach((b) => b.classList.remove('cases__dot--active'));
+        const active = paginationEl.querySelector(`.cases__dot[data-index="${casesSwiper.realIndex}"]`);
+        if (active) active.classList.add('cases__dot--active');
+      };
+
+      render();
+      paginationEl.addEventListener('click', (e) => {
+        const target = e.target.closest('.cases__dot');
+        if (!target) return;
+        const idx = Number(target.getAttribute('data-index'));
+        if (Number.isNaN(idx)) return;
+        casesSwiper.slideTo(idx);
+      });
+
+      casesSwiper.on('slideChange', setActive);
+      casesSwiper.on('update', () => {
+        render();
+        setActive();
+      });
+    }
   }
 
   // ─── Слайдер отзывов ───────────────────────────────────────────────────
@@ -61,11 +87,11 @@ export default function initSliders() {
       },
       breakpoints: {
         1280: {
-          slidesPerView: 2,
-          spaceBetween: 24,
+          slidesPerView: 3,
+          spaceBetween: 18,
         },
         768: {
-          slidesPerView: 1.2,
+          slidesPerView: 2,
           spaceBetween: 16,
         },
         0: {

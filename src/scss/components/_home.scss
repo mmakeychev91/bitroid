@@ -772,6 +772,7 @@
 .products-services__btn {
   flex-shrink: 0;
   margin-top: 68px;
+
   @include tablet {
     position: relative;
     z-index: 9;
@@ -873,10 +874,12 @@
       min-height: 180px;
     }
   }
+
   @include tablet-plus {
     .products-services__card-bg {
       display: none;
     }
+
     &--wide {
       .products-services__card-bg {
         display: block;
@@ -904,7 +907,7 @@
   object-position: right bottom;
 }
 
-.products-services__card > *:not(.products-services__card-bg) {
+.products-services__card>*:not(.products-services__card-bg) {
   z-index: 1;
 }
 
@@ -1169,14 +1172,60 @@
 // ─── Кейсы и проекты ───────────────────────────────────────────────────────
 
 .cases {
-  padding: 150px 0 60px;
+  padding: 150px 0 0;
 
   @include only-tablet {
-    padding: 60px 0 40px;
+    padding: 60px 0 0;
   }
 
   @include mobile {
-    padding: 40px 0 32px;
+    padding: 40px 0 0;
+  }
+}
+
+.cases-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    top: -100px;
+    left: 400px;
+
+
+    @include tablet {
+      left: auto;
+      top: -200px;
+      right: -200px;
+    
+    }
+    @include mobile {
+      top: -100px;
+      right: -100px;
+    }
+  }
+
+  &--blue {
+    top: -200px;
+    left: 0;
+ 
+
+    @include tablet {
+      top: -200px;
+      left: -200px;
+
+    }
+    @include mobile {
+      top: -100px;
+      left: -100px;
+    }
+
   }
 }
 
@@ -1189,7 +1238,7 @@
 
   @include tablet {
     flex-direction: column;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
 }
 
@@ -1249,6 +1298,14 @@
 }
 
 .cases__slider-outer {
+  position: relative;
+  overflow: visible;
+  & > container {
+    position: relative;
+  }
+}
+
+.cases__viewport {
   overflow: hidden;
 }
 
@@ -1274,26 +1331,32 @@
   box-shadow: var(--input-shadow);
   overflow: hidden;
   flex-shrink: 0;
-  width: 378px;
-  height: 292px;
+  width: 100%;
+  min-height: 292px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 
   @include only-tablet {
     width: 100%;
     max-width: 340px;
-    height: auto;
-    min-height: 220px;
+    height: 100%;
+    min-height: auto;
+  }
+  @include tablet {
+    padding: 16px;
   }
 
   @include mobile {
     width: 100%;
     max-width: 100%;
-    height: auto;
-    min-height: 200px;
+    height: 100%;
+    min-height: auto;
   }
 
   &--accent {
-    width: 400px;
-    height: 330px;
+    min-height: 330px;
     background: linear-gradient(100.311deg, var(--color-green, #34ae6b) 3.22%, var(--color-blue, #2587f9) 86.86%);
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
 
@@ -1301,6 +1364,7 @@
       width: 100%;
       max-width: 340px;
       height: auto;
+      min-height: auto;
     }
 
     @include mobile {
@@ -1318,13 +1382,26 @@
   height: 360px;
   pointer-events: none;
 
-  &--right {
+  @include tablet {
+    width: 228px;
+    height: 228px;
+    right: 0;
     left: auto;
-    right: -69px;
+
+  }
+
+  &--right {
+    left: 0;
+    right: auto;
     top: -28px;
     width: 348px;
     height: 348px;
     transform: rotate(180deg);
+
+    @include tablet {
+      width: 228px;
+      height: 228px;
+    }
   }
 }
 
@@ -1336,10 +1413,8 @@
 }
 
 .cases__card-body {
-  position: absolute;
-  left: 24px;
-  bottom: 24px;
-  right: 24px;
+  position: relative;
+  z-index: 9;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1349,7 +1424,6 @@
     left: auto;
     bottom: auto;
     right: auto;
-    padding: 24px;
   }
 }
 
@@ -1430,6 +1504,14 @@
   &:hover {
     opacity: 0.8;
   }
+  @include mobile {
+    margin-top: 12px;
+  }
+}
+
+// Ссылка на белых карточках
+.cases__card:not(.cases__card--accent) .cases__card-link {
+  color: var(--color-deep-grey, #1e1e1e);
 }
 
 .cases__nav {
@@ -1456,23 +1538,20 @@
   box-shadow: var(--input-shadow);
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, opacity 0.2s, color 0.2s;
   flex-shrink: 0;
 
   svg {
     color: var(--color-deep-grey, #1e1e1e);
   }
 
-  &--next {
+  &:hover {
     background: var(--color-green, #34ae6b);
+    opacity: 0.95;
 
     svg {
       color: var(--color-white, #fff);
     }
-  }
-
-  &:hover {
-    opacity: 0.85;
   }
 }
 
@@ -1488,7 +1567,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--color-ivory, #e0e0e0);
+  background: white;
   transition: background-color 0.2s;
 
   &--active {
@@ -2803,6 +2882,18 @@
 // Кейсы: авто-ширина слайдов
 .cases-swiper {
   overflow: visible;
+  min-height: 330px;
+
+  @include tablet {
+    min-height: 200px;
+  }
+
+  .swiper-wrapper {
+    align-items: stretch;
+    @include tablet-plus {
+      align-items: center;
+    }
+  }
 
   .swiper-slide {
     width: auto;
@@ -2810,7 +2901,26 @@
   }
 
   .cases__card {
-    height: 100%;
+    height: auto;
+  }
+}
+
+@include tablet-plus {
+
+  // Десктоп: центральный слайд выше (330px), остальные 292px
+  .cases-swiper {
+    min-height: 330px;
+  }
+
+  .cases-swiper .swiper-slide .cases__card {
+    min-height: 292px;
+    transition: height 0.25s ease;
+    will-change: height;
+  }
+
+  // В не-centered режиме active = левый видимый, значит центральный = next
+  .cases-swiper .swiper-slide.swiper-slide-next .cases__card {
+    min-height: 330px;
   }
 }
 
@@ -2841,37 +2951,79 @@
   justify-content: center;
   gap: 6px;
 
+  // В кейсах пагинация центрируется между стрелками
+  &.cases-pagination {
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+
   .cases__dot,
   .reviews__dot {
     display: block;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--second-grey-300, #d6d6d6);
-    transition: background-color 0.2s, width 0.2s;
+    background: white;
+    transition: background-color 0.2s;
     cursor: pointer;
     margin: 0;
     opacity: 1;
 
     &--active {
       background: var(--color-green, #34ae6b);
-      width: 24px;
-      border-radius: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
     }
   }
 }
 
 // Контролы кейсов
 .cases__controls {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 16px;
   margin-top: 20px;
-  width: 100%;
+}
 
-  @include mobile {
-    justify-content: center;
-    gap: 16px;
+// Стрелки кейсов — позиционируем относительно слайдера (от краёв),
+// пагинация остаётся в потоке под ним
+@include tablet-plus {
+
+  .cases__slider-outer .cases__nav-btn--prev,
+  .cases__slider-outer .cases__nav-btn--next {
+    z-index: 99;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .cases__slider-outer .cases__nav-btn--prev {
+    left: 8px;
+
+    @include desktop-narrow {
+      left: 8px;
+    }
+
+  }
+
+  .cases__slider-outer .cases__nav-btn--next {
+    right: 8px;
+
+    @include desktop-narrow {
+      right: 8px;
+    }
+  }
+}
+
+@include tablet {
+
+  .cases__slider-outer .cases__nav-btn--prev,
+  .cases__slider-outer .cases__nav-btn--next {
+    display: none;
   }
 }
 
@@ -3337,7 +3489,7 @@ a.news__tab--link {
 
   .cases__head {
     flex-direction: column;
-    margin-bottom: 22px;
+    margin-bottom: 40px;
     gap: 12px;
   }
 
@@ -3364,21 +3516,26 @@ a.news__tab--link {
 
   .cases__card {
     width: 331px;
-    height: 200px;
+    min-height: 200px;
     border-radius: 20px;
 
     &--accent {
       width: 331px;
-      height: 200px;
+      min-height: 200px;
       border-radius: 20px;
     }
   }
 
+  .cases__card-union-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
   .cases__card-body {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
-    right: 16px;
+    position: relative;
+    z-index: 9;
     padding: 0;
     gap: 8px;
   }
@@ -4092,7 +4249,7 @@ a.news__tab--link {
 
   .cases__head {
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     gap: 12px;
   }
 
@@ -4113,14 +4270,15 @@ a.news__tab--link {
     width: 328px;
   }
 
+
   .cases__card {
     width: 328px;
-    height: 200px;
+    min-height: 200px;
     border-radius: 20px;
 
     &--accent {
       width: 328px;
-      height: 200px;
+      min-height: 200px;
     }
   }
 
@@ -4505,5 +4663,29 @@ a.news__tab--link {
 
   .news__card-desc {
     font-size: 12px;
+  }
+}
+
+.cases__card-union {
+  position: absolute;
+  left: 70px;
+  top: -69px;
+  width: 346px;
+  height: 348px;
+  pointer-events: none;
+
+  @include tablet {
+    width: 228px;
+    height: 228px;
+    top: -20px;
+    right: 0;
+    left: auto;
+  }
+}
+.cases__head-btn-container {
+  @include tablet {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
   }
 }
