@@ -294,6 +294,10 @@
   &>.container {
     position: relative;
   }
+
+  @include only-tablet {
+    padding-bottom: 38px;
+  }
 }
 
 .advantages-gradient {
@@ -317,6 +321,7 @@
       right: -300px;
 
     }
+
     @include mobile {
       bottom: auto;
       top: -100px;
@@ -618,7 +623,74 @@
 }
 
 .products-services__container {
-  padding-bottom: 60px;
+  position: relative;
+
+
+}
+
+.products-services-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--blue {
+    bottom: -200px;
+    right: 0;
+
+    @include tablet {
+      bottom: auto;
+      top: 0;
+      right: -100px;
+
+    }
+
+    @include mobile {
+      bottom: auto;
+      top: 100px;
+      right: auto;
+      left: -100px;
+    }
+  }
+
+  &--green {
+    bottom: -200px;
+    left: 0;
+
+    @include tablet {
+      bottom: auto;
+      top: 0;
+      left: -100px;
+    }
+
+    @include mobile {
+      bottom: auto;
+      top: 300px;
+      right: -100px;
+      left: auto;
+
+    }
+
+  }
+
+  &--blue-sec {
+    @include mobile {
+      top: 700px;
+      left: -100px;
+    }
+  }
+
+  &--green-sec {
+    @include mobile {
+      top: 900px;
+      right: -100px;
+    }
+  }
 }
 
 .products-services__head {
@@ -700,6 +772,10 @@
 .products-services__btn {
   flex-shrink: 0;
   margin-top: 68px;
+  @include tablet {
+    position: relative;
+    z-index: 9;
+  }
 
   @include mobile {
     margin-top: 32px;
@@ -718,6 +794,10 @@
   padding: 0;
   list-style: none;
 
+  @include tablet {
+    margin-bottom: 40px;
+  }
+
   @include mobile {
     flex-direction: column;
     max-width: 328px;
@@ -730,7 +810,6 @@
     max-width: 678px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0;
     gap: 16px;
   }
 }
@@ -745,6 +824,7 @@
   border-radius: 30px;
   box-shadow: var(--input-shadow);
   flex-shrink: 0;
+  overflow: hidden;
 
   &--wide {
     width: 872px;
@@ -792,6 +872,63 @@
       max-width: 328px;
       min-height: 180px;
     }
+  }
+  @include tablet-plus {
+    .products-services__card-bg {
+      display: none;
+    }
+    &--wide {
+      .products-services__card-bg {
+        display: block;
+      }
+    }
+  }
+}
+
+// Фоновая картинка карточки (через разметку)
+.products-services__card-bg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 403px;
+  height: 403px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.products-services__card-bg-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+.products-services__card > *:not(.products-services__card-bg) {
+  z-index: 1;
+}
+
+.products-services__card-title,
+.products-services__card-desc {
+  position: relative;
+  z-index: 1;
+}
+
+.products-services__card-link {
+  z-index: 1;
+}
+
+@include only-tablet {
+  .products-services__card-bg {
+    width: 205px;
+    height: 205px;
+  }
+}
+
+@include mobile {
+  .products-services__card-bg {
+    width: 193px;
+    height: 193px;
   }
 }
 
@@ -2780,20 +2917,6 @@ a.news__tab--link {
 .products-services {
   position: relative;
 
-  &::before {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 300px;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(52, 174, 107, 0.15) 0%, transparent 70%);
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
   .container {
     position: relative;
     z-index: 1;
@@ -3104,7 +3227,7 @@ a.news__tab--link {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 22px;
+    margin-bottom: 40px;
   }
 
   .products-services__text {
@@ -3141,13 +3264,11 @@ a.news__tab--link {
 
     &--wide {
       width: 678px;
-      height: 178px;
       min-height: 178px;
     }
 
     &:not(&--wide) {
       width: 331px;
-      height: 230px;
       min-height: 230px;
     }
   }
@@ -3869,7 +3990,7 @@ a.news__tab--link {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   .products-services__title {
@@ -3905,7 +4026,6 @@ a.news__tab--link {
       width: 100%;
       min-width: 0;
       max-width: 100%;
-      height: 180px;
       min-height: 180px;
     }
   }
