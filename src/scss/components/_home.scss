@@ -1207,8 +1207,9 @@
       left: auto;
       top: -200px;
       right: -200px;
-    
+
     }
+
     @include mobile {
       top: -100px;
       right: -100px;
@@ -1218,13 +1219,14 @@
   &--blue {
     top: -200px;
     left: 0;
- 
+
 
     @include tablet {
       top: -200px;
       left: -200px;
 
     }
+
     @include mobile {
       top: -100px;
       left: -100px;
@@ -1304,7 +1306,8 @@
 .cases__slider-outer {
   position: relative;
   overflow: visible;
-  & > container {
+
+  &>container {
     position: relative;
   }
 }
@@ -1348,6 +1351,7 @@
     height: 100%;
     min-height: auto;
   }
+
   @include tablet {
     padding: 16px;
   }
@@ -1508,6 +1512,7 @@
   &:hover {
     opacity: 0.8;
   }
+
   @include mobile {
     margin-top: 12px;
   }
@@ -1663,11 +1668,14 @@
     margin-top: 0;
   }
 }
+
 .certificates__head-btn-wrapper {
   text-align: center;
+
   a {
     white-space: nowrap;
   }
+
   @include tablet {
     display: flex;
     justify-content: space-between;
@@ -1787,15 +1795,15 @@
 // ─── Отзывы ────────────────────────────────────────────────────────────────
 
 .reviews {
-  padding: 150px 0 60px;
+  padding: 150px 0 0;
   overflow: hidden;
 
   @include only-tablet {
-    padding: 60px 0 40px;
+    padding: 60px 0 0;
   }
 
   @include mobile {
-    padding: 40px 0 32px;
+    padding: 40px 0 0;
   }
 }
 
@@ -2032,26 +2040,23 @@
 // ─── Команда ───────────────────────────────────────────────────────────────
 
 .team {
-  padding: 145px 0 60px;
+  padding: 145px 0 0;
 
   @include only-tablet {
-    padding: 60px 0 40px;
+    padding: 60px 0 0;
   }
 
   @include mobile {
-    padding: 40px 0 32px;
+    padding: 40px 0 0;
   }
 }
 
 .team__inner {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
   position: relative;
+  min-height: 530px;
 
   @include tablet {
-    flex-direction: column;
+    min-height: unset;
   }
 }
 
@@ -2106,10 +2111,12 @@
 }
 
 .team__gallery {
-  flex-shrink: 0;
   position: relative;
-  width: 625px;
-  height: 490px;
+  width: 683px;
+  height: 477px;
+  position: absolute;
+  left: 637px;
+  top: 37px;
 
   @include tablet {
     display: none;
@@ -2128,14 +2135,15 @@
   justify-content: flex-end;
   padding: 20px;
   gap: 8px;
+  z-index: 2;
 
   &--1 {
-    right: 0;
-    bottom: 0;
+    left: 347px;
+    top: 278px;
   }
 
   &--2 {
-    right: 0;
+    left: 72px;
     top: 0;
   }
 }
@@ -2143,16 +2151,17 @@
 .team__member-photo {
   position: absolute;
   top: 14px;
-  right: 20px;
+  right: 31px;
   width: 110px;
   height: 110px;
   border-radius: 10px;
   overflow: hidden;
 
   img {
-    display: block;
+    position: absolute;
     width: 100%;
     height: 100%;
+    max-width: none;
     object-fit: cover;
   }
 }
@@ -2186,6 +2195,7 @@
   border-radius: 10px;
   overflow: hidden;
   background: var(--color-light-grey, #f8f8f8);
+  z-index: 1;
 
   img {
     display: block;
@@ -2195,29 +2205,29 @@
   }
 
   &--1 {
-    left: 0;
-    top: 0;
+    left: 419px;
+    top: 94px;
     width: 264px;
     height: 144px;
   }
 
   &--2 {
     left: 0;
-    top: 170px;
+    top: 283px;
     width: 88px;
     height: 133px;
   }
 
   &--3 {
-    left: 110px;
-    top: 170px;
+    left: 204px;
+    top: 246px;
     width: 108px;
     height: 74px;
   }
 
   &--4 {
-    left: 0;
-    bottom: 0;
+    left: 112px;
+    top: 344px;
     width: 200px;
     height: 133px;
   }
@@ -2932,6 +2942,7 @@
 
   .swiper-wrapper {
     align-items: stretch;
+
     @include tablet-plus {
       align-items: center;
     }
@@ -3633,7 +3644,7 @@ a.news__tab--link {
   // Figma: h-[554px], cards 620×237px, rounded-[20px], gradient card first
 
   .reviews {
-    padding: 100px 0 60px;
+    padding: 100px 0 0;
   }
 
   .reviews__head {
@@ -3688,7 +3699,7 @@ a.news__tab--link {
   // Figma: h-[683px], buttons centered at top-[220px], member cards 273×100px
 
   .team {
-    padding: 100px 0 60px;
+    padding: 100px 0 0;
     position: relative;
   }
 
@@ -3714,44 +3725,45 @@ a.news__tab--link {
   }
 
   .team__actions {
-    margin-top: 12px;
     justify-content: center;
   }
 
   // Фото-коллаж — показываем на планшете в нижней части секции
   .team__gallery {
     display: block;
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 360px;
-    margin-top: 40px;
+    height: 100%;
+    margin-top: 0;
   }
 
   .team__gallery-card {
     &--1 {
       left: calc(41.67% + 4px);
-      top: 0;
+      top: 323px;
       width: 264px;
       height: 144px;
     }
 
     &--2 {
-      left: calc(8.33% + 44px);
-      top: 48px;
+      left: calc(83.33% - 16px);
+      top: 198px;
       width: 88px;
       height: 133px;
     }
 
     &--3 {
       left: calc(66.67% - 12px);
-      top: 0;
+      top: 233px;
       width: 108px;
       height: 74px;
     }
 
     &--4 {
       left: calc(8.33% + 44px);
-      top: 195px;
+      top: 361px;
       width: 200px;
       height: 133px;
     }
@@ -3762,18 +3774,19 @@ a.news__tab--link {
     height: 100px;
     border-radius: 10px;
     padding: 12px;
+    background: linear-gradient(-58.694deg, #d3e7fe 7.81%, #d5eee1 89.18%);
 
     &--1 {
       right: auto;
       left: calc(58.33% + 3px);
       bottom: auto;
-      top: 246px;
+      top: 483px;
     }
 
     &--2 {
       right: auto;
       left: 45px;
-      top: 0;
+      top: 207px;
     }
   }
 
@@ -3782,6 +3795,7 @@ a.news__tab--link {
     height: 60px;
     top: 20px;
     right: 12px;
+    border-radius: 4px;
   }
 
   .team__member-name {
@@ -4372,10 +4386,10 @@ a.news__tab--link {
   // Figma: h-[592px], cards 328×314px rounded-[10px], logo 99×27px
 
   .reviews {
-    padding: 60px 0 60px;
+    padding: 60px 0 0;
   }
 
-  .reviews__head {
+  .reviews__head {  
     flex-direction: column;
     margin-bottom: 20px;
     gap: 12px;
@@ -4437,11 +4451,17 @@ a.news__tab--link {
   // Figma: h-[617px], member cards 201×80px, фото-коллаж с абс. позицией
 
   .team {
-    padding: 60px 0 60px;
+    padding: 78px 0 0;
+  }
+
+  .team__inner {
+    position: relative;
+    min-height: calc(617px - 75px);
+    gap: 0;
   }
 
   .team__content {
-    max-width: 100%;
+    max-width: 328px;
     gap: 12px;
   }
 
@@ -4455,11 +4475,33 @@ a.news__tab--link {
   }
 
   .team__actions {
-    margin-top: 12px;
+    position: absolute;
+    left: 50%;
+    top: 489px;
+    transform: translateX(-50%);
+    margin-top: 0;
     justify-content: center;
     gap: 12px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    width: max-content;
+    z-index: 3;
+
+    .btn {
+      height: 50px;
+      font-size: 14px;
+      padding: 16px 20px;
+    }
+
+    .link-arrow {
+      gap: 8px;
+      font-size: 14px;
+
+      svg {
+        width: 16px;
+        height: auto;
+      }
+    }
   }
 
   .team__member {
@@ -4471,18 +4513,22 @@ a.news__tab--link {
       linear-gradient(90deg, #fff 0%, #fff 100%);
 
     &--1 {
-      left: 0;
-      top: 160px;
+      left: calc(25% + 53px);
+      top: 369px;
       right: auto;
       bottom: auto;
     }
 
     &--2 {
-      left: calc(25% + 37px);
-      top: 389px;
+      left: 16px;
+      top: 140px;
       right: auto;
       bottom: auto;
     }
+  }
+
+  .team__member-info {
+    gap: 4px;
   }
 
   .team__member-photo {
@@ -4502,37 +4548,39 @@ a.news__tab--link {
 
   .team__gallery {
     display: block;
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 310px;
-    margin-top: 20px;
+    height: 100%;
+    margin-top: 0;
   }
 
   .team__gallery-card {
     &--1 {
-      left: calc(25% + 6px);
-      top: 48px;
+      left: calc(25% + 22px);
+      top: 228px;
       width: 232px;
       height: 133px;
     }
 
     &--2 {
-      left: 0;
-      top: 48px;
+      left: 16px;
+      top: 228px;
       width: 88px;
       height: 133px;
     }
 
     &--3 {
-      left: calc(50% + 29px);
-      top: 2px;
+      left: calc(50% + 45px);
+      top: 142px;
       width: 119px;
       height: 78px;
     }
 
     &--4 {
-      left: 0;
-      top: 189px;
+      left: 16px;
+      top: 369px;
       width: 119px;
       height: 80px;
     }
@@ -4722,6 +4770,7 @@ a.news__tab--link {
     left: auto;
   }
 }
+
 .cases__head-btn-container {
   @include tablet {
     display: flex;
