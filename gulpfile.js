@@ -7,12 +7,11 @@ import browserSync from 'browser-sync';
 import gulpSass from 'gulp-sass';
 import imagemin, { svgo } from 'gulp-imagemin';
 import fileInclude from 'gulp-file-include';
-import rev from 'gulp-rev-all';
+import rev from 'gulp-rev';
 import revRewrite from 'gulp-rev-rewrite';
-import revDel from 'gulp-rev';
 import gulpif from 'gulp-if';
 import notify from 'gulp-notify';
-import readFileSync from 'fs';
+import { readFileSync } from 'fs';
 import webpackStream from 'webpack-stream';
 import plumber from 'gulp-plumber';
 import path from 'path';
@@ -207,26 +206,17 @@ const watchFiles = () => {
 
 const resetCache = () => {
   return gulp
-    .src(`${buildFolder}/**/*.{css,js}`)
-    .pipe(rev.revision())
-    .pipe(revDel({ deleteOriginal: true }))
+    .src(`${buildFolder}/**/*.{css,js}`, { base: buildFolder })
+    .pipe(rev())
     .pipe(gulp.dest(buildFolder))
-    .pipe(rev.manifest('rev.json'))
+    .pipe(rev.manifest('rev.json', { merge: true }))
     .pipe(gulp.dest(buildFolder));
 };
 
 const rewrite = () => {
-  const manifest = readFileSync('app/rev.json');
-  gulp
-    .src(`${paths.buildCssFolder}/*.css`)
-    .pipe(
-      revRewrite({
-        manifest,
-      })
-    )
-    .pipe(gulp.dest(paths.buildCssFolder));
+  const manifest = readFileSync(`${buildFolder}/rev.json`);
   return gulp
-    .src(`${buildFolder}/**/*.html`)
+    .src([`${buildFolder}/**/*.html`, `${paths.buildCssFolder}/*.css`], { base: buildFolder })
     .pipe(
       revRewrite({
         manifest,
