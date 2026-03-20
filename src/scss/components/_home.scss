@@ -2247,20 +2247,21 @@
 // ─── Вопросы и ответы ──────────────────────────────────────────────────────
 
 .faq {
-  padding: 150px 0 60px;
+  padding: 150px 0 0;
 
   @include only-tablet {
-    padding: 60px 0 40px;
+    padding: 60px 0 0
   }
 
   @include mobile {
-    padding: 40px 0 32px;
+    padding: 40px 0 0;
   }
 }
 
 .faq__inner {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 60px;
 
   @include tablet {
@@ -2270,6 +2271,7 @@
 }
 
 .faq__content {
+  position: relative;
   flex: 1;
   max-width: 760px;
   display: flex;
@@ -2353,6 +2355,7 @@
   white-space: nowrap;
   margin-top: 4px;
   transition: opacity 0.2s;
+  
 
   svg {
     flex-shrink: 0;
@@ -3207,34 +3210,6 @@ a.news__tab--link {
 .faq {
   position: relative;
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: -80px;
-    top: 200px;
-    width: 480px;
-    height: 480px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(52, 174, 107, 0.2) 0%, transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    right: -60px;
-    top: 280px;
-    width: 440px;
-    height: 440px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(37, 135, 249, 0.15) 0%, transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
   .container {
     position: relative;
     z-index: 1;
@@ -3810,7 +3785,7 @@ a.news__tab--link {
   // Figma: h-[574px], list w-[678px], items padding 20px
 
   .faq {
-    padding: 100px 0 60px;
+    padding: 100px 0 0;
   }
 
   .faq__inner {
@@ -4389,7 +4364,7 @@ a.news__tab--link {
     padding: 60px 0 0;
   }
 
-  .reviews__head {  
+  .reviews__head {
     flex-direction: column;
     margin-bottom: 20px;
     gap: 12px;
@@ -4590,7 +4565,7 @@ a.news__tab--link {
   // Figma: h-[620px], list gap-[8px], open px-10 py-20, closed p-10
 
   .faq {
-    padding: 60px 0 60px;
+    padding: 60px 0 0;
   }
 
   .faq__head-text {

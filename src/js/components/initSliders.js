@@ -70,7 +70,7 @@ export default function initSliders() {
     new Swiper(reviewsEl, {
       slidesPerView: 'auto',
       spaceBetween: 24,
-      loop: true,
+      loop: false,
       centeredSlides: false,
       navigation: {
         prevEl: '.swiper-button-prev-reviews',
