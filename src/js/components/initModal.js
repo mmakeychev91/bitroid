@@ -154,7 +154,7 @@ export default class Modal {
     const nodes = this.modalContainer.querySelectorAll(this._focusElements);
     if (this.isOpen) {
       if (nodes.length) nodes[0].focus();
-    } else {
+    } else if (this.previousActiveElement && typeof this.previousActiveElement.focus === 'function') {
       this.previousActiveElement.focus();
     }
   }
