@@ -27,8 +27,10 @@
     <div class="news__panels">
       <!-- Панель: Статьи (активна по умолчанию) -->
       <div class="news__panel news__panel--active" data-panel="articles" role="tabpanel">
-        <div class="news__grid">
-          <!-- Большая карточка (белая) -->
+        <div class="news__viewport">
+          <div class="swiper news-panel-swiper">
+            <div class="swiper-wrapper">
+          <div class="swiper-slide">
           <article class="news__card news__card--large">
             <div class="news__card-figure" aria-hidden="true">
               <img src="img/Frame 165.png" alt=""
@@ -48,8 +50,9 @@
               </a>
             </div>
           </article>
+          </div>
 
-          <!-- Маленькая карточка 1 (градиент) -->
+          <div class="swiper-slide">
           <article class="news__card news__card--accent">
             <div class="news__card-body">
               <span class="news__card-badge">CRM и бизнес</span>
@@ -64,8 +67,9 @@
               </a>
             </div>
           </article>
+          </div>
 
-          <!-- Маленькая карточка 2 (градиент) -->
+          <div class="swiper-slide">
           <article class="news__card news__card--accent">
             <div class="news__card-body">
               <span class="news__card-badge">Собственные разработки</span>
@@ -80,12 +84,19 @@
               </a>
             </div>
           </article>
+          </div>
+            </div>
+          </div>
         </div>
+        <div class="swiper-pagination news-pagination"></div>
       </div>
 
       <!-- Панель: Новости IT -->
       <div class="news__panel" data-panel="it" role="tabpanel" hidden>
-        <div class="news__grid">
+        <div class="news__viewport">
+          <div class="swiper news-panel-swiper">
+            <div class="swiper-wrapper">
+          <div class="swiper-slide">
           <article class="news__card news__card--large">
             <div class="news__card-body">
               <span class="news__card-badge">Новости IT</span>
@@ -101,6 +112,8 @@
               </a>
             </div>
           </article>
+          </div>
+          <div class="swiper-slide">
           <article class="news__card news__card--accent">
             <div class="news__card-body">
               <span class="news__card-badge">Новости IT</span>
@@ -115,6 +128,8 @@
               </a>
             </div>
           </article>
+          </div>
+          <div class="swiper-slide">
           <article class="news__card news__card--accent">
             <div class="news__card-body">
               <span class="news__card-badge">Новости IT</span>
@@ -129,7 +144,11 @@
               </a>
             </div>
           </article>
+          </div>
+            </div>
+          </div>
         </div>
+        <div class="swiper-pagination news-pagination"></div>
       </div>
     </div>
 

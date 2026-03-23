@@ -1,0 +1,25 @@
+@use '../../mixins/breakpoint' as *;
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--color-deep-grey, #1e1e1e);
+  text-decoration: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+
+  svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: auto;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

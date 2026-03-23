@@ -10,88 +10,82 @@
   </div>
 
   <div class="reviews__slider-outer">
-    <div class="swiper reviews-swiper">
-      <div class="swiper-wrapper">
+    <div class="container reviews__slider-inner">
+      <button class="reviews__nav-btn reviews__nav-btn--prev swiper-button-prev-reviews" type="button"
+        aria-label="Предыдущий отзыв">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12.5 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button class="reviews__nav-btn reviews__nav-btn--next swiper-button-next-reviews" type="button"
+        aria-label="Следующий отзыв">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M7.5 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div class="reviews__viewport">
+        <div class="swiper reviews-swiper">
+          <div class="swiper-wrapper">
 
-        <!-- Отзыв 1 — белая карточка -->
-        <div class="swiper-slide">
-          <article class="reviews__card">
-            <div class="reviews__card-logo" aria-hidden="true">
-              <img src="img/logo.png" alt="Битроид"
-                width="139" height="38" />
+            <div class="swiper-slide">
+              <article class="reviews__card">
+                <div class="reviews__card-logo" aria-hidden="true">
+                  <img src="img/logo.png" alt="Битроид" width="139" height="38" />
+                </div>
+                <blockquote class="reviews__card-text">
+                  Хотелось бы отметить профессионализм и ответственность, с которыми ваша команда подходит к исполнению
+                  поставленных задач
+                </blockquote>
+                <footer class="reviews__card-footer">
+                  <p class="reviews__card-author">П.В. Савцов</p>
+                  <p class="reviews__card-position">Заместитель руководителя по контрактной работе ГБ МСЭ ФМБА России</p>
+                </footer>
+              </article>
             </div>
-            <blockquote class="reviews__card-text">
-              Хотелось бы отметить профессионализм и ответственность, с которыми ваша команда подходит к исполнению
-              поставленных задач
-            </blockquote>
-            <footer class="reviews__card-footer">
-              <p class="reviews__card-author">П.В. Савцов</p>
-              <p class="reviews__card-position">Заместитель руководителя по контрактной работе ГБ МСЭ ФМБА России</p>
-            </footer>
-          </article>
-        </div>
 
-        <!-- Отзыв 2 — градиентная карточка -->
-        <div class="swiper-slide">
-          <article class="reviews__card reviews__card--gradient">
-            <div class="reviews__card-logo" aria-hidden="true">
-              <img src="img/logo.png" alt="Битроид"
-                width="139" height="38" />
+            <div class="swiper-slide">
+              <article class="reviews__card">
+                <div class="reviews__card-logo" aria-hidden="true">
+                  <img src="img/logo.png" alt="Битроид" width="139" height="38" />
+                </div>
+                <blockquote class="reviews__card-text">
+                  С момента нашего первого контакта и до завершения проекта команда проявила высочайший уровень
+                  профессионализма, что заметно на каждом этапе работы
+                </blockquote>
+                <footer class="reviews__card-footer">
+                  <p class="reviews__card-author">И.А. Ковешникова</p>
+                  <p class="reviews__card-position">Директор МКУ «ЦОД»</p>
+                </footer>
+              </article>
             </div>
-            <blockquote class="reviews__card-text">
-              С момента нашего первого контакта и до завершения проекта команда проявила высочайший уровень
-              профессионализма, что заметно на каждом этапе работы
-            </blockquote>
-            <footer class="reviews__card-footer">
-              <p class="reviews__card-author">И.А. Ковешникова</p>
-              <p class="reviews__card-position">Директор МКУ «ЦОД»</p>
-            </footer>
-          </article>
-        </div>
 
-        <!-- Отзыв 3 — белая карточка -->
-        <div class="swiper-slide">
-          <article class="reviews__card">
-            <div class="reviews__card-logo" aria-hidden="true">
-              <img src="img/logo.png" alt="Битроид"
-                width="139" height="38" />
+            <div class="swiper-slide">
+              <article class="reviews__card">
+                <div class="reviews__card-logo" aria-hidden="true">
+                  <img src="img/logo.png" alt="Битроид" width="139" height="38" />
+                </div>
+                <blockquote class="reviews__card-text">
+                  Ваши знания и опыт стали залогом успешного завершения проекта. Мы уверены, что совместная работа принесла
+                  нам должный результат
+                </blockquote>
+                <footer class="reviews__card-footer">
+                  <p class="reviews__card-author">Е.В. Иванова</p>
+                  <p class="reviews__card-position">Руководитель контрактной службы ФГБУ «НМИЦ онкологии им. Н.Н. Петрова» Минздрава России</p>
+                </footer>
+              </article>
             </div>
-            <blockquote class="reviews__card-text">
-              Ваши знания и опыт стали залогом успешного завершения проекта. Мы уверены, что совместная работа принесла
-              нам должный результат
-            </blockquote>
-            <footer class="reviews__card-footer">
-              <p class="reviews__card-author">Е.В. Иванова</p>
-              <p class="reviews__card-position">Руководитель контрактной службы ФГБУ «НМИЦ онкологии им. Н.Н. Петрова»
-                Минздрава России</p>
-            </footer>
-          </article>
-        </div>
 
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews__controls">
+        <div class="swiper-pagination reviews-pagination"></div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="reviews__controls">
-      <button class="reviews__nav-btn reviews__nav-btn--prev swiper-button-prev-reviews" type="button"
-        aria-label="Предыдущий отзыв">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path d="M12.5 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </button>
-      <div class="swiper-pagination reviews-pagination"></div>
-      <button class="reviews__nav-btn reviews__nav-btn--next swiper-button-next-reviews" type="button"
-        aria-label="Следующий отзыв">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path d="M7.5 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </button>
-    </div>
+  <div class="container reviews__btn-wrap">
     <a href="#" class="btn btn--primary reviews__head-btn tablet">Читать все отзывы</a>
   </div>
 </section>

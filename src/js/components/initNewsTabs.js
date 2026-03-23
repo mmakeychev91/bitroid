@@ -1,3 +1,5 @@
+import { updateNewsSliders } from './initNewsSliders.js';
+
 export default function initNewsTabs() {
   const tabButtons = document.querySelectorAll('.news__tab[data-tab]');
   if (!tabButtons.length) return;
@@ -24,6 +26,8 @@ export default function initNewsTabs() {
         panel.classList.toggle('news__panel--active', isActive);
         panel.hidden = !isActive;
       });
+
+      requestAnimationFrame(() => updateNewsSliders());
     });
   });
 }

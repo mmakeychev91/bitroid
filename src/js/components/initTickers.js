@@ -1,6 +1,7 @@
 import { throttle } from '../utils/throttle.js';
 
 const trackTemplates = new WeakMap();
+const TICKER_SPEED_PX_PER_SEC = 80;
 
 function appendTemplateSet(track, template) {
   template.forEach((node) => {
@@ -36,10 +37,20 @@ function buildTickerTrack(track) {
     appendTemplateSet(track, template);
   }
 
+  const firstHalfWidth = track.scrollWidth;
+  if (!firstHalfWidth) return;
+
   const firstHalfNodes = Array.from(track.children).map((node) => node.cloneNode(true));
   firstHalfNodes.forEach((node) => {
     track.appendChild(node);
   });
+
+  // Анимируем трек строго на ширину первой половины, чтобы цикл был бесшовным.
+  track.style.setProperty('--ticker-loop-width', `${firstHalfWidth}px`);
+
+  // Единая скорость для всех строк: длительность зависит от длины трека.
+  const durationInSeconds = firstHalfWidth / TICKER_SPEED_PX_PER_SEC;
+  track.style.setProperty('--ticker-duration', `${durationInSeconds}s`);
 }
 
 export default function initTickers() {

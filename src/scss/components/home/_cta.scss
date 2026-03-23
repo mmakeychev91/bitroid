@@ -1,0 +1,276 @@
+@use '../../mixins/breakpoint' as *;
+
+.cta {
+  padding: 100px 0 0;
+
+  @include only-tablet {
+    padding: 100px 0 0;
+  }
+
+  @include mobile {
+    padding: 60px 0 0;
+  }
+}
+
+.cta__card {
+  background: var(--color-white, #fff);
+  border-radius: 30px;
+  box-shadow: var(--input-shadow);
+  min-height: 525px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  position: relative;
+
+  @include only-tablet {
+    border-radius: 16px;
+    flex-direction: column;
+    min-height: 389px;
+    box-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
+  }
+
+  @include mobile {
+    flex-direction: column;
+    min-height: auto;
+    border-radius: 16px;
+  }
+}
+
+.cta__card-decor {
+  flex-shrink: 0;
+  width: 513px;
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+  padding: 40px;
+
+  @include only-tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.cta__card-decor-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cta__card-body {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include only-tablet {
+    padding: 30px;
+    gap: 12px;
+  }
+
+  @include mobile {
+    padding: 20px;
+    gap: 16px;
+  }
+}
+
+.cta__title {
+  font-family: var(--base-font), sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--color-deep-grey, #1e1e1e);
+  margin: 0;
+
+  @include only-tablet {
+    font-size: 26px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.cta__subtitle {
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+  margin: 0;
+
+  @include mobile {
+    font-size: 14px;
+  }
+
+  @include only-tablet {
+    font-size: 14px;
+  }
+}
+
+.cta__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+
+  @include mobile {
+    margin-top: 10px;
+  }
+}
+
+.cta__form-row {
+  display: flex;
+  gap: 16px;
+
+  @include only-tablet {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.cta__form-field {
+  flex: 1;
+
+  &--full {
+    flex: none;
+    width: 100%;
+  }
+
+  @include only-tablet {
+    flex: 0 0 290px;
+
+    &--full {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  }
+}
+
+.cta__input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 10px 16px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+  background: var(--color-white, #fff);
+  border: none;
+  border-radius: 4px;
+  box-shadow: var(--input-shadow);
+  box-sizing: border-box;
+  outline: none;
+  transition: box-shadow 0.2s;
+
+  &::placeholder {
+    color: var(--color-grey, #666);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px var(--color-green, #34ae6b);
+  }
+
+  @include only-tablet {
+    height: 40px;
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+.cta__submit {
+  align-self: flex-start;
+  margin: 40px auto 0 auto;
+  width: 200px;
+
+  @include only-tablet {
+    align-self: center;
+
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  @include mobile {
+    margin-top: 20px;
+  }
+}
+
+.cta__consent {
+  margin-top: 14px;
+}
+
+.cta__consent-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.cta__consent-checkbox {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  appearance: none;
+  border: 1px solid var(--color-green, #34ae6b);
+  border-radius: 4px;
+  background: var(--color-white, #fff);
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:checked {
+    background: var(--color-green, #34ae6b);
+  }
+}
+
+.cta__consent-text {
+  font-family: var(--base-font), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-grey, #666);
+  max-width: 560px;
+}
+
+.cta__consent-link {
+  font-weight: 600;
+  color: inherit;
+
+  &:hover {
+    color: var(--color-deep-grey, #1e1e1e);
+  }
+}
+
+// Валидация CTA-формы
+.cta__input--error {
+  box-shadow: 0 0 0 2px #e53e3e;
+}
+
+.cta__error {
+  display: block;
+  font-family: var(--base-font), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #e53e3e;
+  margin-top: 4px;
+}
+
+.cta__success-msg {
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-green, #34ae6b);
+  margin: 0;
+  padding: 16px 0;
+}

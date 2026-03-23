@@ -71,7 +71,8 @@ export default function initSliders() {
       slidesPerView: 'auto',
       spaceBetween: 24,
       loop: false,
-      centeredSlides: false,
+      watchOverflow: true,
+      centeredSlides: true,
       navigation: {
         prevEl: '.swiper-button-prev-reviews',
         nextEl: '.swiper-button-next-reviews',
@@ -87,16 +88,20 @@ export default function initSliders() {
       },
       breakpoints: {
         1280: {
-          slidesPerView: 3,
-          spaceBetween: 18,
+          slidesPerView: 'auto',
+          spaceBetween: 24,
+          centeredSlides: true,
         },
+        // 768–1279 = only-tablet: без center — первый слайд у левого края контейнера
         768: {
-          slidesPerView: 2,
+          slidesPerView: 'auto',
           spaceBetween: 16,
+          centeredSlides: false,
         },
         0: {
           slidesPerView: 1,
           spaceBetween: 12,
+          centeredSlides: true,
         },
       },
     });

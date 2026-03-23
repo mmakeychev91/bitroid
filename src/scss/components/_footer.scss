@@ -1,5 +1,5 @@
-// Футер — по Figma get_design_context (подвал, node 473:1443)
-// Размеры, отступы, шрифты 1:1 из макета
+// Футер — Figma: десктоп 473:1443, планшет 473:1493, мобилка 473:1435 (get_design_context)
+// Брейкпоинты только внутри селекторов (AGENTS.md)
 
 @use '../mixins/breakpoint' as *;
 
@@ -9,8 +9,19 @@
 }
 
 .footer .container {
+  position: relative;
   padding-top: 41px;
   padding-bottom: 0;
+
+  // Figma tablet 473:1493 — блок промо top-[100px]
+  @include only-tablet {
+    padding-top: 100px;
+  }
+
+  // Figma mobile 473:1435 — промо top-[60px]
+  @include mobile {
+    padding-top: 0;
+  }
 }
 
 // ─── Промо-блок ────────────────────────────────────────────────────────────
@@ -24,24 +35,29 @@
   position: relative;
   overflow: hidden;
 
-  &::after {
-    content: '';
-    position: absolute;
-    right: -60px;
-    top: -40px;
-    width: 460px;
-    height: 380px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(52, 174, 107, 0.18) 0%, rgba(37, 135, 249, 0.12) 50%, transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: 0;
+  @include tablet-plus {
+    padding-bottom: 73px;
+    align-items: center;
   }
 
   @include tablet {
     flex-direction: column;
     gap: 24px;
     padding-bottom: 32px;
+  }
+
+  // Figma 473:1493: колонка, gap 12 между заголовком и подзаголовком, кнопка top-[202px]
+  @include only-tablet {
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 40px;
+  }
+
+  // Figma: разделитель top-[290px], кнопка низ ~250px → padding-bottom ~40px
+  @include mobile {
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 40px;
   }
 }
 
@@ -55,6 +71,17 @@
 
   @include tablet {
     max-width: 100%;
+  }
+
+  @include only-tablet {
+    max-width: 595px;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    gap: 12px;
   }
 }
 
@@ -72,6 +99,7 @@
 
   @include mobile {
     font-size: 20px;
+    max-width: 280px;
   }
 }
 
@@ -83,20 +111,47 @@
   color: var(--color-deep-grey, #1e1e1e);
   margin: 0;
 
+  @include only-tablet {
+    font-size: 14px;
+  }
+
   @include mobile {
     font-size: 14px;
+    max-width: 316px;
   }
 }
 
 .footer__promo-btn {
   flex-shrink: 0;
-  margin-top: 44px;
   white-space: nowrap;
   position: relative;
   z-index: 1;
+  margin-right: 162px;
 
   @include tablet {
     margin-top: 0;
+  }
+
+  @include only-tablet {
+    margin-top: 0;
+    margin-right: 0;
+    align-self: flex-start;
+  }
+
+  @include mobile {
+    margin: 8px auto 0;
+    align-self: center;
+    height: 50px;
+    width: 220px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1.1;
   }
 }
 
@@ -116,16 +171,28 @@
   gap: 60px;
   padding: 40px 0 40px;
 
-  @include only-tablet {
-    flex-wrap: wrap;
-    gap: 32px;
-    padding: 32px 0;
+  @include tablet-plus {
+    gap: 0;
   }
 
-  @include mobile {
+  // Figma 473:1493: ОКВЭД на одной линии с контактами (top 378); навигация top 567
+  @include only-tablet {
+    position: relative;
     flex-direction: column;
-    gap: 24px;
-    padding: 24px 0;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 31px 0 40px;
+    align-items: flex-start;
+  }
+
+  // Figma 473:1435: лого/контакты top-[321px] после разделителя 290 → padding-top 31px
+  @include mobile {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 31px 0 40px;
+    align-items: flex-start;
+    position: relative;
   }
 }
 
@@ -136,9 +203,35 @@
   flex-direction: column;
   gap: 0;
 
+  @include tablet-plus {
+    width: 196px;
+    flex-shrink: 0;
+    margin-right: 115px;
+  }
+
   @include tablet {
     width: 100%;
     max-width: 220px;
+  }
+
+  @include only-tablet {
+    width: 196px;
+    min-width: 196px;
+    max-width: none;
+    margin-right: 0;
+    gap: 0;
+  }
+
+  @include mobile {
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: flex-start;
+    max-width: none;
+    margin-right: 0;
+    margin-bottom: 24px;
   }
 }
 
@@ -147,6 +240,11 @@
   width: 40px;
   height: 40px;
   margin-bottom: 20px;
+
+  @include mobile {
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
 }
 
 .footer__logo-img {
@@ -161,6 +259,19 @@
   align-items: center;
   gap: 8px;
   color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    gap: 10px;
+  }
+
+  // Figma: left-[calc(75%+22px)] top-[321px], колонка иконок gap 12px
+  @include mobile {
+    position: static;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-left: 0;
+  }
 }
 
 .footer__social {
@@ -169,6 +280,11 @@
   justify-content: center;
   color: var(--color-deep-grey, #1e1e1e);
   transition: opacity 0.2s;
+
+  @include mobile {
+    width: 24px;
+    height: 24px;
+  }
 
   svg {
     display: block;
@@ -194,6 +310,22 @@
   gap: 8px;
   font-style: normal;
   margin-bottom: 56px;
+
+  @include tablet-plus {
+    margin-bottom: 19px;
+  }
+
+  // Figma: соцсети top 503 — зазор после адреса ~18px
+  @include only-tablet {
+    margin-bottom: 18px;
+  }
+
+  // Figma: ОКВЭД top-[451px], блок контактов заканчивается выше → ~20px
+  @include mobile {
+    min-width: 0;
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
 }
 
 .footer__contact {
@@ -222,6 +354,14 @@
   @include tablet {
     width: auto;
   }
+
+  @include only-tablet {
+    width: 186px;
+  }
+
+  @include mobile {
+    width: 186px;
+  }
 }
 
 // ─── Навигация футера ──────────────────────────────────────────────────────
@@ -231,9 +371,38 @@
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
+  padding-top: 0;
 
+  @include tablet-plus {
+    flex: 1;
+    gap: 0;
+    flex-wrap: nowrap;
+    min-width: 0;
+    padding-top: 0;
+  }
+
+  // Figma 473:1493: gap 140 + 86 между колонками; 40px от соцсетей (567 − 527)
+  @include only-tablet {
+    flex: none;
+    width: 100%;
+    gap: 0;
+    flex-wrap: nowrap;
+    row-gap: 0;
+    padding-top: 40px;
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 86px;
+  }
+
+  // Figma 473:1435: top-[534px], gap 40px, ширина контента 328px
   @include mobile {
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    row-gap: 40px;
+    padding-top: 0;
+
   }
 }
 
@@ -242,6 +411,104 @@
   flex-direction: column;
   gap: 24px;
   min-width: 80px;
+
+  @include tablet-plus {
+    gap: 0;
+    min-width: 0;
+
+    &:nth-child(1) {
+      width: 89px;
+      flex-shrink: 0;
+      margin-right: 87px;
+    }
+
+    &:nth-child(2) {
+      width: 218px;
+      flex-shrink: 0;
+      margin-right: 80px;
+    }
+
+    &:nth-child(3) {
+      width: 142px;
+      flex-shrink: 0;
+      margin-right: 85px;
+    }
+
+    // На tablet-plus никаких особых инструкций для 4-й колонки, кроме дефолта
+    &:nth-child(4) {
+      width: 147px;
+      flex-shrink: 0;
+    }
+  }
+
+  @include only-tablet {
+    min-width: auto;
+    gap: 0;
+
+    &:nth-child(1) {
+      flex-shrink: 0;
+    }
+
+    &:nth-child(2) {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    &:nth-child(3) {
+      flex-shrink: 0;
+      margin-right: 0;
+    }
+
+    // Figma 473:1493: ОКВЭД left-[calc(50%+8px)] top-[378] — с контактами; вне flex-ряда навигации
+    &:nth-child(4) {
+      position: absolute;
+      top: 91px;
+      left: calc(50% + 8px);
+      right: auto;
+      width: 147px;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    margin-right: 0;
+  }
+
+  @include mobile {
+    min-width: auto;
+    gap: 0;
+
+    &:nth-child(4) {
+      grid-column: 1 / -1;
+      width: 100%;
+   
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    &:nth-child(1) {
+
+      order: 2;
+
+    }
+
+    &:nth-child(2) {
+
+      order: 3;
+
+    }
+
+    &:nth-child(3) {
+      grid-column: 1 / -1;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      row-gap: 40px;
+   
+      flex-shrink: 0;
+      order: 4;
+    }
+
+  }
 }
 
 .footer__nav-list {
@@ -255,6 +522,26 @@
 
 .footer__nav-list--spaced {
   margin-top: 16px;
+
+  @include tablet-plus {
+    margin-top: 134px;
+  }
+
+  // Figma 473:1493: gap-[129px] между лицензиями и «Для партнёров»
+  @include only-tablet {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 129px;
+  }
+
+  // Figma mobile: в одном ряду с лицензиями, gap 40, без отступа сверху
+  @include mobile {
+    margin-top: 0;
+    flex-shrink: 0;
+    width: 100px;
+    gap: 8px;
+  }
 }
 
 .footer__nav-link {
@@ -272,11 +559,45 @@
 
   &--bold {
     font-weight: 600;
+
+    @include only-tablet {
+      font-size: 14px;
+      line-height: 1.1;
+    }
+
+    @include mobile {
+      font-size: 14px;
+      line-height: 1.1;
+    }
   }
 
   &--muted {
     color: var(--color-grey, #666);
     font-size: 12px;
+
+    @include tablet-plus {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--color-deep-grey, #1e1e1e);
+    }
+
+    // Figma 473:1493: ОКВЭД и реестр — 14px Regular, #1e1e1e, leading normal
+    @include only-tablet {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: normal;
+      color: var(--color-deep-grey, #1e1e1e);
+    }
+
+    // Figma mobile: второй абзац w-[295px], 14px Regular, deep-grey, leading normal
+    @include mobile {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: normal;
+      color: var(--color-deep-grey, #1e1e1e);
+      max-width: 295px;
+    }
   }
 }
 
@@ -285,13 +606,30 @@
 .footer__bottom {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: start;
   gap: 24px;
   padding: 20px 0 24px;
 
-  @include mobile {
+  @include tablet-plus {
+    align-items: flex-end;
+    padding: 21px 0 24px;
+  }
+
+  @include tablet {
     flex-direction: column;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 0;
+    padding: 20px 0 24px;
+  }
+
+  // Figma 473:1493: между блоком © и рядом ссылок ~21px (877 − 856)
+  @include only-tablet {
+    gap: 6px;
+  }
+
+  // Figma mobile 473:1435: top-[926] − top-[905] = 21px
+  @include mobile {
+    gap: 6px;
   }
 }
 
@@ -299,6 +637,42 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 287px;
+
+  // Figma 473:1493: вторая строка копирайта — в ряду с юр. ссылками (см. .footer__legal-lead)
+  @include only-tablet {
+    gap: 0;
+    margin-bottom: 4px;
+    width: auto;
+
+    p:first-child {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    p:last-child {
+      display: none;
+    }
+  }
+
+  // Figma mobile: только «2026©»; «Все права…» в колонке с юр. ссылками (см. .footer__legal-lead)
+  @include mobile {
+    gap: 0;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 100%;
+
+    p:first-child {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    p:last-child {
+      display: none;
+    }
+  }
 }
 
 .footer__copy-text {
@@ -308,6 +682,10 @@
   line-height: normal;
   color: var(--color-grey, #666);
   margin: 0;
+
+  @include mobile {
+    line-height: 1.1;
+  }
 }
 
 .footer__legal {
@@ -316,8 +694,52 @@
   gap: 32px;
   flex-wrap: wrap;
 
+  @include tablet-plus {
+    display: grid;
+    grid-template-columns: 304px auto;
+    column-gap: 0;
+    align-items: center;
+  }
+
+  // Figma 473:1493: один ряд, gap 50px, leading 1.1
+  @include only-tablet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+  }
+
+  // Figma mobile: flex-col gap-[16px]
   @include mobile {
-    gap: 12px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+// «Все права…» в одной логической группе с юр. ссылками (tablet + mobile по макету)
+.footer__legal-lead {
+  display: none;
+
+  @include only-tablet {
+    display: block;
+    font-family: var(--base-font), sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-grey, #666);
+    white-space: nowrap;
+  }
+
+  @include mobile {
+    display: block;
+    font-family: var(--base-font), sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-grey, #666);
+    white-space: nowrap;
   }
 }
 
@@ -333,351 +755,38 @@
   &:hover {
     color: var(--color-deep-grey, #1e1e1e);
   }
-}
 
-// ══════════════════════════════════════════════════════════════════════════
-// TABLET FOOTER — точные размеры из Figma (планшет, 768px, padding: 45px)
-// ══════════════════════════════════════════════════════════════════════════
-
-@include only-tablet {
-  // ─── Промо-блок ──────────────────────────────────────────────────────
-  // Figma: title 26px, button left-aligned (NOT right), top-[202px]
-
-  .footer__promo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding-bottom: 40px;
+  @include only-tablet {
+    line-height: 1.1;
   }
 
-  .footer__promo-text {
-    max-width: 595px;
-    gap: 12px;
-  }
-
-  .footer__promo-title {
-    font-size: 26px;
-  }
-
-  .footer__promo-subtitle {
-    font-size: 14px;
-  }
-
-  .footer__promo-btn {
-    margin-top: 0;
-    align-self: flex-start;
-  }
-
-  // ─── Верхняя часть ─────────────────────────────────────────────────
-  // Figma: logo → contacts → socials (top-[318] → top-[378] → top-[503])
-
-  .footer__top {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0;
-    padding: 31px 0 40px;
-    align-items: flex-start;
-  }
-
-  .footer__brand {
-    width: 196px;
-    min-width: 196px;
-    gap: 0;
-  }
-
-  .footer__logo {
-    margin-bottom: 20px;
-  }
-
-  .footer__contacts {
-    gap: 8px;
-    margin-bottom: 56px;
-  }
-
-  .footer__contact {
-    font-size: 14px;
-  }
-
-  .footer__address {
-    font-size: 14px;
-    width: 186px;
-  }
-
-  .footer__socials {
-    gap: 10px;
-  }
-
-  // ─── Навигация ────────────────────────────────────────────────────
-  // Figma: 2-блока: [О компании, 140px gap, [Services + 86px gap + Licenses]]
-  // + ОКВЭД отдельно справа (в HTML: 4-я col)
-
-  .footer__nav {
-    flex: 1;
-    gap: 0;
-    flex-wrap: wrap;
-    row-gap: 24px;
-  }
-
-  .footer__nav-col {
-    min-width: auto;
-
-    &:nth-child(1) {
-      width: 89px;
-      margin-right: 140px;
-    }
-
-    &:nth-child(2) {
-      width: 216px;
-      margin-right: 86px;
-    }
-
-    &:nth-child(3) {
-      width: 142px;
-    }
-
-    &:nth-child(4) {
-      width: 147px;
-      margin-left: auto;
-    }
-  }
-
-  .footer__nav-link {
-    font-size: 14px;
-
-    &--muted {
-      font-size: 12px;
-    }
-  }
-
-  // ─── Нижняя часть ─────────────────────────────────────────────────
-  // Figma: copyright top-[856px], row (права + legal) top-[877px], все слева
-
-  .footer__bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 20px 0 24px;
-  }
-
-  .footer__copy {
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 4px;
-
-    p:first-child {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    p:last-child {
-      display: none;
-    }
-  }
-
-  .footer__copy-text {
-    font-size: 14px;
-  }
-
-  .footer__legal {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 50px;
-    align-items: center;
-  }
-
-  .footer__legal-link {
-    font-size: 14px;
-    font-weight: 600;
+  @include mobile {
+    line-height: 1.1;
   }
 }
 
-// ══════════════════════════════════════════════════════════════════════════
-// MOBILE FOOTER — точные размеры из Figma (мобилка, 360px, padding: 16px)
-// ══════════════════════════════════════════════════════════════════════════
+.footer__bg {
+  position: absolute;
+  width: 345px;
+  height: 286px;
+  right: 50px;
+  top: 0;
+  z-index: 0;
+  pointer-events: none;
 
-@include mobile {
-  // ─── Промо-блок ──────────────────────────────────────────────────────
-  // Figma: title 20px w-[280px], subtitle 14px w-[316px], btn 220×50px centered top-[200px]
-
-  .footer__promo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding-bottom: 32px;
-  }
-
-  .footer__promo-text {
-    max-width: 100%;
-    gap: 12px;
-  }
-
-  .footer__promo-title {
-    font-size: 20px;
-    max-width: 280px;
-  }
-
-  .footer__promo-subtitle {
-    font-size: 14px;
-    max-width: 316px;
-  }
-
-  .footer__promo-btn {
-    margin: 8px auto 0;
-    align-self: center;
-    height: 50px;
-    width: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-  }
-
-  // ─── Верхняя часть ─────────────────────────────────────────────────
-  // Figma: logo left-16 top-321; contacts left-76 top-321 (рядом с логотипом);
-  // socials ВЕРТИКАЛЬНО left-[calc(75%+22px)] top-321 (flex-col, gap-12px)
-
-  .footer__top {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0;
-    padding: 31px 0 40px;
-    align-items: flex-start;
-    position: relative;
-  }
-
-  .footer__brand {
+  img {
+    display: block;
     width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0;
-    align-items: flex-start;
+    height: 100%;
+    object-fit: contain;
   }
 
-  .footer__logo {
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
-    flex-shrink: 0;
-  }
-
-  .footer__contacts {
-    flex: 1;
-    gap: 8px;
-    margin-bottom: 24px;
-  }
-
-  .footer__contact {
-    font-size: 14px;
-  }
-
-  .footer__address {
-    font-size: 14px;
-    width: 186px;
-  }
-
-  .footer__socials {
-    // на мобилке социальные иконки вертикально справа
-    position: absolute;
-    right: 0;
-    top: 31px;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    margin-left: 0;
-  }
-
-  .footer__social {
-    width: 24px;
-    height: 24px;
-  }
-
-  // ─── ОКВЭД ────────────────────────────────────────────────────────
-  .footer__okvad {
-    width: 100%;
-    margin-bottom: 8px;
-    font-size: 14px;
-  }
-
-  // ─── Навигация ────────────────────────────────────────────────────
-  // Figma: flex-wrap gap-[40px], services col + О компании col на первом ряду,
-  // licenses+partners на втором ряду
-
-  .footer__nav {
-    flex-wrap: wrap;
-    gap: 40px;
-    row-gap: 40px;
-  }
-
-  .footer__nav-col {
-    min-width: auto;
-
-    &:nth-child(1) {
-      // О компании
-      order: 2;
-      width: 89px;
-    }
-
-    &:nth-child(2) {
-      // Services
-      order: 1;
-      width: auto;
-    }
-
-    &:nth-child(3) {
-      // Licenses
-      order: 3;
-      width: 162px;
-    }
-
-    &:nth-child(4) {
-      // Partners/ОКВЭД
-      order: 4;
-      width: 100px;
-      margin-left: 0;
-    }
-  }
-
-  .footer__nav-link {
-    font-size: 14px;
-  }
-
-  // ─── Нижняя часть ─────────────────────────────────────────────────
-  // Figma: copyright top-[905px] left-[16px]; bottom links ВЕРТИКАЛЬНО gap-[16px]
-
-  .footer__bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 20px 0 24px;
-  }
-
-  .footer__copy {
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 4px;
-
-    p:first-child {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    p:last-child {
-      display: none;
-    }
-  }
-
-  .footer__copy-text {
-    font-size: 14px;
-  }
-
-  .footer__legal {
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .footer__legal-link {
-    font-size: 14px;
-    font-weight: 600;
+  // Figma 473:1435 — декор «b» (node 473:1380–473:1384): calc(25%+50px), top 60, ~257×212, opacity 30%
+  @include mobile {
+    top: 0;
+    right: auto;
+    left: calc(25% + 50px);
+    width: 256.824px;
+    height: 212.255px;
   }
 }

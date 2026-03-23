@@ -20,13 +20,49 @@
 
 ## Стили (SCSS)
 
-- **БЭМ:** блоки вида `block`, элементы `block__element`, модификаторы `block--modifier` или `block__element--modifier`.
-- **Брейкпоинты** (из `mixins/breakpoint`):
-  - `@include tablet-plus` — десктоп, min-width: 1240px
-  - `@include tablet` — планшет и меньше, max-width: 1239px
-  - `@include mobile` — мобилка, max-width: 767px
-  - `@include mobile-plus` — от 768px; `@include only-tablet` — 768–1239px
-- **Стили для других экранов** — писать **внутри селектора**, а не в отдельных блоках в конце файла. Пример:
+### БЭМ
+
+- **Блок:** `block` — независимый компонент
+- **Элемент:** `block__element` — часть блока
+- **Модификатор:** `block--modifier` или `block__element--modifier` — вариация
+- **Один БЭМ-блок — один файл:** каждый блок выносится в отдельный `_block-name.scss`; крупные разделы (например, главная) собираются в папку с `_index.scss`
+
+### Структура главной (home)
+
+Блоки главной в `scss/components/home/`:
+
+| Файл               | Блок              |
+|--------------------|-------------------|
+| `_link-arrow.scss` | Вспомогательная ссылка |
+| `_hero.scss`       | hero              |
+| `_advantages.scss` | advantages        |
+| `_products-services.scss` | products-services |
+| `_clients.scss`    | clients           |
+| `_cases.scss`      | cases             |
+| `_certificates.scss` | certificates    |
+| `_reviews.scss`    | reviews           |
+| `_team.scss`       | team              |
+| `_faq.scss`        | faq               |
+| `_cta.scss`        | cta               |
+| `_news.scss`       | news              |
+
+Подключение: `_home.scss` → `@forward 'home/index'`.
+
+### Брейкпоинты (mixins/breakpoint)
+
+| Миксин            | Диапазон          |
+|-------------------|-------------------|
+| `@include tablet-plus` | min-width: 1280px (десктоп) |
+| `@include tablet` | max-width: 1279px (планшет и меньше) |
+| `@include only-tablet` | 768px – 1279px (только планшет) |
+| `@include mobile` | max-width: 767px (мобилка) |
+| `@include mobile-plus` | min-width: 768px |
+| `@include desktop-narrow` | 1280px – 1400px |
+
+### Правила для брейкпоинтов
+
+- **Писать внутри селектора** — не выносить `@include tablet` / `@include mobile` в отдельные блоки в конце файла
+- **Селекторы не повторять** — один селектор = одно место, все варианты экранов внутри него
 
   ```scss
   .product {
@@ -34,6 +70,10 @@
 
     @include tablet {
       display: grid;
+    }
+
+    @include mobile {
+      display: block;
     }
   }
   ```
