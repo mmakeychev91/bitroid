@@ -114,6 +114,12 @@
   justify-content: center;
   flex-shrink: 0;
 
+  @include tablet-plus {
+    &:hover img {
+      filter: grayscale(0);
+    }
+  }
+
   @include mobile {
     width: 138px;
     height: 103px;
@@ -132,4 +138,10 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+
+  // Десктоп: логотипы сначала ч/б, при наведении — цвет
+  @include tablet-plus {
+    filter: grayscale(1);
+    transition: filter 0.3s ease-in-out;
+  }
 }

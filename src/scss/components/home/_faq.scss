@@ -239,6 +239,9 @@
 
   .faq__item--open & {
     padding: 40px 40px 0;
+    @include mobile {
+      padding: 20px 20px 0;
+    }
   }
 
   @include only-tablet {
@@ -259,7 +262,7 @@
   margin: 0;
 
   @include mobile {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   @include only-tablet {
