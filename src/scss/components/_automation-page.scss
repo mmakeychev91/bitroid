@@ -1,0 +1,2294 @@
+// Страница «Услуги. Автоматизация» — десктоп (916:4863), планшет (939:4784), мобилка 360 (939:5747 / Услуга_автоматизация_мобилка)
+@use '../mixins/breakpoint' as *;
+
+$auto-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
+$auto-radius-card: 30px;
+$auto-radius-sm: 16px;
+// Hero: ч/б + градиент с той же маской, что в Figma (как site-dev-hero / crm-hero)
+$auto-page-figma: '../../img/ content/services/figma-color/auto-page';
+
+.auto-page {
+  background: var(--color-white, #ffffff);
+  color: var(--color-deep-grey, #1e1e1e);
+  position: relative;
+  overflow-x: clip;
+
+  @include mobile {
+    overflow-x: visible;
+  }
+}
+
+.auto-page .crm-page__breadcrumbs-wrap {
+  padding: 20px 0 0;
+  min-height: 64px;
+}
+
+// ——— Hero: 800px, текст left 60 / top 200, H1 max 908px, иллюстрация 700×700 left 809 / top 50 ———
+// Декор градиентов — как .site-dev-hero / .crm-hero: не обрезать SVG (top/left −200px), иначе блюр обрезается
+.auto-page-hero {
+  position: relative;
+  z-index: 1;
+  min-height: 800px;
+  overflow: visible;
+
+  .auto-page-hero__wrap {
+    position: relative;
+    z-index: 0;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @include only-tablet {
+    min-height: 522px;
+    padding-bottom: 0;
+  }
+
+  @include mobile {
+    min-height: 558px;
+    padding-bottom: 32px;
+    overflow: visible;
+  }
+}
+
+.auto-page-hero__inner {
+  position: relative;
+  // Выше иллюстрации: при z-index:1 у обоих визуал перекрывал заголовок и абзац (порядок в DOM)
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 200px;
+  max-width: 908px;
+
+  @include only-tablet {
+    padding-top: 105px;
+    max-width: 668px;
+  }
+
+  @include mobile {
+    display: contents;
+  }
+}
+
+// Градиентные декоры — те же SVG, размеры и координаты, что у .site-dev-hero__bg-gradient / .crm-hero__bg-gradient
+.auto-page-hero__bg-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+  z-index: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &--green {
+    top: -200px;
+    left: -200px;
+
+    @include mobile {
+      top: -50px;
+      left: -200px;
+    }
+  }
+
+  &--blue {
+    top: -50px;
+    left: 200px;
+
+    @include mobile {
+      top: 300px;
+      left: -200px;
+    }
+  }
+}
+
+.auto-page-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 80px;
+
+  @include only-tablet {
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    order: 1;
+    margin-bottom: 0;
+    padding-top: 80px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 329px;
+  }
+}
+
+.auto-page-hero__title {
+  margin: 0;
+  font-family: var(--base-font, 'Roboto', sans-serif);
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+  max-width: 908px;
+
+  @include only-tablet {
+    font-size: 42px;
+    max-width: 588px;
+  }
+
+  @include mobile {
+    font-size: 24px;
+    max-width: none;
+  }
+}
+
+.auto-page-hero__lead {
+  margin: 0;
+  font-family: var(--base-font, 'Roboto', sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 16px;
+    line-height: 1.3;
+    max-width: 668px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.auto-page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+
+  @include only-tablet {
+    justify-content: center;
+    width: 100%;
+    max-width: 678px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+    padding-bottom: 50px;
+  }
+
+  @include mobile {
+    order: 3;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 16px;
+    padding-bottom: 32px;
+    gap: 16px;
+  }
+}
+
+.auto-page-hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--base-font, 'Roboto', sans-serif);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.1;
+  color: var(--color-deep-grey, #1e1e1e);
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.auto-page-hero__btn-secondary-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.auto-page-hero .btn--primary {
+  @include mobile {
+    width: 100%;
+    max-width: 208px;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+// 700×700, left 809px от фрейма 1440 → от края контента: 749px; на узком десктопе не вылезать за контейнер
+.auto-page-hero__visual {
+  position: absolute;
+  top: 50px;
+  width: 700px;
+  height: 700px;
+  pointer-events: none;
+  z-index: 1;
+
+  @include tablet-plus {
+    left: max(0px, min(749px, calc(100% - 700px)));
+  }
+
+  @include only-tablet {
+    position: absolute;
+    left: calc(50% + 37px);
+    right: auto;
+    top: 45px;
+    width: 424px;
+    height: 424px;
+    margin: 0;
+    aspect-ratio: auto;
+  }
+
+  @include mobile {
+    order: 2;
+    position: relative;
+    left: -32px;
+    right: auto;
+    top: auto;
+    width: 424px;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 24px auto 0;
+    align-self: center;
+  }
+}
+
+// Стэк как на site-dev / CRM: isolation + та же mask, что в макете (не геометрический круг — силуэт фото)
+.auto-page-hero__visual-stack {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.auto-page-hero__visual-photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: url('#{$auto-page-figma}/auto-page-hero-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-hero-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+}
+
+.auto-page-hero__visual-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(98.536deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%);
+  mix-blend-mode: color;
+  opacity: 0.95;
+  pointer-events: none;
+  mask-image: url('#{$auto-page-figma}/auto-page-hero-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-hero-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+}
+
+// ——— Секции: отступ сверху 150px ———
+.auto-page-section {
+  padding-top: 150px;
+  padding-bottom: 0;
+
+  @include tablet {
+    padding-top: 80px;
+  }
+
+  @include only-tablet {
+    padding-top: 100px;
+  }
+
+  @include mobile {
+    padding-top: 48px;
+  }
+}
+
+// Первая секция после hero на мобилке — 60px по макету
+.auto-page-hero + .auto-page-section {
+  @include mobile {
+    padding-top: 60px;
+  }
+}
+
+.auto-page-section__title {
+  margin: 0 0 20px;
+  font-family: var(--base-font, 'Roboto', sans-serif);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 26px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+// ——— 4 проблемы: колонки 536px + 761px, заголовки 535 / 760, gap 25px ———
+.auto-page-problems {
+  padding-bottom: 0;
+}
+
+.auto-page-problems__heading {
+  max-width: 858px;
+  margin-bottom: 0;
+
+  @include only-tablet {
+    max-width: 560px;
+  }
+}
+
+.auto-page-problems__layout-desktop {
+  @include mobile {
+    display: none;
+  }
+}
+
+.auto-page-problems__layout-mobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.auto-page-problems-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+  max-width: 328px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auto-page-problems-mcard {
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 12px;
+
+  &--was {
+    background: var(--color-light-grey, #f8f8f8);
+  }
+
+  &--now {
+    background: var(--color-white, #ffffff);
+    box-shadow: $auto-shadow;
+  }
+}
+
+.auto-page-problems-mcard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+
+  .auto-page-problems-mcard--now & {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+}
+
+.auto-page-problems-mcard__head-text {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.auto-page-problems-mcard__name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+}
+
+.auto-page-problems-mcard__label {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--color-grey, #666666);
+}
+
+.auto-page-problems-mcard__text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-deep-grey, #1e1e1e);
+}
+
+.auto-page-problems__headers {
+  display: flex;
+  gap: 25px;
+  margin-top: 64px;
+  margin-bottom: 21px;
+
+  @include only-tablet {
+    gap: 16px;
+    margin-top: 48px;
+  }
+}
+
+.auto-page-problems__head {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  min-height: 44px;
+  box-sizing: border-box;
+
+  &--was {
+    flex: 0 0 535px;
+    max-width: 100%;
+    background: var(--color-light-grey, #f8f8f8);
+
+    @include only-tablet {
+      flex: 0 0 331px;
+    }
+  }
+
+  &--now {
+    flex: 1 1 760px;
+    background: var(--color-white, #ffffff);
+    box-shadow: $auto-shadow;
+
+    @include only-tablet {
+      flex: 0 0 331px;
+    }
+  }
+}
+
+.auto-page-problems__head-text {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+
+  .auto-page-problems__head--was & {
+    color: var(--color-deep-grey, #1e1e1e);
+  }
+
+  .auto-page-problems__head--now & {
+    color: var(--color-green-1, #34ae6b);
+  }
+}
+
+.auto-page-problems__grid {
+  display: grid;
+  grid-template-columns: 536px minmax(0, 1fr);
+  gap: 24px 25px;
+  align-items: stretch;
+
+  @include only-tablet {
+    grid-template-columns: 331px minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+.auto-page-problems-card {
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 20px;
+
+  &--was {
+    background: var(--color-light-grey, #f8f8f8);
+    min-height: 100%;
+  }
+
+  &--now {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--color-white, #ffffff);
+    box-shadow: $auto-shadow;
+    min-height: 100%;
+
+    @include only-tablet {
+      gap: 12px;
+    }
+  }
+
+  @include only-tablet {
+    padding: 12px;
+  }
+}
+
+.auto-page-problems-card__icon-wrap {
+  flex-shrink: 0;
+}
+
+// Иконки «Стало» 88×88 (десктоп), 40×40 — планшет и мобилка; Figma 899:3785 — base + градиент с mask
+.auto-page-problems-icon {
+  position: relative;
+  display: block;
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  isolation: isolate;
+
+  @include only-tablet {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--mcard {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.auto-page-problems-icon__base {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  &--rutina {
+    mask-image: url('#{$auto-page-figma}/auto-page-problems-rutina-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-problems-rutina-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+
+  &--oshibki {
+    mask-image: url('#{$auto-page-figma}/auto-page-problems-oshibki-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-problems-oshibki-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+
+  &--haos {
+    mask-image: url('#{$auto-page-figma}/auto-page-problems-haos-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-problems-haos-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+
+  &--kontrol {
+    mask-image: url('#{$auto-page-figma}/auto-page-problems-kontrol-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-problems-kontrol-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+}
+
+.auto-page-problems-icon__tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: color;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+
+  &--rutina {
+    background: linear-gradient(98.536deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%);
+    mask-image: url('#{$auto-page-figma}/auto-page-problems-rutina-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-problems-rutina-mask.png');
+  }
+
+  &--oshibki {
+    background: linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%);
+    mask-image: url('#{$auto-page-figma}/auto-page-problems-oshibki-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-problems-oshibki-mask.png');
+  }
+
+  &--haos {
+    background: linear-gradient(134.799deg, rgb(43, 172, 104) 13.397%, rgb(37, 135, 249) 84.002%);
+    mask-image: url('#{$auto-page-figma}/auto-page-problems-haos-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-problems-haos-mask.png');
+  }
+
+  &--kontrol {
+    background: linear-gradient(136.169deg, rgb(43, 172, 104) 9.1837%, rgb(37, 135, 249) 90.884%);
+    mask-image: url('#{$auto-page-figma}/auto-page-problems-kontrol-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-problems-kontrol-mask.png');
+  }
+}
+
+.auto-page-problems-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+
+  @include only-tablet {
+    gap: 8px;
+  }
+}
+
+.auto-page-problems-card__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 16px;
+  }
+}
+
+.auto-page-problems-card__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+  }
+}
+
+// ——— Направления: сетка 2×2, карточка 648×240, gap 24 / 50 ———
+.auto-page-dirs__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 648px));
+  gap: 50px 24px;
+  margin-top: 65px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @include only-tablet {
+    max-width: 678px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+  }
+
+  @include mobile {
+    margin-top: 32px;
+    gap: 16px;
+  }
+}
+
+.auto-page-dirs-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  padding: 24px;
+  background: var(--color-white, #ffffff);
+  border-radius: 20px;
+  box-shadow: $auto-shadow;
+  box-sizing: border-box;
+
+  @include only-tablet {
+    min-height: 0;
+    padding: 20px;
+    width: 100%;
+  }
+
+  @include mobile {
+    min-height: 217px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+}
+
+.auto-page-dirs-card__head {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+
+  @include mobile {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+// Иконки 40×40: ч/б база + градиент с mask (как в Figma 903:3928 и .services-advantages__icon)
+.auto-page-dirs-card__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  isolation: isolate;
+}
+
+.auto-page-dirs-card__icon-base {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  &--sales {
+    mask-image: url('#{$auto-page-figma}/auto-page-dirs-sales-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-dirs-sales-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+
+  &--hr {
+    mask-image: url('#{$auto-page-figma}/auto-page-dirs-hr-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-dirs-hr-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+
+  &--sed {
+    mask-image: url('#{$auto-page-figma}/auto-page-dirs-sed-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-dirs-sed-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+
+  &--bp {
+    mask-image: url('#{$auto-page-figma}/auto-page-dirs-bp-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-dirs-bp-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+}
+
+.auto-page-dirs-card__icon-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: color;
+  background: linear-gradient(98.536deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+
+  &--sales {
+    mask-image: url('#{$auto-page-figma}/auto-page-dirs-sales-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-dirs-sales-mask.png');
+  }
+
+  &--hr {
+    mask-image: url('#{$auto-page-figma}/auto-page-dirs-hr-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-dirs-hr-mask.png');
+  }
+
+  &--sed {
+    mask-image: url('#{$auto-page-figma}/auto-page-dirs-sed-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-dirs-sed-mask.png');
+  }
+
+  &--bp {
+    mask-image: url('#{$auto-page-figma}/auto-page-dirs-bp-mask.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-dirs-bp-mask.png');
+  }
+}
+
+.auto-page-dirs-card__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.auto-page-dirs-card__text {
+  margin: 0 0 24px;
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    margin-bottom: 16px;
+  }
+}
+
+.auto-page-dirs-card__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--color-grey, #666666);
+  text-decoration: none;
+
+  svg {
+    flex-shrink: 0;
+    transform: rotate(-90deg);
+  }
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+// ——— Комплексное внедрение ———
+.auto-page-complex__intro {
+  max-width: 917px;
+  margin-bottom: 20px;
+
+  .auto-page-section__title {
+    margin-bottom: 20px;
+  }
+}
+
+.auto-page-complex__lead {
+  margin: 0 0 20px;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-deep-grey, #1e1e1e);
+  max-width: 906px;
+
+  @include only-tablet {
+    font-size: 14px;
+    max-width: 678px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.auto-page-complex__subheading {
+  margin: 48px 0 24px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+    margin-top: 32px;
+  }
+
+  @include mobile {
+    margin-top: 32px;
+  }
+}
+
+.auto-page-complex__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+
+  @include only-tablet {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 678px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.auto-page-complex-card {
+  flex: 1 1 calc(33.333% - 16px);
+  min-width: 280px;
+  min-height: 250px;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: $auto-shadow;
+  box-sizing: border-box;
+
+  &--white {
+    background: var(--color-white, #ffffff);
+  }
+
+  &--grey {
+    background: var(--color-light-grey, #f8f8f8);
+  }
+
+  &--blue {
+    background: var(--color-light_blue, #eef2fa);
+  }
+
+  @include only-tablet {
+    flex: 1 1 100%;
+    min-width: 0;
+    min-height: 0;
+    border-radius: 20px;
+
+    &:nth-child(1) {
+      min-height: 133px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      min-height: 151px;
+    }
+  }
+
+  @include mobile {
+    flex: 1 1 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 12px;
+    border-radius: 10px;
+  }
+}
+
+.auto-page-complex-card__title {
+  margin: 0 0 16px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.auto-page-complex-card__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.auto-page-complex__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.1;
+  color: var(--color-deep-grey, #1e1e1e);
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+// ——— Инструменты ———
+.auto-page-tools__intro {
+  max-width: 917px;
+  margin-bottom: 35px;
+
+  .auto-page-section__title {
+    margin-bottom: 20px;
+  }
+}
+
+.auto-page-tools__lead {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+  max-width: 904px;
+
+  @include only-tablet {
+    font-size: 14px;
+    max-width: 678px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.auto-page-tools__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 0;
+
+  @include only-tablet {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 331px));
+    gap: 40px 16px;
+    justify-content: start;
+    max-width: 678px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 24px;
+    max-width: 328px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.auto-page-tools-item {
+  flex: 1 1 calc(25% - 18px);
+  min-width: 240px;
+  max-width: 312px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include only-tablet {
+    flex: none;
+    width: 100%;
+    max-width: 331px;
+    min-width: 0;
+  }
+
+  @include mobile {
+    flex: none;
+    width: 100%;
+    max-width: 328px;
+    min-width: 0;
+    gap: 16px;
+  }
+}
+
+.auto-page-tools-item__logo {
+  display: flex;
+  align-items: center;
+  min-height: 70px;
+
+  img {
+    max-height: 70px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  &--rpa,
+  &--bitrix,
+  &--1c,
+  &--bi {
+    img {
+      max-height: none;
+    }
+  }
+
+  &--rpa {
+    width: 126px;
+    align-items: flex-start;
+  }
+
+  &--bitrix {
+    width: 116px;
+  }
+
+  &--1c {
+    width: 126px;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  &--bi {
+    width: 133px;
+    height: 70px;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// Figma 915:4840 — RPA/ИИ: робот + шестерни, base + mix-blend-color по маскам
+.auto-page-tools-rpa {
+  position: relative;
+  display: block;
+  width: 126px;
+  height: 70px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-light-blue, #eef2fa);
+  border-radius: 10px;
+  background: var(--color-white, #ffffff);
+  isolation: isolate;
+}
+
+.auto-page-tools-rpa__main {
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 83px;
+  height: 83px;
+  pointer-events: none;
+}
+
+.auto-page-tools-rpa__main-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auto-page-tools-rpa__gear {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  &--37 {
+    left: 52.5px;
+    top: 29px;
+    width: 37px;
+    height: 37px;
+  }
+
+  &--27 {
+    left: 81px;
+    top: 12px;
+    width: 27px;
+    height: 27px;
+  }
+
+  &--60 {
+    left: 71px;
+    top: 20px;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.auto-page-tools-rpa__gear-rot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  &--180 {
+    transform: rotate(180deg);
+  }
+
+  // Figma: -scale-y-100 + rotate-180
+  &--flip180 {
+    transform: rotate(180deg) scaleY(-1);
+  }
+}
+
+.auto-page-tools-rpa__gear-base {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auto-page-tools-rpa__tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: color;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+
+  &--83 {
+    background: linear-gradient(98.536deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%);
+    mask-image: url('#{$auto-page-figma}/auto-page-tools-rpa-mask-83.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-tools-rpa-mask-83.png');
+  }
+
+  &--37 {
+    background: linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%);
+    mask-image: url('#{$auto-page-figma}/auto-page-tools-rpa-mask-37.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-tools-rpa-mask-37.png');
+  }
+
+  &--27 {
+    background: linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%);
+    mask-image: url('#{$auto-page-figma}/auto-page-tools-rpa-mask-27.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-tools-rpa-mask-27.png');
+  }
+
+  &--60 {
+    background: linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%);
+    mask-image: url('#{$auto-page-figma}/auto-page-tools-rpa-mask-60.png');
+    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-tools-rpa-mask-60.png');
+  }
+}
+
+// Figma 904:4111 — облако SVG с градиентом; белой только надпись «Битрикс24»
+.auto-page-tools-bitrix {
+  position: relative;
+  display: block;
+  width: 116px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.auto-page-tools-bitrix__cloud {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  vertical-align: top; // inline-svg в строке не даёт лишний зазор
+}
+
+.auto-page-tools-bitrix__wordmark-wrap {
+  position: absolute;
+  left: 17.23px;
+  top: 35.46px;
+  width: 83.67px;
+  height: 20.304px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.auto-page-tools-bitrix__wordmark {
+  position: absolute;
+  left: -16%;
+  top: -144.15%;
+  width: 130.67%;
+  height: 379.51%;
+  max-width: none;
+  object-fit: cover;
+  filter: brightness(0) invert(1);
+}
+
+// Figma 904:4125 — градиент + логотип 1С
+.auto-page-tools-1c-badge {
+  position: relative;
+  width: 126px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(105.118deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%);
+}
+
+.auto-page-tools-1c-badge__logo {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  width: 94px;
+  height: 46px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+// Figma 915:4826 — скрин BI-дашборда
+.auto-page-tools-bi-img {
+  display: block;
+  width: 133px;
+  height: 70px;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.auto-page-tools-item__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.auto-page-tools-item__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+// ——— Этапы: карточка 984×200 ———
+.auto-page-steps__heading {
+  max-width: 917px;
+
+  @include only-tablet {
+    max-width: 580px;
+  }
+}
+
+.auto-page-steps__list {
+  list-style: none;
+  margin: 64px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include only-tablet {
+    margin-top: 48px;
+    max-width: 678px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include mobile {
+    margin-top: 32px;
+    gap: 16px;
+  }
+}
+
+// Текст одной ширины (Figma: текст ~748px + паддинги); картинки — absolute от края карточки, разные left/top
+.auto-page-step-card {
+  display: block;
+  width: 100%;
+  max-width: 984px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 200px;
+  background: var(--color-white, #ffffff);
+  border-radius: $auto-radius-card;
+  box-shadow: $auto-shadow;
+  overflow: hidden;
+  position: relative;
+
+  @include only-tablet {
+    max-width: 678px;
+    min-height: 160px;
+
+    &:nth-child(4) {
+      min-height: 151px;
+    }
+
+    &:nth-child(5) {
+      min-height: 133px;
+    }
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-height: 0;
+  }
+}
+
+.auto-page-step-card__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 796px;
+  padding: 24px;
+  min-width: 0;
+  box-sizing: border-box;
+
+  @include only-tablet {
+    padding: 20px;
+    max-width: 582px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding-bottom: 16px;
+  }
+}
+
+.auto-page-step-card__num {
+  position: absolute;
+  top: 24px;
+  right: 224px;
+  z-index: 2;
+  font-family: var(--base-font, 'Roboto', sans-serif);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    right: 116px;
+    top: 24px;
+  }
+
+  @include mobile {
+    right: 24px;
+    top: 20px;
+  }
+}
+
+.auto-page-step-card__title {
+  margin: 0 0 16px;
+  padding-right: 48px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.auto-page-step-card__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+// Слой иллюстраций под текстом: координаты left/top от карточки (Figma 904:4079)
+.auto-page-step-card__visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  @include mobile {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    height: 220px;
+    order: -1;
+    overflow: hidden;
+  }
+}
+
+// Figma 904:4079 — градиент + фото в ОДНОМ слое (background-blend-mode: color), затем mask.
+// Отдельный слой с mix-blend-mode давал «выползание» градиента за силуэт.
+.auto-page-step-visual {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.auto-page-step-card__visual--01 .auto-page-step-visual {
+  left: 613px;
+  top: -93px;
+  width: 379px;
+  height: 379px;
+
+  @include only-tablet {
+    left: 436.5px;
+    top: -68px;
+    width: 292px;
+    height: 292px;
+  }
+}
+
+// Figma 904:4099 — left 169 / top −231 от карточки; −30° только у внутреннего 604
+.auto-page-step-card__visual--02 .auto-page-step-visual {
+  left: 169px;
+  top: -231px;
+  width: 825.704px;
+  height: 825.704px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // Обрезаем прямоугольник после rotate; маска на __base совпадает с фото (100% × 100%)
+  overflow: hidden;
+
+  @include only-tablet {
+    left: 125px;
+    top: -161px;
+    width: 602.342px;
+    height: 602.342px;
+  }
+}
+
+.auto-page-step-card__visual--03 .auto-page-step-visual {
+  left: 659px;
+  top: -117px;
+  width: 409.808px;
+  height: 409.808px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: none;
+
+  @include only-tablet {
+    left: 463.06px;
+    top: -65.38px;
+    width: 286.987px;
+    height: 286.987px;
+  }
+}
+
+.auto-page-step-card__visual--04 .auto-page-step-visual {
+  left: 282.15px;
+  top: -358.28px;
+  width: 919.553px;
+  height: 919.553px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  transform: none;
+
+  @include only-tablet {
+    left: 215px;
+    top: -209px;
+    width: 572.922px;
+    height: 572.922px;
+  }
+}
+
+.auto-page-step-card__visual--05 .auto-page-step-visual {
+  left: 675px;
+  top: -50px;
+  width: 300px;
+  height: 300px;
+  transform: none;
+
+  @include only-tablet {
+    left: 510px;
+    top: -16px;
+    width: 165px;
+    height: 165px;
+  }
+}
+
+// Мобилка: иллюстрации по центру полосы, без координат от десктопной карточки
+@include mobile {
+  .auto-page-step-card__visual--01 .auto-page-step-visual {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 292px;
+    height: 292px;
+  }
+
+  .auto-page-step-card__visual--02 .auto-page-step-visual {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(100%, 360px);
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .auto-page-step-card__visual--03 .auto-page-step-visual {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 260px;
+  }
+
+  .auto-page-step-card__visual--04 .auto-page-step-visual {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(100%, 360px);
+    height: 220px;
+    overflow: visible;
+  }
+
+  .auto-page-step-card__visual--05 .auto-page-step-visual {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 165px;
+    height: 165px;
+  }
+}
+
+.auto-page-step-visual__base {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+  -webkit-background-blend-mode: color;
+  background-blend-mode: color;
+  pointer-events: none;
+}
+
+.auto-page-step-card__visual--01 .auto-page-step-visual__base {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(98.536deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%),
+    url('#{$auto-page-figma}/auto-page-step-01-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-step-01-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-step-01-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+}
+
+.auto-page-step-card__visual--02 .auto-page-step-visual__base {
+  position: relative;
+  flex-shrink: 0;
+  width: 604.458px;
+  height: 604.458px;
+  transform: rotate(-30deg);
+  // Маска и base одного кадра — одинаковый масштаб (иначе градиент «вылезает» за силуэт)
+  background-size: 100% 100%, 100% 100%;
+  background-image:
+    linear-gradient(98.536deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%),
+    url('#{$auto-page-figma}/auto-page-step-02-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-step-02-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-step-02-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+
+  @include only-tablet {
+    width: 440.945px;
+    height: 440.945px;
+  }
+}
+
+.auto-page-step-card__visual--03 .auto-page-step-visual__base {
+  position: relative;
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  transform: rotate(30deg);
+  background-size: 100% 100%, 100% 100%;
+  background-image:
+    linear-gradient(98.536deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%),
+    url('#{$auto-page-figma}/auto-page-step-03-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-step-03-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-step-03-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+
+  @include only-tablet {
+    width: 210.089px;
+    height: 210.089px;
+  }
+}
+
+.auto-page-step-card__visual--04 .auto-page-step-visual__base {
+  position: relative;
+  flex-shrink: 0;
+  width: 673.159px;
+  height: 673.159px;
+  transform: rotate(-30deg);
+  background-image:
+    linear-gradient(136.169deg, rgb(43, 172, 104) 9.18%, rgb(37, 135, 249) 90.88%),
+    url('#{$auto-page-figma}/auto-page-step-04-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-step-04-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-step-04-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 919.553px 919.553px;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 919.553px 919.553px;
+
+  @include only-tablet {
+    width: 419.408px;
+    height: 419.408px;
+    mask-size: 572.922px 572.922px;
+    -webkit-mask-size: 572.922px 572.922px;
+  }
+}
+
+.auto-page-step-card__visual--05 .auto-page-step-visual__base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(98.536deg, rgb(52, 174, 107) 3.22%, rgb(37, 135, 249) 86.86%),
+    url('#{$auto-page-figma}/auto-page-step-05-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-step-05-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-step-05-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+}
+
+// ——— Партнёры (Figma 908:4182) ———
+.auto-page-partners__intro {
+  max-width: 917px;
+  margin-bottom: 40px;
+
+  .auto-page-section__title {
+    margin-bottom: 20px;
+  }
+}
+
+.auto-page-partners__lead {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+
+  @include only-tablet {
+    font-size: 14px;
+    max-width: 677px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+// Баннер 1320×432: шапка (495px + колонка с заголовком Топ-100) и ряд сертификатов с gap 90px
+.auto-page-partners__banner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1320px;
+  min-height: 432px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: var(--color-white, #ffffff);
+  border-radius: $auto-radius-card;
+  box-shadow: $auto-shadow;
+
+  @include only-tablet {
+    max-width: 678px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 20px;
+    min-height: 0;
+  }
+
+  @include mobile {
+    padding: 16px;
+    border-radius: 10px;
+  }
+}
+
+// Левая колонка текста max 495px + заголовок Топ-100; выравнивание по вертикали как в макете
+.auto-page-partners__banner-head {
+  display: grid;
+  grid-template-columns: minmax(0, 495px) minmax(0, 1fr);
+  column-gap: 65px;
+  align-items: center;
+  margin-bottom: 16px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    justify-items: center;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+}
+
+.auto-page-partners__banner-head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include tablet {
+    align-items: center;
+  }
+}
+
+.auto-page-partners__banner-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  &--head-center {
+    justify-self: start;
+    max-width: 42em;
+
+    @include tablet {
+      justify-self: center;
+      max-width: 40ch;
+    }
+  }
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+// В макете подзаголовок слева — 18px Regular (Dekstop/Text_L)
+.auto-page-partners__banner-text {
+  margin: 0;
+  max-width: 495px;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    max-width: 447px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.auto-page-partners__banner-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 90px;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.auto-page-partners__badge-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.auto-page-partners__badge-frame {
+  box-sizing: border-box;
+  width: 260px;
+  height: 184px;
+  border-radius: 10px;
+  border: 1px solid var(--color-light-blue, #eef2fa);
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &--gold {
+    border-color: var(--color-light-blue, #eef2fa);
+  }
+
+  &--1c {
+    border-color: var(--color-ivory, #e0e0e0);
+  }
+}
+
+// Блок 434×227: рамка #e0e0e0, заголовок 24px semibold, лого, gap 12px
+.auto-page-partners__accreditation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 434px;
+  max-width: 100%;
+  min-height: 227px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-ivory, #e0e0e0);
+  border-radius: 10px;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.auto-page-partners__accreditation-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.auto-page-partners__badge-caption {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+// Как в Figma 908:4182: синий #2587f9 + mask по альфе логотипа
+.auto-page-partners__mincifry {
+  display: block;
+  width: 383px;
+  max-width: 100%;
+  aspect-ratio: 766 / 168;
+  height: auto;
+  margin: 0 auto;
+  background-color: var(--color-blue, #2587f9);
+  mask-image: url('#{$auto-page-figma}/auto-page-partners-mincifry.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-partners-mincifry.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+}
+
+// ——— Комплексное развитие ИТ (4 карточки в ряд) ———
+.auto-page-related {
+  padding: 50px 0 80px;
+
+  @include mobile {
+    padding: 32px 0 48px;
+  }
+}
+
+.auto-page-related__title {
+  margin: 0 0 48px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: normal;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 26px;
+    margin-bottom: 32px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+}
+
+.auto-page-related__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  @include only-tablet {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 331px));
+    gap: 16px;
+    max-width: 678px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.auto-page-related-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  width: 312px;
+  min-height: 138px;
+  padding: 24px;
+  box-sizing: border-box;
+  background: var(--color-white, #ffffff);
+  border-radius: $auto-radius-sm;
+  box-shadow: $auto-shadow;
+  text-decoration: none;
+  color: var(--color-deep-grey, #1e1e1e);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @include only-tablet {
+    width: 100%;
+    max-width: 331px;
+    min-height: 138px;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+// Figma 908:4286 — иконки: auto-page-related-it-01…04 (-base / -mask), слева направо; база + градиент с маской (как этапы)
+.auto-page-related-card__icon-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.auto-page-related-card--sites .auto-page-related-card__icon-wrap {
+  width: 89.879px;
+  height: 89.879px;
+}
+
+.auto-page-related-card__icon-viz {
+  position: absolute;
+  inset: 0;
+  display: block;
+  box-sizing: border-box;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+  -webkit-background-blend-mode: color;
+  background-blend-mode: color;
+  pointer-events: none;
+}
+
+// Первая карточка — градиент 137.277° (зелёный → синий)
+.auto-page-related-card__icon-viz--integration {
+  background-image:
+    linear-gradient(137.277deg, rgb(43, 172, 104) 14.261%, rgb(37, 135, 249) 89.009%),
+    url('#{$auto-page-figma}/auto-page-related-it-01-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-related-it-01-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-related-it-01-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+}
+
+// Карточки 2–4 — градиент 126.55° (синий → зелёный)
+.auto-page-related-card__icon-viz--bitrix24,
+.auto-page-related-card__icon-viz--tariffs,
+.auto-page-related-card__icon-viz--sites {
+  background-image:
+    linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%),
+    url('#{$auto-page-figma}/auto-page-related-it-02-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-related-it-02-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-related-it-02-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+}
+
+.auto-page-related-card__icon-viz--tariffs {
+  background-image:
+    linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%),
+    url('#{$auto-page-figma}/auto-page-related-it-03-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-related-it-03-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-related-it-03-mask.png');
+}
+
+.auto-page-related-card__icon-viz--sites {
+  background-image:
+    linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%),
+    url('#{$auto-page-figma}/auto-page-related-it-04-base.png');
+  mask-image: url('#{$auto-page-figma}/auto-page-related-it-04-mask.png');
+  -webkit-mask-image: url('#{$auto-page-figma}/auto-page-related-it-04-mask.png');
+}
+
+.auto-page-related-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.auto-page-related-card__name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3;
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+}
+
+.auto-page-related-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.1;
+  color: var(--color-grey, #666666);
+
+  svg {
+    flex-shrink: 0;
+    transform: rotate(-90deg);
+  }
+}
+
+// Лид-форма на странице автоматизации — блок crm-lead (отступы из .crm-page__lead)
+.auto-page .crm-page__lead {
+  padding-bottom: 80px;
+
+  @include mobile {
+    padding-bottom: 48px;
+  }
+}
+
+.auto-page .faq__inner {
+  align-items: flex-start;
+}

@@ -106,4 +106,132 @@ export default function initSliders() {
       },
     });
   }
+
+  // ─── Слайдер «Технологии» (CRM): одна разметка, один Swiper
+  const crmTechSection = document.querySelector('.crm-tech');
+  if (crmTechSection) {
+    const crmTechWrap = crmTechSection.querySelector('.crm-tech__slider-wrap');
+    if (crmTechWrap) {
+      const swiperEl = crmTechWrap.querySelector('.swiper');
+      if (swiperEl && !swiperEl.swiper) {
+        const nav = crmTechWrap.querySelector('.crm-tech__nav');
+        const prevBtn = nav?.querySelector('button:first-of-type');
+        const nextBtn = nav?.querySelector('button:last-of-type');
+        if (prevBtn && nextBtn) {
+          const countEl = crmTechWrap.querySelector('.crm-tech__count');
+          const barFill = crmTechWrap.querySelector('.crm-tech__bar-fill');
+
+          const swiper = new Swiper(swiperEl, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: false,
+            watchOverflow: true,
+            observer: true,
+            observeParents: true,
+            autoHeight: false,
+            breakpoints: {
+              0: {
+                autoHeight: true,
+              },
+              768: {
+                autoHeight: false,
+              },
+            },
+            navigation: {
+              prevEl: prevBtn,
+              nextEl: nextBtn,
+            },
+          });
+
+          const total = swiper.slides.length;
+          const sync = () => {
+            const idx = swiper.realIndex + 1;
+            if (countEl) countEl.textContent = `${idx}/${total}`;
+            if (barFill) barFill.style.width = `${(100 * idx) / total}%`;
+          };
+
+          swiper.on('slideChange', sync);
+          sync();
+        }
+      }
+    }
+  }
+
+  // ─── Слайдер «Этапы внедрения CRM»: один активный Swiper по брейкпоинту
+  const crmStagesSection = document.querySelector('.crm-stages');
+  if (crmStagesSection) {
+    const desktopWrap = crmStagesSection.querySelector('.container.desktop .crm-stages__slider-wrap');
+    const tabletWrap = crmStagesSection.querySelector('.container.only-tablet .crm-stages__slider-wrap');
+    const mobileWrap = crmStagesSection.querySelector('.container.mobile .crm-stages__slider-wrap');
+    const wraps = [desktopWrap, tabletWrap, mobileWrap];
+
+    const destroyCrmStages = (wrap) => {
+      const el = wrap?.querySelector('.swiper');
+      if (el?.swiper) {
+        el.swiper.destroy(true, true);
+      }
+    };
+
+    const initCrmStages = (wrap) => {
+      if (!wrap) return;
+      const swiperEl = wrap.querySelector('.swiper');
+      if (!swiperEl || swiperEl.swiper) return;
+
+      const nav = wrap.querySelector('.crm-stages__nav');
+      const prevBtn = nav?.querySelector('button:first-of-type');
+      const nextBtn = nav?.querySelector('button:last-of-type');
+      if (!prevBtn || !nextBtn) return;
+
+      const countEl = wrap.querySelector('.crm-stages__count');
+      const barFill = wrap.querySelector('.crm-stages__bar-fill');
+
+      const swiper = new Swiper(swiperEl, {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: false,
+        watchOverflow: true,
+        observer: true,
+        observeParents: true,
+        navigation: {
+          prevEl: prevBtn,
+          nextEl: nextBtn,
+        },
+      });
+
+      const total = swiper.slides.length;
+      const sync = () => {
+        const idx = swiper.realIndex + 1;
+        if (countEl) countEl.textContent = `${idx}/${total}`;
+        if (barFill) barFill.style.width = `${(100 * idx) / total}%`;
+      };
+
+      swiper.on('slideChange', sync);
+      sync();
+    };
+
+    const activeCrmStagesWrapIndex = () => {
+      const w = window.innerWidth;
+      if (w >= 1280) return 0;
+      if (w >= 768) return 1;
+      return 2;
+    };
+
+    let currentCrmStagesIndex = -1;
+
+    const applyCrmStagesBreakpoint = () => {
+      const next = activeCrmStagesWrapIndex();
+      if (next === currentCrmStagesIndex) return;
+      wraps.forEach(destroyCrmStages);
+      currentCrmStagesIndex = next;
+      initCrmStages(wraps[next]);
+    };
+
+    applyCrmStagesBreakpoint();
+
+    let crmStagesResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(crmStagesResizeTimer);
+      crmStagesResizeTimer = setTimeout(applyCrmStagesBreakpoint, 150);
+    });
+  }
 }

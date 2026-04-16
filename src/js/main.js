@@ -10,6 +10,7 @@ import initNewsTabs from './components/initNewsTabs.js';
 import initNewsSliders from './components/initNewsSliders.js';
 import initCtaForm from './components/initCtaForm.js';
 import initTickers from './components/initTickers.js';
+import initSiteDevCycleTabs from './components/initSiteDevCycleTabs.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   fixHeightOnResize();
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initNewsTabs();
   initCtaForm();
   initTickers();
+  initSiteDevCycleTabs();
 });
 
 // For Backend

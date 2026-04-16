@@ -26,6 +26,10 @@
 @use 'components/button';
 @use 'components/form';
 @use 'components/breadcrumbs-pagination';
+@use 'components/services-page';
+@use 'components/crm-page';
+@use 'components/site-dev-page';
+@use 'components/automation-page';
 
 // Modals
 //@use 'components/modals/modal-default';

@@ -1,0 +1,1424 @@
+<div class="crm-page">
+  <div class="crm-page__breadcrumbs-wrap">
+    <div class="container">
+      <nav class="breadcrumbs crm-page__breadcrumbs" aria-label="Хлебные крошки">
+        <a href="main.html" class="breadcrumbs__item breadcrumbs__item--link">
+          <svg class="breadcrumbs__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 8.5L10 3l7 5.5V16a1 1 0 01-1 1h-4.5v-5H8.5v5H4a1 1 0 01-1-1V8.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          Главная
+        </a>
+        <span class="breadcrumbs__divider" aria-hidden="true">/</span>
+        <a href="uslugi.html" class="breadcrumbs__item breadcrumbs__item--link">Услуги</a>
+        <span class="breadcrumbs__divider" aria-hidden="true">/</span>
+        <span class="breadcrumbs__item">Внедрение CRM</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Главный экран: десктоп 800px / планшет 488px (Внедрение СРМ_планшет, get_design_context) -->
+  <section class="crm-hero">
+    <div class="container crm-hero__inner">
+      <span class="crm-hero__bg-gradient crm-hero__bg-gradient--green" aria-hidden="true">
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+      </span>
+      <span class="crm-hero__bg-gradient crm-hero__bg-gradient--blue" aria-hidden="true">
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+      </span>
+      <div class="crm-hero__content desktop">
+        <div class="crm-hero__text">
+          <h1 class="crm-hero__title">Внедрение CRM-систем</h1>
+          <p class="crm-hero__subtitle">Проводим внедрение CRM под ключ: автоматизируем процессы, повышаем эффективность и масштабируемость продаж. Снимем рутинные операции с ваших менеджеров продажам, поможем сделать работу сотрудников быстрее и эффективнее. Интегрируем удобную систему управления клиентами, поможем увеличить конверсию в покупку и повысить лояльность ваших пользователей.</p>
+        </div>
+        <div class="crm-hero__actions">
+          <a href="#" class="btn btn--primary">Получить консультацию</a>
+          <a href="#" class="link-arrow crm-hero__link-secondary">
+            Оставить заявку
+            <svg class="link-arrow__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="crm-hero__content only-tablet">
+        <div class="crm-hero__text">
+          <h1 class="crm-hero__title">Внедрение CRM</h1>
+          <p class="crm-hero__subtitle">Усиливаем отделы продаж современными цифровыми решениями. Разрабатываем индивидуальные проекты внедрения CRM для компаний любого сектора бизнеса.</p>
+        </div>
+        <div class="crm-hero__actions">
+          <a href="#" class="btn btn--primary">Получить консультацию</a>
+          <a href="#" class="link-arrow crm-hero__link-secondary">
+            Оставить заявку
+            <svg class="link-arrow__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="crm-hero__content mobile">
+        <div class="crm-hero__text">
+          <h1 class="crm-hero__title">Внедрение CRM</h1>
+          <p class="crm-hero__subtitle">Усиливаем отделы продаж современными цифровыми решениями. Разрабатываем индивидуальные проекты внедрения CRM для компаний любого сектора бизнеса.</p>
+        </div>
+        <div class="crm-hero__actions">
+          <a href="#" class="btn btn--primary">Получить консультацию</a>
+          <a href="#" class="link-arrow crm-hero__link-secondary">
+            Оставить заявку
+            <svg class="link-arrow__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="crm-hero__media" aria-hidden="true">
+        <div class="crm-hero__media-photo">
+          <img src="img/ content/services/figma-color/crm-hero-photo-base.png" alt="" width="814" height="742" />
+        </div>
+        <div class="crm-hero__media-gradient"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Почему интегратор: 5 карточек + aside; адаптив через сетку (как остальные блоки страницы) -->
+  <section class="crm-why">
+    <div class="container">
+      <h2 class="crm-why__title">Почему стоит воспользоваться услугами интегратора CRM-систем</h2>
+      <div class="crm-why__grid">
+        <article class="crm-why-card">
+          <div class="crm-why-card__head">
+            <span class="crm-why-card__icon-wrap">
+              <span class="crm-why-card__icon-clay" aria-hidden="true">
+                <img class="crm-why-card__icon-base" src="img/ content/services/figma-color/crm-why-1-base.png" alt="" width="40" height="40" />
+                <span class="crm-why-card__icon-tint crm-why-card__icon-tint--1"></span>
+              </span>
+            </span>
+            <h3 class="crm-why-card__name">Снижение расходов на маркетинг</h3>
+          </div>
+          <p class="crm-why-card__text">Благодаря систематизированным данным о клиентах вы сможете лучше организовать продажи и распределить расходы более эффективно.</p>
+        </article>
+        <article class="crm-why-card">
+          <div class="crm-why-card__head">
+            <span class="crm-why-card__icon-wrap">
+              <span class="crm-why-card__icon-clay crm-why-card__icon-clay--chart" aria-hidden="true">
+                <img class="crm-why-card__icon-base" src="img/ content/services/figma-color/crm-why-2-base.png" alt="" width="40" height="40" />
+                <span class="crm-why-card__icon-tint crm-why-card__icon-tint--2"></span>
+              </span>
+            </span>
+            <h3 class="crm-why-card__name">Статистика и контроль</h3>
+          </div>
+          <p class="crm-why-card__text">Организация работы с клиентской базой позволит собрать всю нужную информацию о клиентах, найти слабые места в воронке продаж и улучшить процессы.</p>
+        </article>
+        <article class="crm-why-card">
+          <div class="crm-why-card__head">
+            <span class="crm-why-card__icon-wrap">
+              <span class="crm-why-card__icon-clay" aria-hidden="true">
+                <img class="crm-why-card__icon-base" src="img/ content/services/figma-color/crm-why-3-base.png" alt="" width="40" height="40" />
+                <span class="crm-why-card__icon-tint crm-why-card__icon-tint--3"></span>
+              </span>
+            </span>
+            <h3 class="crm-why-card__name">Ускорение работы</h3>
+          </div>
+          <p class="crm-why-card__text">CRM позволяет автоматизировать часть работы, снять рутинные операции с ваших специалистов и сосредоточиться на более важных задачах.</p>
+        </article>
+        <article class="crm-why-card">
+          <div class="crm-why-card__head">
+            <span class="crm-why-card__icon-wrap">
+              <span class="crm-why-card__icon-clay" aria-hidden="true">
+                <img class="crm-why-card__icon-base" src="img/ content/services/figma-color/crm-why-4-base.png" alt="" width="40" height="40" />
+                <span class="crm-why-card__icon-tint crm-why-card__icon-tint--4"></span>
+              </span>
+            </span>
+            <h3 class="crm-why-card__name">Комплексная интеграция</h3>
+          </div>
+          <p class="crm-why-card__text">Комплексное и быстрое внедрение CRM-систем для бизнеса с учётом особенностей вашей сферы деятельности и ваших задач.</p>
+        </article>
+        <article class="crm-why-card">
+          <div class="crm-why-card__head">
+            <span class="crm-why-card__icon-wrap">
+              <span class="crm-why-card__icon-clay" aria-hidden="true">
+                <img class="crm-why-card__icon-base" src="img/ content/services/figma-color/crm-why-5-base.png" alt="" width="40" height="40" />
+                <span class="crm-why-card__icon-tint crm-why-card__icon-tint--5"></span>
+              </span>
+            </span>
+            <h3 class="crm-why-card__name">Интеграция с другими сервисами</h3>
+          </div>
+          <p class="crm-why-card__text">Опытное CRM-агентство Битроид поможет максимально органично интегрировать CRM с другими вашими системами и построить единую экосистему.</p>
+        </article>
+        <div class="crm-why__aside">
+          <p class="crm-why__aside-text">Проконсультироваться со специалистами Битроид</p>
+          <a href="#" class="btn btn--primary crm-why__aside-btn">Получить консультацию</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRM-системы: слайдер 4 слайда; один блок + адаптив (как остальная страница) -->
+  <section class="crm-tech">
+    <div class="container">
+      <h2 class="crm-tech__title">
+        <span class="crm-tech__title-long">С какими CRM-системами мы работаем</span>
+        <span class="crm-tech__title-short">Технологии</span>
+      </h2>
+      <div class="crm-tech__slider-wrap">
+        <div class="swiper crm-tech-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="crm-tech-slide">
+                <div class="crm-tech-slide__body">
+                  <div class="crm-tech-slide__text">
+                  <h3 class="crm-tech-slide__product">Битрикс24</h3>
+                  <p class="crm-tech-slide__desc">Многофункциональная CRM-система для учёта клиентов и сделок, управления проектами, подробной аналитики. Состоит из 100+ модулей. Легко интегрируется с разными корпоративными системами, что позволяет синхронизировать разрозненные данные между собой. Облегчает контроль многоступенчатых сделок. Отличная CRM для B2B, подходит для крупного бизнеса.</p>
+                  </div>
+                  <a href="#" class="crm-tech-slide__link">
+                    Перейти
+                    <span class="crm-tech-slide__link-chevron" aria-hidden="true"></span>
+                  </a>
+                </div>
+                <div class="crm-tech-slide__visual" aria-hidden="true">
+                  <div class="crm-tech-slide__b24">
+                    <img src="img/ content/services/figma-color/crm-tech-b24-scene.svg" alt="" class="crm-tech-slide__scene-img" width="460" height="280" />
+                    <div class="crm-tech-slide__b24-overlay-wrap">
+                      <img src="img/ content/services/figma-color/crm-tech-b24-overlay.png" alt="" class="crm-tech-slide__b24-overlay" width="333" height="81" />
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-tech-slide">
+                <div class="crm-tech-slide__body">
+                  <div class="crm-tech-slide__text">
+                  <h3 class="crm-tech-slide__product">Мой склад</h3>
+                  <p class="crm-tech-slide__desc">CRM, учёт торговли, контроль работы кассиров и курьеров, учёт товаров на складе, управление производством. Даёт возможность интеграции с онлайн-кассами. Позволяет анализировать не только электронную, но и онлайн-торговлю.</p>
+                  </div>
+                  <a href="#" class="crm-tech-slide__link">
+                    Перейти
+                    <span class="crm-tech-slide__link-chevron" aria-hidden="true"></span>
+                  </a>
+                </div>
+                <div class="crm-tech-slide__visual" aria-hidden="true">
+                  <img src="img/general/our-services/Group 60.png" alt="" class="crm-tech-slide__illu" width="460" height="280" />
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-tech-slide">
+                <div class="crm-tech-slide__body">
+                  <div class="crm-tech-slide__text">
+                  <h3 class="crm-tech-slide__product">AmoCRM</h3>
+                  <p class="crm-tech-slide__desc"><strong>Классическая CRM: </strong>Клиентская база, воронки продаж, аналитика. Не имеет лишних модулей и не перегружена функциями. Легко интегрируется с чатами, рассылками и телефонией.</p>
+                  </div>
+                  <a href="#" class="crm-tech-slide__link">
+                    Перейти
+                    <span class="crm-tech-slide__link-chevron" aria-hidden="true"></span>
+                  </a>
+                </div>
+                <div class="crm-tech-slide__visual" aria-hidden="true">
+                  <img src="img/general/our-services/Group 61.png" alt="" class="crm-tech-slide__illu" width="460" height="280" />
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-tech-slide">
+                <div class="crm-tech-slide__body">
+                  <div class="crm-tech-slide__text">
+                  <h3 class="crm-tech-slide__product">RetailCRM</h3>
+                  <p class="crm-tech-slide__desc"><strong>E-commerce: </strong>Отлично подходит для e-commerce и офлайн-ретейл: интеграция с маркетплейсами, объединение каналов продаж, управление складами, автоматизацию маркетинговых кампаний и т.д. </p>
+                  </div>
+                  <a href="#" class="crm-tech-slide__link">
+                    Перейти
+                    <span class="crm-tech-slide__link-chevron" aria-hidden="true"></span>
+                  </a>
+                </div>
+                <div class="crm-tech-slide__visual" aria-hidden="true">
+                  <img src="img/general/our-services/Group 1.png" alt="" class="crm-tech-slide__illu" width="460" height="280" />
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="crm-tech__footer">
+          <span class="crm-tech__count" aria-live="polite">1/4</span>
+          <div class="crm-tech__nav">
+            <button type="button" class="crm-tech__arrow crm-tech__arrow--prev" aria-label="Предыдущий слайд"></button>
+            <button type="button" class="crm-tech__arrow crm-tech__arrow--next" aria-label="Следующий слайд"></button>
+          </div>
+          <div class="crm-tech__bar" role="presentation"><span class="crm-tech__bar-fill"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Сравнение CRM -->
+  <section class="crm-compare">
+    <div class="container desktop">
+      <h2 class="crm-compare__title">Как выбрать CRM-систему</h2>
+      <div class="crm-compare__head">
+        <span class="crm-compare__head-spacer" aria-hidden="true"></span>
+        <div class="crm-compare__head-brands">
+          <p class="crm-compare__brand">Битрикс 24</p>
+          <p class="crm-compare__brand">Мой склад</p>
+          <p class="crm-compare__brand">AmoCRM</p>
+          <p class="crm-compare__brand">RetailCRM</p>
+        </div>
+      </div>
+      <div class="crm-compare__row crm-compare__row--tall">
+        <p class="crm-compare__label">Функционал</p>
+        <div class="crm-compare__cols">
+          <div class="crm-compare__cell">
+            <p class="crm-compare__cell-lead">Комплексный: </p>
+            <p class="crm-compare__cell-text">CRM, трекер задач, корпоративный портал, онлайн-офис, создание сайтов и т.д. Есть возможность подключать внешних подрядчиков к проектам. Широкие возможности интеграции с разными сервисами: сквозной аналитикой, соцсетями, мессенджерами и т.д.</p>
+          </div>
+          <div class="crm-compare__cell">
+            <p class="crm-compare__cell-lead">Комплексный: </p>
+            <p class="crm-compare__cell-text">CRM, учёт торговли, контроль работы кассиров и курьеров, учёт товаров на складе, управление производством. Даёт возможность интеграции с онлайн-кассами. Позволяет анализировать не только электронную, но и онлайн-торговлю.</p>
+          </div>
+          <div class="crm-compare__cell">
+            <p class="crm-compare__cell-lead">Классическая CRM: </p>
+            <p class="crm-compare__cell-text">Клиентская база, воронки продаж, аналитика. Не имеет лишних модулей и не перегружена функциями. Легко интегрируется с чатами, рассылками и телефонией.</p>
+          </div>
+          <div class="crm-compare__cell">
+            <p class="crm-compare__cell-lead">E-commerce:</p>
+            <p class="crm-compare__cell-text">Отлично подходит для e-commerce <br />и офлайн-ретейл: интеграция <br />с маркетплейсами, объединение каналов продаж, управление складами, автоматизацию маркетинговых кампаний и т.д. </p>
+          </div>
+        </div>
+      </div>
+      <div class="crm-compare__row crm-compare__row--simple">
+        <p class="crm-compare__label">Сложность внедрения</p>
+        <div class="crm-compare__row-line">
+          <span>Высокая</span>
+          <span>Средняя</span>
+          <span>Низкая</span>
+          <span>Средняя</span>
+        </div>
+      </div>
+      <div class="crm-compare__row crm-compare__row--mobile">
+        <p class="crm-compare__label">Мобильное приложение</p>
+        <div class="crm-compare__cols crm-compare__cols--mobile">
+          <p class="crm-compare__cell-text"><span aria-hidden="true">✅ </span><strong>Полноценное приложение </strong><br />Есть на iOS и Android, включает полный набор функций, в том числе внутренние чаты и звонки.</p>
+          <p class="crm-compare__cell-text"><span aria-hidden="true">✅ </span><strong>Есть:</strong> на iOS и Android, позволяет работать со статистикой, товарами, документами, контрагентами, создавать и контролировать задачи.</p>
+          <p class="crm-compare__cell-text"><span aria-hidden="true">✅ </span><strong>Есть:</strong>  на iOS и Android, включает полный набор функций, может работать даже без интернета.</p>
+          <p class="crm-compare__cell-text"><span aria-hidden="true">✅ </span><strong>Есть:</strong> на iOS и Android, позволяет легко общаться с клиентами в мессенджерах, контролировать чаты и звонки.</p>
+        </div>
+      </div>
+      <div class="crm-compare__row crm-compare__row--price">
+        <p class="crm-compare__label">Цена</p>
+        <div class="crm-compare__cols crm-compare__cols--price">
+          <p class="crm-compare__price-block"><strong>От 4 500 ₽/час </strong><br />(зависит от кастомизации <br />и покупки лицензий на год).</p>
+          <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />По пользователям, есть дополнительные опции</p>
+          <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />За каждого пользователя</p>
+          <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />За заказы/пользователей </p>
+        </div>
+      </div>
+    </div>
+    <div class="container only-tablet">
+      <h2 class="crm-compare__title">Как выбрать CRM-систему</h2>
+      <div class="crm-compare-tablet">
+        <details class="crm-compare-acc" open>
+          <summary class="crm-compare-acc__summary">
+            <span class="crm-compare-acc__summary-text">Функционал</span>
+            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="crm-compare-acc__panel">
+            <div class="crm-compare-acc__row">
+              <p class="crm-compare-acc__brand">Битрикс24</p>
+              <p class="crm-compare-acc__cell-text"><strong>Комплексный: </strong>CRM, трекер задач, корпоративный портал, онлайн-офис, создание сайтов и т.д. Есть возможность подключать внешних подрядчиков к проектам.</p>
+            </div>
+            <div class="crm-compare-acc__row">
+              <p class="crm-compare-acc__brand">Мой склад</p>
+              <p class="crm-compare-acc__cell-text"><strong>Склад + торговля: </strong>CRM, учёт торговли, контроль работы кассиров и курьеров, учёт товаров на складе, управление производством.</p>
+            </div>
+            <div class="crm-compare-acc__row">
+              <p class="crm-compare-acc__brand">AmoCRM</p>
+              <p class="crm-compare-acc__cell-text"><strong>Классическая CRM: </strong>Клиентская база, воронки продаж, аналитика. Легко интегрируется с чатами, рассылками и телефонией.</p>
+            </div>
+            <div class="crm-compare-acc__row">
+              <p class="crm-compare-acc__brand">RetailCRM</p>
+              <p class="crm-compare-acc__cell-text"><strong>E-commerce:</strong> интеграция с маркетплейсами, объединение каналов продаж, управление складами, автоматизация маркетинговых кампаний.</p>
+            </div>
+          </div>
+        </details>
+        <details class="crm-compare-acc">
+          <summary class="crm-compare-acc__summary">
+            <span class="crm-compare-acc__summary-text">Сложность внедрения</span>
+            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
+            <p><strong>Битрикс24</strong> — высокая</p>
+            <p><strong>Мой склад</strong> — средняя</p>
+            <p><strong>AmoCRM</strong> — низкая</p>
+            <p><strong>RetailCRM</strong> — средняя</p>
+          </div>
+        </details>
+        <details class="crm-compare-acc">
+          <summary class="crm-compare-acc__summary">
+            <span class="crm-compare-acc__summary-text">Мобильное приложение</span>
+            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
+            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Полноценное приложение </strong>на iOS и Android (Битрикс24).</p>
+            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (Мой склад).</p>
+            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (AmoCRM).</p>
+            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (RetailCRM).</p>
+          </div>
+        </details>
+        <details class="crm-compare-acc">
+          <summary class="crm-compare-acc__summary">
+            <span class="crm-compare-acc__summary-text">Цена</span>
+            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
+            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час </strong><br />(зависит от кастомизации и покупки лицензий на год).</p>
+            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />По пользователям, есть дополнительные опции</p>
+            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />За каждого пользователя</p>
+            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />За заказы/пользователей </p>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="container mobile">
+      <h2 class="crm-compare__title">Как выбрать CRM-систему</h2>
+      <div class="crm-compare-tablet crm-compare-mobile">
+        <details class="crm-compare-acc" open>
+          <summary class="crm-compare-acc__summary">
+            <span class="crm-compare-acc__summary-text">Функционал</span>
+            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="crm-compare-acc__panel">
+            <div class="crm-compare-acc__row">
+              <p class="crm-compare-acc__brand">Битрикс 24</p>
+              <p class="crm-compare-acc__cell-text"><strong>Комбайн: </strong><br />CRM, задачи, соцсеть компании, конструктор сайтов, сквозная аналитика.</p>
+            </div>
+            <div class="crm-compare-acc__row">
+              <p class="crm-compare-acc__brand">Мой склад</p>
+              <p class="crm-compare-acc__cell-text"><strong>Склад + Торговля: </strong><br />учет товаров, закупки, производство и CRM.</p>
+            </div>
+            <div class="crm-compare-acc__row">
+              <p class="crm-compare-acc__brand">AmoCRM</p>
+              <p class="crm-compare-acc__cell-text"><strong>Фокус на продажи: </strong><br />классическая воронка, мессенджеры, минимум лишнего.</p>
+            </div>
+            <div class="crm-compare-acc__row">
+              <p class="crm-compare-acc__brand">RetailCRM</p>
+              <p class="crm-compare-acc__cell-text"><strong>E-commerce:</strong><br />упор на заказы, интеграцию с маркетплейсами, доставку и лояльность.</p>
+            </div>
+          </div>
+        </details>
+        <details class="crm-compare-acc">
+          <summary class="crm-compare-acc__summary">
+            <span class="crm-compare-acc__summary-text">Сложность внедрения</span>
+            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
+            <p><strong>Битрикс24</strong> — высокая</p>
+            <p><strong>Мой склад</strong> — средняя</p>
+            <p><strong>AmoCRM</strong> — низкая</p>
+            <p><strong>RetailCRM</strong> — средняя</p>
+          </div>
+        </details>
+        <details class="crm-compare-acc">
+          <summary class="crm-compare-acc__summary">
+            <span class="crm-compare-acc__summary-text">Мобильное приложение</span>
+            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
+            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Полноценное приложение </strong>на iOS и Android (Битрикс24).</p>
+            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (Мой склад).</p>
+            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (AmoCRM).</p>
+            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (RetailCRM).</p>
+          </div>
+        </details>
+        <details class="crm-compare-acc">
+          <summary class="crm-compare-acc__summary">
+            <span class="crm-compare-acc__summary-text">Цена</span>
+            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
+            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час </strong><br />(зависит от кастомизации и покупки лицензий на год).</p>
+            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />По пользователям, есть дополнительные опции</p>
+            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />За каждого пользователя</p>
+            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />За заказы/пользователей </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Этапы: слайдер 1/5, полоса прогресса и навигация как в блоке «Технологии» -->
+  <section class="crm-stages">
+    <div class="container desktop">
+      <h2 class="crm-stages__title">Этапы внедрения CRM</h2>
+      <div class="crm-stages__slider-wrap">
+        <div class="swiper crm-stages-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="crm-stages__card">
+                <div class="crm-stages__figure" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 1</p>
+                  <h3 class="crm-stages__step-title">Анализ потребностей и подбор CRM</h3>
+                  <ul class="crm-stages__list">
+                    <li>Проводим комплексный аудит и выявляем главные цели внедрения CRM</li>
+                    <li>Составляем предпроектное техническое задание</li>
+                    <li>Согласовываем все детали</li>
+                  </ul>
+                  <p class="crm-stages__result"><strong>Результат этапа:</strong> подробная дорожная карта и чёткий поэтапный план проекта с фиксированной стоимостью и сроками, которые не изменятся в процессе работы.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card">
+                <div class="crm-stages__figure" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 2</p>
+                  <h3 class="crm-stages__step-title">Настройка CRM под процессы</h3>
+                  <ul class="crm-stages__list">
+                    <li>Настраиваем воронки продаж, поля карточек, роли и права доступа</li>
+                    <li>Автоматизируем типовые сценарии и уведомления</li>
+                    <li>Согласовываем тестовую среду с заказчиком</li>
+                  </ul>
+                  <p class="crm-stages__result"><strong>Результат этапа:</strong> готовая к заполнению CRM с настроенными процессами под ваш бизнес.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card">
+                <div class="crm-stages__figure" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 3</p>
+                  <h3 class="crm-stages__step-title">Интеграции и перенос данных</h3>
+                  <ul class="crm-stages__list">
+                    <li>Подключаем телефонию, почту, мессенджеры и учётные системы</li>
+                    <li>Переносим клиентскую базу и историю сделок</li>
+                    <li>Проверяем корректность данных после миграции</li>
+                  </ul>
+                  <p class="crm-stages__result"><strong>Результат этапа:</strong> единая экосистема без разрывов между CRM и смежными сервисами.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card">
+                <div class="crm-stages__figure" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 4</p>
+                  <h3 class="crm-stages__step-title">Обучение и пилотный запуск</h3>
+                  <ul class="crm-stages__list">
+                    <li>Обучаем ключевых пользователей и ответственных за воронки</li>
+                    <li>Запускаем пилот на ограниченной команде с обратной связью</li>
+                    <li>Корректируем настройки по результатам пилота</li>
+                  </ul>
+                  <p class="crm-stages__result"><strong>Результат этапа:</strong> команда уверенно работает в CRM до полного запуска.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card">
+                <div class="crm-stages__figure" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 5</p>
+                  <h3 class="crm-stages__step-title">Полный запуск и сопровождение</h3>
+                  <ul class="crm-stages__list">
+                    <li>Переводим все отделы на новую CRM по плану</li>
+                    <li>Настраиваем мониторинг и отчётность для руководства</li>
+                    <li>Обеспечиваем техническую поддержку и доработки по запросу</li>
+                  </ul>
+                  <p class="crm-stages__result"><strong>Результат этапа:</strong> стабильная работа CRM и прозрачная аналитика по продажам.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="crm-stages__footer">
+          <span class="crm-stages__count" aria-live="polite">1/5</span>
+          <div class="crm-stages__nav">
+            <button type="button" class="crm-stages__arrow crm-stages__arrow--prev" aria-label="Предыдущий этап"></button>
+            <button type="button" class="crm-stages__arrow crm-stages__arrow--next" aria-label="Следующий этап"></button>
+          </div>
+          <div class="crm-stages__bar" role="presentation"><span class="crm-stages__bar-fill"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="container only-tablet">
+      <h2 class="crm-stages__title">Этапы внедрения CRM</h2>
+      <div class="crm-stages__slider-wrap crm-stages__slider-wrap--tablet">
+        <div class="swiper crm-stages-tablet-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--tablet">
+                <div class="crm-stages__figure crm-stages__figure--tablet" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 1</p>
+                  <h3 class="crm-stages__step-title">Анализ и подбор решения</h3>
+                  <ul class="crm-stages__list crm-stages__list--tablet">
+                    <li>Интервью с ключевыми ролями и сбор требований к CRM</li>
+                    <li>Сравнение платформ по функционалу и стоимости владения</li>
+                    <li>Согласование объёма работ и критериев успеха проекта</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--tablet"><strong>Результат этапа:</strong> выбранная платформа, согласованное ТЗ и календарный план внедрения с понятной стоимостью.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--tablet">
+                <div class="crm-stages__figure crm-stages__figure--tablet" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 2</p>
+                  <h3 class="crm-stages__step-title">Настройка под процессы</h3>
+                  <ul class="crm-stages__list crm-stages__list--tablet">
+                    <li>Воронки, поля, роли и права под ваши сценарии</li>
+                    <li>Автоматизация и тестовая среда для согласования</li>
+                    <li>Итерации по обратной связи до финальной конфигурации</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--tablet"><strong>Результат этапа:</strong> CRM готова к наполнению данными и пилоту.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--tablet">
+                <div class="crm-stages__figure crm-stages__figure--tablet" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 3</p>
+                  <h3 class="crm-stages__step-title">Интеграции и данные</h3>
+                  <ul class="crm-stages__list crm-stages__list--tablet">
+                    <li>Подключение телефонии, почты и смежных систем</li>
+                    <li>Миграция базы и истории сделок с проверкой качества</li>
+                    <li>Единые справочники и отсутствие дублей</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--tablet"><strong>Результат этапа:</strong> данные доступны в CRM в полном объёме.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--tablet">
+                <div class="crm-stages__figure crm-stages__figure--tablet" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 4</p>
+                  <h3 class="crm-stages__step-title">Обучение и пилот</h3>
+                  <ul class="crm-stages__list crm-stages__list--tablet">
+                    <li>Тренинги для ответственных и пользователей</li>
+                    <li>Пилот на части команды с метриками и доработками</li>
+                    <li>Подготовка к полному запуску по чек-листу</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--tablet"><strong>Результат этапа:</strong> команда готова к ежедневной работе в CRM.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--tablet">
+                <div class="crm-stages__figure crm-stages__figure--tablet" aria-hidden="true">
+                  <img src="img/ content/services/figma-color/crm-stages-figure.png" alt="" width="400" height="400" />
+                </div>
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 5</p>
+                  <h3 class="crm-stages__step-title">Запуск и поддержка</h3>
+                  <ul class="crm-stages__list crm-stages__list--tablet">
+                    <li>Поэтапный перевод отделов на новую CRM</li>
+                    <li>Отчёты и контрольные точки для руководства</li>
+                    <li>Сопровождение, SLA и развитие функционала</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--tablet"><strong>Результат этапа:</strong> стабильная эксплуатация и измеримый эффект.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="crm-stages__footer">
+          <span class="crm-stages__count crm-stages-tablet-count" aria-live="polite">1/5</span>
+          <div class="crm-stages__nav">
+            <button type="button" class="crm-stages__arrow crm-stages__arrow--prev" aria-label="Предыдущий этап"></button>
+            <button type="button" class="crm-stages__arrow crm-stages__arrow--next" aria-label="Следующий этап"></button>
+          </div>
+          <div class="crm-stages__bar" role="presentation"><span class="crm-stages__bar-fill"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="container mobile">
+      <h2 class="crm-stages__title">Этапы внедрения CRM</h2>
+      <div class="crm-stages__slider-wrap crm-stages__slider-wrap--mobile">
+        <div class="swiper crm-stages-mobile-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--mobile">
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 1</p>
+                  <h3 class="crm-stages__step-title">Анализ потребностей и подбор CRM-системы</h3>
+                  <ul class="crm-stages__list crm-stages__list--mobile">
+                    <li>Определяем цели внедрения CRM: увеличение продаж, автоматизация, улучшение аналитики и другие задачи.</li>
+                    <li>Подбираем наиболее подходящую CRM-систему в зависимости от ваших потребностей и бюджета.</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--mobile"><strong>Результат этапа:</strong> четкое понимание ваших задач и согласование оптимальной CRM-платформы.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--mobile">
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 2</p>
+                  <h3 class="crm-stages__step-title">Настройка CRM под процессы</h3>
+                  <ul class="crm-stages__list crm-stages__list--mobile">
+                    <li>Воронки, поля, роли и автоматизация под ваши сценарии.</li>
+                    <li>Согласование тестовой среды перед наполнением данными.</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--mobile"><strong>Результат этапа:</strong> готовая конфигурация CRM под бизнес-процессы.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--mobile">
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 3</p>
+                  <h3 class="crm-stages__step-title">Интеграции и перенос данных</h3>
+                  <ul class="crm-stages__list crm-stages__list--mobile">
+                    <li>Подключение телефонии, почты и учётных систем.</li>
+                    <li>Миграция клиентской базы с проверкой качества.</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--mobile"><strong>Результат этапа:</strong> единая картина по клиентам и сделкам в CRM.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--mobile">
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 4</p>
+                  <h3 class="crm-stages__step-title">Обучение и пилот</h3>
+                  <ul class="crm-stages__list crm-stages__list--mobile">
+                    <li>Обучение команды и пилот на ограниченной группе пользователей.</li>
+                    <li>Доработки по итогам пилота перед полным запуском.</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--mobile"><strong>Результат этапа:</strong> уверенные пользователи до масштабирования на компанию.</p>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="crm-stages__card crm-stages__card--mobile">
+                <div class="crm-stages__content">
+                  <p class="crm-stages__step-label">Этап 5</p>
+                  <h3 class="crm-stages__step-title">Запуск и сопровождение</h3>
+                  <ul class="crm-stages__list crm-stages__list--mobile">
+                    <li>Полный запуск по плану и отчётность для руководства.</li>
+                    <li>Поддержка и развитие CRM после внедрения.</li>
+                  </ul>
+                  <p class="crm-stages__result crm-stages__result--mobile"><strong>Результат этапа:</strong> стабильная работа системы и прозрачная аналитика.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="crm-stages__footer">
+          <span class="crm-stages__count crm-stages-mobile-count" aria-live="polite">1/5</span>
+          <div class="crm-stages__nav">
+            <button type="button" class="crm-stages__arrow crm-stages__arrow--prev" aria-label="Предыдущий этап"></button>
+            <button type="button" class="crm-stages__arrow crm-stages__arrow--next" aria-label="Следующий этап"></button>
+          </div>
+          <div class="crm-stages__bar" role="presentation"><span class="crm-stages__bar-fill"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества 4 колонки -->
+  <section class="crm-benefits">
+    <div class="container desktop">
+      <div class="crm-benefits__head">
+        <h2 class="crm-benefits__title">Преимущества работы с нами</h2>
+        <p class="crm-benefits__subtitle">Мы создаем долгосрочные отношения, основанные на доверии и сотрудничестве</p>
+      </div>
+      <ul class="crm-benefits__list">
+        <li class="crm-benefits__item">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--clay" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-1-base.png" alt="" width="40" height="40" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--1"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Гарантия сроков</h3>
+          </div>
+          <p class="crm-benefits__item-text">Работаем оперативно, сразу договариваемся о сроках и чётко их соблюдаем.</p>
+        </li>
+        <li class="crm-benefits__item">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-2-base.png" alt="" width="40" height="40" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--2"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Поддержка 24/7</h3>
+          </div>
+          <p class="crm-benefits__item-text">Мы круглосуточно на связи и готовы решить любой вопрос. Реагируем быстро и эффективно.</p>
+        </li>
+        <li class="crm-benefits__item">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-3-base.png" alt="" width="40" height="40" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--3"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Прозрачный процесс работы</h3>
+          </div>
+          <p class="crm-benefits__item-text">Предоставляем подробную дорожную карту, чтобы вы могли отслеживать весь процесс оказания ИТ-услуг.</p>
+        </li>
+        <li class="crm-benefits__item">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-4-base.png" alt="" width="40" height="40" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--4"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Фиксированная цена</h3>
+          </div>
+          <p class="crm-benefits__item-text">Предоставляем понятный прайс на ИТ-услуги, сразу озвучиваем финальную стоимость и не увеличиваем её.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="container only-tablet">
+      <div class="crm-benefits__head">
+        <h2 class="crm-benefits__title">Преимущества работы с нами</h2>
+        <p class="crm-benefits__subtitle crm-benefits__subtitle--tablet">Персональный подход и прозрачные условия на каждом этапе</p>
+      </div>
+      <ul class="crm-benefits__list crm-benefits__list--tablet">
+        <li class="crm-benefits__item crm-benefits__item--tablet">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--tablet crm-benefits__icon--clay" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-1-base.png" alt="" width="60" height="60" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--1"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Закреплённый менеджер</h3>
+          </div>
+          <p class="crm-benefits__item-text">Один ответственный контакт по проекту: статус, сроки и документы — без «перекладывания» между отделами.</p>
+        </li>
+        <li class="crm-benefits__item crm-benefits__item--tablet">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--tablet crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-2-base.png" alt="" width="60" height="60" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--2"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Комплексный подход</h3>
+          </div>
+          <p class="crm-benefits__item-text">От аудита и внедрения до обучения и поддержки — единая команда и согласованная архитектура решений.</p>
+        </li>
+        <li class="crm-benefits__item crm-benefits__item--tablet">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--tablet crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-3-base.png" alt="" width="60" height="60" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--3"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Гарантия сроков</h3>
+          </div>
+          <p class="crm-benefits__item-text">Фиксируем этапы в договоре и соблюдаем договорённости по срокам и объёму работ.</p>
+        </li>
+        <li class="crm-benefits__item crm-benefits__item--tablet">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--tablet crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-4-base.png" alt="" width="60" height="60" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--4"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Поддержка после запуска</h3>
+          </div>
+          <p class="crm-benefits__item-text">Помогаем с доработками, интеграциями и вопросами пользователей после ввода CRM в эксплуатацию.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="container mobile">
+      <div class="crm-benefits__head">
+        <h2 class="crm-benefits__title">Преимущества работы с нами</h2>
+        <p class="crm-benefits__subtitle crm-benefits__subtitle--mobile">Мы создаем долгосрочные отношения, основанные на доверии и сотрудничестве</p>
+      </div>
+      <ul class="crm-benefits__list crm-benefits__list--mobile">
+        <li class="crm-benefits__item crm-benefits__item--mobile">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--mobile crm-benefits__icon--clay" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-1-base.png" alt="" width="30" height="30" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--1"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Гарантия сроков</h3>
+          </div>
+          <p class="crm-benefits__item-text">Разрабатываем продукт быстро и выгодно, чтобы вы могли оперативно тестировать идеи и гибко подстраиваться под рынок.</p>
+        </li>
+        <li class="crm-benefits__item crm-benefits__item--mobile">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--mobile crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-2-base.png" alt="" width="30" height="30" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--2"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Закрепленный менеджер</h3>
+          </div>
+          <p class="crm-benefits__item-text">Индивидуальный подход и оперативная коммуникация — ваш проект под надёжным контролем.</p>
+        </li>
+        <li class="crm-benefits__item crm-benefits__item--mobile">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--mobile crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-3-base.png" alt="" width="30" height="30" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--3"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Поддержка 24/7</h3>
+          </div>
+          <p class="crm-benefits__item-text">Круглосуточная поддержка для вашего спокойствия: мы реагируем быстро и эффективно.</p>
+        </li>
+        <li class="crm-benefits__item crm-benefits__item--mobile">
+          <div class="crm-benefits__item-head">
+            <span class="crm-benefits__icon crm-benefits__icon--mobile crm-benefits__icon--clay crm-benefits__icon--clay-narrow" aria-hidden="true">
+              <img class="crm-benefits__icon-base" src="img/ content/services/figma-color/crm-benefits-4-base.png" alt="" width="30" height="30" />
+              <span class="crm-benefits__icon-tint crm-benefits__icon-tint--4"></span>
+            </span>
+            <h3 class="crm-benefits__item-title">Комплексный подход</h3>
+          </div>
+          <p class="crm-benefits__item-text">Объединяем стратегии, технологии и сервисы для достижения максимального результата.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Форма: «Оставьте заявку…» -->
+  <section class="crm-lead cta crm-page__lead">
+    <div class="container desktop">
+      <div class="crm-lead__card cta__card">
+        <div class="cta__card-decor crm-lead__decor" aria-hidden="true">
+          <img src="img/ content/services/figma-color/crm-cta-decor.png" alt="" class="cta__card-decor-img" width="487" height="488" />
+        </div>
+        <div class="cta__card-body crm-lead__body">
+          <h2 class="cta__title crm-lead__title">Оставьте заявку и получите стратегию внедрения за 24 часа</h2>
+          <form class="cta__form crm-lead__form" action="#" method="post" novalidate>
+            <div class="cta__form-row">
+              <div class="cta__form-field">
+                <input class="cta__input" type="text" name="name" placeholder="Ваше имя" autocomplete="name" />
+              </div>
+              <div class="cta__form-field">
+                <input class="cta__input" type="tel" name="phone" placeholder="+7 (999) 999-00-00" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="cta__form-field cta__form-field--full">
+              <input class="cta__input" type="url" name="site" placeholder="Ссылка на сайт" autocomplete="url" />
+            </div>
+            <button class="btn btn--primary cta__submit" type="submit">Отправить</button>
+            <div class="cta__consent">
+              <label class="cta__consent-label">
+                <input class="cta__consent-checkbox" type="checkbox" name="consent" required />
+                <span class="cta__consent-text">
+                  Нажимая на кнопку «Отправить», вы соглашаетесь с
+                  <a href="#" class="cta__consent-link">Правилами обработки персональных данных</a>
+                  и
+                  <a href="#" class="cta__consent-link">Политикой конфиденциальности</a>
+                </span>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container only-tablet">
+      <div class="crm-lead__card cta__card crm-lead__card--tablet">
+        <div class="cta__card-body crm-lead__body">
+          <h2 class="cta__title crm-lead__title crm-lead__title--tablet">Готовы начать? Обсудите ваш проект сегодня</h2>
+          <form class="cta__form crm-lead__form crm-lead__form--tablet" action="#" method="post" novalidate>
+            <div class="cta__form-row">
+              <div class="cta__form-field">
+                <input class="cta__input" type="text" name="name-tablet" placeholder="Ваше имя" autocomplete="name" />
+              </div>
+              <div class="cta__form-field">
+                <input class="cta__input" type="tel" name="phone-tablet" placeholder="+7 (999) 999-00-00" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="cta__form-field cta__form-field--full">
+              <input class="cta__input" type="url" name="site-tablet" placeholder="Ссылка на сайт" autocomplete="url" />
+            </div>
+            <button class="btn btn--primary cta__submit" type="submit">Отправить</button>
+            <div class="cta__consent">
+              <label class="cta__consent-label">
+                <input class="cta__consent-checkbox" type="checkbox" name="consent-tablet" required />
+                <span class="cta__consent-text">
+                  Нажимая на кнопку «Отправить», вы соглашаетесь с
+                  <a href="#" class="cta__consent-link">Правилами обработки персональных данных</a>
+                  и
+                  <a href="#" class="cta__consent-link">Политикой конфиденциальности</a>
+                </span>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container mobile">
+      <div class="crm-lead__card cta__card crm-lead__card--mobile">
+        <div class="cta__card-body crm-lead__body">
+          <h2 class="cta__title crm-lead__title crm-lead__title--mobile">Готовы начать? <br /> Обсудите ваш проект сегодня</h2>
+          <form class="cta__form crm-lead__form crm-lead__form--mobile" action="#" method="post" novalidate>
+            <div class="cta__form-row">
+              <div class="cta__form-field">
+                <input class="cta__input" type="text" name="name-mobile" placeholder="Ваше имя" autocomplete="name" />
+              </div>
+              <div class="cta__form-field">
+                <input class="cta__input" type="tel" name="phone-mobile" placeholder="+7 (999) 999-00-00" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="cta__form-field cta__form-field--full">
+              <input class="cta__input" type="url" name="site-mobile" placeholder="Ссылка на сайт" autocomplete="url" />
+            </div>
+            <button class="btn btn--primary cta__submit crm-lead__submit--mobile" type="submit">Отправить</button>
+            <div class="cta__consent">
+              <label class="cta__consent-label">
+                <input class="cta__consent-checkbox" type="checkbox" name="consent-mobile" required />
+                <span class="cta__consent-text crm-lead__consent--mobile">
+                  Нажимая на кнопку «Отправить», вы соглашаетесь с
+                  <a href="#" class="cta__consent-link">Правилами обработки персональных данных</a>
+                  и
+                  <a href="#" class="cta__consent-link">Политикой конфиденциальности</a>
+                </span>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Факты о нас -->
+  <section class="crm-facts">
+    <div class="container">
+      <h2 class="crm-facts__title">Факты о нас</h2>
+      <div class="crm-facts__layout">
+        <div class="crm-facts__cards">
+          <article class="crm-facts-card">
+            <h3 class="crm-facts-card__title">Компания аккредитована</h3>
+            <div class="crm-facts-card__logo">
+              <div class="crm-facts-card__logo-plate" role="img" aria-label="Реестр аккредитованных IT-компаний Минцифры России"></div>
+            </div>
+          </article>
+          <article class="crm-facts-card crm-facts-card--top">
+            <div class="crm-facts-card__media" aria-hidden="true">
+              <img src="img/ content/services/figma-color/crm-facts-top-photo.png" alt="" width="320" height="236" />
+            </div>
+            <div class="crm-facts-card__top-body">
+              <p class="crm-facts-card__lead">Компания из</p>
+              <div class="crm-facts-card__top-mark-wrap">
+                <img class="crm-facts-card__top-mark" src="img/ content/services/figma-color/crm-facts-top-100.svg" alt="ТОП-100" width="205" height="37" />
+              </div>
+              <p class="crm-facts-card__note">среди 7 000+ партнеров 1С-Битрикс</p>
+            </div>
+          </article>
+        </div>
+        <div class="crm-facts__main">
+          <p class="crm-facts__intro">Компания Битроид специализируется на создании, сопровождении и развитии технологичных веб-систем и мобильных приложений. Является одним из ведущих в России интеграторов Битрикс24.</p>
+          <a href="#" class="crm-facts__link">
+            О компании
+            <span class="crm-facts__link-ico" aria-hidden="true"></span>
+          </a>
+          <ul class="crm-facts__stats">
+            <li class="crm-facts-stat">
+              <p class="crm-facts-stat__num">230+</p>
+              <p class="crm-facts-stat__title">Реализованных проектов</p>
+              <p class="crm-facts-stat__text">От мелких компаний до крупных холдингов по всей России</p>
+            </li>
+            <li class="crm-facts-stat">
+              <p class="crm-facts-stat__num">7+</p>
+              <p class="crm-facts-stat__title">Лет интегрируем Битрикс24</p>
+              <p class="crm-facts-stat__text">Среднее увеличение продаж +30% после Внедрения CRM</p>
+            </li>
+            <li class="crm-facts-stat">
+              <p class="crm-facts-stat__num">87+</p>
+              <p class="crm-facts-stat__title">Компании обучили </p>
+              <p class="crm-facts-stat__text">Научим и отключим, как использовать Битрикс24 на 100%</p>
+            </li>
+            <li class="crm-facts-stat">
+              <p class="crm-facts-stat__num">+53%</p>
+              <p class="crm-facts-stat__title">К эффективности сотрудников</p>
+              <p class="crm-facts-stat__text">Внедрение CRM наладит совместную работу и поможет справиться с задачами эффективнее</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Тарифы -->
+  <section class="crm-pricing">
+    <div class="container">
+      <h2 class="crm-pricing__title">Сколько стоит внедрение CRM</h2>
+      <div class="crm-pricing__grid">
+        <article class="crm-price-card">
+          <div class="crm-price-card__head">
+            <h3 class="crm-price-card__name">Базовое внедрение</h3>
+            <p class="crm-price-card__tag">От 4 500 ₽/час</p>
+          </div>
+          <ul class="crm-price-card__list">
+            <li>Предварительный анализ и разработка проекта</li>
+            <li>Интеграция с сайтом, почтовыми сервисами, 1C и другими системами</li>
+            <li>Интеграция с телефонией, соцсетями и мессенджерами</li>
+            <li>Общая настройка CRM: ведение бизнес-процессов, получение отчётов, распределение прав доступа пользователей, отладка роботов и триггеров.</li>
+            <li>Создание документов по шаблонам: 3 шаблона</li>
+            <li>Обучение сотрудников и руководителей: 2-часовой курс</li>
+          </ul>
+          <p class="crm-price-card__note">Общий срок работ и итоговую стоимость определим на первом этапе, при заключении договора.</p>
+          <a href="#" class="btn btn--primary crm-price-card__btn">Заказать внедрение</a>
+        </article>
+        <article class="crm-price-card crm-price-card--gradient">
+          <div class="crm-price-card__head">
+            <h3 class="crm-price-card__name">Корпоративный</h3>
+            <p class="crm-price-card__tag crm-price-card__tag--light">От 100 000 ₽</p>
+          </div>
+          <div class="crm-price-card__intro">
+            <p>Комплексное внедрение по вашему техническому заданию.</p>
+            <p>Сроки и стоимость внедрения CRM рассчитываются индивидуально. Цена внедрения CRM зависит от нескольких факторов:</p>
+          </div>
+          <ul class="crm-price-card__list">
+            <li>глубины настройки,</li>
+            <li>объёма данных, с которыми придётся работать,</li>
+            <li>количества специалистов, привлекаемых в проект, и т.д.</li>
+          </ul>
+          <p class="crm-price-card__note">Также тариф включает дополнительные услуги по вашему запросу: донастройка и дополнительная разработка CRM-систем для вашего бизнеса, дополнительные интеграции с системами, более глубокое обучение сотрудников и т.д.</p>
+          <a href="#" class="btn btn--secondary crm-price-card__btn crm-price-card__btn--dark">Заказать внедрение</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Кейсы -->
+  <section class="cases crm-page__cases">
+    <div class="container">
+      <div class="cases__head">
+        <div class="cases__head-text">
+          <h2 class="cases__title">Кейсы и проекты</h2>
+          <p class="cases__subtitle">Помогаем бизнесам решать задачи максимально эффективно </p>
+        </div>
+        <a href="#" class="btn btn--primary cases__head-btn desktop">Смотреть все кейсы</a>
+      </div>
+    </div>
+    <div class="cases__slider-outer">
+      <div class="container">
+        <span class="cases-gradient cases-gradient--green">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+        </span>
+        <span class="cases-gradient cases-gradient--blue">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+        </span>
+        <button class="cases__nav-btn cases__nav-btn--prev swiper-button-prev-cases" type="button" aria-label="Предыдущий кейс">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12.5 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="cases__nav-btn cases__nav-btn--next swiper-button-next-cases" type="button" aria-label="Следующий кейс">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7.5 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="cases__viewport">
+          <div class="swiper cases-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <article class="cases__card">
+                  <div class="cases__card-figure" aria-hidden="true">
+                    <img src="img/general/cases/Group 63.png" alt="" class="cases__card-figure-img cases__card-figure-img--1" />
+                  </div>
+                  <div class="cases__card-body">
+                    <span class="cases__card-badge">Автоматизация</span>
+                    <h3 class="cases__card-name">Автоматизация процессов для строительной компании</h3>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="cases__card cases__card--accent">
+                  <div class="cases__card-union" aria-hidden="true">
+                    <img src="img/general/cases/Union.png" alt="" class="cases__card-union-img">
+                  </div>
+                  <div class="cases__card-body">
+                    <span class="cases__card-badge">Корпоративные порталы</span>
+                    <h3 class="cases__card-name">Стройхолдинг</h3>
+                    <p class="cases__card-desc">Ускорили выполнение задач строительной компании на 20%.</p>
+                    <a href="#" class="cases__card-link">
+                      Читать кейс
+                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="cases__card">
+                  <div class="cases__card-figure cases__card-figure--right" aria-hidden="true">
+                    <img src="img/general/cases/Group 63.png" alt="" class="cases__card-figure-img cases__card-figure-img--3" />
+                  </div>
+                  <div class="cases__card-body">
+                    <span class="cases__card-badge">Автоматизация</span>
+                    <h3 class="cases__card-name">Автоматизация процессов для строительной компании</h3>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cases__controls">
+          <div class="swiper-pagination cases-pagination"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container cases__head-btn-container">
+      <a href="#" class="btn btn--primary cases__head-btn tablet">Смотреть все кейсы</a>
+    </div>
+  </section>
+
+  <!-- Лид-магнит -->
+  <section class="crm-checklist">
+    <div class="container">
+      <div class="crm-checklist__inner">
+        <div class="crm-checklist__text">
+          <h2 class="crm-checklist__title">Скачайте бесплатный чек-лист готовности к CRM-системе</h2>
+          <form class="crm-checklist__form" action="#" method="post">
+            <input type="email" name="email" class="crm-checklist__input" placeholder="Ваш email" autocomplete="email" />
+            <button type="submit" class="btn btn--primary crm-checklist__submit">Отправить</button>
+            <label class="crm-checklist__consent">
+              <input type="checkbox" name="consent" required class="crm-checklist__checkbox" />
+              <span>Нажимая на кнопку «Отправить», вы соглашаетесь с <strong>Правилами обработки персональных данных</strong> и <strong>Политикой конфиденциальности</strong></span>
+            </label>
+          </form>
+        </div>
+        <div class="crm-checklist__visual" aria-hidden="true">
+          <img src="img/ content/services/figma-color/crm-checklist-visual.jpg" alt="" width="365" height="340" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (как на главной) -->
+  <section class="faq crm-page__faq">
+    <div class="container faq__inner">
+      <span class="faq-gradient faq-gradient--green">
+        @include('../../partials/svg/gradients/main/faq/Ellipse 6.svg')
+      </span>
+      <span class="faq-gradient faq-gradient--blue">
+        @include('../../partials/svg/gradients/main/faq/Ellipse 7.svg')
+      </span>
+      <div class="faq__content">
+        <div class="faq__head">
+          <div class="faq__head-text">
+            <h2 class="faq__title">Вопросы и ответы</h2>
+            <p class="faq__subtitle">Собрали ответы на самые частые вопросы наших клиентов.</p>
+          </div>
+        </div>
+        <ul class="faq__list">
+          <li class="faq__item faq__item--open">
+            <div class="faq__item-header">
+              <p class="faq__question">Для чего нужна CRM?</p>
+              <button class="faq__toggle" type="button" aria-expanded="true" aria-label="Свернуть ответ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="faq__answer">
+              <p>CRM — система управления взаимоотношениями с клиентами. Она помогает автоматизировать взаимодействие с пользователями, управлять, контролировать и масштабировать продажи. Вся история контактов с клиентами собирается и систематизируется в единой базе, что позволяет улучшать воронки продаж и повышать эффективность работы sales-менеджеров.</p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <div class="faq__item-header">
+              <p class="faq__question">Сколько времени занимает внедрение CRM?</p>
+              <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="faq__answer" hidden>
+              <p></p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <div class="faq__item-header">
+              <p class="faq__question">Как выбрать CRM под задачи бизнеса?</p>
+              <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="faq__answer" hidden>
+              <p></p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <div class="faq__item-header">
+              <p class="faq__question">Что если стандартного функционала CRM не хватит?</p>
+              <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="faq__answer" hidden>
+              <p></p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <div class="faq__item-header">
+              <p class="faq__question">Как проходит обучение сотрудников?</p>
+              <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="faq__answer" hidden>
+              <p></p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <div class="faq__item-header">
+              <p class="faq__question">Какая поддержка предусмотрена после запуска?</p>
+              <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="faq__answer" hidden>
+              <p></p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <div class="faq__item-header">
+              <p class="faq__question">Как оценить эффективность внедрения?</p>
+              <button class="faq__toggle" type="button" aria-expanded="false" aria-label="Развернуть ответ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="faq__answer" hidden>
+              <p></p>
+            </div>
+          </li>
+        </ul>
+        <a href="#" class="faq__all-link tablet">
+          Смотреть все ответы на вопросы
+          <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+      <div class="faq__decor desktop" aria-hidden="true">
+        <a href="#" class="faq__all-link desktop">
+          Смотреть все ответы на вопросы
+          <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <img src="img/Frame 164.png" alt="" class="faq__decor-img" width="489" height="488" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Финальный CTA (как на главной, partials/home/cta.html) -->
+  <section class="cta crm-page__final">
+    <div class="container">
+      <div class="cta__card">
+        <div class="cta__card-decor" aria-hidden="true">
+          <img src="img/ content/services/figma-color/crm-cta-decor.png" alt="" class="cta__card-decor-img" width="487" height="488" />
+        </div>
+        <div class="cta__card-body">
+          <h2 class="cta__title">Начните автоматизацию вашего бизнеса!</h2>
+          <p class="cta__subtitle">Поможем с подбором идеальной CRM-системы для вас. Получите КП на внедрение CRM в ваши системы</p>
+          <form class="cta__form" action="#" method="post" novalidate>
+            <div class="cta__form-row">
+              <div class="cta__form-field">
+                <input class="cta__input" type="text" name="name" placeholder="Ваше имя" autocomplete="name" />
+              </div>
+              <div class="cta__form-field">
+                <input class="cta__input" type="tel" name="phone" placeholder="+7 (999) 999-00-00" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="cta__form-field cta__form-field--full">
+              <input class="cta__input" type="url" name="site" placeholder="Ссылка на сайт" autocomplete="url" />
+            </div>
+            <button class="btn btn--primary cta__submit" type="submit">Отправить</button>
+            <div class="cta__consent">
+              <label class="cta__consent-label">
+                <input class="cta__consent-checkbox" type="checkbox" name="consent" required />
+                <span class="cta__consent-text">
+                  Нажимая на кнопку «Отправить», вы соглашаетесь с
+                  <a href="#" class="cta__consent-link">Правилами обработки персональных данных</a>
+                  и
+                  <a href="#" class="cta__consent-link">Политикой конфиденциальности</a>
+                </span>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вас может заинтересовать -->
+  <section class="crm-related">
+    <div class="container">
+      <h2 class="crm-related__title">Вас может заинтересовать</h2>
+      <ul class="crm-related__list">
+        <li>
+          <a href="#" class="crm-related-card">
+            <span class="crm-related-card__icon crm-related-card__icon--clay" aria-hidden="true">
+              <img class="crm-related-card__icon-base" src="img/ content/services/figma-color/crm-related-site-base.png" alt="" width="64" height="64" />
+              <span class="crm-related-card__icon-tint crm-related-card__icon-tint--site"></span>
+            </span>
+            <span class="crm-related-card__name">Создание сайта</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="crm-related-card">
+            <span class="crm-related-card__icon crm-related-card__icon--clay" aria-hidden="true">
+              <img class="crm-related-card__icon-base" src="img/ content/services/figma-color/crm-related-support-base.png" alt="" width="64" height="64" />
+              <span class="crm-related-card__icon-tint crm-related-card__icon-tint--support"></span>
+            </span>
+            <span class="crm-related-card__name">Поддержка сайтов</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="crm-related-card">
+            <span class="crm-related-card__icon crm-related-card__icon--clay" aria-hidden="true">
+              <img class="crm-related-card__icon-base" src="img/ content/services/figma-color/crm-related-auto-base.png" alt="" width="64" height="64" />
+              <span class="crm-related-card__icon-tint crm-related-card__icon-tint--auto"></span>
+            </span>
+            <span class="crm-related-card__name">Автоматизация</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="crm-related-card">
+            <span class="crm-related-card__icon crm-related-card__icon--clay" aria-hidden="true">
+              <img class="crm-related-card__icon-base" src="img/ content/services/figma-color/crm-related-transfer-base.png" alt="" width="64" height="64" />
+              <span class="crm-related-card__icon-tint crm-related-card__icon-tint--transfer"></span>
+            </span>
+            <span class="crm-related-card__name">Перенос сайта</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="crm-related-card">
+            <span class="crm-related-card__icon crm-related-card__icon--clay" aria-hidden="true">
+              <img class="crm-related-card__icon-base" src="img/ content/services/figma-color/crm-related-training-base.png" alt="" width="64" height="64" />
+              <span class="crm-related-card__icon-tint crm-related-card__icon-tint--training"></span>
+            </span>
+            <span class="crm-related-card__name">Обучение</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="crm-related-card">
+            <span class="crm-related-card__icon crm-related-card__icon--clay" aria-hidden="true">
+              <img class="crm-related-card__icon-base" src="img/ content/services/figma-color/crm-related-tech-base.png" alt="" width="64" height="64" />
+              <span class="crm-related-card__icon-tint crm-related-card__icon-tint--tech"></span>
+            </span>
+            <span class="crm-related-card__name">Техн. сопровождение</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>

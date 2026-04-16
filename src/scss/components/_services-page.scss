@@ -1,0 +1,1395 @@
+@use '../mixins/breakpoint' as *;
+
+// Слои из Figma: ч/б растр + градиент с mask и mix-blend-mode: color (как в макете)
+$figma-color-assets: '../../img/ content/services/figma-color';
+
+// Страница «Услуги» — десктоп (услуги_декстоп) + планшет 768–1279 (услуги_планшет, get_design_context)
+
+.services-page {
+  position: relative;
+  background: var(--color-white, #fff);
+  overflow-x: clip;
+  // Зазор перед футером (на главной его даёт блок «Новости» с padding-bottom)
+  padding-bottom: 80px;
+
+  @include only-tablet {
+    padding-bottom: 60px;
+  }
+
+  @include mobile {
+    padding-bottom: 60px;
+  }
+}
+
+.services-page__breadcrumbs-wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+
+  @include mobile {
+    min-height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+.services-page__breadcrumbs {
+  margin: 0;
+
+  @include mobile {
+    .breadcrumbs__item {
+      font-size: 14px;
+    }
+
+    .breadcrumbs__icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .breadcrumbs__divider {
+      width: 16px;
+      height: 16px;
+      font-size: 12px;
+    }
+  }
+}
+
+// ─── Hero: 750px, H1 64px, подзаголовок 18px, gap 24 / 80 ───────────────
+.services-hero {
+  position: relative;
+  z-index: 1;
+  min-height: 750px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+
+  @include only-tablet {
+    min-height: 488px;
+    padding: 0;
+  }
+
+  @include mobile {
+    min-height: 521px;
+    padding: 24px 0 32px;
+    box-sizing: border-box;
+  }
+}
+
+.services-hero__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 750px;
+
+  @include only-tablet {
+    min-height: 488px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  @include mobile {
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+// Градиентные декоры в баннере — как на главной (hero__bg-gradient)
+.services-hero__bg-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &--green {
+    top: -200px;
+    left: -200px;
+
+    @include mobile {
+      top: -50px;
+      left: -200px;
+    }
+  }
+
+  &--blue {
+    top: -50px;
+    left: 200px;
+
+    @include mobile {
+      top: 300px;
+      left: -200px;
+    }
+  }
+}
+
+.services-hero__collage {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 720px;
+  height: 620px;
+  pointer-events: none;
+  z-index: 1;
+
+  @include only-tablet {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 340px;
+    height: 380px;
+  }
+
+  @include mobile {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    order: 2;
+    width: 100%;
+    max-width: 400px;
+    height: 220px;
+    margin: 0 auto;
+  }
+}
+
+.services-hero__collage-stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.services-hero__collage-base {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Градиентный слой поверх ч/б фото (как в Figma: mix-blend-color + mask-image)
+.services-hero__collage-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: color;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+
+  &--1 {
+    background: linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%);
+    mask-image: url('#{$figma-color-assets}/hero-1-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/hero-1-mask.png');
+  }
+
+  &--2 {
+    background: linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%);
+    mask-image: url('#{$figma-color-assets}/hero-2-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/hero-2-mask.png');
+  }
+
+  &--3 {
+    background: linear-gradient(134.384deg, rgb(43, 172, 104) 11.484%, rgb(37, 135, 249) 88.993%);
+    mask-image: url('#{$figma-color-assets}/hero-3-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/hero-3-mask.png');
+  }
+}
+
+.services-hero__collage-piece {
+  position: absolute;
+  overflow: hidden;
+
+  &--1 {
+    right: 0;
+    top: 120px;
+    width: 324px;
+    height: 324px;
+    transform: rotate(-42.67deg);
+    border-radius: 24px;
+  }
+
+  &--2 {
+    right: 180px;
+    top: 0;
+    width: 432px;
+    height: 432px;
+    transform: rotate(29.69deg);
+    border-radius: 28px;
+  }
+
+  &--3 {
+    right: 220px;
+    bottom: 0;
+    width: 207px;
+    height: 207px;
+    transform: rotate(0deg);
+    border-radius: 20px;
+  }
+
+  @include only-tablet {
+    &--1 {
+      right: 0;
+      top: 100px;
+      width: 220px;
+      height: 220px;
+      transform: rotate(-42.67deg);
+    }
+
+    &--2 {
+      right: 80px;
+      top: 0;
+      width: 293px;
+      height: 293px;
+      transform: rotate(29.69deg);
+    }
+
+    &--3 {
+      right: 100px;
+      bottom: 0;
+      top: auto;
+      width: 140px;
+      height: 140px;
+      transform: none;
+    }
+  }
+
+  @include mobile {
+    &--1,
+    &--2,
+    &--3 {
+      transform: none;
+      width: 45%;
+      height: auto;
+      aspect-ratio: 1;
+      top: 10%;
+      right: 5%;
+    }
+
+    &--2 {
+      left: 5%;
+      right: auto;
+      top: 0;
+    }
+
+    &--3 {
+      bottom: 5%;
+      top: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+    }
+  }
+}
+
+.services-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 822px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @include only-tablet {
+    gap: 60px;
+    max-width: 590px;
+  }
+
+  @include mobile {
+    order: 1;
+    align-items: center;
+    gap: 24px;
+    max-width: 329px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.services-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include only-tablet {
+    gap: 16px;
+  }
+
+  @include mobile {
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+}
+
+.services-hero__title {
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 42px;
+    max-width: 500px;
+  }
+
+  @include mobile {
+    font-size: 24px;
+    max-width: 100%;
+  }
+}
+
+.services-hero__subtitle {
+  margin: 0;
+  max-width: 747px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 16px;
+    max-width: 590px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
+
+.services-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+
+  @include mobile {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.services-hero__btn-primary {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.services-hero__link-secondary.link-arrow {
+  line-height: 1.1;
+}
+
+// ─── Сетка услуг ───────────────────────────────────────────────────────
+.services-grid-block {
+  position: relative;
+  z-index: 1;
+  padding: 150px 0 0;
+
+  @include only-tablet {
+    padding-top: 100px;
+  }
+
+  @include mobile {
+    padding-top: 60px;
+  }
+}
+
+.services-grid-block__head {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 60px;
+  max-width: 100%;
+
+  @include only-tablet {
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+
+  @include mobile {
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+}
+
+.services-grid-block__title {
+  margin: 0;
+  max-width: 863px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 26px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.services-grid-block__subtitle {
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+    max-width: 562px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.services-grid-block__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include only-tablet {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 678px;
+    margin-left: auto;
+    margin-right: auto;
+    // Имя области не «auto» — иначе grid-area: auto читается как ключевое слово, а не как область
+    grid-template-areas:
+      'tech tech'
+      'create crm'
+      'support support'
+      'transfer transfer'
+      'gov gov'
+      'study study'
+      'automation automation'
+      'integration integration';
+  }
+
+  @include mobile {
+    gap: 20px;
+    flex-direction: column;
+  }
+}
+
+.services-grid-block__cell {
+  flex-shrink: 0;
+
+  &--872 {
+    flex: 0 0 872px;
+    max-width: 100%;
+  }
+
+  &--424 {
+    flex: 0 0 424px;
+    max-width: 100%;
+  }
+
+  &--648 {
+    flex: 0 0 648px;
+    max-width: 100%;
+  }
+
+  &--1320 {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  @include only-tablet {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+
+    &--g-tech {
+      grid-area: tech;
+    }
+
+    &--g-create {
+      grid-area: create;
+    }
+
+    &--g-crm {
+      grid-area: crm;
+    }
+
+    &--g-support {
+      grid-area: support;
+    }
+
+    &--g-transfer {
+      grid-area: transfer;
+    }
+
+    &--g-gov {
+      grid-area: gov;
+    }
+
+    &--g-study {
+      grid-area: study;
+    }
+
+    &--g-auto {
+      grid-area: automation;
+    }
+
+    &--g-integration {
+      grid-area: integration;
+    }
+  }
+
+  @include mobile {
+    flex: 1 1 100% !important;
+    max-width: 100%;
+  }
+}
+
+// Карточка услуги: десктоп 260px / radius 30; планшет 200px / radius 20 (услуги_планшет)
+.service-card {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 260px;
+  padding: 40px 40px 56px;
+  background: var(--color-white, #fff);
+  border-radius: 30px;
+  box-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
+  overflow: hidden;
+
+  @include only-tablet {
+    min-height: 200px;
+    padding: 24px 24px 48px;
+    border-radius: 20px;
+  }
+
+  @include mobile {
+    min-height: 220px;
+    padding: 16px 16px 48px;
+    border-radius: 10px;
+  }
+}
+
+.services-grid-block__cell--g-gov .service-card,
+.services-grid-block__cell--g-auto .service-card,
+.services-grid-block__cell--g-integration .service-card {
+  @include mobile {
+    min-height: 250px;
+  }
+}
+
+.service-card--decor .service-card__title,
+.service-card--decor .service-card__desc {
+  max-width: 546px;
+}
+
+.service-card--wide-full .service-card__title,
+.service-card--wide-full .service-card__desc {
+  max-width: 917px;
+}
+
+.service-card__title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 12px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.service-card__desc {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.service-card__link {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-grey, #666);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15' fill='none'%3E%3Cpath d='M3 6l4.5 4.5L12 6' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+    transform: rotate(-90deg);
+  }
+
+  &:hover {
+    color: var(--color-deep-grey, #1e1e1e);
+  }
+
+  @include only-tablet {
+    left: 24px;
+    bottom: 24px;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-green, #34ae6b);
+
+    &::after {
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15' fill='none'%3E%3Cpath d='M3 6l4.5 4.5L12 6' stroke='%2334ae6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+    }
+
+    &:hover {
+      color: var(--color-green-2, #298955);
+    }
+  }
+
+  @include mobile {
+    left: 16px;
+    bottom: 20px;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-green, #34ae6b);
+
+    &::after {
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15' fill='none'%3E%3Cpath d='M3 6l4.5 4.5L12 6' stroke='%2334ae6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+    }
+
+    &:hover {
+      color: var(--color-green-2, #298955);
+    }
+  }
+}
+
+.service-card__decor {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 490px;
+  height: 490px;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  @include only-tablet {
+    opacity: 1;
+    width: 280px;
+    height: 280px;
+    top: -40px;
+    right: -20px;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.service-card__decor-stack {
+  position: relative;
+  display: block;
+
+  &--tech,
+  &--gov {
+    width: 400px;
+    height: 400px;
+
+    @include only-tablet {
+      width: 260px;
+      height: 260px;
+    }
+  }
+
+  &--integration {
+    width: 532px;
+    height: 532px;
+
+    @include only-tablet {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
+
+.service-card__decor-base {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(-15deg);
+  transform-origin: center center;
+
+  &--integration {
+    transform: rotate(-30deg);
+    // Та же маска, что у градиента — иначе ч/б растр остаётся прямоугольником и «торчит» из‑под силуэта
+    mask-image: url('#{$figma-color-assets}/card-integration-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/card-integration-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100% 100%;
+  }
+}
+
+.service-card__decor-tint {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: color;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  transform: rotate(-15deg);
+  transform-origin: center center;
+
+  &--tech {
+    background: linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%);
+    mask-image: url('#{$figma-color-assets}/card-tech-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/card-tech-mask.png');
+  }
+
+  &--gov {
+    background: linear-gradient(126.55deg, rgb(37, 135, 249) 2.5325%, rgb(52, 174, 107) 90.001%);
+    mask-image: url('#{$figma-color-assets}/card-gov-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/card-gov-mask.png');
+  }
+
+  &--integration {
+    transform: rotate(-30deg);
+    background: linear-gradient(137.277deg, rgb(43, 172, 104) 14.261%, rgb(37, 135, 249) 89.009%);
+    mask-image: url('#{$figma-color-assets}/card-integration-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/card-integration-mask.png');
+  }
+}
+
+.service-card__decor--integration {
+  // Совпадает со стеком 532×532 — иначе меньший бокс 490×490 смещает/обрезает слои относительно маски
+  width: 532px;
+  height: 532px;
+  top: -40px;
+  right: -80px;
+
+  @include only-tablet {
+    width: 300px;
+    height: 300px;
+    top: -56px;
+    right: -60px;
+  }
+}
+
+// ─── Преимущества ──────────────────────────────────────────────────────
+.services-advantages {
+  position: relative;
+  z-index: 1;
+  padding: 150px 0 0;
+
+  @include only-tablet {
+    padding-top: 100px;
+  }
+
+  @include mobile {
+    padding-top: 60px;
+  }
+}
+
+.services-advantages__head {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 60px;
+
+  @include only-tablet {
+    gap: 12px;
+    margin-bottom: 44px;
+  }
+
+  @include mobile {
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+}
+
+.services-advantages__title {
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 26px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.services-advantages__subtitle {
+  margin: 0;
+  max-width: 550px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+    max-width: 552px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.services-advantages__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include only-tablet {
+    max-width: 677px;
+    gap: 24px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.services-advantages__item {
+  flex: 0 0 calc(25% - 18px);
+  min-width: 240px;
+  max-width: 312px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include only-tablet {
+    flex: 1 1 calc(50% - 12px);
+    max-width: 312px;
+    min-width: 280px;
+    gap: 8px;
+  }
+
+  @include mobile {
+    flex: 1 1 100%;
+    max-width: 100%;
+    gap: 20px;
+  }
+}
+
+.services-advantages__item-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include only-tablet {
+    display: contents;
+  }
+}
+
+.services-advantages__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  &--clay {
+    position: relative;
+  }
+
+  @include only-tablet {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
+  }
+
+  @include mobile {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.services-advantages__icon-base {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.services-advantages__icon-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: color;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 100% 100%;
+
+  &--1 {
+    background: linear-gradient(136.169deg, rgb(43, 172, 104) 9.1837%, rgb(37, 135, 249) 90.884%);
+    mask-image: url('#{$figma-color-assets}/adv-1-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/adv-1-mask.png');
+  }
+
+  &--2 {
+    background: linear-gradient(136.169deg, rgb(43, 172, 104) 9.1837%, rgb(37, 135, 249) 90.884%);
+    mask-image: url('#{$figma-color-assets}/adv-2-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/adv-2-mask.png');
+  }
+
+  &--3 {
+    background: linear-gradient(134.318deg, rgb(43, 172, 104) 13.397%, rgb(37, 135, 249) 84.002%);
+    mask-image: url('#{$figma-color-assets}/adv-3-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/adv-3-mask.png');
+  }
+
+  &--4 {
+    background: linear-gradient(135.699deg, rgb(43, 172, 104) 16.38%, rgb(37, 135, 249) 85.291%);
+    mask-image: url('#{$figma-color-assets}/adv-4-mask.png');
+    -webkit-mask-image: url('#{$figma-color-assets}/adv-4-mask.png');
+  }
+}
+
+.services-advantages__item-title {
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.services-advantages__item-text {
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+}
+
+// ─── Сертификаты / партнёры ─────────────────────────────────────────────
+.services-cert {
+  position: relative;
+  z-index: 1;
+  padding: 150px 0 80px;
+  overflow: hidden;
+
+  @include only-tablet {
+    padding: 100px 0 60px;
+  }
+
+  @include mobile {
+    padding: 60px 0 40px;
+  }
+}
+
+.services-cert__banner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 400px;
+  padding: 40px;
+  background: var(--color-white, #fff);
+  border-radius: 30px;
+  box-shadow: var(--input-shadow);
+  margin-bottom: 40px;
+
+  @include only-tablet {
+    min-height: 280px;
+    padding: 30px;
+    border-radius: 20px;
+    gap: 24px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 24px 16px;
+    border-radius: 10px;
+    gap: 20px;
+  }
+}
+
+.services-cert__banner-text {
+  flex: 1 1 400px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include mobile {
+    max-width: 100%;
+  }
+}
+
+.services-cert__banner-lead {
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 26px;
+    max-width: 375px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.services-cert__banner-sub {
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.services-cert__banner-desc {
+  margin: 0;
+  max-width: 410px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+    max-width: 308px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.services-cert__banner-note {
+  margin: 0;
+  max-width: 456px;
+  font-family: var(--base-font), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 18px;
+    white-space: normal;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.services-cert__banner-side {
+  flex: 0 1 539px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+
+  @include tablet {
+    flex: 1 1 100%;
+  }
+
+  @include mobile {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 328px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.services-cert__side-label {
+  margin: 0;
+  font-family: var(--base-font), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-deep-grey, #1e1e1e);
+
+  @include only-tablet {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+}
+
+.services-cert__side-logo {
+  width: 100%;
+  max-width: 539px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &--mincifry {
+    height: 118px;
+    background-color: var(--color-blue, #2587f9);
+    mask-image: url('#{$figma-color-assets}/mincifry-mask.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-image: url('#{$figma-color-assets}/mincifry-mask.png');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+  }
+
+  @include only-tablet {
+    max-width: 278.857px;
+
+    img {
+      max-height: 61px;
+    }
+
+    &--mincifry {
+      height: 61px;
+    }
+  }
+}
+
+// FAQ на странице услуг: отступ снизу перед формой
+.services-page__faq.faq {
+  padding-bottom: 0;
+
+  // Вторая иконка — только на мобилке (перекрывается правилом внутри @include mobile)
+  .faq__all-link-icon--mobile {
+    display: none;
+  }
+
+  @include only-tablet {
+    padding-top: 100px;
+
+    .faq__title {
+      font-size: 26px;
+    }
+
+    .faq__subtitle {
+      font-size: 14px;
+    }
+
+    .faq__head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .faq__item--open .faq__item-header {
+      padding: 20px 20px 0;
+    }
+
+    .faq__item-header {
+      padding: 10px 20px;
+    }
+
+    .faq__question {
+      font-size: 16px;
+    }
+
+    .faq__answer {
+      padding: 16px 20px 20px;
+      font-size: 14px;
+    }
+
+    .faq__decor {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    .faq__head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .faq__list {
+      gap: 10px;
+    }
+
+    .faq__item-header {
+      padding: 10px 10px;
+
+      .faq__item--open & {
+        padding: 16px 10px 0;
+      }
+    }
+
+    .faq__answer {
+      padding: 12px 10px 16px;
+    }
+
+    .faq__decor {
+      display: none;
+    }
+
+    .faq__all-link {
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--color-green, #34ae6b);
+      white-space: normal;
+
+      &:hover {
+        color: var(--color-green-2, #298955);
+        opacity: 1;
+      }
+    }
+
+    .faq__all-link-icon--desktop {
+      display: none;
+    }
+
+    .faq__all-link-icon--mobile {
+      display: block;
+      flex-shrink: 0;
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.services-page__cta.cta {
+  padding-top: 100px;
+
+  @include mobile {
+    padding-top: 60px;
+  }
+
+  .cta__title--services-desktop {
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+// Кнопка «Смотреть все кейсы» под слайдером — мобильный макет
+.services-page .cases__head-btn-container .cases__head-btn {
+  @include mobile {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 328px;
+    min-height: 50px;
+    padding: 13px 20px;
+    font-size: 14px;
+    line-height: 1.1;
+  }
+}

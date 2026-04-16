@@ -1,0 +1,539 @@
+<div class="auto-page">
+  <div class="crm-page__breadcrumbs-wrap">
+    <div class="container">
+      <nav class="breadcrumbs crm-page__breadcrumbs" aria-label="Хлебные крошки">
+        <a href="main.html" class="breadcrumbs__item breadcrumbs__item--link">
+          <svg class="breadcrumbs__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 8.5L10 3l7 5.5V16a1 1 0 01-1 1h-4.5v-5H8.5v5H4a1 1 0 01-1-1V8.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          Главная
+        </a>
+        <span class="breadcrumbs__divider" aria-hidden="true">/</span>
+        <a href="uslugi.html" class="breadcrumbs__item breadcrumbs__item--link">Услуги</a>
+        <span class="breadcrumbs__divider" aria-hidden="true">/</span>
+        <span class="breadcrumbs__item">Автоматизация</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Главный экран: градиенты как у crm-hero / главная — привязаны к контейнеру, не к колонке текста -->
+  <section class="auto-page-hero">
+    <div class="container auto-page-hero__wrap">
+      <span class="auto-page-hero__bg-gradient auto-page-hero__bg-gradient--green" aria-hidden="true">
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+      </span>
+      <span class="auto-page-hero__bg-gradient auto-page-hero__bg-gradient--blue" aria-hidden="true">
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+      </span>
+      <div class="auto-page-hero__inner">
+        <div class="auto-page-hero__text">
+          <h1 class="auto-page-hero__title">Комплексная автоматизация бизнеса и рабочих процессов на базе Битрикс24</h1>
+          <p class="auto-page-hero__lead">Переводим рутинные операции в&nbsp;цифровой формат. Сократим рутину на&nbsp;40% за&nbsp;3&nbsp;месяца. Проводим оптимизацию и&nbsp;автоматизацию бизнеса и&nbsp;процессов управления полного цикла: от&nbsp;аудита до&nbsp;техподдержки. Объединяем продажи, склад, кадры и&nbsp;документооборот в&nbsp;единую экосистему. Исключаем человеческий фактор и&nbsp;повышаем управляемость бизнеса. Поможем сократить расходы ресурсов на&nbsp;повторяющиеся операции и&nbsp;ускорить работу сотрудников.</p>
+        </div>
+        <div class="auto-page-hero__actions">
+          <a href="#" class="btn btn--primary">Рассчитать стоимость внедрения</a>
+          <a href="#" class="auto-page-hero__btn-secondary">
+            Получить консультацию
+            <svg class="auto-page-hero__btn-secondary-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="auto-page-hero__visual" aria-hidden="true">
+        <!-- Общий круг + isolation: градиент с mix-blend не должен «размазываться» за пределы фото -->
+        <div class="auto-page-hero__visual-stack">
+          <div class="auto-page-hero__visual-photo">
+            <img src="img/ content/services/figma-color/auto-page/auto-page-hero-photo.png" alt="" width="700" height="700" />
+          </div>
+          <div class="auto-page-hero__visual-gradient"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Зачем бизнесу автоматизация: десктоп/планшет (899:3785), мобилка (939:5747) -->
+  <section class="auto-page-section auto-page-problems">
+    <div class="container">
+      <h2 class="auto-page-section__title auto-page-problems__heading">Зачем бизнесу автоматизация: 4 проблемы, которые мы решаем</h2>
+
+      <div class="auto-page-problems__layout-desktop">
+        <div class="auto-page-problems__headers">
+          <div class="auto-page-problems__head auto-page-problems__head--was">
+            <span class="auto-page-problems__head-text">Было</span>
+          </div>
+          <div class="auto-page-problems__head auto-page-problems__head--now">
+            <span class="auto-page-problems__head-text">Стало</span>
+          </div>
+        </div>
+        <div class="auto-page-problems__grid">
+          <article class="auto-page-problems-card auto-page-problems-card--was">
+            <h3 class="auto-page-problems-card__title">Рутина</h3>
+            <p class="auto-page-problems-card__text">Сотрудники тратят 30% времени на&nbsp;работу с&nbsp;бумагами и&nbsp;повторяющиеся операции.</p>
+          </article>
+          <article class="auto-page-problems-card auto-page-problems-card--now">
+            <div class="auto-page-problems-card__icon-wrap">
+              <span class="auto-page-problems-icon" aria-hidden="true">
+                <img class="auto-page-problems-icon__base auto-page-problems-icon__base--rutina" src="img/ content/services/figma-color/auto-page/auto-page-problems-rutina-base.png" alt="" width="88" height="88" />
+                <span class="auto-page-problems-icon__tint auto-page-problems-icon__tint--rutina"></span>
+              </span>
+            </div>
+            <div class="auto-page-problems-card__body">
+              <h3 class="auto-page-problems-card__title">Рутина</h3>
+              <p class="auto-page-problems-card__text">Роботы в задачах Битрикс24 проводят всю работу за несколько секунд. Проведена автоматизация повторяющихся задач с помощью триггеров Битрикс24.</p>
+            </div>
+          </article>
+          <article class="auto-page-problems-card auto-page-problems-card--was">
+            <h3 class="auto-page-problems-card__title">Ошибки</h3>
+            <p class="auto-page-problems-card__text">Бизнес страдает от&nbsp;человеческого фактора. Менеджеры в&nbsp;большом объёме задач упускают и&nbsp;забывают важных клиентов.</p>
+          </article>
+          <article class="auto-page-problems-card auto-page-problems-card--now">
+            <div class="auto-page-problems-card__icon-wrap">
+              <span class="auto-page-problems-icon" aria-hidden="true">
+                <img class="auto-page-problems-icon__base auto-page-problems-icon__base--oshibki" src="img/ content/services/figma-color/auto-page/auto-page-problems-oshibki-base.png" alt="" width="88" height="88" />
+                <span class="auto-page-problems-icon__tint auto-page-problems-icon__tint--oshibki"></span>
+              </span>
+            </div>
+            <div class="auto-page-problems-card__body">
+              <h3 class="auto-page-problems-card__title">Ошибки</h3>
+              <p class="auto-page-problems-card__text">Система контролирует каждый&nbsp;шаг. Полная оптимизация и&nbsp;персональная автоматизация рабочего процесса. Каждая операция отлажена, а&nbsp;клиенты хранятся в&nbsp;единой базе.</p>
+            </div>
+          </article>
+          <article class="auto-page-problems-card auto-page-problems-card--was">
+            <h3 class="auto-page-problems-card__title">Хаос</h3>
+            <p class="auto-page-problems-card__text">Данные в разных Excel и мессенджерах. Сотрудникам сложно найти то, что им нужно для работы. Часть информации и задач теряются в разрозненном потоке.</p>
+          </article>
+          <article class="auto-page-problems-card auto-page-problems-card--now">
+            <div class="auto-page-problems-card__icon-wrap">
+              <span class="auto-page-problems-icon" aria-hidden="true">
+                <img class="auto-page-problems-icon__base auto-page-problems-icon__base--haos" src="img/ content/services/figma-color/auto-page/auto-page-problems-haos-base.png" alt="" width="88" height="88" />
+                <span class="auto-page-problems-icon__tint auto-page-problems-icon__tint--haos"></span>
+              </span>
+            </div>
+            <div class="auto-page-problems-card__body">
+              <h3 class="auto-page-problems-card__title">Хаос</h3>
+              <p class="auto-page-problems-card__text">Единое окно для всех департаментов. Систематизированы чаты, задачи, базы данных, информация о клиентах и другие важные сведения. Вся нужная информация теперь под рукой.</p>
+            </div>
+          </article>
+          <article class="auto-page-problems-card auto-page-problems-card--was">
+            <h3 class="auto-page-problems-card__title">Контроль</h3>
+            <p class="auto-page-problems-card__text">Отчеты собираются неделю. Директор не понимает, что делают его сотрудники и насколько эффективно выстроен процесс работы.</p>
+          </article>
+          <article class="auto-page-problems-card auto-page-problems-card--now">
+            <div class="auto-page-problems-card__icon-wrap">
+              <span class="auto-page-problems-icon" aria-hidden="true">
+                <img class="auto-page-problems-icon__base auto-page-problems-icon__base--kontrol" src="img/ content/services/figma-color/auto-page/auto-page-problems-kontrol-base.png" alt="" width="88" height="88" />
+                <span class="auto-page-problems-icon__tint auto-page-problems-icon__tint--kontrol"></span>
+              </span>
+            </div>
+            <div class="auto-page-problems-card__body">
+              <h3 class="auto-page-problems-card__title">Контроль</h3>
+              <p class="auto-page-problems-card__text">Руководитель видит показатели онлайн, в реальном времени, может оценить эффективность каждого отдела и оптимизировать бизнес так, чтобы каждый сотрудник приносил максимум пользы.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="auto-page-problems__layout-mobile">
+        <div class="auto-page-problems-mobile">
+          <article class="auto-page-problems-mcard auto-page-problems-mcard--was">
+            <div class="auto-page-problems-mcard__head">
+              <span class="auto-page-problems-mcard__name">Рутина</span>
+              <span class="auto-page-problems-mcard__label">Было</span>
+            </div>
+            <p class="auto-page-problems-mcard__text">Сотрудники тратят 30% времени на&nbsp;работу с&nbsp;бумагами и&nbsp;повторяющиеся операции.</p>
+          </article>
+          <article class="auto-page-problems-mcard auto-page-problems-mcard--now">
+            <div class="auto-page-problems-mcard__head">
+              <span class="auto-page-problems-icon auto-page-problems-icon--mcard" aria-hidden="true">
+                <img class="auto-page-problems-icon__base auto-page-problems-icon__base--rutina" src="img/ content/services/figma-color/auto-page/auto-page-problems-rutina-base.png" alt="" width="40" height="40" />
+                <span class="auto-page-problems-icon__tint auto-page-problems-icon__tint--rutina"></span>
+              </span>
+              <div class="auto-page-problems-mcard__head-text">
+                <span class="auto-page-problems-mcard__name">Рутина</span>
+                <span class="auto-page-problems-mcard__label">Стало</span>
+              </div>
+            </div>
+            <p class="auto-page-problems-mcard__text">Роботы в задачах Битрикс24 проводят всю работу за несколько секунд. Проведена автоматизация повторяющихся задач с помощью триггеров Битрикс24.</p>
+          </article>
+          <article class="auto-page-problems-mcard auto-page-problems-mcard--was">
+            <div class="auto-page-problems-mcard__head">
+              <span class="auto-page-problems-mcard__name">Ошибки</span>
+              <span class="auto-page-problems-mcard__label">Было</span>
+            </div>
+            <p class="auto-page-problems-mcard__text">Бизнес страдает от&nbsp;человеческого фактора. Менеджеры в&nbsp;большом объёме задач упускают и&nbsp;забывают важных клиентов.</p>
+          </article>
+          <article class="auto-page-problems-mcard auto-page-problems-mcard--now">
+            <div class="auto-page-problems-mcard__head">
+              <span class="auto-page-problems-icon auto-page-problems-icon--mcard" aria-hidden="true">
+                <img class="auto-page-problems-icon__base auto-page-problems-icon__base--oshibki" src="img/ content/services/figma-color/auto-page/auto-page-problems-oshibki-base.png" alt="" width="40" height="40" />
+                <span class="auto-page-problems-icon__tint auto-page-problems-icon__tint--oshibki"></span>
+              </span>
+              <div class="auto-page-problems-mcard__head-text">
+                <span class="auto-page-problems-mcard__name">Ошибки</span>
+                <span class="auto-page-problems-mcard__label">Стало</span>
+              </div>
+            </div>
+            <p class="auto-page-problems-mcard__text">Система контролирует каждый&nbsp;шаг. Полная оптимизация и&nbsp;персональная автоматизация рабочего процесса. Каждая операция отлажена, а&nbsp;клиенты хранятся в&nbsp;единой базе.</p>
+          </article>
+          <article class="auto-page-problems-mcard auto-page-problems-mcard--was">
+            <div class="auto-page-problems-mcard__head">
+              <span class="auto-page-problems-mcard__name">Хаос</span>
+              <span class="auto-page-problems-mcard__label">Было</span>
+            </div>
+            <p class="auto-page-problems-mcard__text">Данные в разных Excel и мессенджерах. Сотрудникам сложно найти то, что им нужно для работы. Часть информации и задач теряются в разрозненном потоке.</p>
+          </article>
+          <article class="auto-page-problems-mcard auto-page-problems-mcard--now">
+            <div class="auto-page-problems-mcard__head">
+              <span class="auto-page-problems-icon auto-page-problems-icon--mcard" aria-hidden="true">
+                <img class="auto-page-problems-icon__base auto-page-problems-icon__base--haos" src="img/ content/services/figma-color/auto-page/auto-page-problems-haos-base.png" alt="" width="40" height="40" />
+                <span class="auto-page-problems-icon__tint auto-page-problems-icon__tint--haos"></span>
+              </span>
+              <div class="auto-page-problems-mcard__head-text">
+                <span class="auto-page-problems-mcard__name">Хаос</span>
+                <span class="auto-page-problems-mcard__label">Стало</span>
+              </div>
+            </div>
+            <p class="auto-page-problems-mcard__text">Единое окно для всех департаментов. Систематизированы чаты, задачи, базы данных, информация о клиентах и другие важные сведения. Вся нужная информация теперь под рукой.</p>
+          </article>
+          <article class="auto-page-problems-mcard auto-page-problems-mcard--was">
+            <div class="auto-page-problems-mcard__head">
+              <span class="auto-page-problems-mcard__name">Контроль</span>
+              <span class="auto-page-problems-mcard__label">Было</span>
+            </div>
+            <p class="auto-page-problems-mcard__text">Отчеты собираются неделю. Директор не понимает, что делают его сотрудники и насколько эффективно выстроен процесс работы.</p>
+          </article>
+          <article class="auto-page-problems-mcard auto-page-problems-mcard--now">
+            <div class="auto-page-problems-mcard__head">
+              <span class="auto-page-problems-icon auto-page-problems-icon--mcard" aria-hidden="true">
+                <img class="auto-page-problems-icon__base auto-page-problems-icon__base--kontrol" src="img/ content/services/figma-color/auto-page/auto-page-problems-kontrol-base.png" alt="" width="40" height="40" />
+                <span class="auto-page-problems-icon__tint auto-page-problems-icon__tint--kontrol"></span>
+              </span>
+              <div class="auto-page-problems-mcard__head-text">
+                <span class="auto-page-problems-mcard__name">Контроль</span>
+                <span class="auto-page-problems-mcard__label">Стало</span>
+              </div>
+            </div>
+            <p class="auto-page-problems-mcard__text">Руководитель видит показатели онлайн, в реальном времени, может оценить эффективность каждого отдела и оптимизировать бизнес так, чтобы каждый сотрудник приносил максимум пользы.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Направления автоматизации (Figma 903:3928) -->
+  <section class="auto-page-section auto-page-dirs">
+    <div class="container">
+      <h2 class="auto-page-section__title">Направления автоматизации</h2>
+      <div class="auto-page-dirs__grid">
+        <article class="auto-page-dirs-card">
+          <div class="auto-page-dirs-card__head">
+            <span class="auto-page-dirs-card__icon" aria-hidden="true">
+              <img class="auto-page-dirs-card__icon-base auto-page-dirs-card__icon-base--sales" src="img/ content/services/figma-color/auto-page/auto-page-dirs-sales-base.png" alt="" width="40" height="40" />
+              <span class="auto-page-dirs-card__icon-tint auto-page-dirs-card__icon-tint--sales"></span>
+            </span>
+            <h3 class="auto-page-dirs-card__title">Продажи и товары</h3>
+          </div>
+          <p class="auto-page-dirs-card__text">Комплексная автоматизация бизнеса в&nbsp;сфере оптовой и&nbsp;розничной торговли, онлайн-ретейла. Внедрение автоматизации воронок продаж, складского учёта и&nbsp;работы с&nbsp;заказами.</p>
+          <a href="#" class="auto-page-dirs-card__link">Подробнее
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+        <article class="auto-page-dirs-card">
+          <div class="auto-page-dirs-card__head">
+            <span class="auto-page-dirs-card__icon" aria-hidden="true">
+              <img class="auto-page-dirs-card__icon-base auto-page-dirs-card__icon-base--hr" src="img/ content/services/figma-color/auto-page/auto-page-dirs-hr-base.png" alt="" width="40" height="40" />
+              <span class="auto-page-dirs-card__icon-tint auto-page-dirs-card__icon-tint--hr"></span>
+            </span>
+            <h3 class="auto-page-dirs-card__title">Отдел кадров (HR)</h3>
+          </div>
+          <p class="auto-page-dirs-card__text">Кадровый электронный документооборот в Битрикс24. Интеграция портала самообслуживания на базе Битрикс24 с КЭДО. Адаптация процессов и удобное ведение графиков отпусков.</p>
+          <a href="#" class="auto-page-dirs-card__link">Подробнее
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+        <article class="auto-page-dirs-card">
+          <div class="auto-page-dirs-card__head">
+            <span class="auto-page-dirs-card__icon" aria-hidden="true">
+              <img class="auto-page-dirs-card__icon-base auto-page-dirs-card__icon-base--sed" src="img/ content/services/figma-color/auto-page/auto-page-dirs-sed-base.png" alt="" width="40" height="40" />
+              <span class="auto-page-dirs-card__icon-tint auto-page-dirs-card__icon-tint--sed"></span>
+            </span>
+            <h3 class="auto-page-dirs-card__title">СЭД и Договоры</h3>
+          </div>
+          <p class="auto-page-dirs-card__text">Создание электронного архива документов. Упрощение процессов согласования счетов и актов. Автоматизация и упрощение работы с контрагентами.</p>
+          <a href="#" class="auto-page-dirs-card__link">Подробнее
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+        <article class="auto-page-dirs-card">
+          <div class="auto-page-dirs-card__head">
+            <span class="auto-page-dirs-card__icon" aria-hidden="true">
+              <img class="auto-page-dirs-card__icon-base auto-page-dirs-card__icon-base--bp" src="img/ content/services/figma-color/auto-page/auto-page-dirs-bp-base.png" alt="" width="40" height="40" />
+              <span class="auto-page-dirs-card__icon-tint auto-page-dirs-card__icon-tint--bp"></span>
+            </span>
+            <h3 class="auto-page-dirs-card__title">Бизнес-процессы</h3>
+          </div>
+          <p class="auto-page-dirs-card__text">Автоматизация, описание и оптимизация бизнес-процессов организации с помощью сервисов Битрикс24. Настройка уникальных цепочек согласований (Workflow) и смарт-процессов.</p>
+          <a href="#" class="auto-page-dirs-card__link">Подробнее
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Комплексное проектное внедрение (Figma 903:3882) -->
+  <section class="auto-page-section auto-page-complex">
+    <div class="container">
+      <div class="auto-page-complex__intro">
+        <h2 class="auto-page-section__title">Комплексное проектное внедрение и цифровая трансформация бизнеса</h2>
+        <p class="auto-page-complex__lead">Решение для компаний от 50 сотрудников, холдингов и госсектора. Комплексная автоматизация крупных предприятий с помощью внедрения сервисов Битрикс24 под ключ. Объединяем разрозненные отделы в единую экосистему управления. Обеспечиваем сквозной контроль процессов и уход от ручного управления.</p>
+        <p class="auto-page-complex__lead">Организуем цифровые рабочие места и проводим полную оркестрацию бизнеса. Автоматизируем работу фронт-офиса и бэк-офиса, налаживаем эффективное взаимодействие между ними.</p>
+      </div>
+      <p class="auto-page-complex__subheading">Ключевые особенности:</p>
+      <div class="auto-page-complex__features">
+        <article class="auto-page-complex-card auto-page-complex-card--white">
+          <h3 class="auto-page-complex-card__title">Архитектура</h3>
+          <p class="auto-page-complex-card__text">Построение отказоустойчивого Enterprise-кластера с повышенной безопасностью. Обеспечиваем горизонтальное масштабирование и балансировку нагрузки для стабильной работы системы даже при пиковых активностях и росте пользовательской базы.</p>
+        </article>
+        <article class="auto-page-complex-card auto-page-complex-card--grey">
+          <h3 class="auto-page-complex-card__title">Интеграция</h3>
+          <p class="auto-page-complex-card__text">Объединение 1С, CRM, ERP и BI-систем в единый контур. Настраиваем обмен данными в реальном времени, что исключает дублирование информации и необходимость ручной синхронизации между платформами. Предусматриваем API-шлюзы для подключения отраслевых решений и кастомных разработок.</p>
+        </article>
+        <article class="auto-page-complex-card auto-page-complex-card--blue">
+          <h3 class="auto-page-complex-card__title">Прозрачность</h3>
+          <p class="auto-page-complex-card__text">Полная оптимизация процессов в&nbsp;компании с&nbsp;помощью цифровых корпоративных технологий. Сделаем так, чтобы&nbsp;владельцы бизнеса видели реальную картину работы компании в&nbsp;режиме реального времени в&nbsp;удобном едином окне и&nbsp;понимали реальный вклад каждого сотрудника в&nbsp;общее дело.</p>
+        </article>
+      </div>
+      <a href="#" class="auto-page-complex__more">
+        Подробнее о проектном внедрении
+        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 7H22M16 1L22 7L16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Инструменты (Figma 903:4038) -->
+  <section class="auto-page-section auto-page-tools">
+    <div class="container">
+      <div class="auto-page-tools__intro">
+        <h2 class="auto-page-section__title">Инструменты, которые мы используем</h2>
+        <p class="auto-page-tools__lead">Подбираем стек технологий автоматизации индивидуально под задачи вашего бизнеса.</p>
+      </div>
+      <div class="auto-page-tools__grid">
+        <article class="auto-page-tools-item">
+          <div class="auto-page-tools-item__logo auto-page-tools-item__logo--rpa">
+            <!-- Figma 915:4840 — base + градиенты с масками -->
+            <span class="auto-page-tools-rpa" aria-hidden="true">
+              <span class="auto-page-tools-rpa__main">
+                <img class="auto-page-tools-rpa__main-img" src="img/ content/services/figma-color/auto-page/auto-page-tools-rpa-main.png" alt="" width="83" height="83" />
+                <span class="auto-page-tools-rpa__tint auto-page-tools-rpa__tint--83"></span>
+              </span>
+              <span class="auto-page-tools-rpa__gear auto-page-tools-rpa__gear--37">
+                <span class="auto-page-tools-rpa__gear-rot auto-page-tools-rpa__gear-rot--180">
+                  <img class="auto-page-tools-rpa__gear-base" src="img/ content/services/figma-color/auto-page/auto-page-tools-rpa-rect.png" alt="" width="37" height="37" />
+                  <span class="auto-page-tools-rpa__tint auto-page-tools-rpa__tint--37"></span>
+                </span>
+              </span>
+              <span class="auto-page-tools-rpa__gear auto-page-tools-rpa__gear--27">
+                <img class="auto-page-tools-rpa__gear-base" src="img/ content/services/figma-color/auto-page/auto-page-tools-rpa-rect.png" alt="" width="27" height="27" />
+                <span class="auto-page-tools-rpa__tint auto-page-tools-rpa__tint--27"></span>
+              </span>
+              <span class="auto-page-tools-rpa__gear auto-page-tools-rpa__gear--60">
+                <span class="auto-page-tools-rpa__gear-rot auto-page-tools-rpa__gear-rot--flip180">
+                  <img class="auto-page-tools-rpa__gear-base" src="img/ content/services/figma-color/auto-page/auto-page-tools-rpa-rect.png" alt="" width="60" height="60" />
+                  <span class="auto-page-tools-rpa__tint auto-page-tools-rpa__tint--60"></span>
+                </span>
+              </span>
+            </span>
+          </div>
+          <h3 class="auto-page-tools-item__title">RPA и ИИ</h3>
+          <p class="auto-page-tools-item__text">Роботизация бизнеса (RPA), искусственный интеллект BitrixGPT и&nbsp;AI-агенты, встроенные в&nbsp;Битрикс24, для&nbsp;автоматизации рутины.</p>
+        </article>
+        <article class="auto-page-tools-item">
+          <div class="auto-page-tools-item__logo auto-page-tools-item__logo--bitrix">
+            <span class="auto-page-tools-bitrix" aria-hidden="true">
+              <!-- Инлайн: в <img> внешний SVG с градиентами в части браузеров не рисуется -->
+              <svg class="auto-page-tools-bitrix__cloud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116 70.0004" fill="none" width="116" height="70" focusable="false" aria-hidden="true">
+                <g>
+                  <path d="M74.919 3.39839C88.3854 3.39839 99.3027 14.2344 99.3028 27.6015C99.3028 29.8152 99.0003 31.9589 98.4395 33.996C106.101 35.6485 111.84 42.4173 111.84 50.5175C111.84 59.2762 105.131 66.4797 96.5352 67.3398V67.4257H18.544V67.3818C9.70147 66.7655 2.72077 59.4516 2.72077 50.5175C2.72082 41.1796 10.3467 33.6095 19.754 33.6093C20.4577 33.6093 21.1518 33.652 21.8331 33.7343C21.9969 23.399 30.4874 15.0712 40.9385 15.0712C45.1605 15.0713 49.0621 16.4308 52.2247 18.7324C55.7892 9.75279 64.6066 3.39846 74.919 3.39839Z" fill="url(#auto-page-bitrix-grad0)"/>
+                  <path d="M30.1735 69.3132C34.674 69.3132 39.1745 69.406 43.675 69.5914C44.175 69.612 44.6751 69.6337 45.1752 69.6566C44.6751 69.6795 44.175 69.7012 43.675 69.7218C39.1745 69.9072 34.674 70 30.1735 70C25.673 70 21.1725 69.9072 16.672 69.7218C16.1719 69.7012 15.6718 69.6795 15.1718 69.6566C15.6718 69.6337 16.1719 69.612 16.672 69.5914C21.1725 69.406 25.673 69.3132 30.1735 69.3132Z" fill="url(#auto-page-bitrix-grad1)"/>
+                  <path d="M59.0961 69.3132C61.3787 69.3132 63.6614 69.406 65.944 69.5914C66.1977 69.612 66.4515 69.6337 66.7051 69.6566C66.4515 69.6795 66.1977 69.7012 65.944 69.7218C63.6614 69.9072 61.3787 70 59.0961 70C56.8134 70 54.5306 69.9072 52.2479 69.7218C51.9943 69.7012 51.7407 69.6795 51.4871 69.6566C51.7407 69.6337 51.9943 69.612 52.2479 69.5914C54.5306 69.406 56.8134 69.3132 59.0961 69.3132Z" fill="url(#auto-page-bitrix-grad2)"/>
+                  <path d="M2.63551 40.9127C2.55814 41.0755 2.48333 41.2386 2.41062 41.4026C1.51589 43.4219 0.964926 45.5404 0.754423 47.6908C0.544449 49.8412 0.674776 52.0258 1.16164 54.1781C1.21582 54.4174 1.27398 54.6556 1.33708 54.8942C1.23066 54.6713 1.1305 54.4459 1.03616 54.2172C0.184996 52.1605 -0.155781 49.8669 0.0659627 47.6246C0.282709 45.3817 1.06145 43.196 2.29522 41.3401C2.39522 41.1892 2.49795 41.041 2.60377 40.8943C2.64268 40.8404 2.68159 40.7865 2.72064 40.7326C2.69231 40.7927 2.66399 40.8527 2.63551 40.9127Z" fill="url(#auto-page-bitrix-grad3)"/>
+                  <path d="M41.5717 12.7714C41.4565 12.7654 41.3414 12.7595 41.2263 12.7533C37.2905 12.5392 33.3619 13.4204 29.9419 15.2472C26.4184 17.1203 23.4378 19.9927 21.4398 23.5001C21.3572 23.6446 21.2759 23.7905 21.1963 23.9377C21.0619 24.1863 20.9271 24.4346 20.7919 24.6828C20.901 24.4223 21.0105 24.162 21.1204 23.9018C21.1858 23.7471 21.2532 23.5936 21.3226 23.4411C22.9934 19.7394 25.9628 16.5766 29.6145 14.6422C33.1535 12.7456 37.31 12.0211 41.2422 12.5927C41.3563 12.609 41.4704 12.6252 41.5845 12.6416C42.0321 12.7061 42.4796 12.7719 42.927 12.8386C42.4751 12.8174 42.0233 12.7949 41.5717 12.7714Z" fill="url(#auto-page-bitrix-grad4)"/>
+                  <path d="M91.6905 6.74793C91.6071 6.66897 91.5236 6.59005 91.4402 6.51098C88.5936 3.80455 85.0341 1.93406 81.24 1.1099C77.3372 0.25404 73.1909 0.507517 69.3736 1.87793C69.2161 1.93426 69.0587 1.99241 68.9017 2.05269C68.6367 2.15443 68.3715 2.25582 68.1061 2.35674C68.3598 2.22952 68.6137 2.10278 68.8677 1.97638C69.0188 1.90126 69.1707 1.82829 69.3233 1.75741C73.0197 0.0280244 77.3481 -0.453102 81.3885 0.439128C85.3186 1.28725 88.9484 3.42398 91.5577 6.39935C91.6336 6.48546 91.7096 6.5715 91.7854 6.65773C92.0828 6.996 92.3793 7.33517 92.675 7.67502C92.346 7.36682 92.0179 7.05772 91.6905 6.74793Z" fill="url(#auto-page-bitrix-grad5)"/>
+                  <path d="M104.75 67.3393C105.259 67.1078 105.749 66.8582 106.232 66.5851C110.58 64.1499 113.727 59.9088 114.853 55.171C115.972 50.6106 115.191 45.6266 112.648 41.5748C112.553 41.4216 112.458 41.2683 112.363 41.1149C112.073 40.6449 111.783 40.1741 111.494 39.7027C111.821 40.1487 112.148 40.5952 112.473 41.0424C112.579 41.1883 112.685 41.3345 112.791 41.4806C115.657 45.3709 116.701 50.5868 115.526 55.3309C114.365 60.2652 110.853 64.59 106.292 66.7008C105.787 66.9393 105.277 67.1501 104.75 67.3393Z" fill="url(#auto-page-bitrix-grad6)"/>
+                </g>
+                <defs>
+                  <linearGradient id="auto-page-bitrix-grad0" x1="29.0062" y1="14.7276" x2="106.29" y2="19.3504" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#34AE6B"/>
+                    <stop offset="100%" stop-color="#2587F9"/>
+                  </linearGradient>
+                  <linearGradient id="auto-page-bitrix-grad1" x1="14.5303" y1="27.7754" x2="94.2533" y2="14.889" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#34AE6B"/>
+                    <stop offset="100%" stop-color="#2587F9"/>
+                  </linearGradient>
+                  <linearGradient id="auto-page-bitrix-grad2" x1="14.5303" y1="27.7754" x2="94.2533" y2="14.889" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#34AE6B"/>
+                    <stop offset="100%" stop-color="#2587F9"/>
+                  </linearGradient>
+                  <linearGradient id="auto-page-bitrix-grad3" x1="14.5303" y1="27.7754" x2="94.2533" y2="14.889" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#34AE6B"/>
+                    <stop offset="100%" stop-color="#2587F9"/>
+                  </linearGradient>
+                  <linearGradient id="auto-page-bitrix-grad4" x1="14.5303" y1="27.7754" x2="94.2533" y2="14.889" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#34AE6B"/>
+                    <stop offset="100%" stop-color="#2587F9"/>
+                  </linearGradient>
+                  <linearGradient id="auto-page-bitrix-grad5" x1="14.5303" y1="27.7754" x2="94.2533" y2="14.889" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#34AE6B"/>
+                    <stop offset="100%" stop-color="#2587F9"/>
+                  </linearGradient>
+                  <linearGradient id="auto-page-bitrix-grad6" x1="14.5303" y1="27.7754" x2="94.2533" y2="14.889" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#34AE6B"/>
+                    <stop offset="100%" stop-color="#2587F9"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span class="auto-page-tools-bitrix__wordmark-wrap">
+                <img class="auto-page-tools-bitrix__wordmark" src="img/ content/services/figma-color/auto-page/auto-page-tools-bitrix-wordmark.png" alt="" width="84" height="21" />
+              </span>
+            </span>
+          </div>
+          <h3 class="auto-page-tools-item__title">Битрикс24</h3>
+          <p class="auto-page-tools-item__text">Платформа-оркестратор для&nbsp;no-code автоматизации и&nbsp;объединения всех систем бизнеса в&nbsp;едином окне с&nbsp;удобным интерфейсом.</p>
+        </article>
+        <article class="auto-page-tools-item">
+          <div class="auto-page-tools-item__logo auto-page-tools-item__logo--1c">
+            <div class="auto-page-tools-1c-badge">
+              <img class="auto-page-tools-1c-badge__logo" src="img/ content/services/figma-color/auto-page/auto-page-tools-1c-logo.png" alt="" width="94" height="46" />
+            </div>
+          </div>
+          <h3 class="auto-page-tools-item__title">1С:Предприятие</h3>
+          <p class="auto-page-tools-item__text">Для&nbsp;бесшовной интеграции с&nbsp;учётом товаров, управлением кадрами и&nbsp;производством.</p>
+        </article>
+        <article class="auto-page-tools-item">
+          <div class="auto-page-tools-item__logo auto-page-tools-item__logo--bi">
+            <img class="auto-page-tools-bi-img" src="img/ content/services/figma-color/auto-page/auto-page-tools-bi.png" alt="" width="133" height="70" />
+          </div>
+          <h3 class="auto-page-tools-item__title">BI-модуль</h3>
+          <p class="auto-page-tools-item__text">Для&nbsp;визуализации BI-отчётов и&nbsp;аналитики через&nbsp;конструктор в&nbsp;удобном дашборде Битрикс24.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Этапы внедрения (Figma 904:4079) -->
+  <section class="auto-page-section auto-page-steps">
+    <div class="container">
+      <h2 class="auto-page-section__title auto-page-steps__heading">Как&nbsp;мы&nbsp;внедряем автоматизацию и&nbsp;контролируем результат</h2>
+      <ol class="auto-page-steps__list">
+        <li class="auto-page-step-card">
+          <span class="auto-page-step-card__num" aria-hidden="true">01.</span>
+          <div class="auto-page-step-card__content">
+            <h3 class="auto-page-step-card__title">Аудит</h3>
+            <p class="auto-page-step-card__text">Проводим предпроектное обследование, исследование вашей ниши. Находим «узкие места» и точки, через которые бизнес теряет деньги. Анализируем текущие процессы, чтобы сформировать полную картину. Фиксируем показатели эффективности, по которым будем оценивать внедрение на финише.</p>
+          </div>
+          <div class="auto-page-step-card__visual auto-page-step-card__visual--01">
+            <span class="auto-page-step-visual" aria-hidden="true">
+              <span class="auto-page-step-visual__base"></span>
+            </span>
+          </div>
+        </li>
+        <li class="auto-page-step-card">
+          <span class="auto-page-step-card__num" aria-hidden="true">02.</span>
+          <div class="auto-page-step-card__content">
+            <h3 class="auto-page-step-card__title">Проектирование</h3>
+            <p class="auto-page-step-card__text">Строим схемы BPMN (нотация и&nbsp;модель бизнес-процессов) и&nbsp;пишем техническое задание. Согласуем архитектуру решения с&nbsp;заказчиком. Создаём интерактивные прототипы интерфейсов, чтобы&nbsp;валидировать логику работы до&nbsp;начала разработки и&nbsp;избежать дорогостоящих правок на&nbsp;поздних этапах.</p>
+          </div>
+          <div class="auto-page-step-card__visual auto-page-step-card__visual--02">
+            <span class="auto-page-step-visual" aria-hidden="true">
+              <span class="auto-page-step-visual__base"></span>
+            </span>
+          </div>
+        </li>
+        <li class="auto-page-step-card">
+          <span class="auto-page-step-card__num" aria-hidden="true">03.</span>
+          <div class="auto-page-step-card__content">
+            <h3 class="auto-page-step-card__title">Разработка</h3>
+            <p class="auto-page-step-card__text">Настраиваем логику и интеграции. Ведём работу итерациями, чтобы вы могли отслеживать прогресс и вносить корректировки. Каждый модуль проходит тестирование перед переносом в продуктивную среду — это гарантирует стабильность системы с первого дня.</p>
+          </div>
+          <div class="auto-page-step-card__visual auto-page-step-card__visual--03">
+            <span class="auto-page-step-visual" aria-hidden="true">
+              <span class="auto-page-step-visual__base"></span>
+            </span>
+          </div>
+        </li>
+        <li class="auto-page-step-card">
+          <span class="auto-page-step-card__num" aria-hidden="true">04.</span>
+          <div class="auto-page-step-card__content">
+            <h3 class="auto-page-step-card__title">Запуск и обучение</h3>
+            <p class="auto-page-step-card__text">Проводим инструктаж сотрудников для корректной работы в системе: сначала пилотная группа, затем масштабирование на весь коллектив. Такой подход повышает скорость адаптации. Предоставляем видеоинструкции, базу знаний и чат поддержки, чтобы команда могла быстро решать вопросы.</p>
+          </div>
+          <div class="auto-page-step-card__visual auto-page-step-card__visual--04">
+            <span class="auto-page-step-visual" aria-hidden="true">
+              <span class="auto-page-step-visual__base"></span>
+            </span>
+          </div>
+        </li>
+        <li class="auto-page-step-card">
+          <span class="auto-page-step-card__num" aria-hidden="true">05.</span>
+          <div class="auto-page-step-card__content">
+            <h3 class="auto-page-step-card__title">BI-отчётность</h3>
+            <p class="auto-page-step-card__text">Предоставляем подробную сквозную бизнес-аналитику с помощью модуля BI-Коннектор в Битрикс24. Настраиваем BI-дашборды в CRM для отслеживания эффективности после внедрения. Интегрируем Power BI с Битрикс24.</p>
+          </div>
+          <div class="auto-page-step-card__visual auto-page-step-card__visual--05">
+            <span class="auto-page-step-visual" aria-hidden="true">
+              <span class="auto-page-step-visual__base"></span>
+            </span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Партнёры (Figma 908:4182) -->
+  <section class="auto-page-section auto-page-partners">
+    <div class="container">
+      <div class="auto-page-partners__intro">
+        <h2 class="auto-page-section__title">Официальный партнёр 1С-Битрикс и вендоров ПО</h2>
+        <p class="auto-page-partners__lead">Команда прошла аттестацию и работает по стандартам вендора.</p>
+      </div>
+      <div class="auto-page-partners__banner">
+        <div class="auto-page-partners__banner-head">
+          <div class="auto-page-partners__banner-head-left">
+            <h3 class="auto-page-partners__banner-title">Золотой партнер Битрикс24</h3>
+            <p class="auto-page-partners__banner-text">Официальный интегратор CRM Битрикс: помогаем с&nbsp;внедрением и&nbsp;сопровождением, гарантируем результат</p>
+          </div>
+          <h3 class="auto-page-partners__banner-title auto-page-partners__banner-title--head-center">
+            Входим в Топ-100 среди более 18 000 партнёров Битрикс24
+          </h3>
+        </div>
+        <div class="auto-page-partners__banner-badges">
+          <div class="auto-page-partners__badge-group">
+            <div class="auto-page-partners__badge-frame auto-page-partners__badge-frame--gold">
+              <img src="img/ content/services/figma-color/auto-page/auto-page-partners-badge-gold.png" alt="" width="260" height="184" />
+            </div>
+            <p class="auto-page-partners__badge-caption">Официальный партнёр SL Soft</p>
+          </div>
+          <div class="auto-page-partners__accreditation">
+            <p class="auto-page-partners__accreditation-title">Компания аккредитована</p>
+            <div
+              class="auto-page-partners__mincifry"
+              role="img"
+              aria-label="Минцифры России"
+            ></div>
+          </div>
+          <div class="auto-page-partners__badge-group">
+            <div class="auto-page-partners__badge-frame auto-page-partners__badge-frame--1c">
+              <img src="img/ content/services/figma-color/auto-page/auto-page-partners-badge-1c.png" alt="" width="260" height="184" />
+            </div>
+            <p class="auto-page-partners__badge-caption">Сертифицированный партнёр 1С-Битрикс</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  @include('../../partials/services/automation-page-cases-faq-lead.html')
+
+</div>
