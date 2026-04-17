@@ -308,6 +308,9 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 }
 
+// Цвет героя не «вшит» в PNG: фото по сути серое, оттенок даёт градиент + mix-blend-mode: color,
+// а силуэт обрезает mask-image. Если маску отключить — видна сырая серая картинка (это норма).
+// mask-mode: alpha — явно использовать альфу маски (стабильнее WebKit, чем угадывание режима).
 .auto-page-hero__visual-gradient {
   position: absolute;
   inset: 0;
@@ -317,6 +320,7 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   pointer-events: none;
   mask-image: url('#{$auto-page-figma}/auto-page-hero-mask.png');
   -webkit-mask-image: url('#{$auto-page-figma}/auto-page-hero-mask.png');
+  mask-mode: alpha;
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: 100% 100%;
