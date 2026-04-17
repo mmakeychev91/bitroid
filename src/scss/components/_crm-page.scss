@@ -2581,7 +2581,7 @@ $crm-figma-color: '../img/content/services/figma-color';
   max-width: 280px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
 
   @include mobile {
     flex: 1 1 100%;
@@ -2589,21 +2589,24 @@ $crm-figma-color: '../img/content/services/figma-color';
   }
 }
 
+// Факты о нас: цифры — градиент Linear_1 / --gradient-accent (как в Figma)
 .crm-facts-stat__num {
-  margin: 0;
+  align-self: flex-start;
+  margin: 0 0 20px;
   font-family: var(--base-font), sans-serif;
   font-size: 38px;
   font-weight: 600;
   line-height: 1;
   display: inline-block;
+  color: transparent;
   background: var(--gradient-accent, linear-gradient(108.835deg, #34ae6b 3.22%, #2587f9 86.86%));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .crm-facts-stat__title {
-  margin: 0;
+  margin: 0 0 10px;
   font-family: var(--base-font), sans-serif;
   font-size: 18px;
   font-weight: 600;
