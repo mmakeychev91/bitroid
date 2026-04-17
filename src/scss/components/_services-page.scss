@@ -1,7 +1,7 @@
 @use '../mixins/breakpoint' as *;
 
 // Слои из Figma: ч/б растр + градиент с mask и mix-blend-mode: color (как в макете)
-$figma-color-assets: '../../img/ content/services/figma-color';
+$figma-color-assets: '../img/content/services/figma-color';
 
 // Страница «Услуги» — десктоп (услуги_декстоп) + планшет 768–1279 (услуги_планшет, get_design_context)
 

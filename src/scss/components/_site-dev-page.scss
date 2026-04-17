@@ -1,7 +1,7 @@
 // Страница «Создание сайтов» — десктоп по get_design_context (node Услуга_создание сайтов_декстоп)
 @use '../mixins/breakpoint' as *;
 
-$site-dev-figma-color: '../../img/ content/services/figma-color/site-dev';
+$site-dev-figma-color: '../img/content/services/figma-color/site-dev';
 $site-dev-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
 $site-dev-radius-card: 30px;
 $site-dev-radius-sm: 16px;

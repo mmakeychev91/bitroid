@@ -1,7 +1,7 @@
 @use '../mixins/breakpoint' as *;
 
 // Цветные ассеты из Figma (экспорт через MCP / localhost:3845)
-$crm-figma-color: '../../img/ content/services/figma-color';
+$crm-figma-color: '../img/content/services/figma-color';
 
 // Страница «Внедрение CRM» — десктоп 1440 (услуга_внедрение срм, get_design_context)
 

@@ -5,17 +5,24 @@ $auto-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
 $auto-radius-card: 30px;
 $auto-radius-sm: 16px;
 // Hero: ч/б + градиент с той же маской, что в Figma (как site-dev-hero / crm-hero)
-$auto-page-figma: '../../img/ content/services/figma-color/auto-page';
+// url() относительно app/css/main.css → один уровень вверх в app/, затем img/
+$auto-page-figma: '../img/content/services/figma-color/auto-page';
 
 .auto-page {
   background: var(--color-white, #ffffff);
   color: var(--color-deep-grey, #1e1e1e);
   position: relative;
-  overflow-x: clip;
+  // Не clip: иначе hero 700×700 с left ~749px вылезает за 1320px контента и обрезается (локально/на сервере по-разному)
+  overflow-x: visible;
 
   @include mobile {
     overflow-x: visible;
   }
+}
+
+// Родитель .site-container { overflow: hidden } обрезал hero справа; только на страницах с .auto-page
+.site-container:has(.auto-page) {
+  overflow-x: visible;
 }
 
 .auto-page .crm-page__breadcrumbs-wrap {
@@ -269,7 +276,8 @@ $auto-page-figma: '../../img/ content/services/figma-color/auto-page';
     top: auto;
     width: 424px;
     max-width: none;
-    height: auto;
+    height: 424px;
+    min-height: 424px;
     aspect-ratio: 1;
     margin: 24px auto 0;
     align-self: center;
@@ -286,6 +294,7 @@ $auto-page-figma: '../../img/ content/services/figma-color/auto-page';
   isolation: isolate;
 }
 
+// Как crm-hero__media: фото без mask — цветное фото всегда грузится с <img>; маска только на градиенте (не ломается при 404 mask в CSS на части окружений)
 .auto-page-hero__visual-photo {
   position: absolute;
   inset: 0;
@@ -296,14 +305,6 @@ $auto-page-figma: '../../img/ content/services/figma-color/auto-page';
     width: 100%;
     height: 100%;
     object-fit: cover;
-    mask-image: url('#{$auto-page-figma}/auto-page-hero-mask.png');
-    -webkit-mask-image: url('#{$auto-page-figma}/auto-page-hero-mask.png');
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: 100% 100%;
   }
 }
 
