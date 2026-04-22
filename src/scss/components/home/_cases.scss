@@ -61,6 +61,148 @@
   }
 }
 
+// Страница «Услуги» (uslugi.html): в слайдере — сначала синий, ниже зелёный, по центру
+.cases--services {
+  .cases__slider-outer > .container {
+    overflow: visible;
+  }
+
+  .cases-gradient {
+    z-index: 0;
+    pointer-events: none;
+    width: 900px;
+    height: 900px;
+    left: 50%;
+    right: auto;
+  }
+
+  // Синий чуть выше
+  .cases-gradient--blue {
+    top: 36%;
+    transform: translate(-50%, -50%);
+
+    @include only-tablet {
+      top: 34%;
+    }
+
+    @include tablet {
+      top: 34%;
+      left: 50%;
+      right: auto;
+    }
+
+    @include mobile {
+      top: 28%;
+      left: 50%;
+    }
+  }
+
+  // Зелёный по центру по X, чуть ниже синего
+  .cases-gradient--green {
+    top: 45%;
+    transform: translate(-50%, -50%);
+
+    @include only-tablet {
+      top: 44%;
+    }
+
+    @include tablet {
+      top: 44%;
+      left: 50%;
+      right: auto;
+    }
+
+    @include mobile {
+      top: 40%;
+      left: 50%;
+    }
+  }
+
+  @include only-tablet {
+    .cases-gradient {
+      width: 700px;
+      height: 700px;
+    }
+  }
+
+  @include mobile {
+    .cases-gradient {
+      width: 480px;
+      height: 480px;
+    }
+  }
+
+  // Контент слайдера и пагинация поверх градиентов
+  .cases__viewport,
+  .cases__controls {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Страница внедрения CRM: зелёный по центру слайдера, синий правее (центр синего: +200px к центру, как в hero)
+.crm-page__cases {
+  .cases__slider-outer > .container {
+    overflow: visible;
+  }
+
+  .cases-gradient {
+    z-index: 0;
+    pointer-events: none;
+    width: 900px;
+    height: 900px;
+    top: 50%;
+    right: auto;
+    transform: translateY(-50%);
+  }
+
+  .cases-gradient--green {
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include tablet {
+      left: 50%;
+    }
+
+    @include mobile {
+      left: 50%;
+    }
+  }
+
+  .cases-gradient--blue {
+    left: calc(50% + 200px);
+    transform: translate(-50%, -50%);
+
+    @include tablet {
+      left: calc(50% + 100px);
+    }
+
+    @include mobile {
+      left: calc(50% + 60px);
+    }
+  }
+
+  @include only-tablet {
+    .cases-gradient {
+      width: 700px;
+      height: 700px;
+    }
+  }
+
+  @include mobile {
+    .cases-gradient {
+      width: 480px;
+      height: 480px;
+    }
+  }
+
+  .cases__viewport,
+  .cases__controls {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 .cases__head {
   display: flex;
   align-items: flex-start;
@@ -175,6 +317,23 @@
   }
 }
 
+a.cases__card,
+.cases__card {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a.cases__card {
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-blue, #2587f9);
+    outline-offset: 2px;
+  }
+}
+
 .cases__card {
   position: relative;
   background: var(--color-white, #fff);
@@ -268,8 +427,11 @@
   position: relative;
   z-index: 9;
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
+  justify-content: end;
 
   @include tablet {
     position: relative;
@@ -335,6 +497,14 @@
   color: var(--color-deep-grey, #1e1e1e);
   margin: 0;
   max-width: 299px;
+  // Обрезка длинного текста: максимум 3 строки + многоточие
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   .cases__card--accent & {
     color: var(--color-white, #fff);
@@ -351,6 +521,7 @@
   }
 }
 
+// Внутри ссылки-карточки — не <a> (вся карточка кликабельна)
 .cases__card-link {
   display: inline-flex;
   align-items: center;
@@ -360,22 +531,24 @@
   font-weight: 600;
   line-height: 1.3;
   color: var(--color-white, #fff);
-  text-decoration: none;
   align-self: flex-start;
   transition: opacity 0.2s;
+  padding-top: 4px;
+  flex-shrink: 0;
 
   svg {
     transform: rotate(-90deg);
     flex-shrink: 0;
   }
 
-  &:hover {
-    opacity: 0.8;
-  }
-
   @include mobile {
     margin-top: 12px;
+    padding-top: 0;
   }
+}
+
+a.cases__card:hover .cases__card-link {
+  opacity: 0.8;
 }
 
 // Ссылка на белых карточках
@@ -426,12 +599,23 @@
     color: var(--color-deep-grey, #1e1e1e);
   }
 
-  &:hover {
+  &:hover:not(.swiper-button-disabled) {
     background: var(--color-green, #34ae6b);
     opacity: 0.95;
 
     svg {
       color: var(--color-white, #fff);
+    }
+  }
+
+  // Swiper вешает класс на prev/next в начале/конце слайдера (как у reviews)
+  &.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    svg {
+      opacity: 0.3;
     }
   }
 }

@@ -374,6 +374,9 @@
     opacity: 0.35;
     cursor: not-allowed;
     pointer-events: none;
+    svg {
+      opacity: 0.3;
+    }
   }
 }
 

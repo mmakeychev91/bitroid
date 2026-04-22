@@ -667,6 +667,7 @@ $crm-figma-color: '../img/content/services/figma-color';
   position: relative;
   z-index: 1;
   padding: 150px 0 0;
+  overflow: visible;
 
   @include only-tablet {
     padding-top: 100px;
@@ -675,6 +676,80 @@ $crm-figma-color: '../img/content/services/figma-color';
   @include mobile {
     padding-top: 60px;
   }
+}
+
+// Якорь — градиенты в системе координат .container (как crm-hero / CTA услуг)
+.crm-tech__inner {
+  position: relative;
+  z-index: 0;
+}
+
+.crm-tech__bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+// Декор: слева зелёный, справа синий — те же SVG/размеры, что .crm-hero__bg-gradient
+.crm-tech__bg-gradient {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+  height: 900px;
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    left: -200px;
+  }
+
+  &--blue {
+    right: -200px;
+    left: auto;
+  }
+
+  @include only-tablet {
+    width: 700px;
+    height: 700px;
+
+    &--green {
+      left: -100px;
+    }
+
+    &--blue {
+      right: -100px;
+    }
+  }
+
+  @include mobile {
+    width: 480px;
+    height: 480px;
+
+    &--green {
+      left: -120px;
+    }
+
+    &--blue {
+      right: -120px;
+    }
+  }
+}
+
+.crm-tech__title,
+.crm-tech__slider-wrap {
+  position: relative;
+  z-index: 1;
 }
 
 .crm-tech__title {
@@ -1667,6 +1742,7 @@ $crm-figma-color: '../img/content/services/figma-color';
   position: relative;
   z-index: 1;
   padding: 150px 0 0;
+  overflow: visible;
 
   @include only-tablet {
     padding-top: 100px;
@@ -1674,6 +1750,62 @@ $crm-figma-color: '../img/content/services/figma-color';
 
   @include mobile {
     padding-top: 60px;
+  }
+
+  // Контент поверх градиентов (блок-якорь без поднятия z-index, он только под декор)
+  & > .container:not(.crm-stages__gradients-anchor) {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Обёртка-якорь: как .crm-hero__inner — position relative внутри .container, без высоты в потоке
+.crm-stages__gradients-anchor {
+  position: relative;
+  z-index: 0;
+  height: 0;
+  min-height: 0;
+  overflow: visible;
+  pointer-events: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// Декоративные градиенты — те же SVG, размеры и координаты, что у .crm-hero__bg-gradient
+.crm-stages__bg-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+  z-index: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    top: -200px;
+    left: -200px;
+
+    @include mobile {
+      top: -50px;
+      left: -200px;
+    }
+  }
+
+  &--blue {
+    top: -50px;
+    left: 200px;
+
+    @include mobile {
+      top: 300px;
+      left: -200px;
+    }
   }
 }
 
@@ -2224,11 +2356,113 @@ $crm-figma-color: '../img/content/services/figma-color';
 
 // ─── Лид-форма (баннер) ────────────────────────────────────────────────
 .crm-page__lead {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
   padding-top: 100px;
 
   @include mobile {
     padding-top: 60px;
   }
+}
+
+// Оболочка по ширине/отступам как у .container: градиенты не вылезают за колонку контента
+.crm-lead__gradients-clip {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+  pointer-events: none;
+
+  @include tablet {
+    padding: 0 16px;
+  }
+
+  @include only-tablet {
+    padding: 0 45px;
+  }
+}
+
+// Декор: зелёный вверху слева, синий внизу справа (координаты — внутри .crm-lead__gradients-clip)
+.crm-lead__bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.crm-lead__bg-gradient {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Как .crm-hero__bg-gradient--green: сверху слева
+  &--green {
+    top: -160px;
+    left: -200px;
+  }
+
+  // Нижний правый угол
+  &--blue {
+    bottom: -120px;
+    right: -200px;
+    top: auto;
+    left: auto;
+  }
+
+  @include only-tablet {
+    width: 700px;
+    height: 700px;
+
+    &--green {
+      top: -100px;
+      left: -100px;
+    }
+
+    &--blue {
+      bottom: -100px;
+      right: -100px;
+    }
+  }
+
+  @include mobile {
+    width: 480px;
+    height: 480px;
+
+    &--green {
+      top: -60px;
+      left: -120px;
+    }
+
+    &--blue {
+      bottom: -60px;
+      right: -120px;
+    }
+  }
+}
+
+// Контейнеры с карточками поверх градиентов
+.crm-page__lead > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .crm-lead__card.cta__card {
@@ -2342,12 +2576,12 @@ $crm-figma-color: '../img/content/services/figma-color';
 
 .crm-facts__layout {
   display: grid;
-  grid-template-columns: 536px 1fr;
+  grid-template-columns: minmax(0, 536px) minmax(0, 1fr);
   gap: 60px;
   align-items: start;
 
   @include tablet {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -2355,6 +2589,8 @@ $crm-figma-color: '../img/content/services/figma-color';
   display: flex;
   flex-direction: column;
   gap: 24px;
+  // Иначе 2x-фото с большим intrinsic width раздувает колонку/флекс от min-content
+  min-width: 0;
 
   @include only-tablet {
     display: grid;
@@ -2371,6 +2607,7 @@ $crm-figma-color: '../img/content/services/figma-color';
 
 .crm-facts-card {
   box-sizing: border-box;
+  min-width: 0;
   min-height: 230px;
   padding: 40px;
   background: var(--color-white, #fff);
@@ -2447,6 +2684,8 @@ $crm-figma-color: '../img/content/services/figma-color';
 
 .crm-facts-card__media {
   overflow: hidden;
+  // С flex/grid: у img с 2x intrinsic size иначе min-width:auto → «разъезд» вёрстки
+  min-width: 0;
 
   @include tablet-plus {
     position: absolute;
@@ -2461,15 +2700,19 @@ $crm-figma-color: '../img/content/services/figma-color';
     left: 0;
     top: 0;
     width: 100%;
+    max-width: 100%;
     height: 220px;
     flex: 0 0 auto;
     border-radius: 20px 20px 0 0;
   }
 
   img {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 
@@ -2478,6 +2721,7 @@ $crm-figma-color: '../img/content/services/figma-color';
   flex-direction: column;
   gap: 19px;
   box-sizing: border-box;
+  min-width: 0;
 
   @include tablet-plus {
     position: relative;

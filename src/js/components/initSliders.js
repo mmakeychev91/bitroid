@@ -1,4 +1,8 @@
 import Swiper from 'swiper/bundle';
+import {
+  applySwiperPaginationToLastVisible,
+  getRightmostVisibleSlideIndex,
+} from '../utils/swiper-pagination-last-visible.js';
 
 export default function initSliders() {
   // ─── Слайдер кейсов ────────────────────────────────────────────────────
@@ -35,19 +39,26 @@ export default function initSliders() {
     if (paginationEl) {
       const render = () => {
         const slidesCount = casesSwiper.slides.length;
+        const activeIdx = getRightmostVisibleSlideIndex(casesSwiper);
         paginationEl.innerHTML = Array.from({ length: slidesCount })
-          .map((_, i) => `<span class="cases__dot${i === casesSwiper.realIndex ? ' cases__dot--active' : ''}" data-index="${i}"></span>`)
+          .map(
+            (_, i) =>
+              `<span class="cases__dot${i === activeIdx ? ' cases__dot--active' : ''}" data-index="${i}"></span>`,
+          )
           .join('');
       };
 
       const setActive = () => {
+        const activeIdx = getRightmostVisibleSlideIndex(casesSwiper);
         const bullets = paginationEl.querySelectorAll('.cases__dot');
         bullets.forEach((b) => b.classList.remove('cases__dot--active'));
-        const active = paginationEl.querySelector(`.cases__dot[data-index="${casesSwiper.realIndex}"]`);
+        const active = paginationEl.querySelector(`.cases__dot[data-index="${activeIdx}"]`);
         if (active) active.classList.add('cases__dot--active');
       };
 
       render();
+      requestAnimationFrame(() => setActive());
+
       paginationEl.addEventListener('click', (e) => {
         const target = e.target.closest('.cases__dot');
         if (!target) return;
@@ -56,7 +67,14 @@ export default function initSliders() {
         casesSwiper.slideTo(idx);
       });
 
-      casesSwiper.on('slideChange', setActive);
+      const syncCasesPagination = () => {
+        setActive();
+      };
+
+      casesSwiper.on('slideChange', syncCasesPagination);
+      casesSwiper.on('slideChangeTransitionEnd', syncCasesPagination);
+      casesSwiper.on('transitionEnd', syncCasesPagination);
+      casesSwiper.on('resize', syncCasesPagination);
       casesSwiper.on('update', () => {
         render();
         setActive();
@@ -73,6 +91,8 @@ export default function initSliders() {
       loop: false,
       watchOverflow: true,
       centeredSlides: true,
+      // Без пустоты слева у первого (и справа у последнего) при center — иначе «дыра» вместо 1-го слайда
+      centeredSlidesBounds: true,
       navigation: {
         prevEl: '.swiper-button-prev-reviews',
         nextEl: '.swiper-button-next-reviews',
@@ -86,22 +106,43 @@ export default function initSliders() {
           return `<span class="${className}"></span>`;
         },
       },
+      on: {
+        afterInit(swiper) {
+          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        },
+        // После внутреннего update пагинации — подсветка «по умолчанию» на realIndex
+        paginationUpdate(swiper) {
+          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        },
+        slideChange(swiper) {
+          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        },
+        transitionEnd(swiper) {
+          applySwiperPaginationToLastVisible(swiper);
+        },
+        resize(swiper) {
+          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        },
+      },
       breakpoints: {
         1280: {
           slidesPerView: 'auto',
           spaceBetween: 24,
           centeredSlides: true,
+          centeredSlidesBounds: true,
         },
         // 768–1279 = only-tablet: без center — первый слайд у левого края контейнера
         768: {
           slidesPerView: 'auto',
           spaceBetween: 16,
           centeredSlides: false,
+          centeredSlidesBounds: false,
         },
         0: {
           slidesPerView: 1,
           spaceBetween: 12,
           centeredSlides: true,
+          centeredSlidesBounds: true,
         },
       },
     });

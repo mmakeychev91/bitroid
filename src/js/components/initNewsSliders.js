@@ -1,4 +1,5 @@
 import Swiper from 'swiper/bundle';
+import { applySwiperPaginationToLastVisible } from '../utils/swiper-pagination-last-visible.js';
 
 /** Экземпляры слайдеров «Новости» (tablet + mobile, max-width 1279px) */
 let newsSwiperInstances = [];
@@ -38,6 +39,23 @@ function createNewsSliders() {
         bulletActiveClass: 'news__dot--active',
         renderBullet(index, className) {
           return `<span class="${className}"></span>`;
+        },
+      },
+      on: {
+        afterInit(swiper) {
+          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        },
+        paginationUpdate(swiper) {
+          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        },
+        slideChange(swiper) {
+          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        },
+        transitionEnd(swiper) {
+          applySwiperPaginationToLastVisible(swiper);
+        },
+        resize(swiper) {
+          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
         },
       },
       breakpoints: {

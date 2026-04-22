@@ -2297,3 +2297,429 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 .auto-page .faq__inner {
   align-items: flex-start;
 }
+
+// ——— Декор градиентов: «Направления автоматизации» — слева зелёный, справа синий, по вертикали по центру ———
+.auto-page-dirs {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+
+.auto-page-dirs__container {
+  position: relative;
+  z-index: 0;
+}
+
+.auto-page-dirs__bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.auto-page-dirs__container > *:not(.auto-page-dirs__bg-gradients) {
+  position: relative;
+  z-index: 1;
+}
+
+.auto-page-dirs__bg-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+  z-index: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    top: 50%;
+    left: -200px;
+    right: auto;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      left: -120px;
+    }
+
+    @include mobile {
+      left: -100px;
+    }
+  }
+
+  &--blue {
+    top: 50%;
+    right: -200px;
+    left: auto;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      right: -120px;
+    }
+
+    @include mobile {
+      right: -100px;
+    }
+  }
+
+  @include only-tablet {
+    width: 700px;
+    height: 700px;
+  }
+
+  @include mobile {
+    width: 480px;
+    height: 480px;
+  }
+}
+
+// ——— «Как мы внедряем…» — сверху по центру зелёный, снизу по центру синий ———
+.auto-page-steps {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+
+.auto-page-steps__container {
+  position: relative;
+  z-index: 0;
+}
+
+.auto-page-steps__bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.auto-page-steps__container > *:not(.auto-page-steps__bg-gradients) {
+  position: relative;
+  z-index: 1;
+}
+
+.auto-page-steps__bg-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+  z-index: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    top: 5%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+
+    @include only-tablet {
+      top: 4%;
+    }
+
+    @include mobile {
+      top: 2%;
+    }
+  }
+
+  &--blue {
+    bottom: 5%;
+    top: auto;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, 50%);
+
+    @include only-tablet {
+      bottom: 4%;
+    }
+
+    @include mobile {
+      bottom: 2%;
+    }
+  }
+
+  @include only-tablet {
+    width: 700px;
+    height: 700px;
+  }
+
+  @include mobile {
+    width: 480px;
+    height: 480px;
+  }
+}
+
+// ——— «Официальный партнёр…» — сверху слева зелёный, снизу справа синий ———
+.auto-page-partners {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+
+.auto-page-partners__container {
+  position: relative;
+  z-index: 0;
+}
+
+.auto-page-partners__bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.auto-page-partners__container > *:not(.auto-page-partners__bg-gradients) {
+  position: relative;
+  z-index: 1;
+}
+
+.auto-page-partners__bg-gradient {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+  z-index: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    top: -120px;
+    left: -200px;
+
+    @include only-tablet {
+      top: -80px;
+      left: -120px;
+    }
+  }
+
+  &--blue {
+    bottom: -120px;
+    right: -200px;
+    top: auto;
+    left: auto;
+
+    @include only-tablet {
+      bottom: -80px;
+      right: -120px;
+    }
+  }
+
+  @include only-tablet {
+    width: 700px;
+    height: 700px;
+  }
+
+  @include mobile {
+    width: 480px;
+    height: 480px;
+
+    &--green {
+      top: -60px;
+      left: -100px;
+    }
+
+    &--blue {
+      bottom: -60px;
+      right: -100px;
+    }
+  }
+}
+
+// ——— Кейсы: в центре пара рядом (зелёный чуть левее) ———
+.auto-page .cases--auto-page {
+  .cases__slider-outer > .container {
+    overflow: visible;
+  }
+
+  .cases-gradient {
+    z-index: 0;
+    pointer-events: none;
+    width: 900px;
+    height: 900px;
+    top: 50%;
+    right: auto;
+  }
+
+  .cases-gradient--green {
+    left: calc(50% - 100px);
+    transform: translate(-50%, -50%);
+
+    @include only-tablet {
+      left: calc(50% - 80px);
+    }
+
+    @include mobile {
+      left: calc(50% - 50px);
+    }
+  }
+
+  .cases-gradient--blue {
+    left: calc(50% + 100px);
+    transform: translate(-50%, -50%);
+
+    @include only-tablet {
+      left: calc(50% + 80px);
+    }
+
+    @include mobile {
+      left: calc(50% + 50px);
+    }
+  }
+
+  @include only-tablet {
+    .cases-gradient {
+      width: 700px;
+      height: 700px;
+    }
+  }
+
+  @include mobile {
+    .cases-gradient {
+      width: 480px;
+      height: 480px;
+    }
+  }
+
+  .cases__viewport,
+  .cases__controls {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// ——— FAQ: слева зелёный, далее синий в одну линию ———
+.auto-page__faq {
+  .faq__inner {
+    overflow: visible;
+  }
+
+  .faq-gradient {
+    z-index: 0;
+    pointer-events: none;
+    width: 900px;
+    height: 900px;
+  }
+
+  .faq__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .faq__decor {
+    z-index: 1;
+  }
+
+  .faq-gradient--blue,
+  .faq-gradient--green {
+    bottom: auto;
+    right: auto;
+  }
+
+  .faq-gradient--green {
+    top: 35%;
+    left: -200px;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      top: 32%;
+      left: -120px;
+    }
+
+    @include mobile {
+      top: 20%;
+      left: -100px;
+    }
+  }
+
+  .faq-gradient--blue {
+    top: 35%;
+    left: 400px;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      top: 32%;
+      left: 240px;
+    }
+
+    @include mobile {
+      top: 20%;
+      left: 50%;
+      transform: translate(10%, -50%);
+    }
+  }
+
+  @include only-tablet {
+    .faq-gradient {
+      width: 700px;
+      height: 700px;
+    }
+  }
+
+  @include mobile {
+    .faq-gradient {
+      width: 480px;
+      height: 480px;
+    }
+  }
+}
+
+// ——— Лид: слева зелёный, справа синий, по вертикали по центру (обрезка — .crm-lead__gradients-clip) ———
+.auto-page__lead {
+  .crm-lead__bg-gradient--green {
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: -200px;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      left: -120px;
+    }
+  }
+
+  .crm-lead__bg-gradient--blue {
+    top: 50%;
+    left: auto;
+    bottom: auto;
+    right: -200px;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      right: -120px;
+    }
+  }
+
+  @include mobile {
+    .crm-lead__bg-gradient--green {
+      top: 44%;
+      left: -100px;
+    }
+
+    .crm-lead__bg-gradient--blue {
+      top: 56%;
+      right: -100px;
+    }
+  }
+}

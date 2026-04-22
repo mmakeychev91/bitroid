@@ -376,6 +376,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   updateNewsSliders: () => (/* binding */ updateNewsSliders)
 /* harmony export */ });
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
+/* harmony import */ var _utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/swiper-pagination-last-visible.js */ "./src/js/utils/swiper-pagination-last-visible.js");
+
 
 
 /** Экземпляры слайдеров «Новости» (tablet + mobile, max-width 1279px) */
@@ -413,6 +415,23 @@ function createNewsSliders() {
         bulletActiveClass: 'news__dot--active',
         renderBullet(index, className) {
           return `<span class="${className}"></span>`;
+        }
+      },
+      on: {
+        afterInit(swiper) {
+          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        },
+        paginationUpdate(swiper) {
+          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        },
+        slideChange(swiper) {
+          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        },
+        transitionEnd(swiper) {
+          (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper);
+        },
+        resize(swiper) {
+          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
         }
       },
       breakpoints: {
@@ -587,6 +606,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ initSliders)
 /* harmony export */ });
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
+/* harmony import */ var _utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/swiper-pagination-last-visible.js */ "./src/js/utils/swiper-pagination-last-visible.js");
+
 
 function initSliders() {
   // ─── Слайдер кейсов ────────────────────────────────────────────────────
@@ -623,17 +644,20 @@ function initSliders() {
     if (paginationEl) {
       const render = () => {
         const slidesCount = casesSwiper.slides.length;
+        const activeIdx = (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.getRightmostVisibleSlideIndex)(casesSwiper);
         paginationEl.innerHTML = Array.from({
           length: slidesCount
-        }).map((_, i) => `<span class="cases__dot${i === casesSwiper.realIndex ? ' cases__dot--active' : ''}" data-index="${i}"></span>`).join('');
+        }).map((_, i) => `<span class="cases__dot${i === activeIdx ? ' cases__dot--active' : ''}" data-index="${i}"></span>`).join('');
       };
       const setActive = () => {
+        const activeIdx = (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.getRightmostVisibleSlideIndex)(casesSwiper);
         const bullets = paginationEl.querySelectorAll('.cases__dot');
         bullets.forEach(b => b.classList.remove('cases__dot--active'));
-        const active = paginationEl.querySelector(`.cases__dot[data-index="${casesSwiper.realIndex}"]`);
+        const active = paginationEl.querySelector(`.cases__dot[data-index="${activeIdx}"]`);
         if (active) active.classList.add('cases__dot--active');
       };
       render();
+      requestAnimationFrame(() => setActive());
       paginationEl.addEventListener('click', e => {
         const target = e.target.closest('.cases__dot');
         if (!target) return;
@@ -641,7 +665,13 @@ function initSliders() {
         if (Number.isNaN(idx)) return;
         casesSwiper.slideTo(idx);
       });
-      casesSwiper.on('slideChange', setActive);
+      const syncCasesPagination = () => {
+        setActive();
+      };
+      casesSwiper.on('slideChange', syncCasesPagination);
+      casesSwiper.on('slideChangeTransitionEnd', syncCasesPagination);
+      casesSwiper.on('transitionEnd', syncCasesPagination);
+      casesSwiper.on('resize', syncCasesPagination);
       casesSwiper.on('update', () => {
         render();
         setActive();
@@ -658,6 +688,8 @@ function initSliders() {
       loop: false,
       watchOverflow: true,
       centeredSlides: true,
+      // Без пустоты слева у первого (и справа у последнего) при center — иначе «дыра» вместо 1-го слайда
+      centeredSlidesBounds: true,
       navigation: {
         prevEl: '.swiper-button-prev-reviews',
         nextEl: '.swiper-button-next-reviews'
@@ -671,22 +703,43 @@ function initSliders() {
           return `<span class="${className}"></span>`;
         }
       },
+      on: {
+        afterInit(swiper) {
+          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        },
+        // После внутреннего update пагинации — подсветка «по умолчанию» на realIndex
+        paginationUpdate(swiper) {
+          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        },
+        slideChange(swiper) {
+          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        },
+        transitionEnd(swiper) {
+          (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper);
+        },
+        resize(swiper) {
+          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        }
+      },
       breakpoints: {
         1280: {
           slidesPerView: 'auto',
           spaceBetween: 24,
-          centeredSlides: true
+          centeredSlides: true,
+          centeredSlidesBounds: true
         },
         // 768–1279 = only-tablet: без center — первый слайд у левого края контейнера
         768: {
           slidesPerView: 'auto',
           spaceBetween: 16,
-          centeredSlides: false
+          centeredSlides: false,
+          centeredSlidesBounds: false
         },
         0: {
           slidesPerView: 1,
           spaceBetween: 12,
-          centeredSlides: true
+          centeredSlides: true,
+          centeredSlidesBounds: true
         }
       }
     });
@@ -965,6 +1018,73 @@ const fixHeightOnResize = () => {
   fixHeight();
   window.addEventListener('resize', fixHeight);
 };
+
+/***/ }),
+
+/***/ "./src/js/utils/swiper-pagination-last-visible.js":
+/*!********************************************************!*\
+  !*** ./src/js/utils/swiper-pagination-last-visible.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   applySwiperPaginationToLastVisible: () => (/* binding */ applySwiperPaginationToLastVisible),
+/* harmony export */   getRightmostVisibleSlideIndex: () => (/* binding */ getRightmostVisibleSlideIndex)
+/* harmony export */ });
+/**
+ * Индекс слайда, визуально крайнего справа среди видимых в области слайдера (LTR).
+ * Нужен для пагинации: при slidesPerView > 1 зелёная точка = последний видимый слайд
+ * (например, когда в кадре два последних).
+ *
+ * @param {object} swiper экземпляр Swiper
+ * @returns {number}
+ */
+function getRightmostVisibleSlideIndex(swiper) {
+  if (!swiper?.el || !swiper?.slides?.length) {
+    return swiper?.realIndex ?? 0;
+  }
+  const rect = swiper.el.getBoundingClientRect();
+  const slides = swiper.slides;
+  if (swiper.params.rtl) {
+    let minIdx = slides.length - 1;
+    slides.forEach((slide, i) => {
+      const r = slide.getBoundingClientRect();
+      if (r.left < rect.right && r.right > rect.left) {
+        minIdx = Math.min(minIdx, i);
+      }
+    });
+    return minIdx;
+  }
+  let maxIdx = 0;
+  slides.forEach((slide, i) => {
+    const r = slide.getBoundingClientRect();
+    if (r.left < rect.right && r.right > rect.left) {
+      maxIdx = i;
+    }
+  });
+  return maxIdx;
+}
+
+/**
+ * Встроенная пагинация Swiper: ставит active-класс на буллете последнего видимого слайда
+ * (после стандартного update от Swiper вызывать в slideChange/resize/transitionEnd).
+ *
+ * @param {object} swiper экземпляр Swiper
+ */
+function applySwiperPaginationToLastVisible(swiper) {
+  const mod = swiper.pagination;
+  if (!mod?.bullets?.length) return;
+  const pa = swiper.params.pagination;
+  if (!pa) return;
+  if (pa.type && pa.type !== 'bullets') return;
+  const activeClass = pa.bulletActiveClass;
+  if (!activeClass) return;
+  const idx = getRightmostVisibleSlideIndex(swiper);
+  mod.bullets.forEach((bullet, i) => {
+    bullet.classList.toggle(activeClass, i === idx);
+  });
+}
 
 /***/ }),
 

@@ -154,7 +154,15 @@
 
   <!-- CRM-системы: слайдер 4 слайда; один блок + адаптив (как остальная страница) -->
   <section class="crm-tech">
-    <div class="container">
+    <div class="container crm-tech__inner">
+      <div class="crm-tech__bg-gradients" aria-hidden="true">
+        <span class="crm-tech__bg-gradient crm-tech__bg-gradient--green">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+        </span>
+        <span class="crm-tech__bg-gradient crm-tech__bg-gradient--blue">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+        </span>
+      </div>
       <h2 class="crm-tech__title">
         <span class="crm-tech__title-long">С какими CRM-системами мы работаем</span>
         <span class="crm-tech__title-short">Технологии</span>
@@ -445,6 +453,15 @@
 
   <!-- Этапы: слайдер 1/5, полоса прогресса и навигация как в блоке «Технологии» -->
   <section class="crm-stages">
+    <!-- Якорь как у crm-hero: градиенты внутри .container, координаты относительно сетки страницы -->
+    <div class="container crm-stages__gradients-anchor" aria-hidden="true">
+      <span class="crm-stages__bg-gradient crm-stages__bg-gradient--green">
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+      </span>
+      <span class="crm-stages__bg-gradient crm-stages__bg-gradient--blue">
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+      </span>
+    </div>
     <div class="container desktop">
       <h2 class="crm-stages__title">Этапы внедрения CRM</h2>
       <div class="crm-stages__slider-wrap">
@@ -881,8 +898,18 @@
     </div>
   </section>
 
-  <!-- Форма: «Оставьте заявку…» -->
+  <!-- Форма: «Оставьте заявку…»; декор: зелёный вверху слева, синий внизу справа (обрезка по ширине .container) -->
   <section class="crm-lead cta crm-page__lead">
+    <div class="crm-lead__gradients-clip" aria-hidden="true">
+      <div class="crm-lead__bg-gradients">
+        <span class="crm-lead__bg-gradient crm-lead__bg-gradient--green">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+        </span>
+        <span class="crm-lead__bg-gradient crm-lead__bg-gradient--blue">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+        </span>
+      </div>
+    </div>
     <div class="container desktop">
       <div class="crm-lead__card cta__card">
         <div class="cta__card-decor crm-lead__decor" aria-hidden="true">
@@ -1084,7 +1111,7 @@
     </div>
   </section>
 
-  <!-- Кейсы -->
+  <!-- Кейсы (vnedrenie-crm: декор градиентов — см. .crm-page__cases в _cases) -->
   <section class="cases crm-page__cases">
     <div class="container">
       <div class="cases__head">
@@ -1097,10 +1124,10 @@
     </div>
     <div class="cases__slider-outer">
       <div class="container">
-        <span class="cases-gradient cases-gradient--green">
+        <span class="cases-gradient cases-gradient--green" aria-hidden="true">
           @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
         </span>
-        <span class="cases-gradient cases-gradient--blue">
+        <span class="cases-gradient cases-gradient--blue" aria-hidden="true">
           @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
         </span>
         <button class="cases__nav-btn cases__nav-btn--prev swiper-button-prev-cases" type="button" aria-label="Предыдущий кейс">
@@ -1117,7 +1144,7 @@
           <div class="swiper cases-swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <article class="cases__card">
+                <a href="#" class="cases__card">
                   <div class="cases__card-figure" aria-hidden="true">
                     <img src="img/general/cases/Group 63.png" alt="" class="cases__card-figure-img cases__card-figure-img--1" />
                   </div>
@@ -1125,10 +1152,10 @@
                     <span class="cases__card-badge">Автоматизация</span>
                     <h3 class="cases__card-name">Автоматизация процессов для строительной компании</h3>
                   </div>
-                </article>
+                </a>
               </div>
               <div class="swiper-slide">
-                <article class="cases__card cases__card--accent">
+                <a href="#" class="cases__card cases__card--accent">
                   <div class="cases__card-union" aria-hidden="true">
                     <img src="img/general/cases/Union.png" alt="" class="cases__card-union-img">
                   </div>
@@ -1136,17 +1163,17 @@
                     <span class="cases__card-badge">Корпоративные порталы</span>
                     <h3 class="cases__card-name">Стройхолдинг</h3>
                     <p class="cases__card-desc">Ускорили выполнение задач строительной компании на 20%.</p>
-                    <a href="#" class="cases__card-link">
+                    <span class="cases__card-link">
                       Читать кейс
                       <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
-                    </a>
+                    </span>
                   </div>
-                </article>
+                </a>
               </div>
               <div class="swiper-slide">
-                <article class="cases__card">
+                <a href="#" class="cases__card">
                   <div class="cases__card-figure cases__card-figure--right" aria-hidden="true">
                     <img src="img/general/cases/Group 63.png" alt="" class="cases__card-figure-img cases__card-figure-img--3" />
                   </div>
@@ -1154,7 +1181,7 @@
                     <span class="cases__card-badge">Автоматизация</span>
                     <h3 class="cases__card-name">Автоматизация процессов для строительной компании</h3>
                   </div>
-                </article>
+                </a>
               </div>
             </div>
           </div>

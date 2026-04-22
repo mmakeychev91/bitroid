@@ -17,14 +17,14 @@
     </div>
   </div>
 
-  <!-- Главный экран 800px (Figma 290:3717); градиенты — первые дети .container, как на главной и crm-hero -->
+  <!-- Главный экран 800px: декор — синий по центру, зелёный правее, по вертикали к середине блока (см. .site-dev-hero__bg-gradient) -->
   <section class="site-dev-hero">
     <div class="container">
-      <span class="site-dev-hero__bg-gradient site-dev-hero__bg-gradient--green" aria-hidden="true">
-        @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
-      </span>
       <span class="site-dev-hero__bg-gradient site-dev-hero__bg-gradient--blue" aria-hidden="true">
         @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+      </span>
+      <span class="site-dev-hero__bg-gradient site-dev-hero__bg-gradient--green" aria-hidden="true">
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
       </span>
       <div class="site-dev-hero__inner">
         <div class="site-dev-hero__text">
@@ -118,9 +118,17 @@
     </div>
   </section>
 
-  <!-- Специализированные решения (Figma 292:4018) -->
+  <!-- Специализированные решения (Figma 292:4018) — декор: как у hero, синий по центру, зелёный правее -->
   <section class="site-dev-section site-dev-sol">
-    <div class="container">
+    <div class="container site-dev-sol__container">
+      <div class="site-dev-sol__bg-gradients" aria-hidden="true">
+        <span class="site-dev-sol__bg-gradient site-dev-sol__bg-gradient--blue">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+        </span>
+        <span class="site-dev-sol__bg-gradient site-dev-sol__bg-gradient--green">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+        </span>
+      </div>
       <div class="site-dev-sol__intro">
         <h2 class="site-dev-section__title">Специализированные решения для вашего бизнеса</h2>
         <p class="site-dev-section__text">Битроид занимается разработкой корпоративных решений, которые закрывают все потребности бизнеса. У нас можно не просто заказать сайт для бизнеса, но и провести интеграцию сайта с CRM, комплексное внедрение Битрикс24, интегрировать веб-сервис с маркетплейсами и обеспечить лучшие позиции в поисковиках.</p>
@@ -194,9 +202,17 @@
     </div>
   </section>
 
-  <!-- Полный цикл: табы + панель «Дизайн» (Figma 292:4118) -->
+  <!-- Полный цикл: табы + панель «Дизайн» (Figma 292:4118) — слева синий, справа зелёный -->
   <section class="site-dev-section site-dev-cycle">
-    <div class="container">
+    <div class="container site-dev-cycle__container">
+      <div class="site-dev-cycle__bg-gradients" aria-hidden="true">
+        <span class="site-dev-cycle__bg-gradient site-dev-cycle__bg-gradient--blue">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+        </span>
+        <span class="site-dev-cycle__bg-gradient site-dev-cycle__bg-gradient--green">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+        </span>
+      </div>
       <h2 class="site-dev-cycle__title">Полный цикл работ по разработке</h2>
       <div class="site-dev-cycle__tabs" role="tablist" aria-label="Этапы работ">
         <button type="button" class="site-dev-cycle__tab" id="site-dev-cycle-tab-analytics" role="tab" aria-selected="false" aria-controls="site-dev-cycle-panel-analytics" data-tab="analytics" tabindex="-1">Аналитика</button>
@@ -335,9 +351,17 @@
     </div>
   </section>
 
-  <!-- Как строится работа: 8 карточек (Figma 293:4478) -->
+  <!-- Как строится работа: 8 карточек (Figma 293:4478) — слева синий, справа зелёный (зелёный чуть ниже) -->
   <section class="site-dev-section site-dev-process">
-    <div class="container">
+    <div class="container site-dev-process__container">
+      <div class="site-dev-process__bg-gradients" aria-hidden="true">
+        <span class="site-dev-process__bg-gradient site-dev-process__bg-gradient--blue">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+        </span>
+        <span class="site-dev-process__bg-gradient site-dev-process__bg-gradient--green">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+        </span>
+      </div>
       <h2 class="site-dev-section__title">Как строится работа над проектом</h2>
       <p class="site-dev-process__intro site-dev-section__text">Компания Битроид выстроила прозрачный процесс дизайна и разработки сайта. Наши услуги по созданию веб-сайтов делятся на 8 чётких этапов для гарантированного результата.</p>
       <div class="site-dev-process__grid">
@@ -458,8 +482,8 @@
     </div>
   </section>
 
-  <!-- Кейсы -->
-  <section class="cases crm-page__cases">
+  <!-- Кейсы — в центре пара градиентов, зелёный чуть левее синего -->
+  <section class="cases crm-page__cases cases--site-dev">
     <div class="container">
       <div class="cases__head">
         <div class="cases__head-text">
@@ -491,7 +515,7 @@
           <div class="swiper cases-swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <article class="cases__card">
+                <a href="#" class="cases__card">
                   <div class="cases__card-figure" aria-hidden="true">
                     <img src="img/general/cases/Group 63.png" alt="" class="cases__card-figure-img cases__card-figure-img--1" />
                   </div>
@@ -499,10 +523,10 @@
                     <span class="cases__card-badge">Автоматизация</span>
                     <h3 class="cases__card-name">Автоматизация процессов для строительной компании</h3>
                   </div>
-                </article>
+                </a>
               </div>
               <div class="swiper-slide">
-                <article class="cases__card cases__card--accent">
+                <a href="#" class="cases__card cases__card--accent">
                   <div class="cases__card-union" aria-hidden="true">
                     <img src="img/general/cases/Union.png" alt="" class="cases__card-union-img">
                   </div>
@@ -510,17 +534,17 @@
                     <span class="cases__card-badge">Корпоративные порталы</span>
                     <h3 class="cases__card-name">Стройхолдинг</h3>
                     <p class="cases__card-desc">Ускорили выполнение задач строительной компании на 20%.</p>
-                    <a href="#" class="cases__card-link">
+                    <span class="cases__card-link">
                       Читать кейс
                       <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
-                    </a>
+                    </span>
                   </div>
-                </article>
+                </a>
               </div>
               <div class="swiper-slide">
-                <article class="cases__card">
+                <a href="#" class="cases__card">
                   <div class="cases__card-figure cases__card-figure--right" aria-hidden="true">
                     <img src="img/general/cases/Group 63.png" alt="" class="cases__card-figure-img cases__card-figure-img--3" />
                   </div>
@@ -528,7 +552,7 @@
                     <span class="cases__card-badge">Автоматизация</span>
                     <h3 class="cases__card-name">Автоматизация процессов для строительной компании</h3>
                   </div>
-                </article>
+                </a>
               </div>
             </div>
           </div>
@@ -569,14 +593,14 @@
     </div>
   </section>
 
-  <!-- FAQ — как на vnedrenie-crm.html -->
-  <section class="faq crm-page__faq">
+  <!-- FAQ — слева синий, рядом по горизонтали зелёный (тот же набор, что в main-block) -->
+  <section class="faq crm-page__faq site-dev-page__faq">
     <div class="container faq__inner">
-      <span class="faq-gradient faq-gradient--green">
-        @include('../../partials/svg/gradients/main/faq/Ellipse 6.svg')
-      </span>
       <span class="faq-gradient faq-gradient--blue">
-        @include('../../partials/svg/gradients/main/faq/Ellipse 7.svg')
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+      </span>
+      <span class="faq-gradient faq-gradient--green">
+        @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
       </span>
       <div class="faq__content">
         <div class="faq__head">
@@ -697,8 +721,18 @@
     </div>
   </section>
 
-  <!-- Форма «Оставьте заявку…» — как на vnedrenie-crm.html -->
-  <section class="crm-lead cta crm-page__lead">
+  <!-- Форма «Оставьте заявку…» — слева синий, справа зелёный чуть ниже (как в main-block) -->
+  <section class="crm-lead cta crm-page__lead site-dev-page__lead">
+    <div class="crm-lead__gradients-clip" aria-hidden="true">
+      <div class="crm-lead__bg-gradients">
+        <span class="crm-lead__bg-gradient crm-lead__bg-gradient--blue">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+        </span>
+        <span class="crm-lead__bg-gradient crm-lead__bg-gradient--green">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+        </span>
+      </div>
+    </div>
     <div class="container desktop">
       <div class="crm-lead__card cta__card">
         <div class="cta__card-decor crm-lead__decor" aria-hidden="true">

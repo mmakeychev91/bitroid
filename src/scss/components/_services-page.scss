@@ -406,6 +406,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   position: relative;
   z-index: 1;
   padding: 150px 0 0;
+  overflow: visible;
 
   @include only-tablet {
     padding-top: 100px;
@@ -413,6 +414,121 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include mobile {
     padding-top: 60px;
+  }
+}
+
+// Контейнер: якорь для градиентов (система координат как у services-hero__inner)
+.services-grid-block__inner {
+  position: relative;
+  z-index: 0;
+}
+
+.services-grid-block__head,
+.services-grid-block__grid {
+  position: relative;
+  z-index: 1;
+}
+
+// Слой градиентов на всю высоту блока — декор под карточками
+.services-grid-block__bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+// Те же SVG/размеры, что .services-hero__bg-gradient / .hero__bg-gradient (сайт: 900×900)
+.services-grid-block__bg-gradient {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+  z-index: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Сверху вниз: зелёный левее; синий правее; синий левее; зелёный правее
+  &--row-1 {
+    top: -160px;
+    left: -200px;
+  }
+
+  &--row-2 {
+    top: 24%;
+    right: -200px;
+    left: auto;
+  }
+
+  &--row-3 {
+    top: 50%;
+    left: -200px;
+    transform: translateY(-50%);
+  }
+
+  &--row-4 {
+    bottom: -120px;
+    right: -200px;
+    left: auto;
+    top: auto;
+  }
+
+  @include only-tablet {
+    width: 700px;
+    height: 700px;
+
+    &--row-1 {
+      top: -120px;
+      left: -120px;
+    }
+
+    &--row-2 {
+      top: 22%;
+      right: -100px;
+    }
+
+    &--row-3 {
+      top: 50%;
+      left: -100px;
+    }
+
+    &--row-4 {
+      bottom: -100px;
+      right: -100px;
+    }
+  }
+
+  @include mobile {
+    width: 480px;
+    height: 480px;
+
+    &--row-1 {
+      top: -60px;
+      left: -160px;
+    }
+
+    &--row-2 {
+      top: 20%;
+      right: -140px;
+    }
+
+    &--row-3 {
+      top: 48%;
+      left: -180px;
+      transform: translateY(-50%);
+    }
+
+    &--row-4 {
+      bottom: -80px;
+      right: -160px;
+    }
   }
 }
 
@@ -1063,7 +1179,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   position: relative;
   z-index: 1;
   padding: 150px 0 80px;
-  overflow: hidden;
+  overflow: visible;
 
   @include only-tablet {
     padding: 100px 0 60px;
@@ -1071,6 +1187,81 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include mobile {
     padding: 60px 0 40px;
+  }
+}
+
+// Контент и тикеры поверх градиентов
+.services-cert > .container,
+.services-cert > .certificates__ticker {
+  position: relative;
+  z-index: 1;
+}
+
+// Слой декора: зелёный и синий рядом по горизонтали (смещения как в hero: −200 / +200 от центра)
+.services-cert__bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.services-cert__bg-gradient {
+  $half: 450px; // 900 / 2
+
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 900px;
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Центры пятен: 50% − 200px и 50% + 200px (как отступы main-block относительно оси)
+  &--green {
+    left: calc(50% - 200px - #{$half});
+  }
+
+  &--blue {
+    left: calc(50% + 200px - #{$half});
+  }
+
+  @include only-tablet {
+    $half-t: 350px; // 700 / 2
+
+    width: 700px;
+    height: 700px;
+
+    &--green {
+      left: calc(50% - 200px - #{$half-t});
+    }
+
+    &--blue {
+      left: calc(50% + 200px - #{$half-t});
+    }
+  }
+
+  @include mobile {
+    $half-m: 240px; // 480 / 2
+
+    width: 480px;
+    height: 480px;
+    // Уже смещение, чтобы вписаться в 360: 100px вместо 200
+    &--green {
+      left: calc(50% - 100px - #{$half-m});
+    }
+
+    &--blue {
+      left: calc(50% + 100px - #{$half-m});
+    }
   }
 }
 
@@ -1263,9 +1454,86 @@ $figma-color-assets: '../img/content/services/figma-color';
   }
 }
 
-// FAQ на странице услуг: отступ снизу перед формой
+// FAQ на странице услуг: отступ снизу перед формой; декор — слева зелёный, справа синий
 .services-page__faq.faq {
   padding-bottom: 0;
+  overflow: visible;
+
+  .faq__inner {
+    overflow: visible;
+  }
+
+  .faq-gradient {
+    z-index: 0;
+    pointer-events: none;
+    width: 900px;
+    height: 900px;
+    bottom: auto;
+  }
+
+  .faq-gradient--green {
+    left: -200px;
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      left: -120px;
+    }
+
+    @include tablet {
+      left: -100px;
+      right: auto;
+      top: 40%;
+    }
+
+    @include mobile {
+      left: -140px;
+      top: 35%;
+    }
+  }
+
+  .faq-gradient--blue {
+    right: -200px;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      right: -120px;
+    }
+
+    @include tablet {
+      right: -100px;
+      left: auto;
+      top: 55%;
+    }
+
+    @include mobile {
+      right: -140px;
+      top: 60%;
+    }
+  }
+
+  @include only-tablet {
+    .faq-gradient {
+      width: 700px;
+      height: 700px;
+    }
+  }
+
+  @include mobile {
+    .faq-gradient {
+      width: 480px;
+      height: 480px;
+    }
+  }
+
+  .faq__content,
+  .faq__decor {
+    position: relative;
+    z-index: 1;
+  }
 
   // Вторая иконка — только на мобилке (перекрывается правилом внутри @include mobile)
   .faq__all-link-icon--mobile {
@@ -1367,11 +1635,85 @@ $figma-color-assets: '../img/content/services/figma-color';
   }
 }
 
+// CTA «Готовы начать»: градиенты внутри .services-page__cta-container (слева зелёный, справа синий) — не в .cta__card (overflow: hidden)
+.services-page__cta-container {
+  position: relative;
+  z-index: 0;
+}
+
+.services-page__cta-bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.services-page__cta-gradient {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+  height: 900px;
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    left: -200px;
+  }
+
+  &--blue {
+    right: -200px;
+    left: auto;
+  }
+
+  @include only-tablet {
+    width: 700px;
+    height: 700px;
+
+    &--green {
+      left: -100px;
+    }
+
+    &--blue {
+      right: -100px;
+    }
+  }
+
+  @include mobile {
+    width: 480px;
+    height: 480px;
+
+    &--green {
+      left: -120px;
+    }
+
+    &--blue {
+      right: -120px;
+    }
+  }
+}
+
 .services-page__cta.cta {
+  overflow: visible;
   padding-top: 100px;
 
   @include mobile {
     padding-top: 60px;
+  }
+
+  // Карточка поверх градиентов (градиенты в том же .container, что и карточка)
+  .cta__card {
+    position: relative;
+    z-index: 1;
   }
 
   .cta__title--services-desktop {

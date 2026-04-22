@@ -198,19 +198,34 @@
     transform: none !important;
   }
 
+  // Равная высота ряда: слайд тянется по самой высокой карточке
   .news-panel-swiper .swiper-slide {
+    display: flex;
     width: auto !important;
     max-width: none;
     margin: 0 !important;
     height: auto;
     flex-shrink: 0;
   }
+
+  .news-panel-swiper .news__card {
+    align-self: stretch;
+    min-height: 359px;
+    height: 100%;
+  }
 }
 
 @include tablet {
   .news-panel-swiper .swiper-slide {
+    display: flex;
     width: auto;
     height: auto;
+    align-items: stretch;
+  }
+
+  .news-panel-swiper .news__card {
+    min-height: 229px;
+    height: 100%;
   }
 }
 
@@ -240,6 +255,8 @@
     width: 100%;
     max-width: none;
     box-sizing: border-box;
+    min-height: 181px;
+    height: auto;
   }
 }
 
@@ -284,19 +301,37 @@
   }
 }
 
+// Карточка в разметке — ссылка <a.news__card>
+a.news__card,
+.news__card {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a.news__card {
+  box-sizing: border-box;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-blue, #2587f9);
+    outline-offset: 3px;
+  }
+}
+
 .news__card {
   position: relative;
   border-radius: 30px;
   box-shadow: var(--input-shadow);
   overflow: hidden;
-  height: 359px;
+  min-height: 359px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   flex-shrink: 0;
+  box-sizing: border-box;
 
   @include only-tablet {
-    height: 229px;
+    min-height: 229px;
   }
 
   &--large {
@@ -311,14 +346,13 @@
     @include mobile {
       width: 100%;
       max-width: none;
-      height: auto;
       min-height: 181px;
       border-radius: 10px;
     }
   }
 
   @include mobile {
-    height: 181px;
+    min-height: 181px;
   }
 
   &--accent {
@@ -377,6 +411,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex: 1 1 auto;
+  min-height: 0;
 
   @include only-tablet {
     padding: 20px;
@@ -460,6 +496,7 @@
   }
 }
 
+// Текст «Читать» внутри ссылки-карточки (не отдельная <a>, чтобы вся карточка была одной ссылкой)
 .news__card-link {
   display: inline-flex;
   align-items: center;
@@ -469,10 +506,10 @@
   font-weight: 600;
   line-height: 1.3;
   color: var(--color-green, #34ae6b);
-  text-decoration: none;
   align-self: flex-start;
   transition: opacity 0.2s;
-  margin-top: 28px;
+  margin-top: auto;
+  padding-top: 16px;
 
   svg {
     transform: rotate(-90deg);
@@ -483,13 +520,14 @@
     color: var(--color-white, #fff);
   }
 
-  &:hover {
-    opacity: 0.8;
-  }
-
   @include mobile {
     margin-top: 12px;
+    padding-top: 0;
   }
+}
+
+a.news__card:hover .news__card-link {
+  opacity: 0.8;
 }
 
 // Ссылка Telegram в табах новостей
