@@ -2366,8 +2366,8 @@ $crm-figma-color: '../img/content/services/figma-color';
   }
 }
 
-// Оболочка по ширине/отступам как у .container: градиенты не вылезают за колонку контента
-.crm-lead__gradients-clip {
+// Охват декора: как у .container (max-width 1440 + те же padding), не на всю ширину body. overflow: visible — пятна не режутся по краям колонки.
+.crm-lead__gradients-scope {
   position: absolute;
   z-index: 0;
   top: 0;
@@ -2378,8 +2378,8 @@ $crm-figma-color: '../img/content/services/figma-color';
   max-width: 1440px;
   padding: 0 60px;
   box-sizing: border-box;
-  overflow: hidden;
   pointer-events: none;
+  overflow: visible;
 
   @include tablet {
     padding: 0 16px;
@@ -2390,7 +2390,7 @@ $crm-figma-color: '../img/content/services/figma-color';
   }
 }
 
-// Декор: зелёный вверху слева, синий внизу справа (координаты — внутри .crm-lead__gradients-clip)
+// Слой внутри scope: inset 0 — координаты у .crm-lead__bg-gradient от колонки контента (как градиенты в .site-dev-hero .container)
 .crm-lead__bg-gradients {
   position: absolute;
   z-index: 0;

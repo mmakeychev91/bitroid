@@ -13598,7 +13598,7 @@ a.news__tab--link:hover {
   }
 }
 
-.crm-lead__gradients-clip {
+.crm-lead__gradients-scope {
   position: absolute;
   z-index: 0;
   top: 0;
@@ -13612,16 +13612,16 @@ a.news__tab--link:hover {
   padding: 0 60px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  overflow: hidden;
   pointer-events: none;
+  overflow: visible;
 }
 @media (max-width: 1279px) {
-  .crm-lead__gradients-clip {
+  .crm-lead__gradients-scope {
     padding: 0 16px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
-  .crm-lead__gradients-clip {
+  .crm-lead__gradients-scope {
     padding: 0 45px;
   }
 }

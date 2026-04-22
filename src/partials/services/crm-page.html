@@ -898,9 +898,9 @@
     </div>
   </section>
 
-  <!-- Форма: «Оставьте заявку…»; декор: зелёный вверху слева, синий внизу справа (обрезка по ширине .container) -->
+  <!-- Форма: декор привязан к колонке .container (как hero), пятна могут вылезать за padding — не обрезаем -->
   <section class="crm-lead cta crm-page__lead">
-    <div class="crm-lead__gradients-clip" aria-hidden="true">
+    <div class="crm-lead__gradients-scope" aria-hidden="true">
       <div class="crm-lead__bg-gradients">
         <span class="crm-lead__bg-gradient crm-lead__bg-gradient--green">
           @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
