@@ -52,9 +52,17 @@
     </div>
   </section>
 
-  <!-- Зачем бизнесу автоматизация: десктоп/планшет (899:3785), мобилка (939:5747) -->
+  <!-- Зачем бизнесу автоматизация: десктоп/планшет (899:3785), мобилка (939:5747) — сверху справа зелёный, снизу справа синий -->
   <section class="auto-page-section auto-page-problems">
-    <div class="container">
+    <div class="container auto-page-problems__container">
+      <div class="auto-page-problems__bg-gradients" aria-hidden="true">
+        <span class="auto-page-problems__bg-gradient auto-page-problems__bg-gradient--green">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 6.svg')
+        </span>
+        <span class="auto-page-problems__bg-gradient auto-page-problems__bg-gradient--blue">
+          @include('../../partials/svg/gradients/main/main-block/Ellipse 7.svg')
+        </span>
+      </div>
       <h2 class="auto-page-section__title auto-page-problems__heading">Зачем бизнесу автоматизация: 4 проблемы, которые мы решаем</h2>
 
       <div class="auto-page-problems__layout-desktop">

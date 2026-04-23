@@ -371,9 +371,91 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 }
 
-// ——— 4 проблемы: колонки 536px + 761px, заголовки 535 / 760, gap 25px ———
+// ——— 4 проблемы: колонки 536px + 761px, заголовки 535 / 760, gap 25px; декор: справа — зелёный сверху, синий снизу ———
 .auto-page-problems {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
   padding-bottom: 0;
+}
+
+.auto-page-problems__container {
+  position: relative;
+  z-index: 0;
+}
+
+.auto-page-problems__bg-gradients {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.auto-page-problems__container > *:not(.auto-page-problems__bg-gradients) {
+  position: relative;
+  z-index: 1;
+}
+
+.auto-page-problems__bg-gradient {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+  z-index: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--green {
+    top: -120px;
+    right: -200px;
+    left: auto;
+    bottom: auto;
+  }
+
+  &--blue {
+    bottom: -120px;
+    right: -200px;
+    top: auto;
+    left: auto;
+  }
+
+  @include only-tablet {
+    width: 700px;
+    height: 700px;
+
+    &--green {
+      top: -80px;
+      right: -120px;
+    }
+
+    &--blue {
+      bottom: -80px;
+      right: -120px;
+    }
+  }
+
+  @include mobile {
+    width: 480px;
+    height: 480px;
+
+    &--green {
+      top: -60px;
+      right: -100px;
+    }
+
+    &--blue {
+      bottom: -60px;
+      right: -100px;
+    }
+  }
 }
 
 .auto-page-problems__heading {
@@ -902,6 +984,7 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   @include mobile {
     margin-bottom: 16px;
+    font-size: 14px;
   }
 }
 
