@@ -13844,8 +13844,8 @@ a.news__tab--link:hover {
   .crm-facts__cards {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (minmax(0, 331px))[2];
-    grid-template-columns: repeat(2, minmax(0, 331px));
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
@@ -13934,6 +13934,7 @@ a.news__tab--link:hover {
 @media (min-width: 1280px) {
   .crm-facts-card--top {
     min-height: 230px;
+    gap: 19px;
   }
 }
 @media (max-width: 1279px) {
@@ -13941,21 +13942,15 @@ a.news__tab--link:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
     min-height: 0;
-  }
-}
-@media (max-width: 767px) {
-  .crm-facts-card--top {
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
+    gap: 19px;
   }
 }
 
@@ -13977,13 +13972,28 @@ a.news__tab--link:hover {
     position: relative;
     left: 0;
     top: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 220px;
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    border-radius: 20px 20px 0 0;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    width: 40%;
+    max-width: 200px;
+    min-width: 0;
+    height: auto;
+    -ms-flex-item-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-self: stretch;
+    min-height: 0;
+    border-radius: 20px 0 0 20px;
+  }
+}
+@media (max-width: 767px) {
+  .crm-facts-card__media {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 36%;
+    flex: 0 0 36%;
+    width: 36%;
+    max-width: 160px;
+    border-radius: 20px 0 0 20px;
   }
 }
 .crm-facts-card__media img {
@@ -13992,8 +14002,8 @@ a.news__tab--link:hover {
   max-width: 100%;
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-  object-fit: contain;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .crm-facts-card__top-body {
@@ -14021,8 +14031,25 @@ a.news__tab--link:hover {
 }
 @media (max-width: 1279px) {
   .crm-facts-card__top-body {
-    padding: 24px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 19px;
+    padding: 20px 20px 20px 16px;
     min-height: 0;
+    min-width: 0;
+  }
+}
+@media (max-width: 767px) {
+  .crm-facts-card__top-body {
+    padding: 16px 16px 16px 12px;
   }
 }
 
@@ -14551,6 +14578,7 @@ a.news__tab--link:hover {
     -ms-flex-order: -1;
     order: -1;
     min-height: 0;
+    display: none;
   }
   .crm-checklist__visual img {
     min-height: 200px;
@@ -14840,7 +14868,7 @@ a.news__tab--link:hover {
 
 .site-dev-hero__inner {
   position: relative;
-  z-index: 1;
+  z-index: 9;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

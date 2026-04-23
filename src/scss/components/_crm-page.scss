@@ -2594,7 +2594,7 @@ $crm-figma-color: '../img/content/services/figma-color';
 
   @include only-tablet {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 331px));
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
     justify-content: start;
   }
@@ -2668,17 +2668,16 @@ $crm-figma-color: '../img/content/services/figma-color';
 
   @include tablet-plus {
     min-height: 230px;
+    gap: 19px;
   }
 
+  // Планшет / мобилка: как на десктопе — слева фото, справа текст (не колонка «фото сверху»)
   @include tablet {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
     min-height: 0;
-  }
-
-  @include mobile {
-    align-items: flex-start;
+    gap: 19px;
   }
 }
 
@@ -2695,15 +2694,26 @@ $crm-figma-color: '../img/content/services/figma-color';
     height: 236px;
   }
 
+  // Ряд с текстом: колонка слева, скругления только слева (как левая половина карточки)
   @include tablet {
     position: relative;
     left: 0;
     top: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 220px;
-    flex: 0 0 auto;
-    border-radius: 20px 20px 0 0;
+    flex: 0 0 40%;
+    width: 40%;
+    max-width: 200px;
+    min-width: 0;
+    height: auto;
+    align-self: stretch;
+    min-height: 0;
+    border-radius: 20px 0 0 20px;
+  }
+
+  @include mobile {
+    flex: 0 0 36%;
+    width: 36%;
+    max-width: 160px;
+    border-radius: 20px 0 0 20px;
   }
 
   img {
@@ -2712,7 +2722,7 @@ $crm-figma-color: '../img/content/services/figma-color';
     max-width: 100%;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 
@@ -2730,9 +2740,19 @@ $crm-figma-color: '../img/content/services/figma-color';
     justify-content: center;
   }
 
+  // Планшет / мобилка: тот же порядок, что на десктопе — колонка текста, справа от фото
   @include tablet {
-    padding: 24px;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    gap: 19px;
+    padding: 20px 20px 20px 16px;
     min-height: 0;
+    min-width: 0;
+  }
+
+  @include mobile {
+    padding: 16px 16px 16px 12px;
   }
 }
 
@@ -3168,6 +3188,7 @@ $crm-figma-color: '../img/content/services/figma-color';
   @include tablet {
     order: -1;
     min-height: 0;
+    display: none;
 
     img {
       min-height: 200px;
