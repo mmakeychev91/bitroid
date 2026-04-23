@@ -2381,7 +2381,7 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   align-items: flex-start;
 }
 
-// ——— Декор градиентов: «Направления автоматизации» — слева зелёный, справа синий, по вертикали по центру ———
+// ——— Декор градиентов: «Направления автоматизации» — зелёный и синий ближе к центру, перекрываются (как пара у site-dev-hero) ———
 .auto-page-dirs {
   position: relative;
   z-index: 0;
@@ -2422,33 +2422,34 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
     height: 100%;
   }
 
+  // Центры двух пятен у —X и +X от середины контейнера → визуально сходятся в центре
   &--green {
     top: 50%;
-    left: -200px;
+    left: calc(50% - 180px);
     right: auto;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
 
     @include only-tablet {
-      left: -120px;
+      left: calc(50% - 120px);
     }
 
     @include mobile {
-      left: -100px;
+      left: calc(50% - 70px);
     }
   }
 
   &--blue {
     top: 50%;
-    right: -200px;
-    left: auto;
-    transform: translateY(-50%);
+    left: calc(50% + 180px);
+    right: auto;
+    transform: translate(-50%, -50%);
 
     @include only-tablet {
-      right: -120px;
+      left: calc(50% + 120px);
     }
 
     @include mobile {
-      right: -100px;
+      left: calc(50% + 70px);
     }
   }
 
