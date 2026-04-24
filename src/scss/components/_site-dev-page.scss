@@ -764,7 +764,7 @@ $site-dev-radius-sm: 16px;
   }
 }
 
-// ——— 8 этапов: слева синий, справа зелёный; зелёный по вертикали чуть ниже ———
+// ——— 8 этапов: фон — img/general/gradients/new-gradient.svg по центру .site-dev-process__container ———
 .site-dev-process {
   position: relative;
   overflow: visible;
@@ -776,6 +776,7 @@ $site-dev-radius-sm: 16px;
   z-index: 0;
 }
 
+// Слой на всю высоту .site-dev-process__container (inset:0), картинка в центре по X и Y
 .site-dev-process__bg-gradients {
   position: absolute;
   z-index: 0;
@@ -789,62 +790,30 @@ $site-dev-radius-sm: 16px;
   z-index: 1;
 }
 
-.site-dev-process__bg-gradient {
+// Один SVG: якорь ниже геометрического центра — чтобы свечение доходило до 3-го ряда карточек (5–6)
+.site-dev-process__deco {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 900px;
-  height: 900px;
-  pointer-events: none;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
   z-index: 0;
-
-  svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  &--blue {
-    top: 50%;
-    left: -200px;
-    right: auto;
-    transform: translateY(-50%);
-
-    @include only-tablet {
-      top: 48%;
-      left: -120px;
-    }
-
-    @include mobile {
-      left: -100px;
-    }
-  }
-
-  &--green {
-    top: 54%;
-    right: -200px;
-    left: auto;
-    transform: translateY(-50%);
-
-    @include only-tablet {
-      top: 52%;
-      right: -120px;
-    }
-
-    @include mobile {
-      right: -100px;
-    }
-  }
+  display: block;
+  width: min(100%, 1502px);
+  max-width: min(100%, 1502px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
 
   @include only-tablet {
-    width: 700px;
-    height: 700px;
+    top: 58%;
+    width: min(100%, 1200px);
+    max-width: min(100%, 1200px);
   }
 
   @include mobile {
-    width: 480px;
-    height: 480px;
+    top: 52%;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -1525,13 +1494,9 @@ $site-dev-radius-sm: 16px;
 .site-dev-process-card__num {
   flex-shrink: 0;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.1;
-  color: var(--color-grey, #666666);
-
-  @include mobile {
-    font-size: 14px;
-  }
+  color: #1E1E1E;
 }
 
 .site-dev-process-card__text {

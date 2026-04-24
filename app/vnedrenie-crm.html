@@ -331,7 +331,8 @@
         <span class="crm-tech__title-short">Технологии</span>
       </h2>
       <div class="crm-tech__slider-wrap">
-        <div class="swiper crm-tech-swiper">
+        <div class="crm-tech__frame">
+          <div class="swiper crm-tech-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <article class="crm-tech-slide">
@@ -407,14 +408,15 @@
               </article>
             </div>
           </div>
-        </div>
-        <div class="crm-tech__footer">
-          <span class="crm-tech__count" aria-live="polite">1/4</span>
-          <div class="crm-tech__nav">
-            <button type="button" class="crm-tech__arrow crm-tech__arrow--prev" aria-label="Предыдущий слайд"></button>
-            <button type="button" class="crm-tech__arrow crm-tech__arrow--next" aria-label="Следующий слайд"></button>
           </div>
-          <div class="crm-tech__bar" role="presentation"><span class="crm-tech__bar-fill"></span></div>
+          <div class="crm-tech__footer">
+            <span class="crm-tech__count" aria-live="polite">1/4</span>
+            <div class="crm-tech__nav">
+              <button type="button" class="crm-tech__arrow crm-tech__arrow--prev" aria-label="Предыдущий слайд"></button>
+              <button type="button" class="crm-tech__arrow crm-tech__arrow--next" aria-label="Следующий слайд"></button>
+            </div>
+            <div class="crm-tech__bar" role="presentation"><span class="crm-tech__bar-fill"></span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -482,72 +484,8 @@
         </div>
       </div>
     </div>
-    <div class="container only-tablet">
-      <h2 class="crm-compare__title">Как выбрать CRM-систему</h2>
-      <div class="crm-compare-tablet">
-        <details class="crm-compare-acc" open>
-          <summary class="crm-compare-acc__summary">
-            <span class="crm-compare-acc__summary-text">Функционал</span>
-            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
-          </summary>
-          <div class="crm-compare-acc__panel">
-            <div class="crm-compare-acc__row">
-              <p class="crm-compare-acc__brand">Битрикс24</p>
-              <p class="crm-compare-acc__cell-text"><strong>Комплексный: </strong>CRM, трекер задач, корпоративный портал, онлайн-офис, создание сайтов и т.д. Есть возможность подключать внешних подрядчиков к проектам.</p>
-            </div>
-            <div class="crm-compare-acc__row">
-              <p class="crm-compare-acc__brand">Мой склад</p>
-              <p class="crm-compare-acc__cell-text"><strong>Склад + торговля: </strong>CRM, учёт торговли, контроль работы кассиров и курьеров, учёт товаров на складе, управление производством.</p>
-            </div>
-            <div class="crm-compare-acc__row">
-              <p class="crm-compare-acc__brand">AmoCRM</p>
-              <p class="crm-compare-acc__cell-text"><strong>Классическая CRM: </strong>Клиентская база, воронки продаж, аналитика. Легко интегрируется с чатами, рассылками и телефонией.</p>
-            </div>
-            <div class="crm-compare-acc__row">
-              <p class="crm-compare-acc__brand">RetailCRM</p>
-              <p class="crm-compare-acc__cell-text"><strong>E-commerce:</strong> интеграция с маркетплейсами, объединение каналов продаж, управление складами, автоматизация маркетинговых кампаний.</p>
-            </div>
-          </div>
-        </details>
-        <details class="crm-compare-acc">
-          <summary class="crm-compare-acc__summary">
-            <span class="crm-compare-acc__summary-text">Сложность внедрения</span>
-            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
-          </summary>
-          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
-            <p><strong>Битрикс24</strong> — высокая</p>
-            <p><strong>Мой склад</strong> — средняя</p>
-            <p><strong>AmoCRM</strong> — низкая</p>
-            <p><strong>RetailCRM</strong> — средняя</p>
-          </div>
-        </details>
-        <details class="crm-compare-acc">
-          <summary class="crm-compare-acc__summary">
-            <span class="crm-compare-acc__summary-text">Мобильное приложение</span>
-            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
-          </summary>
-          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
-            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Полноценное приложение </strong>на iOS и Android (Битрикс24).</p>
-            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (Мой склад).</p>
-            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (AmoCRM).</p>
-            <p class="crm-compare-acc__cell-text"><span aria-hidden="true">✅ </span><strong>Есть</strong> на iOS и Android (RetailCRM).</p>
-          </div>
-        </details>
-        <details class="crm-compare-acc">
-          <summary class="crm-compare-acc__summary">
-            <span class="crm-compare-acc__summary-text">Цена</span>
-            <span class="crm-compare-acc__chev" aria-hidden="true"></span>
-          </summary>
-          <div class="crm-compare-acc__panel crm-compare-acc__panel--simple">
-            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час </strong><br />(зависит от кастомизации и покупки лицензий на год).</p>
-            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />По пользователям, есть дополнительные опции</p>
-            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />За каждого пользователя</p>
-            <p class="crm-compare__price-block"><strong>От 4 500 ₽/час</strong><br />За заказы/пользователей </p>
-          </div>
-        </details>
-      </div>
-    </div>
-    <div class="container mobile">
+    <!-- Аккордеон: планшет и мобилка; класс tablet — скрыт только от 1280px (десктоп) -->
+    <div class="container tablet">
       <h2 class="crm-compare__title">Как выбрать CRM-систему</h2>
       <div class="crm-compare-tablet crm-compare-mobile">
         <details class="crm-compare-acc" open>
@@ -1227,6 +1165,13 @@
     <div class="container">
       <h2 class="crm-facts__title">Факты о нас</h2>
       <div class="crm-facts__layout">
+        <div class="crm-facts__intro-block">
+          <p class="crm-facts__intro">Компания Битроид специализируется на создании, сопровождении и развитии технологичных веб-систем и мобильных приложений. Является одним из ведущих в России интеграторов Битрикс24.</p>
+          <a href="#" class="crm-facts__link">
+            О компании
+            <span class="crm-facts__link-ico" aria-hidden="true"></span>
+          </a>
+        </div>
         <div class="crm-facts__cards">
           <article class="crm-facts-card">
             <h3 class="crm-facts-card__title">Компания аккредитована</h3>
@@ -1247,35 +1192,28 @@
             </div>
           </article>
         </div>
-        <div class="crm-facts__main">
-          <p class="crm-facts__intro">Компания Битроид специализируется на создании, сопровождении и развитии технологичных веб-систем и мобильных приложений. Является одним из ведущих в России интеграторов Битрикс24.</p>
-          <a href="#" class="crm-facts__link">
-            О компании
-            <span class="crm-facts__link-ico" aria-hidden="true"></span>
-          </a>
-          <ul class="crm-facts__stats">
-            <li class="crm-facts-stat">
-              <p class="crm-facts-stat__num">230+</p>
-              <p class="crm-facts-stat__title">Реализованных проектов</p>
-              <p class="crm-facts-stat__text">От мелких компаний до крупных холдингов по всей России</p>
-            </li>
-            <li class="crm-facts-stat">
-              <p class="crm-facts-stat__num">7+</p>
-              <p class="crm-facts-stat__title">Лет интегрируем Битрикс24</p>
-              <p class="crm-facts-stat__text">Среднее увеличение продаж +30% после Внедрения CRM</p>
-            </li>
-            <li class="crm-facts-stat">
-              <p class="crm-facts-stat__num">87+</p>
-              <p class="crm-facts-stat__title">Компании обучили </p>
-              <p class="crm-facts-stat__text">Научим и отключим, как использовать Битрикс24 на 100%</p>
-            </li>
-            <li class="crm-facts-stat">
-              <p class="crm-facts-stat__num">+53%</p>
-              <p class="crm-facts-stat__title">К эффективности сотрудников</p>
-              <p class="crm-facts-stat__text">Внедрение CRM наладит совместную работу и поможет справиться с задачами эффективнее</p>
-            </li>
-          </ul>
-        </div>
+        <ul class="crm-facts__stats">
+          <li class="crm-facts-stat">
+            <p class="crm-facts-stat__num">230+</p>
+            <p class="crm-facts-stat__title">Реализованных проектов</p>
+            <p class="crm-facts-stat__text">От мелких компаний до крупных холдингов по всей России</p>
+          </li>
+          <li class="crm-facts-stat">
+            <p class="crm-facts-stat__num">7+</p>
+            <p class="crm-facts-stat__title">Лет интегрируем Битрикс24</p>
+            <p class="crm-facts-stat__text">Среднее увеличение продаж +30% после Внедрения CRM</p>
+          </li>
+          <li class="crm-facts-stat">
+            <p class="crm-facts-stat__num">87+</p>
+            <p class="crm-facts-stat__title">Компании обучили </p>
+            <p class="crm-facts-stat__text">Научим и отключим, как использовать Битрикс24 на 100%</p>
+          </li>
+          <li class="crm-facts-stat">
+            <p class="crm-facts-stat__num">+53%</p>
+            <p class="crm-facts-stat__title">К эффективности сотрудников</p>
+            <p class="crm-facts-stat__text">Внедрение CRM наладит совместную работу и поможет справиться с задачами эффективнее</p>
+          </li>
+        </ul>
       </div>
     </div>
   </section>

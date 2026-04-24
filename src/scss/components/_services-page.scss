@@ -9,6 +9,11 @@ $figma-color-assets: '../img/content/services/figma-color';
   position: relative;
   background: var(--color-white, #fff);
   overflow-x: clip;
+
+  // Моб. hero: коллаж уезжает влево по макету (Figma 515:3025) — иначе clip обрезает
+  @include mobile {
+    overflow-x: visible;
+  }
   // Зазор перед футером (на главной его даёт блок «Новости» с padding-bottom)
   padding-bottom: 80px;
 
@@ -74,9 +79,10 @@ $figma-color-assets: '../img/content/services/figma-color';
   }
 
   @include mobile {
-    min-height: 521px;
-    padding: 24px 0 32px;
+    min-height: 0;
+    padding: 0 0 24px;
     box-sizing: border-box;
+    overflow: visible;
   }
 }
 
@@ -93,11 +99,12 @@ $figma-color-assets: '../img/content/services/figma-color';
     justify-content: flex-start;
   }
 
+  // Моб.: коллаж absolute — высоту даёт поток + padding-bottom (не min-height)
+  // Низ области коллажа: 40 + 340 = 380px от верха inner; отступ под короткий контент
   @include mobile {
     min-height: 0;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    display: block;
+    padding: 0 0 110px;
   }
 }
 
@@ -155,16 +162,18 @@ $figma-color-assets: '../img/content/services/figma-color';
     height: 380px;
   }
 
+  // Масштаб и вертикаль: квадраты меньше, блок коллажа выше (ближе к макету)
   @include mobile {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    order: 2;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 40px;
     width: 100%;
-    max-width: 400px;
-    height: 220px;
-    margin: 0 auto;
+    max-width: none;
+    height: 340px;
+    margin: 0;
+    transform: none;
   }
 }
 
@@ -273,30 +282,39 @@ $figma-color-assets: '../img/content/services/figma-color';
     }
   }
 
+  // Figma 515:3025, уменьшенный масштаб ~0,82; поднято относительно первой итерации
   @include mobile {
-    &--1,
-    &--2,
-    &--3 {
-      transform: none;
-      width: 45%;
-      height: auto;
-      aspect-ratio: 1;
-      top: 10%;
-      right: 5%;
+    overflow: visible;
+
+    &--1 {
+      right: auto;
+      left: calc(25% + 24px);
+      top: 120px;
+      width: 228px;
+      height: 228px;
+      transform: rotate(-42.67deg);
+      border-radius: 18px;
     }
 
     &--2 {
-      left: 5%;
       right: auto;
+      left: -76px;
       top: 0;
+      width: 294px;
+      height: 294px;
+      transform: rotate(29.69deg);
+      border-radius: 18px;
     }
 
     &--3 {
-      bottom: 5%;
-      top: auto;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
+      right: auto;
+      left: 36px;
+      top: 230px;
+      bottom: auto;
+      width: 104px;
+      height: 104px;
+      transform: none;
+      border-radius: 14px;
     }
   }
 }
@@ -315,12 +333,13 @@ $figma-color-assets: '../img/content/services/figma-color';
   }
 
   @include mobile {
-    order: 1;
+    position: relative;
+    z-index: 2;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
     max-width: 329px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
   }
 }
@@ -337,7 +356,8 @@ $figma-color-assets: '../img/content/services/figma-color';
   @include mobile {
     align-items: center;
     text-align: center;
-    gap: 16px;
+    // Figma 515:3027: gap 12px между H1 и подзаголовком
+    gap: 12px;
   }
 }
 
@@ -540,6 +560,8 @@ $figma-color-assets: '../img/content/services/figma-color';
   max-width: 100%;
 
   @include only-tablet {
+    align-items: center;
+    text-align: center;
     gap: 12px;
     margin-bottom: 56px;
   }
@@ -561,6 +583,7 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include only-tablet {
     font-size: 26px;
+    align-self: center;
   }
 
   @include mobile {
@@ -579,6 +602,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   @include only-tablet {
     font-size: 14px;
     max-width: 562px;
+    align-self: center;
   }
 
   @include mobile {
@@ -596,11 +620,10 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include only-tablet {
     display: grid;
+    width: 100%;
+    max-width: 100%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
-    max-width: 678px;
-    margin-left: auto;
-    margin-right: auto;
     // Имя области не «auto» — иначе grid-area: auto читается как ключевое слово, а не как область
     grid-template-areas:
       'tech tech'
@@ -986,6 +1009,8 @@ $figma-color-assets: '../img/content/services/figma-color';
   margin-bottom: 60px;
 
   @include only-tablet {
+    align-items: center;
+    text-align: center;
     gap: 12px;
     margin-bottom: 44px;
   }
@@ -1006,6 +1031,7 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include only-tablet {
     font-size: 26px;
+    align-self: center;
   }
 
   @include mobile {
@@ -1025,6 +1051,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   @include only-tablet {
     font-size: 14px;
     max-width: 552px;
+    align-self: center;
   }
 
   @include mobile {
@@ -1041,7 +1068,9 @@ $figma-color-assets: '../img/content/services/figma-color';
   list-style: none;
 
   @include only-tablet {
-    max-width: 677px;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
     gap: 24px;
   }
 
@@ -1061,8 +1090,8 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include only-tablet {
     flex: 1 1 calc(50% - 12px);
-    max-width: 312px;
-    min-width: 280px;
+    max-width: none;
+    min-width: 0;
     gap: 8px;
   }
 
@@ -1280,6 +1309,9 @@ $figma-color-assets: '../img/content/services/figma-color';
   margin-bottom: 40px;
 
   @include only-tablet {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     min-height: 280px;
     padding: 30px;
     border-radius: 20px;
@@ -1303,8 +1335,16 @@ $figma-color-assets: '../img/content/services/figma-color';
   flex-direction: column;
   gap: 16px;
 
+  @include only-tablet {
+    flex: 0 0 auto;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
   @include mobile {
     max-width: 100%;
+    flex: 1 1 0;
   }
 }
 
@@ -1318,7 +1358,7 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include only-tablet {
     font-size: 26px;
-    max-width: 375px;
+    max-width: 100%;
   }
 
   @include mobile {
@@ -1354,7 +1394,7 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include only-tablet {
     font-size: 14px;
-    max-width: 308px;
+    max-width: 100%;
   }
 
   @include mobile {
@@ -1374,6 +1414,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   @include only-tablet {
     font-size: 18px;
     white-space: normal;
+    max-width: 100%;
   }
 
   @include mobile {
@@ -1391,6 +1432,12 @@ $figma-color-assets: '../img/content/services/figma-color';
 
   @include tablet {
     flex: 1 1 100%;
+  }
+
+  // Поверх tablet: планшет — колонка и центр, а не «полная ширина» сайд-флекса, из‑за чего текст уезжал влево
+  @include only-tablet {
+    flex: 0 0 auto;
+    width: 100%;
   }
 
   @include mobile {

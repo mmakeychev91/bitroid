@@ -789,13 +789,45 @@ $crm-figma-color: '../img/content/services/figma-color';
   position: relative;
   z-index: 0;
   padding-bottom: 0;
+  min-width: 0;
 }
 
-// Swiper bundle задаёт .swiper { z-index: 1 } — без явного слоя футер с кнопками оказывается под слайдами
-.crm-tech__slider-wrap .swiper {
+// Карточка: слайдер + пагинация в одном блоке, без absolute — сетка не «уезжает» при resize
+.crm-tech__frame {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  background: var(--color-white, #fff);
+  border-radius: 30px;
+  box-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
+  overflow: hidden;
+
+  @include only-tablet {
+    border-radius: 20px;
+  }
+
+  @include mobile {
+    border-radius: 10px;
+  }
+}
+
+// Swiper bundle задаёт .swiper { z-index: 1 } — футер в потоке под треком
+.crm-tech__slider-wrap .swiper,
+.crm-tech__frame .swiper {
   position: relative;
   z-index: 0;
   overflow: hidden;
+  width: 100%;
+  min-width: 0;
+}
+
+@include only-tablet {
+  // Как на мобилке: слайд по высоте контента, без растягивания соседних слайдов
+  .crm-tech-swiper .swiper-slide {
+    height: auto;
+  }
 }
 
 @include mobile {
@@ -808,10 +840,8 @@ $crm-figma-color: '../img/content/services/figma-color';
 .crm-tech-slide {
   box-sizing: border-box;
   min-height: 400px;
-  padding: 40px 40px 100px;
-  background: var(--color-white, #fff);
-  border-radius: 30px;
-  box-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
+  padding: 40px 40px 0;
+  background: transparent;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -830,12 +860,11 @@ $crm-figma-color: '../img/content/services/figma-color';
   @include only-tablet {
     display: flex;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: 20px;
-    min-height: 250px;
-    padding: 32px 32px 96px;
-    border-radius: 20px;
+    min-height: 0;
+    padding: 32px 32px 0;
   }
 
   @include mobile {
@@ -843,11 +872,8 @@ $crm-figma-color: '../img/content/services/figma-color';
     flex-direction: column;
     flex-wrap: nowrap;
     min-height: 283px;
-    // Нижний отступ под абсолютный футер слайдера (.crm-tech__footer вне article)
-    padding: 0 0 88px;
-    border-radius: 10px;
+    padding: 0 0 20px;
     gap: 0;
-    // Не скрывать контент: длинные описания иначе обрезаются под скруглением
     overflow: visible;
   }
 }
@@ -999,7 +1025,7 @@ $crm-figma-color: '../img/content/services/figma-color';
     width: 200px;
     min-width: 200px;
     height: auto;
-    align-self: end;
+    align-self: center;
   }
 
   @include mobile {
@@ -1099,102 +1125,32 @@ $crm-figma-color: '../img/content/services/figma-color';
   pointer-events: none;
 }
 
+// Пагинация в потоке под слайдом (не absolute) — тянется с карточкой при любом width
 .crm-tech__footer {
-  position: absolute;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  position: static;
   z-index: 2;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 8px 40px 40px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: auto auto;
   align-items: center;
-  gap: 8px 14px;
-  max-width: calc(100% - 80px);
+  column-gap: 12px;
+  row-gap: 8px;
   pointer-events: none;
 
   @include only-tablet {
-    left: 32px;
-    right: 32px;
-    bottom: 32px;
-    max-width: calc(100% - 64px);
+    padding: 8px 32px 32px;
   }
 
   @include mobile {
-    left: 20px;
-    right: 20px;
-    bottom: 21px;
-    max-width: calc(100% - 40px);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: 11px 12px;
-  }
-}
-
-// Десктоп (≥1280): счётчик, полоса, стрелки — как в макете
-@include tablet-plus {
-  .crm-tech .crm-tech__footer {
-    display: block;
-    min-height: 36px;
-  }
-
-  .crm-tech .crm-tech__count {
-    position: absolute;
-    left: 0;
-    top: 0;
-    grid-column: unset;
-    grid-row: unset;
-  }
-
-  .crm-tech .crm-tech__nav {
-    position: absolute;
-    left: 485px;
-    top: 2px;
-    grid-column: unset;
-    grid-row: unset;
-  }
-
-  .crm-tech .crm-tech__bar {
-    position: absolute;
-    left: 35px;
-    top: 13px;
-    margin: 0;
-    grid-column: unset;
-    grid-row: unset;
-    width: 440px;
-    max-width: 440px;
-  }
-}
-
-@include only-tablet {
-  .crm-tech .crm-tech__bar {
-    max-width: min(440px, calc(100% - 70px));
-  }
-}
-
-// Мобилка: счётчик слева, стрелки справа, полоса на второй строке (макет 572:2803)
-@include mobile {
-  .crm-tech .crm-tech__count {
-    grid-column: 1;
-    grid-row: 1;
-    margin: 0;
-  }
-
-  .crm-tech .crm-tech__nav {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
-    margin: 0;
-  }
-
-  .crm-tech .crm-tech__bar {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    margin-top: 0;
-    margin-left: 35px;
-    max-width: 190px;
+    padding: 8px 20px 21px;
+    row-gap: 11px;
+    column-gap: 12px;
   }
 }
 
@@ -1210,8 +1166,9 @@ $crm-figma-color: '../img/content/services/figma-color';
 }
 
 .crm-tech__nav {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 1;
+  justify-self: end;
   position: relative;
   z-index: 1;
   display: flex;
@@ -1249,17 +1206,14 @@ $crm-figma-color: '../img/content/services/figma-color';
   grid-column: 1 / -1;
   grid-row: 2;
   position: relative;
+  width: 100%;
+  min-width: 0;
   height: 2px;
   border-radius: 2px;
   background: var(--color-ivory, #e0e0e0);
-  margin-top: 8px;
-  margin-left: 35px;
-  max-width: 440px;
+  margin: 0;
+  max-width: none;
   pointer-events: none;
-
-  @include mobile {
-    max-width: min(190px, calc(100% - 70px));
-  }
 }
 
 .crm-tech__bar-fill {
@@ -1551,6 +1505,9 @@ $crm-figma-color: '../img/content/services/figma-color';
   font-weight: 400;
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
+  &>span {
+    margin-right: 4px;
+  }
 }
 
 .crm-compare__row--simple {
@@ -2574,14 +2531,34 @@ $crm-figma-color: '../img/content/services/figma-color';
   }
 }
 
+// Десктоп: слева карточки (слева, на 2 ряда), справа вводный текст и статистика.
+// <1279: одна колонка — вводной текст сразу под заголовком (порядок в DOM: intro → cards → stats).
 .crm-facts__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 536px) minmax(0, 1fr);
-  gap: 60px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 0;
 
-  @include tablet {
-    grid-template-columns: minmax(0, 1fr);
+  @include tablet-plus {
+    display: grid;
+    grid-template-columns: minmax(0, 536px) minmax(0, 1fr);
+    column-gap: 60px;
+    row-gap: 24px;
+    align-items: start;
+    grid-template-areas:
+      'cards intro'
+      'cards stats';
+  }
+}
+
+.crm-facts__intro-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+
+  @include tablet-plus {
+    grid-area: intro;
   }
 }
 
@@ -2591,6 +2568,10 @@ $crm-figma-color: '../img/content/services/figma-color';
   gap: 24px;
   // Иначе 2x-фото с большим intrinsic width раздувает колонку/флекс от min-content
   min-width: 0;
+
+  @include tablet-plus {
+    grid-area: cards;
+  }
 
   @include only-tablet {
     display: grid;
@@ -2787,12 +2768,6 @@ $crm-figma-color: '../img/content/services/figma-color';
   color: var(--color-deep-grey, #1e1e1e);
 }
 
-.crm-facts__main {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
 .crm-facts__intro {
   margin: 0;
   font-family: var(--base-font), sans-serif;
@@ -2830,13 +2805,19 @@ $crm-figma-color: '../img/content/services/figma-color';
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  margin: 16px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 
+  @include tablet-plus {
+    grid-area: stats;
+  }
+
   @include mobile {
     flex-direction: column;
+    align-items: center;
     gap: 24px;
+    text-align: center;
   }
 }
 
@@ -2850,6 +2831,8 @@ $crm-figma-color: '../img/content/services/figma-color';
   @include mobile {
     flex: 1 1 100%;
     max-width: 100%;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -2867,6 +2850,10 @@ $crm-figma-color: '../img/content/services/figma-color';
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @include mobile {
+    align-self: center;
+  }
 }
 
 .crm-facts-stat__title {
@@ -2876,6 +2863,10 @@ $crm-figma-color: '../img/content/services/figma-color';
   font-weight: 600;
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
+
+  @include mobile {
+    text-align: center;
+  }
 }
 
 .crm-facts-stat__text {
@@ -2885,6 +2876,10 @@ $crm-figma-color: '../img/content/services/figma-color';
   font-weight: 400;
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
+
+  @include mobile {
+    text-align: center;
+  }
 }
 
 // ─── Тарифы ───────────────────────────────────────────────────────────
@@ -3027,6 +3022,9 @@ $crm-figma-color: '../img/content/services/figma-color';
   bottom: 40px;
   transform: translateX(-50%);
   min-width: 200px;
+
+    white-space: nowrap;
+  
 }
 
 .crm-price-card__btn--dark {

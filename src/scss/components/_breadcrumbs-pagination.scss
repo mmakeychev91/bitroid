@@ -1,6 +1,8 @@
 // Breadcrumbs, Pagination, ссылка со стрелкой, тег — по макету Figma (get_design_context)
 
 // Тег / ссылка без подчёркивания: Text_M 16/130% grey (492:1041)
+@use '../mixins/breakpoint' as *;
+
 .tag,
 .link-tag {
   font-family: var(--base-font), sans-serif;
@@ -44,6 +46,9 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--spacing-4, 4px);
+  @include mobile {
+    margin-bottom: 80px !important;
+  }
 }
 
 .breadcrumbs__item {

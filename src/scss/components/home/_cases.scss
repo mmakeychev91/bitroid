@@ -349,12 +349,17 @@ a.cases__card {
   justify-content: end;
 
   @include only-tablet {
-    width: 331px;
+    // Заполняем слайд: Swiper даёт 2 колонки с фикс. spaceBetween — иначе 331px + растягивается ряд
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     min-height: 200px;
     border-radius: 20px;
 
     &--accent {
-      width: 331px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       min-height: 200px;
       border-radius: 20px;
     }
@@ -365,7 +370,8 @@ a.cases__card {
   }
 
   @include mobile {
-    width: 328px;
+    width: 100%;
+    max-width: 100%;
     min-height: 200px;
     border-radius: 20px;
   }
@@ -379,7 +385,8 @@ a.cases__card {
     }
 
     @include mobile {
-      width: 328px;
+      width: 100%;
+      max-width: 100%;
       min-height: 200px;
     }
   }
@@ -649,15 +656,11 @@ a.cases__card:hover .cases__card-link {
     min-height: 200px;
   }
 
-  @include only-tablet {
-    .swiper-slide {
-      width: 331px;
-    }
-  }
-
   @include mobile {
     .swiper-slide {
-      width: 328px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
   }
 
@@ -669,9 +672,13 @@ a.cases__card:hover .cases__card-link {
     }
   }
 
+  // width: auto не на планшете: там slidesPerView: 2 — равные колонки, без «дыр» по 331px
   .swiper-slide {
-    width: auto;
     height: auto;
+
+    @include tablet-plus {
+      width: auto;
+    }
   }
 
   .cases__card {

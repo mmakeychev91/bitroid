@@ -141,8 +141,9 @@ export default function initSliders() {
         0: {
           slidesPerView: 1,
           spaceBetween: 12,
-          centeredSlides: true,
-          centeredSlidesBounds: true,
+          // Полноширинный слайд: без center, иначе Swiper смещает трек
+          centeredSlides: false,
+          centeredSlidesBounds: false,
         },
       },
     });
@@ -169,15 +170,8 @@ export default function initSliders() {
             watchOverflow: true,
             observer: true,
             observeParents: true,
-            autoHeight: false,
-            breakpoints: {
-              0: {
-                autoHeight: true,
-              },
-              768: {
-                autoHeight: false,
-              },
-            },
+            // Высота по контенту слайда: пагинация в потоке под слайдом, без абсолютного футера
+            autoHeight: true,
             navigation: {
               prevEl: prevBtn,
               nextEl: nextBtn,
