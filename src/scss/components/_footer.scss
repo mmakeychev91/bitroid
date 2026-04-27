@@ -28,7 +28,7 @@
 
 .footer__promo {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding-bottom: 48px;
@@ -135,7 +135,7 @@
   @include only-tablet {
     margin-top: 0;
     margin-right: 0;
-    align-self: flex-start;
+    align-self: center;
   }
 
   @include mobile {

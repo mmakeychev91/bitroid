@@ -165,13 +165,18 @@
   }
 }
 
-// Десктоп: сетка через «статичный» flex у .swiper-wrapper; tablet/mobile — Swiper + пагинация
+// От 1440px: статичный flex у .swiper-wrapper; до 1439px — Swiper + пагинация (в т.ч. узкий десктоп 1280–1439)
 .news__viewport {
-  @include tablet-plus {
+  @media (min-width: 1440px) {
     overflow: visible;
   }
 
   @include tablet {
+    overflow: hidden;
+  }
+
+  // Узкий десктоп: слайдер как на планшете — обрезка по вьюпорту
+  @media (min-width: 1280px) and (max-width: 1439px) {
     overflow: hidden;
   }
 }
@@ -179,16 +184,21 @@
 .news-panel-swiper {
   width: 100%;
 
-  @include tablet-plus {
+  @media (min-width: 1440px) {
     overflow: visible;
   }
 
   @include tablet {
     overflow: hidden;
   }
+
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    overflow: hidden;
+  }
 }
 
-@include tablet-plus {
+// Полная статичная сетка карточек — только от 1440px (ниже Swiper + две колонки 648:312 до 1439)
+@media (min-width: 1440px) {
   .news-panel-swiper .swiper-wrapper {
     display: flex;
     flex-wrap: nowrap;
@@ -229,6 +239,78 @@
   }
 }
 
+// Планшет 768–1279: в .news__viewport всегда видны 2 слайда — большой + маленький (648:312 к ширине ряда, gap 16px)
+@include only-tablet {
+  .news-panel-swiper .swiper-slide {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    min-width: 0;
+
+    &:first-child {
+      width: calc((100% - 16px) * 648 / 960);
+    }
+
+    &:not(:first-child) {
+      width: calc((100% - 16px) * 312 / 960);
+    }
+  }
+
+  .news-panel-swiper .news__card--large,
+  .news-panel-swiper .news__card--accent {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+// 1280–1439: та же логика — в видимой области большой + маленький (доли 648:312, gap 16px)
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .news-panel-swiper .swiper-slide {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    min-width: 0;
+
+    &:first-child {
+      width: calc((100% - 16px) * 648 / 960);
+    }
+
+    &:not(:first-child) {
+      width: calc((100% - 16px) * 312 / 960);
+    }
+  }
+
+  .news-panel-swiper .news__card--large,
+  .news-panel-swiper .news__card--accent {
+    width: 100%;
+    max-width: none;
+  }
+
+  .news-panel-swiper .news__card {
+    min-height: 229px;
+  }
+}
+
+// 768–1439: слайды в ряду одной высоты; карточка тянется по высоте слайда (кросс-ось flex у .swiper-wrapper)
+@media (min-width: 768px) and (max-width: 1439px) {
+  .news-panel-swiper .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .news-panel-swiper .swiper-slide {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    align-self: stretch;
+    height: auto;
+  }
+
+  .news-panel-swiper .swiper-slide > .news__card {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
 @include mobile {
 
   // Не задавать width: 100% у слайда — % считается от .swiper-wrapper (очень широкий), слайд «разъезжается» за контейнер.
@@ -260,7 +342,7 @@
   }
 }
 
-// Пагинация — только tablet + mobile (как в макете Figma)
+// Пагинация: до 1439px включительно; от 1440px скрыта (широкий десктоп)
 .news-pagination {
   position: static;
   display: flex;
@@ -270,7 +352,7 @@
   margin-top: 20px;
   width: 100%;
 
-  @include tablet-plus {
+  @media (min-width: 1440px) {
     display: none !important;
   }
 
@@ -338,11 +420,6 @@ a.news__card {
     background: var(--color-white, #fff);
     width: 648px;
 
-    @include only-tablet {
-      width: 417px;
-      flex-shrink: 0;
-    }
-
     @include mobile {
       width: 100%;
       max-width: none;
@@ -359,11 +436,6 @@ a.news__card {
     background: linear-gradient(97.43deg, var(--color-green, #34ae6b) 3.22%, var(--color-blue, #2587f9) 86.86%);
     width: 312px;
 
-    @include only-tablet {
-      width: 245px;
-      flex-shrink: 0;
-    }
-
     @include mobile {
       width: 100%;
       max-width: none;
@@ -379,12 +451,22 @@ a.news__card {
   height: 486px;
   pointer-events: none;
 
-  // Карточка 417px — сохраняем пропорции к десктопу (648px)
+  // Планшет: декор «резинится» вместе с шириной large-карточки (доли как на десктопе 648px)
   @include only-tablet {
-    top: -36px;
-    left: 158px;
-    width: 313px;
-    height: 313px;
+    top: -8.6%;
+    left: 37.84%;
+    width: 75%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  // Узкий десктоп 1280–1439: те же доли, что при двухколоночном слайдере
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    top: -8.6%;
+    left: 37.84%;
+    width: 75%;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   // Узкая карточка: фиксированный left от десктопа ломает композицию — якорь справа + масштаб от ширины карточки

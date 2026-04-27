@@ -223,15 +223,19 @@
   padding: 0;
   margin: 0;
 
-
-  @include only-tablet {
-    margin-top: 48px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
   @include tablet {
     justify-content: space-between;
+  }
+
+  // Планшет 768–1279: фиксированный зазор 16px, карточки на всю ширину ряда (перебивает tablet выше)
+  @include only-tablet {
+    margin-top: 48px;
+    flex-wrap: nowrap;
+    gap: 16px;
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    box-sizing: border-box;
   }
 
   @include mobile {
@@ -261,12 +265,15 @@
   width: 200px;
 
   @include only-tablet {
-    width: 157px;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
     border-radius: 12px;
     padding: 20px 0;
   }
 
   @include mobile {
+    flex: none;
     width: calc(50% - 8px);
   }
 }

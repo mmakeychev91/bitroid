@@ -34,22 +34,29 @@ $site-dev-radius-sm: 16px;
   .container {
     position: relative;
 
-    // Мобилка (Figma 875:4296): порядок — заголовок и лид, иллюстрация, кнопки
+    // Мобилка (Figma 875:4296 «первый экран»): текст в потоке, иллюстрация и CTA — absolute по вертикали макета
     @include mobile {
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 520px;
     }
   }
 
   @include only-tablet {
     min-height: 480px;
     padding-bottom: 0;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   @include mobile {
-    min-height: 540px;
-    padding-bottom: 48px;
+    min-height: 0;
+    padding-bottom: 32px;
     overflow: visible;
   }
 }
@@ -66,6 +73,11 @@ $site-dev-radius-sm: 16px;
   @include only-tablet {
     padding-top: 105px;
     max-width: 573px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @include mobile {
@@ -143,16 +155,23 @@ $site-dev-radius-sm: 16px;
 
   @include only-tablet {
     margin-bottom: 0;
+    align-items: center;
+    text-align: center;
+    width: 100%;
   }
 
   @include mobile {
     order: 1;
     margin-bottom: 0;
-    padding-top: 32px;
+    // Figma 875:4302 — блок текста от верха первого экрана 80px; gap между заголовком и лидом 12px
+    padding-top: 80px;
+    gap: 12px;
     align-items: center;
     text-align: center;
     width: 100%;
     max-width: 329px;
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -167,6 +186,8 @@ $site-dev-radius-sm: 16px;
   @include only-tablet {
     font-size: 42px;
     max-width: 561px;
+    width: 100%;
+    text-align: center;
   }
 
   @include mobile {
@@ -186,6 +207,8 @@ $site-dev-radius-sm: 16px;
   @include only-tablet {
     font-size: 14px;
     max-width: 573px;
+    width: 100%;
+    text-align: center;
   }
 
   @include mobile {
@@ -211,14 +234,21 @@ $site-dev-radius-sm: 16px;
 
   @include mobile {
     order: 3;
+    position: absolute;
+    left: 50%;
+    top: 353px;
+    transform: translateX(-50%);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 100%;
     margin-top: 0;
-    padding-top: 16px;
-    padding-bottom: 32px;
+    padding-top: 0;
+    padding-bottom: 0;
     gap: 16px;
+    z-index: 3;
+    box-sizing: border-box;
   }
 }
 
@@ -258,48 +288,43 @@ $site-dev-radius-sm: 16px;
   }
 }
 
-// Правая иллюстрация 848×848, left 796 / top −48 от фрейма 1440; планшет 424×371 (Figma)
+// Иллюстрация hero: по горизонтали по центру контейнера (мобилка → десктоп)
 .site-dev-hero__visual {
   position: absolute;
-  left: 796px;
+  left: 50%;
+  right: auto;
   top: -48px;
   width: 848px;
   height: 848px;
+  margin: 0;
+  transform: translateX(-50%);
   pointer-events: none;
   z-index: 1;
-
-  // Узкий десктоп 1280–1439: иллюстрация под текстом, не перекрывает планшетный брейкпоинт
-  @media (max-width: 1439px) and (min-width: 1280px) {
-    position: relative;
-    left: auto;
-    top: 0;
-    width: min(100%, 560px);
-    height: auto;
-    aspect-ratio: 1;
-    margin: 24px auto 0;
-  }
+  isolation: isolate;
 
   @include only-tablet {
     position: absolute;
-    left: auto;
-    right: 0;
+    left: 50%;
+    right: auto;
     top: 52px;
     width: 424px;
     height: 371px;
     margin: 0;
     aspect-ratio: auto;
+    transform: translateX(-50%);
   }
 
   @include mobile {
     order: 2;
-    position: relative;
-    left: auto;
+    position: absolute;
+    left: 50%;
     right: auto;
-    top: auto;
-    width: min(100%, 424px);
-    height: auto;
-    aspect-ratio: 424 / 371;
-    margin: 16px auto 0;
+    top: 173px;
+    width: 424px;
+    height: 371px;
+    margin: 0;
+    aspect-ratio: auto;
+    transform: translateX(-50%);
   }
 }
 
@@ -314,6 +339,11 @@ $site-dev-radius-sm: 16px;
     height: 100%;
     object-fit: cover;
   }
+
+  @include mobile {
+    // В макете моб. hero — прямоугольный кроп, не круг 848×848
+    border-radius: 0;
+  }
 }
 
 // Градиент + маска как в макете (Mask group 298:4689)
@@ -325,6 +355,10 @@ $site-dev-radius-sm: 16px;
   mix-blend-mode: color;
   opacity: 0.95;
   pointer-events: none;
+
+  @include mobile {
+    border-radius: 0;
+  }
   mask-image: url('#{$site-dev-figma-color}/site-dev-hero-mask.png');
   -webkit-mask-image: url('#{$site-dev-figma-color}/site-dev-hero-mask.png');
   mask-repeat: no-repeat;

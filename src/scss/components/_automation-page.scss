@@ -55,8 +55,10 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 
   @include mobile {
+    // Figma 939:4788 — 360×558
     min-height: 558px;
-    padding-bottom: 32px;
+    // Hero собран на absolute-позиционировании: добавляем “буфер”, чтобы следующий блок не наезжал
+    padding-bottom: 60px;
     overflow: visible;
   }
 }
@@ -71,13 +73,29 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   padding-top: 200px;
   max-width: 908px;
 
+  // До десктопа: центрируем текстовый блок как в макете моб/планшет
+  @include tablet {
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   @include only-tablet {
     padding-top: 105px;
     max-width: 668px;
   }
 
   @include mobile {
-    display: contents;
+    // Figma: контейнер текста 329px, x=15, y=80
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+    width: 329px;
+    max-width: 329px;
+    padding-top: 0;
+    align-items: center;
   }
 }
 
@@ -131,12 +149,12 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 
   @include mobile {
-    order: 1;
     margin-bottom: 0;
-    padding-top: 80px;
+    gap: 12px;
+    padding-top: 0;
     align-items: center;
     text-align: center;
-    width: 100%;
+    width: 329px;
     max-width: 329px;
   }
 }
@@ -177,6 +195,7 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   @include mobile {
     font-size: 14px;
+    max-width: 329px;
   }
 }
 
@@ -197,14 +216,24 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 
   @include mobile {
-    order: 3;
+    // На мобилке используем статичный дубль `.auto-page-hero__actions--static`,
+    // чтобы кнопки участвовали в расчёте высоты секции и ничего не наезжало.
+    display: none;
+  }
+}
+
+.auto-page-hero__actions--static {
+  display: none;
+
+  @include mobile {
+    // Позиция блока кнопок в макете: y=474 от hero
+    display: flex;
+    position: relative;
+    z-index: 9;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    margin-top: 0;
-    padding-top: 16px;
-    padding-bottom: 32px;
+    justify-content: center;
+    margin: 474px auto 0;
     gap: 16px;
   }
 }
@@ -223,6 +252,11 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   &:hover {
     opacity: 0.85;
   }
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 1.1;
+  }
 }
 
 .auto-page-hero__btn-secondary-icon {
@@ -235,7 +269,6 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 .auto-page-hero .btn--primary {
   @include mobile {
     width: 100%;
-    max-width: 208px;
     justify-content: center;
     padding-left: 20px;
     padding-right: 20px;
@@ -259,28 +292,27 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   @include only-tablet {
     position: absolute;
-    left: calc(50% + 37px);
+    left: 50%;
     right: auto;
     top: 45px;
     width: 424px;
     height: 424px;
     margin: 0;
     aspect-ratio: auto;
+    transform: translateX(-50%);
   }
 
   @include mobile {
-    order: 2;
-    position: relative;
-    left: -32px;
-    right: auto;
-    top: auto;
+    // Figma: картинка x=-32, y=135, 424×424
+    position: absolute;
+    left: 50%;
+    top: 135px;
     width: 424px;
-    max-width: none;
     height: 424px;
-    min-height: 424px;
-    aspect-ratio: 1;
-    margin: 24px auto 0;
-    align-self: center;
+    min-height: 0;
+    margin: 0;
+    align-self: auto;
+    transform: translateX(-50%);
   }
 }
 
@@ -377,6 +409,7 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   z-index: 0;
   overflow: visible;
   padding-bottom: 0;
+  z-index: 9;
 }
 
 .auto-page-problems__container {
@@ -486,7 +519,6 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   flex-direction: column;
   gap: 16px;
   margin-top: 32px;
-  max-width: 328px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -583,11 +615,13 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   &--now {
     flex: 1 1 760px;
+    min-width: 0;
     background: var(--color-white, #ffffff);
     box-shadow: $auto-shadow;
 
     @include only-tablet {
-      flex: 0 0 331px;
+      // Как колонка сетки: «Было» 331px, «Стало» — на всю оставшуюся ширину
+      flex: 1 1 auto;
     }
   }
 }
@@ -608,6 +642,11 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   .auto-page-problems__head--now & {
     color: var(--color-green-1, #34ae6b);
+
+    @include only-tablet {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 
@@ -813,7 +852,6 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 
   @include only-tablet {
-    max-width: 678px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 48px;
@@ -1071,7 +1109,6 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   @include only-tablet {
     flex-direction: column;
     flex-wrap: nowrap;
-    max-width: 678px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1204,12 +1241,9 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   @include only-tablet {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 331px));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 40px 16px;
-    justify-content: start;
-    max-width: 678px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
   }
 
   @include mobile {
@@ -1217,9 +1251,7 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 24px;
-    max-width: 328px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
   }
 }
 
@@ -1234,16 +1266,37 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   @include only-tablet {
     flex: none;
     width: 100%;
-    max-width: 331px;
+    max-width: none;
     min-width: 0;
   }
 
   @include mobile {
     flex: none;
     width: 100%;
-    max-width: 328px;
+    max-width: none;
     min-width: 0;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 16px;
+
+    .auto-page-tools-item__logo {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .auto-page-tools-item__title {
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 0;
+    }
+
+    .auto-page-tools-item__text {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
   }
 }
 
@@ -1270,6 +1323,10 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   &--rpa {
     width: 126px;
     align-items: flex-start;
+
+    @include mobile {
+      align-items: center;
+    }
   }
 
   &--bitrix {
@@ -1530,7 +1587,6 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   @include only-tablet {
     margin-top: 48px;
-    max-width: 678px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1556,7 +1612,6 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   position: relative;
 
   @include only-tablet {
-    max-width: 678px;
     min-height: 160px;
 
     &:nth-child(4) {
@@ -1569,10 +1624,24 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 
   @include mobile {
-    display: flex;
-    flex-direction: column;
+    display: block;
     max-width: 100%;
     min-height: 0;
+    border-radius: 10px;
+    // Высоты карточек — Figma 939:5348 (моб. этапы)
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(4) {
+      min-height: 205px;
+    }
+
+    &:nth-child(3) {
+      min-height: 187px;
+    }
+
+    &:nth-child(5) {
+      min-height: 169px;
+    }
   }
 }
 
@@ -1591,8 +1660,21 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 
   @include mobile {
-    max-width: 100%;
-    padding-bottom: 16px;
+    position: absolute;
+    z-index: 2;
+    left: 12px;
+    top: 12px;
+    right: 48px;
+    max-width: none;
+    width: auto;
+    padding: 0;
+  }
+}
+
+// Figma 939:5376 — блок текста 4-й карточки: left 16px
+.auto-page-step-card:nth-child(4) .auto-page-step-card__content {
+  @include mobile {
+    left: 16px;
   }
 }
 
@@ -1613,8 +1695,9 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   }
 
   @include mobile {
-    right: 24px;
-    top: 20px;
+    right: 12px;
+    top: 16px;
+    z-index: 3;
   }
 }
 
@@ -1661,11 +1744,10 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   overflow: hidden;
 
   @include mobile {
-    position: relative;
-    inset: auto;
+    position: absolute;
+    inset: 0;
     z-index: 0;
-    height: 220px;
-    order: -1;
+    height: auto;
     overflow: hidden;
   }
 }
@@ -1686,7 +1768,9 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   height: 379px;
 
   @include only-tablet {
-    left: 436.5px;
+    // Эталон карточки 678px (768 − паддинги .container); right = 678 − left − width
+    left: auto;
+    right: -50.5px;
     top: -68px;
     width: 292px;
     height: 292px;
@@ -1706,7 +1790,8 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   overflow: hidden;
 
   @include only-tablet {
-    left: 125px;
+    left: auto;
+    right: -49.342px;
     top: -161px;
     width: 602.342px;
     height: 602.342px;
@@ -1725,7 +1810,8 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   transform: none;
 
   @include only-tablet {
-    left: 463.06px;
+    left: auto;
+    right: -72.047px;
     top: -65.38px;
     width: 286.987px;
     height: 286.987px;
@@ -1744,7 +1830,8 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   transform: none;
 
   @include only-tablet {
-    left: 215px;
+    left: auto;
+    right: -109.922px;
     top: -209px;
     width: 572.922px;
     height: 572.922px;
@@ -1759,55 +1846,76 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   transform: none;
 
   @include only-tablet {
-    left: 510px;
+    left: auto;
+    right: 3px;
     top: -16px;
     width: 165px;
     height: 165px;
   }
 }
 
-// Мобилка: иллюстрации по центру полосы, без координат от десктопной карточки
+// Мобилка — Figma 939:5348 (эталон 328px): иллюстрации под текстом; привязка справа (right), чтобы при ширине >328px уезжали вправо вместе с карточкой
 @include mobile {
   .auto-page-step-card__visual--01 .auto-page-step-visual {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 292px;
-    height: 292px;
+    left: auto;
+    // 328 − 132 − 249
+    right: -53px;
+    top: -18px;
+    width: 249px;
+    height: 249px;
+    transform: none;
   }
 
   .auto-page-step-card__visual--02 .auto-page-step-visual {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: min(100%, 360px);
-    height: 220px;
+    left: auto;
+    // 328 − (−91) − 602.342
+    right: -183.342px;
+    top: -170px;
+    width: 602.342px;
+    height: 602.342px;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
   }
 
   .auto-page-step-card__visual--03 .auto-page-step-visual {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 260px;
-    height: 260px;
+    left: auto;
+    // 328 − 134 − 286.987
+    right: -92.987px;
+    top: -63px;
+    width: 286.987px;
+    height: 286.987px;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
   .auto-page-step-card__visual--04 .auto-page-step-visual {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: min(100%, 360px);
-    height: 220px;
-    overflow: visible;
+    left: auto;
+    // 328 − (−42) − 572.922
+    right: -202.922px;
+    top: -209px;
+    width: 572.922px;
+    height: 572.922px;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
   .auto-page-step-card__visual--05 .auto-page-step-visual {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: auto;
+    // 328 − 193 − 165
+    right: -30px;
+    top: 8px;
     width: 165px;
     height: 165px;
+    transform: none;
   }
 }
 
@@ -1867,6 +1975,11 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
     width: 440.945px;
     height: 440.945px;
   }
+
+  @include mobile {
+    width: 440.945px;
+    height: 440.945px;
+  }
 }
 
 .auto-page-step-card__visual--03 .auto-page-step-visual__base {
@@ -1893,6 +2006,11 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
     width: 210.089px;
     height: 210.089px;
   }
+
+  @include mobile {
+    width: 210.089px;
+    height: 210.089px;
+  }
 }
 
 .auto-page-step-card__visual--04 .auto-page-step-visual__base {
@@ -1915,6 +2033,13 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   -webkit-mask-size: 919.553px 919.553px;
 
   @include only-tablet {
+    width: 419.408px;
+    height: 419.408px;
+    mask-size: 572.922px 572.922px;
+    -webkit-mask-size: 572.922px 572.922px;
+  }
+
+  @include mobile {
     width: 419.408px;
     height: 419.408px;
     mask-size: 572.922px 572.922px;
@@ -1980,17 +2105,23 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   box-shadow: $auto-shadow;
 
   @include only-tablet {
-    max-width: 678px;
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
     border-radius: 20px;
     min-height: 0;
+    // При ширине карточки > контента — колонка по центру
+    align-items: center;
   }
 
   @include mobile {
-    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 16px 24px;
     border-radius: 10px;
+    min-height: 0;
   }
 }
 
@@ -2009,6 +2140,29 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
     margin-bottom: 24px;
     text-align: center;
   }
+
+  // Figma 938:4512 — планшет: та же колонка; при растягивании экрана — по центру баннера
+  @include only-tablet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: unset;
+    text-align: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  // Figma 939:5455 — моб. баннер: колонка, gap 12 между подзаголовком и «Топ-100»
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .auto-page-partners__banner-head-left {
@@ -2018,6 +2172,18 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   @include tablet {
     align-items: center;
+  }
+
+  @include only-tablet {
+    align-items: center;
+    text-align: center;
+  }
+
+  @include mobile {
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    max-width: 305px;
   }
 }
 
@@ -2036,10 +2202,20 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
       justify-self: center;
       max-width: 40ch;
     }
+
+    @include only-tablet {
+      max-width: none;
+      white-space: nowrap;
+    }
+
+    @include mobile {
+      max-width: 246px;
+    }
   }
 
   @include only-tablet {
     font-size: 18px;
+    white-space: nowrap;
   }
 
   @include mobile {
@@ -2058,10 +2234,15 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
 
   @include only-tablet {
     max-width: 447px;
+    font-size: 16px;
+    text-align: center;
   }
 
   @include mobile {
     font-size: 14px;
+    max-width: 305px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -2069,11 +2250,29 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 90px;
 
   @include tablet {
     flex-direction: column;
     gap: 24px;
+  }
+
+  // Figma 938:4512 — планшет: один ряд SL Soft | аккредитация | 1С, gap 35px; по центру при широкой карточке
+  @include only-tablet {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    width: 100%;
+  }
+
+  // Figma 939:5455: после «Топ-100» — аккредитация, затем SL Soft, затем 1С
+  @include mobile {
+    align-items: center;
+    gap: 24px;
+    width: 100%;
   }
 }
 
@@ -2083,6 +2282,16 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   align-items: center;
   gap: 20px;
   flex-shrink: 0;
+
+  @include only-tablet {
+    width: auto;
+    max-width: none;
+  }
+
+  @include mobile {
+    width: 100%;
+    max-width: 295px;
+  }
 }
 
 .auto-page-partners__badge-frame {
@@ -2108,6 +2317,18 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   &--1c {
     border-color: var(--color-ivory, #e0e0e0);
   }
+
+  @include only-tablet {
+    width: 165px;
+    height: 117px;
+    flex-shrink: 0;
+  }
+
+  @include mobile {
+    width: 100%;
+    max-width: 295px;
+    height: 209px;
+  }
 }
 
 // Блок 434×227: рамка #e0e0e0, заголовок 24px semibold, лого, gap 12px
@@ -2125,6 +2346,31 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   border-radius: 10px;
   flex-shrink: 0;
   gap: 12px;
+
+  // Figma 938:4512 — планшет: компактный блок 233×113 между сертификатами
+  @include only-tablet {
+    width: 233px;
+    max-width: 233px;
+    min-height: 113px;
+    height: 113px;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  // Figma 939:5455 — моб.: без рамки, только заголовок + лого Минцифры; блок выше сертификатов
+  @include mobile {
+    order: -1;
+    width: 100%;
+    max-width: 296px;
+    min-height: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    gap: 8px;
+  }
 }
 
 .auto-page-partners__accreditation-title {
@@ -2136,11 +2382,14 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   color: var(--color-deep-grey, #1e1e1e);
 
   @include only-tablet {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1.3;
+    white-space: nowrap;
   }
 
   @include mobile {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1.1;
   }
 }
 
@@ -2153,11 +2402,21 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   color: var(--color-deep-grey, #1e1e1e);
 
   @include only-tablet {
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.3;
+    max-width: 165px;
   }
 
   @include mobile {
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+}
+
+// Figma 939:5472 — подпись только у блока 1С, max 268px
+.auto-page-partners__badge-group:last-child .auto-page-partners__badge-caption {
+  @include mobile {
+    max-width: 268px;
   }
 }
 
@@ -2179,6 +2438,20 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: 100% 100%;
+
+  @include only-tablet {
+    width: 214px;
+    max-width: 214px;
+    aspect-ratio: 214 / 46.813;
+    height: auto;
+  }
+
+  @include mobile {
+    width: 100%;
+    max-width: 275.581px;
+    aspect-ratio: 275.581 / 59.992;
+    height: auto;
+  }
 }
 
 // ——— Комплексное развитие ИТ (4 карточки в ряд) ———
@@ -2216,13 +2489,32 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
   flex-wrap: wrap;
   gap: 24px;
 
+  @include tablet-plus {
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+
+    > li {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   @include only-tablet {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 331px));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
-    max-width: 678px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    width: 100%;
+
+    > li {
+      width: 100%;
+      min-width: 0;
+    }
   }
 }
 
@@ -2246,14 +2538,24 @@ $auto-page-figma: '../img/content/services/figma-color/auto-page';
     transform: translateY(-2px);
   }
 
+  @include tablet-plus {
+    flex: 1 1 auto;
+    width: 312px;
+    height: 100%;
+    min-height: 138px;
+  }
+
   @include only-tablet {
     width: 100%;
-    max-width: 331px;
+    max-width: none;
+    min-width: 0;
     min-height: 138px;
   }
 
   @include mobile {
     width: 100%;
+    max-width: none;
+    min-width: 0;
   }
 }
 

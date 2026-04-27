@@ -23,6 +23,13 @@
   }
 }
 
+// Блок «Услуги» (сетка карточек): как на планшете и на узком десктопе 1280–1439
+@mixin services-grid-compact {
+  @media (min-width: (768px)) and (max-width: (1439px)) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (max-width: (1279px)) {
     @content;

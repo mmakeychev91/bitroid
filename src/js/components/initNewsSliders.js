@@ -1,14 +1,59 @@
-import Swiper from 'swiper/bundle';
-import { applySwiperPaginationToLastVisible } from '../utils/swiper-pagination-last-visible.js';
+import Swiper from "swiper/bundle";
+import { getRightmostVisibleSlideIndex } from "../utils/swiper-pagination-last-visible.js";
 
-/** Экземпляры слайдеров «Новости» (tablet + mobile, max-width 1279px) */
+/** Экземпляры слайдеров «Новости» (до узкого десктопа включительно, max-width 1439px) */
 let newsSwiperInstances = [];
 
 let mqNewsSlider;
 
+const NEWS_DOT_CLASS = "news__dot";
+const NEWS_DOT_ACTIVE_CLASS = "news__dot--active";
+
+/** Ровно по одной точке на слайд (встроенная пagination Swiper при slidesPerView: auto даёт snap-точки, не слайды) */
+function renderNewsPaginationDots(swiper) {
+  const panel = swiper.el.closest(".news__panel");
+  const paginationEl = panel?.querySelector(".news-pagination");
+  if (!paginationEl || !swiper.slides?.length) return;
+
+  paginationEl.innerHTML = "";
+  swiper.slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.className = NEWS_DOT_CLASS;
+    dot.setAttribute("role", "button");
+    dot.setAttribute("tabindex", "0");
+    dot.setAttribute("aria-label", `Слайд ${i + 1}`);
+    dot.addEventListener("click", () => {
+      swiper.slideTo(i);
+    });
+    dot.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter" || ev.key === " ") {
+        ev.preventDefault();
+        swiper.slideTo(i);
+      }
+    });
+    paginationEl.appendChild(dot);
+  });
+}
+
+function syncNewsPaginationDots(swiper) {
+  const panel = swiper.el.closest(".news__panel");
+  const paginationEl = panel?.querySelector(".news-pagination");
+  if (!paginationEl) return;
+
+  const idx = getRightmostVisibleSlideIndex(swiper);
+  paginationEl.querySelectorAll(`.${NEWS_DOT_CLASS}`).forEach((dot, i) => {
+    dot.classList.toggle(NEWS_DOT_ACTIVE_CLASS, i === idx);
+  });
+}
+
 function destroyNewsSliders() {
   newsSwiperInstances.forEach((s) => {
     try {
+      const panel = s.el?.closest?.(".news__panel");
+      const paginationEl = panel?.querySelector(".news-pagination");
+      if (paginationEl) {
+        paginationEl.innerHTML = "";
+      }
       s.destroy(true, true);
     } catch {
       /* уже уничтожен */
@@ -18,9 +63,9 @@ function destroyNewsSliders() {
 }
 
 function createNewsSliders() {
-  document.querySelectorAll('.news-panel-swiper').forEach((el) => {
-    const panel = el.closest('.news__panel');
-    const paginationEl = panel?.querySelector('.news-pagination');
+  document.querySelectorAll(".news-panel-swiper").forEach((el) => {
+    const panel = el.closest(".news__panel");
+    const paginationEl = panel?.querySelector(".news-pagination");
     if (!paginationEl) return;
 
     // Mobile-first: на мобилке 1 слайд; spaceBetween 0 — иначе + отступ к ширине ломают вписывание в контейнер
@@ -32,35 +77,27 @@ function createNewsSliders() {
       centeredSlides: false,
       observer: true,
       observeParents: true,
-      pagination: {
-        el: paginationEl,
-        clickable: true,
-        bulletClass: 'news__dot',
-        bulletActiveClass: 'news__dot--active',
-        renderBullet(index, className) {
-          return `<span class="${className}"></span>`;
-        },
-      },
       on: {
-        afterInit(swiper) {
-          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        afterInit(s) {
+          renderNewsPaginationDots(s);
+          requestAnimationFrame(() => syncNewsPaginationDots(s));
         },
-        paginationUpdate(swiper) {
-          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        slideChange(s) {
+          requestAnimationFrame(() => syncNewsPaginationDots(s));
         },
-        slideChange(swiper) {
-          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        transitionEnd(s) {
+          syncNewsPaginationDots(s);
         },
-        transitionEnd(swiper) {
-          applySwiperPaginationToLastVisible(swiper);
+        slideChangeTransitionEnd(s) {
+          requestAnimationFrame(() => syncNewsPaginationDots(s));
         },
-        resize(swiper) {
-          requestAnimationFrame(() => applySwiperPaginationToLastVisible(swiper));
+        resize(s) {
+          requestAnimationFrame(() => syncNewsPaginationDots(s));
         },
       },
       breakpoints: {
         768: {
-          slidesPerView: 'auto',
+          slidesPerView: "auto",
           spaceBetween: 16,
         },
       },
@@ -74,6 +111,7 @@ export function updateNewsSliders() {
   newsSwiperInstances.forEach((s) => {
     try {
       s.update();
+      syncNewsPaginationDots(s);
     } catch {
       /* */
     }
@@ -81,7 +119,7 @@ export function updateNewsSliders() {
 }
 
 export default function initNewsSliders() {
-  mqNewsSlider = window.matchMedia('(max-width: 1279px)');
+  mqNewsSlider = window.matchMedia("(max-width: 1439px)");
 
   const apply = () => {
     if (mqNewsSlider.matches) {
@@ -96,5 +134,5 @@ export default function initNewsSliders() {
   };
 
   apply();
-  mqNewsSlider.addEventListener('change', apply);
+  mqNewsSlider.addEventListener("change", apply);
 }

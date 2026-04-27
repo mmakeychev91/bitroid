@@ -510,6 +510,7 @@ $crm-figma-color: '../img/content/services/figma-color';
   gap: 16px;
   padding-top: 32px;
   text-align: center;
+  align-self: center;
 
   @include only-tablet {
     padding-top: 8px;
@@ -3261,16 +3262,23 @@ $crm-figma-color: '../img/content/services/figma-color';
 .crm-related__list {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   gap: 24px;
   margin: 0;
   padding: 0;
   list-style: none;
+
+  // Десктоп: ряд фиксированных карточек по центру контейнера
+  @include tablet-plus {
+    justify-content: center;
+  }
 
   // Планшет: 3×2, иначе flex-wrap даёт ряды 5+1 и горизонтальный скролл
   @include only-tablet {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
+    justify-content: stretch;
   }
 
   @include mobile {
@@ -3281,9 +3289,11 @@ $crm-figma-color: '../img/content/services/figma-color';
 }
 
 .crm-related__list > li {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+
   @include only-tablet {
-    display: flex;
-    justify-content: center;
     min-width: 0;
   }
 
@@ -3297,6 +3307,7 @@ $crm-figma-color: '../img/content/services/figma-color';
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  flex: 1 1 auto;
   width: 200px;
   min-height: 138px;
   padding: 20px 16px 16px;
@@ -3312,8 +3323,8 @@ $crm-figma-color: '../img/content/services/figma-color';
   }
 
   @include only-tablet {
-    width: 200px;
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
   }
 
   @include mobile {
@@ -3387,6 +3398,7 @@ $crm-figma-color: '../img/content/services/figma-color';
 }
 
 .crm-related-card__name {
+  margin-top: auto;
   font-family: var(--base-font), sans-serif;
   font-size: 18px;
   font-weight: 600;

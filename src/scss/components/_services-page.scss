@@ -2,6 +2,8 @@
 
 // Слои из Figma: ч/б растр + градиент с mask и mix-blend-mode: color (как в макете)
 $figma-color-assets: '../img/content/services/figma-color';
+// Декор карточек сетки «Услуги» на планшете и мобилке (001.png … сверху вниз по карточкам)
+$services-decor-elements: '../img/content/services/decor-elements';
 
 // Страница «Услуги» — десктоп (услуги_декстоп) + планшет 768–1279 (услуги_планшет, get_design_context)
 
@@ -93,17 +95,23 @@ $figma-color-assets: '../img/content/services/figma-color';
   justify-content: space-between;
   min-height: 750px;
 
+  // До десктопа (≤1279): текст и коллаж визуально по центру при растягивании
+  @include tablet {
+    justify-content: center;
+  }
+
   @include only-tablet {
     min-height: 488px;
     align-items: center;
-    justify-content: flex-start;
   }
 
   // Моб.: коллаж absolute — высоту даёт поток + padding-bottom (не min-height)
   // Низ области коллажа: 40 + 340 = 380px от верха inner; отступ под короткий контент
   @include mobile {
     min-height: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0 0 110px;
   }
 }
@@ -146,18 +154,20 @@ $figma-color-assets: '../img/content/services/figma-color';
 
 .services-hero__collage {
   position: absolute;
-  right: 0;
+  left: 50%;
+  right: auto;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   width: 720px;
   height: 620px;
   pointer-events: none;
   z-index: 1;
 
   @include only-tablet {
-    right: 0;
+    left: 50%;
+    right: auto;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     width: 340px;
     height: 380px;
   }
@@ -166,14 +176,14 @@ $figma-color-assets: '../img/content/services/figma-color';
   @include mobile {
     position: absolute;
     z-index: 1;
-    left: 0;
-    right: 0;
+    left: 50%;
+    right: auto;
     top: 40px;
     width: 100%;
     max-width: none;
     height: 340px;
     margin: 0;
-    transform: none;
+    transform: translateX(-50%);
   }
 }
 
@@ -327,6 +337,13 @@ $figma-color-assets: '../img/content/services/figma-color';
   flex-direction: column;
   gap: 80px;
 
+  @include tablet {
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   @include only-tablet {
     gap: 60px;
     max-width: 590px;
@@ -348,6 +365,11 @@ $figma-color-assets: '../img/content/services/figma-color';
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @include tablet {
+    align-items: center;
+    text-align: center;
+  }
 
   @include only-tablet {
     gap: 16px;
@@ -406,6 +428,10 @@ $figma-color-assets: '../img/content/services/figma-color';
   align-items: center;
   gap: 16px;
 
+  @include tablet {
+    justify-content: center;
+  }
+
   @include mobile {
     justify-content: center;
     width: 100%;
@@ -428,7 +454,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   padding: 150px 0 0;
   overflow: visible;
 
-  @include only-tablet {
+  @include services-grid-compact {
     padding-top: 100px;
   }
 
@@ -500,7 +526,7 @@ $figma-color-assets: '../img/content/services/figma-color';
     top: auto;
   }
 
-  @include only-tablet {
+  @include services-grid-compact {
     width: 700px;
     height: 700px;
 
@@ -559,7 +585,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   margin-bottom: 60px;
   max-width: 100%;
 
-  @include only-tablet {
+  @include services-grid-compact {
     align-items: center;
     text-align: center;
     gap: 12px;
@@ -581,7 +607,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
 
-  @include only-tablet {
+  @include services-grid-compact {
     font-size: 26px;
     align-self: center;
   }
@@ -599,7 +625,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
 
-  @include only-tablet {
+  @include services-grid-compact {
     font-size: 14px;
     max-width: 562px;
     align-self: center;
@@ -618,7 +644,7 @@ $figma-color-assets: '../img/content/services/figma-color';
   padding: 0;
   list-style: none;
 
-  @include only-tablet {
+  @include services-grid-compact {
     display: grid;
     width: 100%;
     max-width: 100%;
@@ -627,8 +653,8 @@ $figma-color-assets: '../img/content/services/figma-color';
     // Имя области не «auto» — иначе grid-area: auto читается как ключевое слово, а не как область
     grid-template-areas:
       'tech tech'
-      'create crm'
-      'support support'
+      'create support'
+      'crm crm'
       'transfer transfer'
       'gov gov'
       'study study'
@@ -665,7 +691,7 @@ $figma-color-assets: '../img/content/services/figma-color';
     width: 100%;
   }
 
-  @include only-tablet {
+  @include services-grid-compact {
     flex: none;
     width: 100%;
     max-width: none;
@@ -714,6 +740,47 @@ $figma-color-assets: '../img/content/services/figma-color';
   }
 }
 
+// Фоновые PNG справа снизу в карточке: планшет 220×220, мобилка 200×200 (порядок 001…009 как в разметке)
+$services-grid-decor-files: (
+  'g-tech': '001',
+  'g-create': '002',
+  'g-support': '003',
+  'g-crm': '004',
+  'g-transfer': '005',
+  'g-gov': '006',
+  'g-study': '007',
+  'g-auto': '008',
+  'g-integration': '009',
+);
+
+@include tablet {
+  @each $cell-mod, $file in $services-grid-decor-files {
+    .services-grid-block__cell--#{$cell-mod} .service-card::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      width: 220px;
+      height: 220px;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: contain;
+      background-image: url('#{$services-decor-elements}/#{$file}.png');
+    }
+  }
+}
+
+@include mobile {
+  @each $cell-mod, $file in $services-grid-decor-files {
+    .services-grid-block__cell--#{$cell-mod} .service-card::after {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
 // Карточка услуги: десктоп 260px / radius 30; планшет 200px / radius 20 (услуги_планшет)
 .service-card {
   position: relative;
@@ -725,12 +792,6 @@ $figma-color-assets: '../img/content/services/figma-color';
   box-shadow: 0 4px 25px rgba(1, 8, 3, 0.08);
   overflow: hidden;
 
-  @include only-tablet {
-    min-height: 200px;
-    padding: 24px 24px 48px;
-    border-radius: 20px;
-  }
-
   @include mobile {
     min-height: 220px;
     padding: 16px 16px 48px;
@@ -738,9 +799,21 @@ $figma-color-assets: '../img/content/services/figma-color';
   }
 }
 
+.services-grid-block .service-card {
+  @include services-grid-compact {
+    min-height: 200px;
+    padding: 24px 24px 48px;
+    border-radius: 20px;
+  }
+}
+
 .services-grid-block__cell--g-gov .service-card,
 .services-grid-block__cell--g-auto .service-card,
 .services-grid-block__cell--g-integration .service-card {
+  @include services-grid-compact {
+    min-height: 250px;
+  }
+
   @include mobile {
     min-height: 250px;
   }
@@ -766,14 +839,16 @@ $figma-color-assets: '../img/content/services/figma-color';
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
 
-  @include only-tablet {
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.services-grid-block .service-card__title {
+  @include services-grid-compact {
     font-size: 18px;
     font-weight: 600;
     line-height: 1.3;
-  }
-
-  @include mobile {
-    font-size: 16px;
   }
 }
 
@@ -787,11 +862,13 @@ $figma-color-assets: '../img/content/services/figma-color';
   line-height: 1.3;
   color: var(--color-deep-grey, #1e1e1e);
 
-  @include only-tablet {
+  @include mobile {
     font-size: 14px;
   }
+}
 
-  @include mobile {
+.services-grid-block .service-card__desc {
+  @include services-grid-compact {
     font-size: 14px;
   }
 }
@@ -825,9 +902,9 @@ $figma-color-assets: '../img/content/services/figma-color';
     color: var(--color-deep-grey, #1e1e1e);
   }
 
-  @include only-tablet {
-    left: 24px;
-    bottom: 24px;
+  @include mobile {
+    left: 16px;
+    bottom: 20px;
     gap: 4px;
     font-size: 14px;
     font-weight: 600;
@@ -842,10 +919,12 @@ $figma-color-assets: '../img/content/services/figma-color';
       color: var(--color-green-2, #298955);
     }
   }
+}
 
-  @include mobile {
-    left: 16px;
-    bottom: 20px;
+.services-grid-block .service-card__link {
+  @include services-grid-compact {
+    left: 24px;
+    bottom: 24px;
     gap: 4px;
     font-size: 14px;
     font-weight: 600;
@@ -984,6 +1063,14 @@ $figma-color-assets: '../img/content/services/figma-color';
     height: 300px;
     top: -56px;
     right: -60px;
+  }
+}
+
+// Планшет (768–1279): встроенный декор карточек скрыт — иллюстрации подключаются отдельно
+@include only-tablet {
+  .services-grid-block .service-card__decor,
+  .services-grid-block .service-card__decor--integration {
+    display: none !important;
   }
 }
 

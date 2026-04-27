@@ -380,12 +380,53 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/** Экземпляры слайдеров «Новости» (tablet + mobile, max-width 1279px) */
+/** Экземпляры слайдеров «Новости» (до узкого десктопа включительно, max-width 1439px) */
 let newsSwiperInstances = [];
 let mqNewsSlider;
+const NEWS_DOT_CLASS = "news__dot";
+const NEWS_DOT_ACTIVE_CLASS = "news__dot--active";
+
+/** Ровно по одной точке на слайд (встроенная пagination Swiper при slidesPerView: auto даёт snap-точки, не слайды) */
+function renderNewsPaginationDots(swiper) {
+  const panel = swiper.el.closest(".news__panel");
+  const paginationEl = panel?.querySelector(".news-pagination");
+  if (!paginationEl || !swiper.slides?.length) return;
+  paginationEl.innerHTML = "";
+  swiper.slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.className = NEWS_DOT_CLASS;
+    dot.setAttribute("role", "button");
+    dot.setAttribute("tabindex", "0");
+    dot.setAttribute("aria-label", `Слайд ${i + 1}`);
+    dot.addEventListener("click", () => {
+      swiper.slideTo(i);
+    });
+    dot.addEventListener("keydown", ev => {
+      if (ev.key === "Enter" || ev.key === " ") {
+        ev.preventDefault();
+        swiper.slideTo(i);
+      }
+    });
+    paginationEl.appendChild(dot);
+  });
+}
+function syncNewsPaginationDots(swiper) {
+  const panel = swiper.el.closest(".news__panel");
+  const paginationEl = panel?.querySelector(".news-pagination");
+  if (!paginationEl) return;
+  const idx = (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.getRightmostVisibleSlideIndex)(swiper);
+  paginationEl.querySelectorAll(`.${NEWS_DOT_CLASS}`).forEach((dot, i) => {
+    dot.classList.toggle(NEWS_DOT_ACTIVE_CLASS, i === idx);
+  });
+}
 function destroyNewsSliders() {
   newsSwiperInstances.forEach(s => {
     try {
+      const panel = s.el?.closest?.(".news__panel");
+      const paginationEl = panel?.querySelector(".news-pagination");
+      if (paginationEl) {
+        paginationEl.innerHTML = "";
+      }
       s.destroy(true, true);
     } catch {
       /* уже уничтожен */
@@ -394,9 +435,9 @@ function destroyNewsSliders() {
   newsSwiperInstances = [];
 }
 function createNewsSliders() {
-  document.querySelectorAll('.news-panel-swiper').forEach(el => {
-    const panel = el.closest('.news__panel');
-    const paginationEl = panel?.querySelector('.news-pagination');
+  document.querySelectorAll(".news-panel-swiper").forEach(el => {
+    const panel = el.closest(".news__panel");
+    const paginationEl = panel?.querySelector(".news-pagination");
     if (!paginationEl) return;
 
     // Mobile-first: на мобилке 1 слайд; spaceBetween 0 — иначе + отступ к ширине ломают вписывание в контейнер
@@ -408,35 +449,27 @@ function createNewsSliders() {
       centeredSlides: false,
       observer: true,
       observeParents: true,
-      pagination: {
-        el: paginationEl,
-        clickable: true,
-        bulletClass: 'news__dot',
-        bulletActiveClass: 'news__dot--active',
-        renderBullet(index, className) {
-          return `<span class="${className}"></span>`;
-        }
-      },
       on: {
-        afterInit(swiper) {
-          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        afterInit(s) {
+          renderNewsPaginationDots(s);
+          requestAnimationFrame(() => syncNewsPaginationDots(s));
         },
-        paginationUpdate(swiper) {
-          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        slideChange(s) {
+          requestAnimationFrame(() => syncNewsPaginationDots(s));
         },
-        slideChange(swiper) {
-          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        transitionEnd(s) {
+          syncNewsPaginationDots(s);
         },
-        transitionEnd(swiper) {
-          (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper);
+        slideChangeTransitionEnd(s) {
+          requestAnimationFrame(() => syncNewsPaginationDots(s));
         },
-        resize(swiper) {
-          requestAnimationFrame(() => (0,_utils_swiper_pagination_last_visible_js__WEBPACK_IMPORTED_MODULE_1__.applySwiperPaginationToLastVisible)(swiper));
+        resize(s) {
+          requestAnimationFrame(() => syncNewsPaginationDots(s));
         }
       },
       breakpoints: {
         768: {
-          slidesPerView: 'auto',
+          slidesPerView: "auto",
           spaceBetween: 16
         }
       }
@@ -450,13 +483,14 @@ function updateNewsSliders() {
   newsSwiperInstances.forEach(s => {
     try {
       s.update();
+      syncNewsPaginationDots(s);
     } catch {
       /* */
     }
   });
 }
 function initNewsSliders() {
-  mqNewsSlider = window.matchMedia('(max-width: 1279px)');
+  mqNewsSlider = window.matchMedia("(max-width: 1439px)");
   const apply = () => {
     if (mqNewsSlider.matches) {
       if (newsSwiperInstances.length === 0) {
@@ -469,7 +503,7 @@ function initNewsSliders() {
     }
   };
   apply();
-  mqNewsSlider.addEventListener('change', apply);
+  mqNewsSlider.addEventListener("change", apply);
 }
 
 /***/ }),
@@ -1123,22 +1157,29 @@ function getRightmostVisibleSlideIndex(swiper) {
   const slides = swiper.slides;
   if (swiper.params.rtl) {
     let minIdx = slides.length - 1;
+    let anyVisibleRtl = false;
     slides.forEach((slide, i) => {
       const r = slide.getBoundingClientRect();
       if (r.left < rect.right && r.right > rect.left) {
         minIdx = Math.min(minIdx, i);
+        anyVisibleRtl = true;
       }
     });
-    return minIdx;
+    return anyVisibleRtl ? minIdx : swiper.activeIndex ?? 0;
   }
   let maxIdx = 0;
+  let anyVisible = false;
   slides.forEach((slide, i) => {
     const r = slide.getBoundingClientRect();
     if (r.left < rect.right && r.right > rect.left) {
       maxIdx = i;
+      anyVisible = true;
     }
   });
-  return maxIdx;
+  if (swiper.isEnd && slides.length > 0) {
+    return Math.max(maxIdx, slides.length - 1);
+  }
+  return anyVisible ? maxIdx : swiper.activeIndex ?? 0;
 }
 
 /**
