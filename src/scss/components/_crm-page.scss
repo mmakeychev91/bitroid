@@ -3210,6 +3210,82 @@ $crm-figma-color: '../img/content/services/figma-color';
 .crm-page__faq.faq {
   padding-bottom: 0;
 
+  // Декор градиентов — как на странице /sozdanie-saytov-seo-crm.html (site-dev-page__faq)
+  .faq__inner {
+    overflow: visible;
+  }
+
+  .faq-gradient {
+    z-index: 0;
+    pointer-events: none;
+    width: 900px;
+    height: 900px;
+  }
+
+  .faq__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .faq__decor {
+    z-index: 1;
+  }
+
+  // Сброс позиций из _faq.scss
+  .faq-gradient--blue,
+  .faq-gradient--green {
+    bottom: auto;
+    right: auto;
+  }
+
+  .faq-gradient--blue {
+    top: 35%;
+    left: -200px;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      top: 32%;
+      left: -120px;
+    }
+
+    @include mobile {
+      top: 20%;
+      left: -100px;
+      transform: translateY(-50%);
+    }
+  }
+
+  .faq-gradient--green {
+    top: 35%;
+    left: 400px;
+    transform: translateY(-50%);
+
+    @include only-tablet {
+      top: 32%;
+      left: 240px;
+    }
+
+    @include mobile {
+      top: 20%;
+      left: 50%;
+      transform: translate(10%, -50%);
+    }
+  }
+
+  @include only-tablet {
+    .faq-gradient {
+      width: 700px;
+      height: 700px;
+    }
+  }
+
+  @include mobile {
+    .faq-gradient {
+      width: 480px;
+      height: 480px;
+    }
+  }
+
   @include only-tablet {
     .faq__decor {
       display: none;
