@@ -3105,8 +3105,11 @@ address {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 900px;
+  height: 900px;
 }
 .hero__bg-gradient svg {
+  display: block;
   width: 100%;
   height: 100%;
   z-index: 0;
@@ -8924,8 +8927,13 @@ a.news__tab--link:hover {
 .services-page {
   position: relative;
   background: var(--color-white, #fff);
-  overflow-x: clip;
+  overflow-x: hidden;
   padding-bottom: 80px;
+}
+@supports (overflow: clip) {
+  .services-page {
+    overflow-x: clip;
+  }
 }
 @media (max-width: 767px) {
   .services-page {
@@ -9070,8 +9078,11 @@ a.news__tab--link:hover {
   align-items: center;
   pointer-events: none;
   z-index: 0;
+  width: 900px;
+  height: 900px;
 }
 .services-hero__bg-gradient svg {
+  display: block;
   width: 100%;
   height: 100%;
   z-index: 0;
@@ -11178,7 +11189,12 @@ a.news__tab--link:hover {
 .crm-page {
   position: relative;
   background: var(--color-white, #fff);
-  overflow-x: clip;
+  overflow-x: hidden;
+}
+@supports (overflow: clip) {
+  .crm-page {
+    overflow-x: clip;
+  }
 }
 @media (max-width: 767px) {
   .crm-page {
@@ -11342,8 +11358,11 @@ a.news__tab--link:hover {
   align-items: center;
   pointer-events: none;
   z-index: 0;
+  width: 900px;
+  height: 900px;
 }
 .crm-hero__bg-gradient svg {
+  display: block;
   width: 100%;
   height: 100%;
   z-index: 0;

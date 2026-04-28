@@ -8,7 +8,12 @@ $crm-figma-color: '../img/content/services/figma-color';
 .crm-page {
   position: relative;
   background: var(--color-white, #fff);
-  overflow-x: clip;
+  // Safari: overflow-x: clip может давать “вылет” SVG-декора за контейнер.
+  overflow-x: hidden;
+
+  @supports (overflow: clip) {
+    overflow-x: clip;
+  }
 
   @include mobile {
     overflow-x: visible;
@@ -116,8 +121,11 @@ $crm-figma-color: '../img/content/services/figma-color';
   align-items: center;
   pointer-events: none;
   z-index: 0;
+  width: 900px;
+  height: 900px;
 
   svg {
+    display: block;
     width: 100%;
     height: 100%;
     z-index: 0;
