@@ -163,10 +163,7 @@ $services-decor-elements: '../img/content/services/decor-elements';
 
 .services-hero__collage {
   position: absolute;
-  left: 50%;
-  right: auto;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  right: 100px;
   width: 720px;
   height: 620px;
   pointer-events: none;
@@ -248,8 +245,8 @@ $services-decor-elements: '../img/content/services/decor-elements';
   overflow: hidden;
 
   &--1 {
-    right: 0;
-    top: 120px;
+    right: -100px;
+    top: 250px;
     width: 324px;
     height: 324px;
     transform: rotate(-42.67deg);
@@ -317,7 +314,7 @@ $services-decor-elements: '../img/content/services/decor-elements';
 
     &--2 {
       right: auto;
-      left: -76px;
+      left: -40px;
       top: 0;
       width: 294px;
       height: 294px;
@@ -952,7 +949,7 @@ $services-grid-decor-files: (
 
 .service-card__decor {
   position: absolute;
-  right: 0;
+  right: -100px;
   top: 0;
   width: 490px;
   height: 490px;
@@ -971,6 +968,7 @@ $services-grid-decor-files: (
   }
 
   @include mobile {
+    right: 0;
     display: none;
   }
 }

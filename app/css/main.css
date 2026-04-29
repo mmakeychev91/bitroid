@@ -9110,12 +9110,7 @@ a.news__tab--link:hover {
 
 .services-hero__collage {
   position: absolute;
-  left: 50%;
-  right: auto;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  right: 100px;
   width: 720px;
   height: 620px;
   pointer-events: none;
@@ -9199,8 +9194,8 @@ a.news__tab--link:hover {
   overflow: hidden;
 }
 .services-hero__collage-piece--1 {
-  right: 0;
-  top: 120px;
+  right: -100px;
+  top: 250px;
   width: 324px;
   height: 324px;
   -webkit-transform: rotate(-42.67deg);
@@ -9275,7 +9270,7 @@ a.news__tab--link:hover {
   }
   .services-hero__collage-piece--2 {
     right: auto;
-    left: -76px;
+    left: -40px;
     top: 0;
     width: 294px;
     height: 294px;
@@ -10147,7 +10142,7 @@ a.news__tab--link:hover {
 
 .service-card__decor {
   position: absolute;
-  right: 0;
+  right: -100px;
   top: 0;
   width: 490px;
   height: 490px;
@@ -10174,6 +10169,7 @@ a.news__tab--link:hover {
 }
 @media (max-width: 767px) {
   .service-card__decor {
+    right: 0;
     display: none;
   }
 }
