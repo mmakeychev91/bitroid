@@ -568,6 +568,10 @@ __webpack_require__.r(__webpack_exports__);
 function initSiteDevCycleTabs() {
   const section = document.querySelector('.site-dev-cycle');
   if (!section) return;
+
+  // На мобилке используем отдельную разметку-аккордеон
+  const mobileAccordion = section.querySelector('.site-dev-cycle__accordion');
+  if (mobileAccordion) return;
   const tablist = section.querySelector('[role="tablist"]');
   const tabs = Array.from(section.querySelectorAll('.site-dev-cycle__tab[data-tab]'));
   const panels = Array.from(section.querySelectorAll('.site-dev-cycle__panel[data-panel]'));

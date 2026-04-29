@@ -153,14 +153,49 @@
 
   <!-- Выберите тип сайта (Figma 290:3750) -->
   <section class="site-dev-section site-dev-types">
-    <div class="container">
+    <div class="container site-dev-types__container">
+      <div class="site-dev-types__bg-gradients" aria-hidden="true">
+        <span class="site-dev-types__bg-gradient site-dev-types__bg-gradient--blue">
+          <svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_205_1455)">
+<circle cx="450" cy="450" r="150" fill="#2587F9"/>
+</g>
+<defs>
+<filter id="filter0_f_205_1455" x="0" y="0" width="900" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_205_1455"/>
+</filter>
+</defs>
+</svg>
+
+        </span>
+        <span class="site-dev-types__bg-gradient site-dev-types__bg-gradient--green">
+          <svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_205_1456)">
+<circle cx="450" cy="450" r="150" fill="#34AE6B"/>
+</g>
+<defs>
+<filter id="filter0_f_205_1456" x="0" y="0" width="900" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_205_1456"/>
+</filter>
+</defs>
+</svg>
+
+        </span>
+      </div>
       <div class="site-dev-types__intro">
         <h2 class="site-dev-section__title">Выберите подходящий тип сайта</h2>
         <p class="site-dev-section__text">Корпоративный сайт — это и лицо компании, и важный инструмент продаж. Эффективный сайт поможет привлечь новых клиентов и удержать существующих, обеспечить непрерывное взаимодействие с клиентской базой и стать основным каналом продаж. Битроид оказывает услуги по созданию корпоративных сайтов и веб-проектов любой сложности: от сборки простых landing pages (посадочных страниц) до создания интернет-магазинов и разработки B2B-порталов. Предлагаем решения, максимально подходящие под задачи вашего бизнеса.</p>
       </div>
       <div class="site-dev-types__grid">
         <div class="site-dev-types__row">
-          <article class="site-dev-types-card site-dev-types-card--half">
+          <article class="site-dev-types-card site-dev-types-card--half site-dev-types-card--decor-1">
+            <div class="site-dev-types-card__decor" aria-hidden="true">
+              <img class="site-dev-types-card__decor-img" src="img/general/our-services/Group 59.png" alt="" width="388" height="392" />
+            </div>
             <div class="site-dev-types-card__body">
               <h3 class="site-dev-types-card__title">Разработка сайта под ключ</h3>
               <p class="site-dev-types-card__desc">Полноценное изготовление сайта под ключ с нуля: от проекта до запуска. Сделаем индивидуальный сайт, поможем с SEO-продвижением. А ещё можем интегрировать веб-ресурс с CRM и маркетплейсами. Подойдёт для больших корпоративных сайтов, интернет-магазинов, нешаблонных проектов.</p>
@@ -172,7 +207,10 @@
               </a>
             </div>
           </article>
-          <article class="site-dev-types-card site-dev-types-card--half">
+          <article class="site-dev-types-card site-dev-types-card--half site-dev-types-card--decor-2">
+            <div class="site-dev-types-card__decor" aria-hidden="true">
+              <img class="site-dev-types-card__decor-img" src="img/content/services/site-dev/002.png" alt="" width="236" height="450" />
+            </div>
             <div class="site-dev-types-card__body">
               <h3 class="site-dev-types-card__title">Сложные сайты</h3>
               <p class="site-dev-types-card__desc">Разработка высоконагруженных систем, создание веб-ресурсов для больших и сложных проектов. Делаем особый упор на отказоустойчивость и безопасность. Учитываем все нюансы вашего проекта, чтобы система работала на решение ваших задач максимально эффективно.</p>
@@ -185,7 +223,10 @@
             </div>
           </article>
         </div>
-        <article class="site-dev-types-card site-dev-types-card--full">
+        <article class="site-dev-types-card site-dev-types-card--full site-dev-types-card--decor-3">
+          <div class="site-dev-types-card__decor" aria-hidden="true">
+            <img class="site-dev-types-card__decor-img" src="img/content/services/site-dev/003.png" alt="" width="465" height="463" />
+          </div>
           <div class="site-dev-types-card__body">
             <h3 class="site-dev-types-card__title">Разработка на CMS</h3>
             <p class="site-dev-types-card__desc">Создание сайтов на 1C-Битрикс или WordPress. Этот вариант подойдёт для простых корпоративных ресурсов, без сложных визуальных элементов, информационных порталов, ненагруженных медиаресурсов. Дополнительно поможем с управлением сайтом на Битрикс.</p>
@@ -363,6 +404,117 @@
         </span>
       </div>
       <h2 class="site-dev-cycle__title">Полный цикл работ по разработке</h2>
+
+      <!-- Мобилка: аккордеон по макету (дублируем разметку, табы скрываем) -->
+      <div class="site-dev-cycle__accordion mobile">
+        <details class="site-dev-cycle-acc__item" data-acc="analytics">
+          <summary class="site-dev-cycle-acc__summary">
+            <span class="site-dev-cycle-acc__label">Аналитика</span>
+            <span class="site-dev-cycle-acc__chev" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="site-dev-cycle-acc__content">
+            <h3 class="site-dev-cycle-acc__title">Аналитика</h3>
+            <p class="site-dev-cycle-acc__text">Глубоко изучаем вашу нишу, анализируем поведение целевой аудитории и сильные стороны конкурентов — чтобы спроектировать структуру сайта и сценарии, которые приведут пользователей к целевому действию.</p>
+            <p class="site-dev-cycle-acc__text">На этапе аналитики мы:</p>
+            <ul class="site-dev-cycle-acc__list">
+              <li>Исследование рынка и конкурентов</li>
+              <li>Пользовательские сценарии и логика разделов</li>
+              <li>Основа для технического задания и дизайна</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="site-dev-cycle-acc__item" data-acc="design" open>
+          <summary class="site-dev-cycle-acc__summary">
+            <span class="site-dev-cycle-acc__label">Дизайн</span>
+            <span class="site-dev-cycle-acc__chev" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="site-dev-cycle-acc__content">
+            <h3 class="site-dev-cycle-acc__title">Дизайн</h3>
+            <p class="site-dev-cycle-acc__text">Функциональный дизайн — основа эффективной работы всего сайта. Над вашим проектом будут работать опытные UX-дизайнеры, которые знают, как сделать ресурс, полностью отвечающий запросам ваших пользователей.</p>
+            <p class="site-dev-cycle-acc__text">В список работ по дизайну входит:</p>
+            <ul class="site-dev-cycle-acc__list">
+              <li>Полное UX-прототипирование в Figma</li>
+              <li>Создание иконок, графических элементов</li>
+              <li>Разработка визуальных компонентов сайта</li>
+              <li>Поддержание единой визуальной стилистики на каждой странице веб-ресурса</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="site-dev-cycle-acc__item" data-acc="integrations">
+          <summary class="site-dev-cycle-acc__summary">
+            <span class="site-dev-cycle-acc__label">Интеграции</span>
+            <span class="site-dev-cycle-acc__chev" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="site-dev-cycle-acc__content">
+            <h3 class="site-dev-cycle-acc__title">Интеграции</h3>
+            <p class="site-dev-cycle-acc__text">Подключаем внешние сервисы к сайту: CRM, платёжные системы, телефонию, почту, мессенджеры и аналитику — чтобы данные не терялись и процессы были автоматизированы.</p>
+            <p class="site-dev-cycle-acc__text">Типовые задачи интеграций:</p>
+            <ul class="site-dev-cycle-acc__list">
+              <li>Передача заявок и лидов в CRM и учётные системы</li>
+              <li>Платежи и онлайн-заказы</li>
+              <li>Сервисы аналитики и коллтрекинга</li>
+              <li>API партнёров и внутренние сервисы компании</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="site-dev-cycle-acc__item" data-acc="setup">
+          <summary class="site-dev-cycle-acc__summary">
+            <span class="site-dev-cycle-acc__label">Настройка</span>
+            <span class="site-dev-cycle-acc__chev" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="site-dev-cycle-acc__content">
+            <h3 class="site-dev-cycle-acc__title">Настройка</h3>
+            <p class="site-dev-cycle-acc__text">Настраиваем CMS и функционал сайта под ваши процессы: права пользователей, шаблоны, формы, уведомления и сценарии публикации контента — чтобы команда могла вести сайт без лишних обращений к разработчикам.</p>
+            <p class="site-dev-cycle-acc__text">В настройку входит:</p>
+            <ul class="site-dev-cycle-acc__list">
+              <li>Конфигурация системы управления и модулей</li>
+              <li>Маршруты, роли и доступы</li>
+              <li>Обучение сотрудников работе с админ-панелью</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="site-dev-cycle-acc__item" data-acc="crm">
+          <summary class="site-dev-cycle-acc__summary">
+            <span class="site-dev-cycle-acc__label">CRM</span>
+            <span class="site-dev-cycle-acc__chev" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6l4.5 4.5L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="site-dev-cycle-acc__content">
+            <h3 class="site-dev-cycle-acc__title">CRM</h3>
+            <p class="site-dev-cycle-acc__text">Связываем сайт с Битрикс24: заявки с форм и лидогенерации попадают в CRM, менеджеры видят полную картину по клиенту, а вы — сквозную воронку от первого касания до сделки.</p>
+            <p class="site-dev-cycle-acc__text">Мы настраиваем:</p>
+            <ul class="site-dev-cycle-acc__list">
+              <li>Формы, чат и обратный звонок с передачей в CRM</li>
+              <li>Поля, статусы и бизнес-процессы под вашу воронку</li>
+              <li>Отчёты и контроль качества обработки лидов</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
       <div class="site-dev-cycle__tabs" role="tablist" aria-label="Этапы работ">
         <button type="button" class="site-dev-cycle__tab" id="site-dev-cycle-tab-analytics" role="tab" aria-selected="false" aria-controls="site-dev-cycle-panel-analytics" data-tab="analytics" tabindex="-1">Аналитика</button>
         <button type="button" class="site-dev-cycle__tab site-dev-cycle__tab--active" id="site-dev-cycle-tab-design" role="tab" aria-selected="true" aria-controls="site-dev-cycle-panel-design" data-tab="design" tabindex="0">Дизайн</button>
